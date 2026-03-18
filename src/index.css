@@ -113,6 +113,11 @@
     opacity: 0;
   }
 
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.9; }
+  }
+
   @keyframes fadeInUp {
     from {
       opacity: 0;

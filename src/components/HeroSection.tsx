@@ -1,12 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
+const stars = Array.from({ length: 60 }, (_, i) => ({
+  id: i,
+  top: `${Math.random() * 100}%`,
+  left: `${Math.random() * 100}%`,
+  size: Math.random() * 2.5 + 1,
+  delay: `${Math.random() * 4}s`,
+  duration: `${2 + Math.random() * 3}s`,
+}));
+
 const HeroSection = () => {
   return (
     <section
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Stars */}
+      {stars.map((star) => (
+        <span
+          key={star.id}
+          className="absolute rounded-full bg-foreground pointer-events-none animate-[twinkle_var(--dur)_ease-in-out_var(--delay)_infinite]"
+          style={{
+            top: star.top,
+            left: star.left,
+            width: star.size,
+            height: star.size,
+            "--delay": star.delay,
+            "--dur": star.duration,
+            opacity: 0,
+          } as React.CSSProperties}
+        />
+      ))}
+
       {/* Ambient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-gradient-aspec-diagonal opacity-[0.08] blur-[120px] pointer-events-none" />
 
