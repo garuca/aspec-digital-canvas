@@ -1,35 +1,50 @@
-import { Code, Zap, Smartphone, Database, Shield, Cloud } from "lucide-react";
+import { Palette, FileText, Globe, Megaphone, PenTool, Search, BarChart3, Share2, CalendarDays } from "lucide-react";
 
 const services = [
   {
-    icon: Code,
-    title: "Desenvolvimento Web",
-    description: "Plataformas web modernas, rápidas e escaláveis com as melhores tecnologias do mercado.",
+    icon: Palette,
+    title: "Identidade Visual",
+    description: "Criação e aplicação de identidade visual completa que traduz a essência da sua marca com impacto e consistência.",
   },
   {
-    icon: Zap,
-    title: "Automação & APIs",
-    description: "Integração de sistemas e automação de processos para otimizar seu fluxo de trabalho.",
+    icon: FileText,
+    title: "Marketing de Conteúdo",
+    description: "Narrativas inteligentes e estratégias de engajamento que conectam sua marca ao público-alvo e geram resultados mensuráveis.",
   },
   {
-    icon: Smartphone,
-    title: "Aplicativos Mobile",
-    description: "Apps nativos e multiplataforma para iOS e Android com experiência premium.",
+    icon: Globe,
+    title: "Landing Pages",
+    description: "Páginas de alta conversão com design responsivo e copywriting persuasivo para transformar visitantes em clientes.",
   },
   {
-    icon: Database,
-    title: "Arquitetura de Dados",
-    description: "Modelagem e infraestrutura de dados robusta para decisões inteligentes.",
+    icon: Megaphone,
+    title: "Tráfego Pago",
+    description: "Configuração, segmentação avançada e otimização contínua de campanhas de anúncios para máximo retorno sobre investimento.",
   },
   {
-    icon: Shield,
-    title: "Segurança Digital",
-    description: "Proteção avançada, auditorias e conformidade para seu ambiente tecnológico.",
+    icon: PenTool,
+    title: "Copywriting",
+    description: "Textos persuasivos e estratégicos para redes sociais, sites e campanhas que capturam atenção e impulsionam ação.",
   },
   {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    description: "Infraestrutura escalável na nuvem com CI/CD e monitoramento contínuo.",
+    icon: Search,
+    title: "SEO",
+    description: "Otimização para mecanismos de busca que aumenta a visibilidade orgânica e posiciona sua marca nas primeiras páginas.",
+  },
+  {
+    icon: Share2,
+    title: "Gestão de Redes Sociais",
+    description: "Gerenciamento completo de redes sociais com posts, stories, carrosséis semanais e monitoramento de engajamento.",
+  },
+  {
+    icon: BarChart3,
+    title: "Relatórios & Analytics",
+    description: "Análises detalhadas de desempenho, acompanhamento de conversões e relatórios de campanhas para decisões orientadas por dados.",
+  },
+  {
+    icon: CalendarDays,
+    title: "Calendário Editorial",
+    description: "Planejamento mensal estratégico de conteúdo com organização, agendamento e distribuição consistente nos seus canais.",
   },
 ];
 
