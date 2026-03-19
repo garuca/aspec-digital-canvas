@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ["Poppins", "sans-serif"],
         body: ["Inter", "sans-serif"],
+        exo: ["Exo", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
