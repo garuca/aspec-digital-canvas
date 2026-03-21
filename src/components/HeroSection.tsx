@@ -99,12 +99,7 @@ const HeroSection = () => {
               </span>
             </div>
             <p className="font-exo text-base md:text-lg text-white/60 leading-relaxed">
-              Geramos impactos expressivos com{" "}
-              <span className="relative inline-block">
-                <span className="text-cyan-400 font-semibold">IA de última geração</span>
-                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
-              </span>{" "}
-              e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
+              Focados em entregar valor real e transformação digital para o seu negócio.
             </p>
           </div>
 
