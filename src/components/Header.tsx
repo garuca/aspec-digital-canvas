@@ -8,6 +8,8 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t, language } = useLanguage();
 
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+
   const getNavItems = () => [
     { key: "nav.inicio", href: "#inicio" },
     { key: "nav.servicos", href: "#servicos" },
@@ -38,7 +40,7 @@ const Header = () => {
             {/* Logo Section */}
             <a href="#inicio" className="relative group flex items-center">
               <img 
-                src="/logo_aspec.png" 
+                src={`${basePath}/logo_aspec.png`} 
                 alt="Aspec Logo" 
                 className="h-10 w-auto object-contain"
               />

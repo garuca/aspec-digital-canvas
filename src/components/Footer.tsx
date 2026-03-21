@@ -5,6 +5,8 @@ import { useLanguage } from "@/context/LanguageContext";
 const Footer = () => {
   const { t } = useLanguage();
 
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+
   const navItems = [
     { label: "nav.inicio", href: "#inicio" },
     { label: "nav.servicos", href: "#servicos" },
@@ -24,7 +26,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="mb-6">
               <img 
-                src="/logo_aspec.png" 
+                src={`${basePath}/logo_aspec.png`} 
                 alt="Aspec Logo" 
                 className="h-12 w-auto object-contain mb-2"
               />
