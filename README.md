@@ -96,12 +96,6 @@ O idioma é selecionado pelo seletor no header e persistido no localStorage.
 | `bun run lint` | Verificar lint |
 | `bun run deploy` | Deploy manual para GitHub Pages |
 
-## Equipe
-
-- **Gabriel** - Diretor de Tecnologia
-- **Weliton** - Diretor de Arte
-- **Leonardo** - Diretor Comercial
-
 ## Contato
 
 - **Email:** contato@aspec.digital
