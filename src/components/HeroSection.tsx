@@ -81,8 +81,16 @@ const HeroSection = () => {
             <div className="absolute top-1/4 -right-10 w-2 h-2 bg-purple-300/40 rounded-full animate-ping" style={{ animationDuration: '1.8s' }} />
           </div>
 
-          <p className="font-exo text-lg text-white/60 max-w-xl text-center leading-relaxed">
-            {t("hero.subtitle")}
+          <p className="font-exo text-lg text-white/70 max-w-xl text-center leading-relaxed">
+            A única consultoria que integra de verdade{" "}
+            <span className="text-gradient-aspec font-bold">design</span>
+            <span className="text-white/40 mx-1">+</span>
+            <span className="text-gradient-aspec font-bold">tecnologia</span>
+            <span className="text-white/40 mx-1">+</span>
+            <span className="text-gradient-aspec font-bold">desenvolvimento</span>.{" "}
+            Geramos impactos expressivos com{" "}
+            <span className="text-cyan-400 font-semibold">IA de última geração</span>{" "}
+            e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
