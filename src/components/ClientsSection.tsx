@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-const clientLogos = [
-  { name: "Itaú", gray: "/clientes/itau-cinza.png", color: "/clientes/itau-colorido.png" },
-  { name: "Banco BV", gray: "/clientes/bv-cinza_.png", color: "/clientes/bv-colorido.png" },
-  { name: "FL Mandic", gray: "/clientes/flmandic-cinza_.png", color: "/clientes/flmandic-colorido_.png" },
-  { name: "Kovi", gray: "/clientes/kovi-cinza.png", color: "/clientes/kovi-colorido.png" },
-  { name: "Easy", gray: "/clientes/easy-cinza.png", color: "/clientes/easy-colorido.png" },
-  { name: "Appmax", gray: "/clientes/appmax-cinza.png", color: "/clientes/appmax-colorido.png" },
-  { name: "EstrelaBet", gray: "/clientes/estrelabet-cinza.png", color: "/clientes/estrelabet-colorido.png" },
-];
-
 const ClientsSection = () => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const [paused, setPaused] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const clientLogos = [
+    { name: "Itaú", gray: `${basePath}/clientes/itau-cinza.png`, color: `${basePath}/clientes/itau-colorido.png` },
+    { name: "Banco BV", gray: `${basePath}/clientes/bv-cinza_.png`, color: `${basePath}/clientes/bv-colorido.png` },
+    { name: "FL Mandic", gray: `${basePath}/clientes/flmandic-cinza_.png`, color: `${basePath}/clientes/flmandic-colorido_.png` },
+    { name: "Kovi", gray: `${basePath}/clientes/kovi-cinza.png`, color: `${basePath}/clientes/kovi-colorido.png` },
+    { name: "Easy", gray: `${basePath}/clientes/easy-cinza.png`, color: `${basePath}/clientes/easy-colorido.png` },
+    { name: "Appmax", gray: `${basePath}/clientes/appmax-cinza.png`, color: `${basePath}/clientes/appmax-colorido.png` },
+    { name: "EstrelaBet", gray: `${basePath}/clientes/estrelabet-cinza.png`, color: `${basePath}/clientes/estrelabet-colorido.png` },
+  ];
 
   const clients = [...clientLogos, ...clientLogos];
 

@@ -9,6 +9,7 @@ interface ArticleModalProps {
 }
 
 const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
@@ -40,7 +41,7 @@ const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) =>
           { value: t("art01.s1.stat2.value"), labelKey: "art01.s1.stat2.label" },
           { value: t("art01.s1.stat3.value"), labelKey: "art01.s1.stat3.label" },
         ]},
-        { id: "metodologia", titleKey: "art01.s2.title", contentKey: "art01.s2.content", image: "/illustrations/diagnostico-metodologia.svg", imageCaptionKey: "art01.s2.imageCaption", list: [
+        { id: "metodologia", titleKey: "art01.s2.title", contentKey: "art01.s2.content", image: `${basePath}/illustrations/diagnostico-metodologia.svg`, imageCaptionKey: "art01.s2.imageCaption", list: [
           t("art01.s2.list1"), t("art01.s2.list2"), t("art01.s2.list3"), t("art01.s2.list4"), t("art01.s2.list5")
         ]},
         { id: "casos", titleKey: "art01.s3.title", contentKey: "art01.s3.content", stats: [
@@ -72,7 +73,7 @@ const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) =>
           { value: t("art02.s3.stat2.value"), labelKey: "art02.s3.stat2.label" },
           { value: t("art02.s3.stat3.value"), labelKey: "art02.s3.stat3.label" },
         ]},
-        { id: "cases", titleKey: "art02.s4.title", contentKey: "art02.s4.content", image: "/illustrations/integracao-crescimento.svg", imageCaptionKey: "art02.s4.imageCaption" },
+        { id: "cases", titleKey: "art02.s4.title", contentKey: "art02.s4.content", image: `${basePath}/illustrations/integracao-crescimento.svg`, imageCaptionKey: "art02.s4.imageCaption" },
       ],
       takeaways: [t("art02.takeaway1"), t("art02.takeaway2"), t("art02.takeaway3"), t("art02.takeaway4"), t("art02.takeaway5")],
       cta: { titleKey: "art02.cta.title", descKey: "art02.cta.desc", btnKey: "art02.cta.btn" },
@@ -95,7 +96,7 @@ const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) =>
           { value: t("art03.s3.stat2.value"), labelKey: "art03.s3.stat2.label" },
           { value: t("art03.s3.stat3.value"), labelKey: "art03.s3.stat3.label" },
         ]},
-        { id: "processo", titleKey: "art03.s4.title", contentKey: "art03.s4.content", image: "/illustrations/mvp-process.svg", imageCaptionKey: "art03.s4.imageCaption" },
+        { id: "processo", titleKey: "art03.s4.title", contentKey: "art03.s4.content", image: `${basePath}/illustrations/mvp-process.svg`, imageCaptionKey: "art03.s4.imageCaption" },
       ],
       takeaways: [t("art03.takeaway1"), t("art03.takeaway2"), t("art03.takeaway3"), t("art03.takeaway4"), t("art03.takeaway5")],
       cta: { titleKey: "art03.cta.title", descKey: "art03.cta.desc", btnKey: "art03.cta.btn" },
@@ -118,7 +119,7 @@ const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) =>
           { value: t("art04.s3.stat2.value"), labelKey: "art04.s3.stat2.label" },
           { value: t("art04.s3.stat3.value"), labelKey: "art04.s3.stat3.label" },
         ]},
-        { id: "implementacao", titleKey: "art04.s4.title", contentKey: "art04.s4.content", image: "/illustrations/dashboard-metricas.svg", imageCaptionKey: "art04.s4.imageCaption" },
+        { id: "implementacao", titleKey: "art04.s4.title", contentKey: "art04.s4.content", image: `${basePath}/illustrations/dashboard-metricas.svg`, imageCaptionKey: "art04.s4.imageCaption" },
         { id: "roi", titleKey: "art04.s5.title", contentKey: "art04.s5.content", highlightKey: "art04.s5.highlight" },
       ],
       takeaways: [t("art04.takeaway1"), t("art04.takeaway2"), t("art04.takeaway3"), t("art04.takeaway4"), t("art04.takeaway5")],

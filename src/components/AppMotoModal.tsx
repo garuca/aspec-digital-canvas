@@ -6,48 +6,50 @@ interface AppMotoModalProps {
   onClose: () => void;
 }
 
-const screens = {
-  splash: [
-    { name: "Splash", src: "/portfolio/moto/Splash .png", icon: Bike }
-  ],
-  onboarding: [
-    { name: "Login - Ativo", src: "/portfolio/moto/Login - ativo.png", icon: Lock },
-    { name: "Confirme seu cadastro", src: "/portfolio/moto/Confirme seu cadastro.png", icon: Users },
-    { name: "Validando informações", src: "/portfolio/moto/Validando informações.png", icon: Lock },
-  ],
-  home: [
-    { name: "Home", src: "/portfolio/moto/Home.png", icon: HomeIcon },
-    { name: "PIX", src: "/portfolio/moto/pix.png", icon: Zap },
-  ],
-  features: [
-    { name: "PIX - Envio", src: "/portfolio/moto/PIX - envio.png", icon: Zap },
-    { name: "PIX - Bancos", src: "/portfolio/moto/Pix - Bancos.png", icon: Wallet },
-    { name: "Receber", src: "/portfolio/moto/Receber.png", icon: Wallet },
-    { name: "Cartão", src: "/portfolio/moto/Cartão.png", icon: CreditCard },
-    { name: "Financiamento", src: "/portfolio/moto/Financiamento.png", icon: Gift },
-    { name: "Cursos", src: "/portfolio/moto/Cursos.png", icon: Star },
-  ],
-  account: [
-    { name: "Minha Conta", src: "/portfolio/moto/Minha conta.png", icon: Users },
-    { name: "Configurações", src: "/portfolio/moto/Configurações.png", icon: Lock },
-    { name: "Notificações", src: "/portfolio/moto/Notificações.png", icon: Star },
-  ]
-};
-
-const stats = [
-  { value: "4.8", label: "Estrelas", suffix: "★" },
-  { value: "1M+", label: "Entregadores" },
-  { value: "R$0", label: "Anuidade" },
-  { value: "24h", label: "Abertura" }
-];
-
 const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+
+  const screens = {
+    splash: [
+      { name: "Splash", src: `${basePath}/portfolio/moto/Splash .png`, icon: Bike }
+    ],
+    onboarding: [
+      { name: "Login - Ativo", src: `${basePath}/portfolio/moto/Login - ativo.png`, icon: Lock },
+      { name: "Confirme seu cadastro", src: `${basePath}/portfolio/moto/Confirme seu cadastro.png`, icon: Users },
+      { name: "Validando informações", src: `${basePath}/portfolio/moto/Validando informações.png`, icon: Lock },
+    ],
+    home: [
+      { name: "Home", src: `${basePath}/portfolio/moto/Home.png`, icon: HomeIcon },
+      { name: "PIX", src: `${basePath}/portfolio/moto/pix.png`, icon: Zap },
+    ],
+    features: [
+      { name: "PIX - Envio", src: `${basePath}/portfolio/moto/PIX - envio.png`, icon: Zap },
+      { name: "PIX - Bancos", src: `${basePath}/portfolio/moto/Pix - Bancos.png`, icon: Wallet },
+      { name: "Receber", src: `${basePath}/portfolio/moto/Receber.png`, icon: Wallet },
+      { name: "Cartão", src: `${basePath}/portfolio/moto/Cartão.png`, icon: CreditCard },
+      { name: "Financiamento", src: `${basePath}/portfolio/moto/Financiamento.png`, icon: Gift },
+      { name: "Cursos", src: `${basePath}/portfolio/moto/Cursos.png`, icon: Star },
+    ],
+    account: [
+      { name: "Minha Conta", src: `${basePath}/portfolio/moto/Minha conta.png`, icon: Users },
+      { name: "Configurações", src: `${basePath}/portfolio/moto/Configurações.png`, icon: Lock },
+      { name: "Notificações", src: `${basePath}/portfolio/moto/Notificações.png`, icon: Star },
+    ]
+  };
+
   const [activeSection, setActiveSection] = useState<"hero" | "journey" | "features">("hero");
   const [currentScreen, setCurrentScreen] = useState(0);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  const stats = [
+    { value: "4.8", label: "Estrelas", suffix: "★" },
+    { value: "1M+", label: "Entregadores" },
+    { value: "R$0", label: "Anuidade" },
+    { value: "24h", label: "Abertura" }
+  ];
 
   const allScreens = [
     ...screens.splash,
@@ -172,7 +174,7 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                 <div className="moto-hero-phone">
                   <div className="moto-phone-frame">
                     <img 
-                      src="/portfolio/moto/Home.png" 
+                      src={`${basePath}/portfolio/moto/Home.png`} 
                       alt="App Moto Home" 
                       className="moto-phone-image"
                     />

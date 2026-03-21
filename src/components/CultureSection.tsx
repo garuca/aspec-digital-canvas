@@ -34,41 +34,6 @@ const pillars = [
   },
 ];
 
-const blocks = [
-  {
-    number: "01",
-    titleKey: "block1.title",
-    descKey: "block1.desc",
-    image: "/illustrations/estrategia-01.svg",
-    reverse: true,
-    icon: Sparkles,
-  },
-  {
-    number: "02",
-    titleKey: "block2.title",
-    descKey: "block2.desc",
-    image: "/illustrations/estrategia-02.svg",
-    reverse: true,
-    icon: TrendingUp,
-  },
-  {
-    number: "03",
-    titleKey: "block3.title",
-    descKey: "block3.desc",
-    image: "/illustrations/estrategia-03.svg",
-    reverse: true,
-    icon: Rocket,
-  },
-  {
-    number: "04",
-    titleKey: "block4.title",
-    descKey: "block4.desc",
-    image: "/illustrations/estrategia-04.svg",
-    reverse: true,
-    icon: BarChart3,
-  },
-];
-
 const lightStars = Array.from({ length: 30 }, (_, i) => ({
   id: i,
   top: `${Math.random() * 100}%`,
@@ -90,6 +55,43 @@ const CultureSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
+
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+
+  const blocksWithPath = [
+    {
+      number: "01",
+      titleKey: "block1.title",
+      descKey: "block1.desc",
+      image: `${basePath}/illustrations/estrategia-01.svg`,
+      reverse: true,
+      icon: Sparkles,
+    },
+    {
+      number: "02",
+      titleKey: "block2.title",
+      descKey: "block2.desc",
+      image: `${basePath}/illustrations/estrategia-02.svg`,
+      reverse: true,
+      icon: TrendingUp,
+    },
+    {
+      number: "03",
+      titleKey: "block3.title",
+      descKey: "block3.desc",
+      image: `${basePath}/illustrations/estrategia-03.svg`,
+      reverse: true,
+      icon: Rocket,
+    },
+    {
+      number: "04",
+      titleKey: "block4.title",
+      descKey: "block4.desc",
+      image: `${basePath}/illustrations/estrategia-04.svg`,
+      reverse: true,
+      icon: BarChart3,
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -184,7 +186,7 @@ const CultureSection = () => {
             </div>
 
             <div className="flex flex-col gap-16">
-              {blocks.map((block, i) => (
+              {blocksWithPath.map((block, i) => (
                 <div
                   key={block.titleKey}
                   data-animate-item={i}

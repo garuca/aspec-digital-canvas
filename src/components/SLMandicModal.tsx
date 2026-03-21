@@ -47,14 +47,15 @@ const stats = [
 ];
 
 const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const [activeSection, setActiveSection] = useState<"overview" | "features" | "about">("overview");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   
   const appImages = [
-    "/portfolio/slmandic/unnamed.webp",
-    "/portfolio/slmandic/unnamed (1).webp",
-    "/portfolio/slmandic/unnamed (2).webp",
-    "/portfolio/slmandic/unnamed (3).webp",
+    `${basePath}/portfolio/slmandic/unnamed.webp`,
+    `${basePath}/portfolio/slmandic/unnamed (1).webp`,
+    `${basePath}/portfolio/slmandic/unnamed (2).webp`,
+    `${basePath}/portfolio/slmandic/unnamed (3).webp`,
   ];
 
   useEffect(() => {

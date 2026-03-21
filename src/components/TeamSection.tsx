@@ -12,36 +12,6 @@ interface TeamMember {
   image: string;
 }
 
-const team: TeamMember[] = [
-  {
-    name: "Gabriel Rufino",
-    roleKey: "team.tech",
-    description: "Especialista em desenvolvimento de soluções digitais inovadoras, lidera nossa equipe técnica com visão de futuro e expertise em tecnologias modernas.",
-    icon: Code2,
-    color: "#06B6D4",
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    image: "/portfolio/team/gabriel.jpg",
-  },
-  {
-    name: "Weliton Mendanha",
-    roleKey: "team.design",
-    description: "Criativo e visionário, transforma ideias em experiências visuais impactantes. Especialista em UX/UI Design e identidade visual de marcas.",
-    icon: Palette,
-    color: "#D946EF",
-    gradient: "from-pink-500/20 to-purple-500/20",
-    image: "/portfolio/team/weliton.jpg",
-  },
-  {
-    name: "Leonardo Silva",
-    roleKey: "team.commercial",
-    description: "Estratégico e comunicativo, conecta clientes às melhores soluções. Especialista em relacionamento e fechamento de parcerias de sucesso.",
-    icon: TrendingUp,
-    color: "#22C55E",
-    gradient: "from-green-500/20 to-emerald-500/20",
-    image: "/portfolio/team/leonardo.jpg",
-  },
-];
-
 const floatingElements = Array.from({ length: 10 }, (_, i) => ({
   id: i,
   size: Math.random() * 4 + 2,
@@ -61,8 +31,39 @@ const teamStars = Array.from({ length: 30 }, (_, i) => ({
 }));
 
 const TeamSection = () => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
+
+  const team: TeamMember[] = [
+    {
+      name: "Gabriel Rufino",
+      roleKey: "team.tech",
+      description: "Especialista em desenvolvimento de soluções digitais inovadoras, lidera nossa equipe técnica com visão de futuro e expertise em tecnologias modernas.",
+      icon: Code2,
+      color: "#06B6D4",
+      gradient: "from-cyan-500/20 to-blue-500/20",
+      image: `${basePath}/portfolio/team/gabriel.jpg`,
+    },
+    {
+      name: "Weliton Mendanha",
+      roleKey: "team.design",
+      description: "Criativo e visionário, transforma ideias em experiências visuais impactantes. Especialista em UX/UI Design e identidade visual de marcas.",
+      icon: Palette,
+      color: "#D946EF",
+      gradient: "from-pink-500/20 to-purple-500/20",
+      image: `${basePath}/portfolio/team/weliton.jpg`,
+    },
+    {
+      name: "Leonardo Silva",
+      roleKey: "team.commercial",
+      description: "Estratégico e comunicativo, conecta clientes às melhores soluções. Especialista em relacionamento e fechamento de parcerias de sucesso.",
+      icon: TrendingUp,
+      color: "#22C55E",
+      gradient: "from-green-500/20 to-emerald-500/20",
+      image: `${basePath}/portfolio/team/leonardo.jpg`,
+    },
+  ];
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

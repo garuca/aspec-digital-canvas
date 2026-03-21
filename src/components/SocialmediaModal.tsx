@@ -12,56 +12,57 @@ interface SocialmediaModalProps {
   onClose: () => void;
 }
 
-const carrosselGroups: CarrosselGroup[] = [
-  {
-    id: "carrossel-2",
-    name: "Carrossel 1",
-    images: [
-      "/portfolio/socialmedia/banco7pay/5_carrossel2a_banco7pay_aspec.png",
-      "/portfolio/socialmedia/banco7pay/6_carrossel2b_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/7_carrossel2c_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/8_carrossel2d_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/9_carrossel2e_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/10_carrossel2f_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/11_carrossel2g_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/12_carrossel2h_banco7pay_aspec..png",
-      "/portfolio/socialmedia/banco7pay/13_carrossel2i_banco7pay_aspec..png",
-    ],
-  },
-  {
-    id: "carrossel-3",
-    name: "Carrossel 2",
-    images: [
-      "/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png",
-      "/portfolio/socialmedia/centralgrafica/16_carrossel1b_centralgrafica_aspec.png",
-      "/portfolio/socialmedia/centralgrafica/17_carrossel1c_centralgrafica_aspec.png",
-    ],
-  },
-  {
-    id: "carrossel-4",
-    name: "Carrossel 3",
-    images: [
-      "/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png",
-      "/portfolio/socialmedia/centralgrafica/25_carrossel2b_centralgrafica_aspec.png",
-      "/portfolio/socialmedia/centralgrafica/26_carrossel2c_centralgrafica_aspec.png",
-      "/portfolio/socialmedia/centralgrafica/27_carrossel2d_centralgrafica_aspec.png",
-    ],
-  },
-];
-
-const bannerImages = [
-  "/portfolio/socialmedia/banco7pay/2_banner1_banco7pay_aspec.png",
-  "/portfolio/socialmedia/banco7pay/3_banner2_banco7pay_aspec.png",
-  "/portfolio/socialmedia/banco7pay/4_banner3_banco7pay_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/18_banner1_centralgrafica_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/19_banner2_centralgrafica_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/20_banner3_centralgrafica_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/21_banner4_centralgrafica_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/22_banner5_centralgrafica_aspec.png",
-  "/portfolio/socialmedia/centralgrafica/23_banner6_centralgrafica_aspec.png",
-];
-
 const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+
+  const carrosselGroups: CarrosselGroup[] = [
+    {
+      id: "carrossel-2",
+      name: "Carrossel 1",
+      images: [
+        `${basePath}/portfolio/socialmedia/banco7pay/5_carrossel2a_banco7pay_aspec.png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/6_carrossel2b_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/7_carrossel2c_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/8_carrossel2d_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/9_carrossel2e_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/10_carrossel2f_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/11_carrossel2g_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/12_carrossel2h_banco7pay_aspec..png`,
+        `${basePath}/portfolio/socialmedia/banco7pay/13_carrossel2i_banco7pay_aspec..png`,
+      ],
+    },
+    {
+      id: "carrossel-3",
+      name: "Carrossel 2",
+      images: [
+        `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/16_carrossel1b_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/17_carrossel1c_centralgrafica_aspec.png`,
+      ],
+    },
+    {
+      id: "carrossel-4",
+      name: "Carrossel 3",
+      images: [
+        `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/25_carrossel2b_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/26_carrossel2c_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/27_carrossel2d_centralgrafica_aspec.png`,
+      ],
+    },
+  ];
+
+  const bannerImages = [
+    `${basePath}/portfolio/socialmedia/banco7pay/2_banner1_banco7pay_aspec.png`,
+    `${basePath}/portfolio/socialmedia/banco7pay/3_banner2_banco7pay_aspec.png`,
+    `${basePath}/portfolio/socialmedia/banco7pay/4_banner3_banco7pay_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/18_banner1_centralgrafica_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/19_banner2_centralgrafica_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/20_banner3_centralgrafica_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/21_banner4_centralgrafica_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/22_banner5_centralgrafica_aspec.png`,
+    `${basePath}/portfolio/socialmedia/centralgrafica/23_banner6_centralgrafica_aspec.png`,
+  ];
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const [activeTab, setActiveTab] = useState<"carrossel" | "banner">("carrossel");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);

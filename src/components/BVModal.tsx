@@ -47,15 +47,16 @@ const stats = [
 ];
 
 const BVModal = ({ isOpen, onClose }: BVModalProps) => {
+  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const [activeSection, setActiveSection] = useState<"overview" | "features" | "about">("overview");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   
   const appImages = [
-    "/portfolio/bv/bv_projeto_aspec1.webp",
-    "/portfolio/bv/bv_projeto_aspec2.webp",
-    "/portfolio/bv/bv_projeto_aspec3.webp",
-    "/portfolio/bv/bv_projeto_aspec4.webp",
-    "/portfolio/bv/bv_projeto_aspec5.webp"
+    `${basePath}/portfolio/bv/bv_projeto_aspec1.webp`,
+    `${basePath}/portfolio/bv/bv_projeto_aspec2.webp`,
+    `${basePath}/portfolio/bv/bv_projeto_aspec3.webp`,
+    `${basePath}/portfolio/bv/bv_projeto_aspec4.webp`,
+    `${basePath}/portfolio/bv/bv_projeto_aspec5.webp`
   ];
 
   useEffect(() => {
