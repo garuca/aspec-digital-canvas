@@ -6,7 +6,7 @@ import fs from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/aspec-digital-canvas/',
+  base: mode === "production" ? "/aspec-digital-canvas/" : "/",
   server: {
     host: "::",
     port: 8080,
@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => ({
         const indexContent = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
         fs.writeFileSync(
           path.join(distPath, "404.html"),
-          indexContent.replace('<div id="root"></div>', '<div id="root"><script>sessionStorage.redirect = location.href;</script></div><script>if (sessionStorage.redirect) { sessionStorage.removeItem("redirect"); location.href = "/aspec-digital-canvas/" + location.hash; } else { location.href = "/aspec-digital-canvas/"; }</script>')
+          indexContent
         );
       },
     },
