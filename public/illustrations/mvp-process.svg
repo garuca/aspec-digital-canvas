@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="#08080F"/>
+  <g transform="translate(100, 50)">
+    <rect x="0" y="0" width="150" height="80" rx="12" fill="#8B5CF6" opacity="0.15" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="75" y="35" text-anchor="middle" fill="#C4B5FD" font-size="12">Semana 1-2</text>
+    <text x="75" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="600">Discovery</text>
+  </g>
+  <g transform="translate(300, 50)">
+    <rect x="0" y="0" width="150" height="80" rx="12" fill="#A855F7" opacity="0.15" stroke="#A855F7" stroke-width="1"/>
+    <text x="75" y="35" text-anchor="middle" fill="#D8B4FE" font-size="12">Semana 3</text>
+    <text x="75" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="600">Hipóteses</text>
+  </g>
+  <g transform="translate(500, 50)">
+    <rect x="0" y="0" width="150" height="80" rx="12" fill="#C084FC" opacity="0.15" stroke="#C084FC" stroke-width="1"/>
+    <text x="75" y="35" text-anchor="middle" fill="#E9D5FF" font-size="12">Semana 4-6</text>
+    <text x="75" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="600">Construção</text>
+  </g>
+  <g transform="translate(175, 180)">
+    <rect x="0" y="0" width="150" height="80" rx="12" fill="#D946EF" opacity="0.15" stroke="#D946EF" stroke-width="1"/>
+    <text x="75" y="35" text-anchor="middle" fill="#F0ABFC" font-size="12">Semana 7-8</text>
+    <text x="75" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="600">Lançamento</text>
+  </g>
+  <g transform="translate(375, 180)">
+    <rect x="0" y="0" width="150" height="80" rx="12" fill="#F59E0B" opacity="0.15" stroke="#F59E0B" stroke-width="1"/>
+    <text x="75" y="35" text-anchor="middle" fill="#FCD34D" font-size="12">Semana 9-12</text>
+    <text x="75" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="600">Análise</text>
+  </g>
+  <g stroke="#8B5CF6" stroke-width="2" fill="none" stroke-dasharray="6,4">
+    <path d="M250 90 L300 90 M450 90 L500 90 M225 220 L375 220 M525 220 L375 220"/>
+    <path d="M175 130 L175 180 M325 130 L325 180"/>
+  </g>
+  <circle cx="250" cy="90" r="5" fill="#8B5CF6"/>
+  <circle cx="450" cy="90" r="5" fill="#A855F7"/>
+  <circle cx="225" cy="220" r="5" fill="#D946EF"/>
+  <circle cx="525" cy="220" r="5" fill="#F59E0B"/>
+  <text x="400" y="380" text-anchor="middle" fill="#8B5CF6" font-size="14" opacity="0.6">Ciclo de Aprendizado do MVP</text>
+</svg>

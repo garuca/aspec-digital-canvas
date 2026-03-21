@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Sparkles, Rocket } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const stars = Array.from({ length: 40 }, (_, i) => ({
   id: i,
@@ -11,6 +12,8 @@ const stars = Array.from({ length: 40 }, (_, i) => ({
 }));
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       id="inicio"
@@ -58,7 +61,7 @@ const HeroSection = () => {
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" />
             <span className="text-sm font-medium text-white/90 flex items-center gap-2">
               <Sparkles size={14} className="text-purple-400" />
-              Aceitando novos projetos
+              {t("hero.badge")}
             </span>
           </div>
 
@@ -67,9 +70,8 @@ const HeroSection = () => {
             <div className="absolute -inset-10 bg-gradient-to-r from-purple-600/20 via-pink-500/10 to-purple-600/20 blur-2xl rounded-full" />
             
             <h1 className="font-exo font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight text-center relative hero-title-glow">
-              <span className="text-gradient-aspec">Soluções Digitais</span>
-              <br />
-              <span className="text-white">Que Funcionam</span>
+              <span className="text-gradient-aspec">{t("hero.line1")}</span><br />
+              <span className="text-white">{t("hero.line2")}</span>
             </h1>
             
             {/* Small floating particles around title */}
@@ -80,16 +82,16 @@ const HeroSection = () => {
           </div>
 
           <p className="font-exo text-lg text-white/60 max-w-xl text-center leading-relaxed">
-            Transformamos ideias em experiências digitais extraordinárias
+            {t("hero.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Button variant="gradient" size="lg" className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group">
               <Rocket size={18} className="group-hover:-translate-y-1 transition-transform" />
-              Conversar Agora
+              {t("hero.cta1")}
             </Button>
             <Button variant="hero" size="lg" className="gap-2 text-base px-10 py-6 rounded-xl border-white/20 hover:bg-white/10 transition-all duration-300">
-              <span>Conhecer Serviços</span>
+              <span>{t("hero.cta2")}</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -98,7 +100,7 @@ const HeroSection = () => {
         {/* Scroll indicator */}
         <div className="flex justify-center pb-8">
           <div className="scroll-indicator flex flex-col items-center gap-3">
-            <span className="text-xs font-medium text-white/40 tracking-[0.3em] uppercase">Descobrir</span>
+            <span className="text-xs font-medium text-white/40 tracking-[0.3em] uppercase">{t("hero.scroll")}</span>
             <div className="scroll-indicator-dot" />
             <ChevronDown size={16} className="text-white/30" />
           </div>

@@ -4,113 +4,24 @@ import {
   BarChart3, Share2, CalendarDays, Code, Smartphone, Server,
   ShieldCheck, Cpu, Workflow, Sparkles, Cpu as CpuIcon
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const services = [
-  {
-    icon: Palette,
-    title: "Identidade Visual",
-    description: "Criação e aplicação de identidade visual completa que traduz a essência da sua marca.",
-    category: "marketing",
-    floatClass: "animate-float",
-  },
-  {
-    icon: FileText,
-    title: "Marketing de Conteúdo",
-    description: "Narrativas inteligentes que conectam sua marca ao público-alvo e geram resultados.",
-    category: "marketing",
-    floatClass: "animate-float-slow",
-  },
-  {
-    icon: Globe,
-    title: "Landing Pages",
-    description: "Páginas de alta conversão com design responsivo para transformar visitantes em clientes.",
-    category: "marketing",
-    floatClass: "animate-drift-sideways",
-  },
-  {
-    icon: Megaphone,
-    title: "Tráfego Pago",
-    description: "Configuração e otimização de campanhas para máximo retorno sobre investimento.",
-    category: "marketing",
-    floatClass: "animate-float-drift",
-  },
-  {
-    icon: PenTool,
-    title: "Copywriting",
-    description: "Textos persuasivos para redes sociais, sites e campanhas que impulsionam ação.",
-    category: "marketing",
-    floatClass: "animate-float",
-  },
-  {
-    icon: Search,
-    title: "SEO",
-    description: "Otimização para mecanismos de busca que aumenta a visibilidade orgânica.",
-    category: "marketing",
-    floatClass: "animate-float-slow",
-  },
-  {
-    icon: Share2,
-    title: "Gestão de Redes",
-    description: "Gerenciamento completo com posts, stories e monitoramento de engajamento.",
-    category: "marketing",
-    floatClass: "animate-drift-sideways",
-  },
-  {
-    icon: BarChart3,
-    title: "Relatórios & Analytics",
-    description: "Análises detalhadas e relatórios para decisões orientadas por dados.",
-    category: "marketing",
-    floatClass: "animate-float-drift",
-  },
-  {
-    icon: CalendarDays,
-    title: "Calendário Editorial",
-    description: "Planejamento mensal estratégico de conteúdo com distribuição consistente.",
-    category: "marketing",
-    floatClass: "animate-float",
-  },
-  {
-    icon: Code,
-    title: "Desenvolvimento Web",
-    description: "Sites e aplicações web sob medida com tecnologias modernas e foco em performance.",
-    category: "tech",
-    floatClass: "animate-float-slow",
-  },
-  {
-    icon: Smartphone,
-    title: "Aplicativos Mobile",
-    description: "Apps nativos e multiplataforma que conectam seu negócio ao cliente.",
-    category: "tech",
-    floatClass: "animate-drift-sideways",
-  },
-  {
-    icon: Server,
-    title: "Sistemas & APIs",
-    description: "Arquitetura robusta e integrações que automatizam processos operacionais.",
-    category: "tech",
-    floatClass: "animate-float",
-  },
-  {
-    icon: Workflow,
-    title: "Automação",
-    description: "Fluxos automatizados que aumentam produtividade e minimizam erros.",
-    category: "tech",
-    floatClass: "animate-float-drift",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Consultoria & Segurança",
-    description: "Análise de infraestrutura e consultoria estratégica tecnológica.",
-    category: "tech",
-    floatClass: "animate-float-slow",
-  },
-  {
-    icon: Cpu,
-    title: "Inteligência Artificial",
-    description: "Soluções com IA: chatbots, análise preditiva e automação inteligente.",
-    category: "tech",
-    floatClass: "animate-drift-sideways",
-  },
+  { icon: Palette, titleKey: "service.identidade", descKey: "service.identidadeDesc", category: "marketing", floatClass: "animate-float" },
+  { icon: FileText, titleKey: "service.marketing", descKey: "service.marketingDesc", category: "marketing", floatClass: "animate-float-slow" },
+  { icon: Globe, titleKey: "service.landing", descKey: "service.landingDesc", category: "marketing", floatClass: "animate-drift-sideways" },
+  { icon: Megaphone, titleKey: "service.trafego", descKey: "service.trafegoDesc", category: "marketing", floatClass: "animate-float-drift" },
+  { icon: PenTool, titleKey: "service.copywriting", descKey: "service.copywritingDesc", category: "marketing", floatClass: "animate-float" },
+  { icon: Search, titleKey: "service.seo", descKey: "service.seoDesc", category: "marketing", floatClass: "animate-float-slow" },
+  { icon: Share2, titleKey: "service.redes", descKey: "service.redesDesc", category: "marketing", floatClass: "animate-drift-sideways" },
+  { icon: BarChart3, titleKey: "service.analytics", descKey: "service.analyticsDesc", category: "marketing", floatClass: "animate-float-drift" },
+  { icon: CalendarDays, titleKey: "service.calendario", descKey: "service.calendarioDesc", category: "marketing", floatClass: "animate-float" },
+  { icon: Code, titleKey: "service.web", descKey: "service.webDesc", category: "tech", floatClass: "animate-float-slow" },
+  { icon: Smartphone, titleKey: "service.mobile", descKey: "service.mobileDesc", category: "tech", floatClass: "animate-drift-sideways" },
+  { icon: Server, titleKey: "service.apis", descKey: "service.apisDesc", category: "tech", floatClass: "animate-float" },
+  { icon: Workflow, titleKey: "service.automacao", descKey: "service.automacaoDesc", category: "tech", floatClass: "animate-float-drift" },
+  { icon: ShieldCheck, titleKey: "service.consultoria", descKey: "service.consultoriaDesc", category: "tech", floatClass: "animate-float-slow" },
+  { icon: Cpu, titleKey: "service.ia", descKey: "service.iaDesc", category: "tech", floatClass: "animate-drift-sideways" },
 ];
 
 const floatingShapes = [
@@ -120,6 +31,7 @@ const floatingShapes = [
 ];
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -144,14 +56,14 @@ const ServicesSection = () => {
   const techServices = services.filter((s) => s.category === "tech");
 
   return (
-    <section id="servicos" ref={sectionRef} className="py-24 relative overflow-hidden dark-section">
-      <div className="dark-grid-pattern" />
+    <section id="servicos" ref={sectionRef} className="py-24 relative overflow-hidden light-section">
+      <div className="dot-pattern" />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingShapes.map((shape, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-2xl animate-float-slow"
+            className="absolute rounded-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 blur-2xl animate-float-slow"
             style={{
               width: shape.size,
               height: shape.size,
@@ -166,35 +78,34 @@ const ServicesSection = () => {
       </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className={`text-center mb-20 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className={`text-center mb-12 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <div className="inline-flex items-center gap-2 bg-purple-500/10 rounded-full px-5 py-2 mb-6 border border-purple-500/20">
-            <Sparkles size={14} className="text-purple-400" />
-            <span className="text-sm font-medium text-purple-300">O que fazemos</span>
+            <Sparkles size={14} className="text-purple-600" />
+            <span className="text-sm font-medium text-purple-700">{t("services.badge")}</span>
           </div>
-          <h2 className="font-exo font-bold text-4xl sm:text-5xl mb-4">
-            Nossos <span className="text-gradient-aspec">Serviços</span>
+          <h2 className="font-exo font-bold text-4xl sm:text-5xl mb-4 text-gray-900">
+            {t("services.title")}
           </h2>
-          <p className="font-exo text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-            Soluções completas para transformar seu negócio<br />
-            <span className="text-white/70">com tecnologia e marketing digital.</span>
+          <p className="font-exo text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            {t("services.subtitle")}
           </p>
         </div>
 
         <div className="mb-24">
           <div className="flex items-center justify-center gap-4 mb-10">
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-purple-500/50" />
-            <span className="category-badge category-badge-marketing">
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-purple-400/50" />
+            <span className="category-badge-light category-badge-marketing">
               <Palette size={16} />
-              Marketing & Design
+              {t("services.marketing")}
             </span>
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-purple-400/50" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {marketingServices.map((service, i) => (
               <div
-                key={service.title}
+                key={service.titleKey}
                 data-animate-item={i}
-                className={`service-card-dark scroll-animate ${service.floatClass} ${
+                className={`service-card-light scroll-animate ${service.floatClass} ${
                   visible ? "visible" : ""
                 }`}
                 style={{
@@ -202,14 +113,14 @@ const ServicesSection = () => {
                   transitionDelay: `${i * 0.08}s`,
                 }}
               >
-                <div className="service-icon-dark mb-6">
-                  <service.icon size={24} className="text-purple-400" />
+                <div className="service-icon-light mb-6">
+                  <service.icon size={24} className="text-purple-600" />
                 </div>
-                <h3 className="font-exo font-bold text-lg mb-3 text-white">
-                  {service.title}
+                <h3 className="font-exo font-bold text-lg mb-3 text-gray-900">
+                  {t(service.titleKey)}
                 </h3>
-                <p className="font-exo text-sm text-white/50 leading-relaxed">
-                  {service.description}
+                <p className="font-exo text-sm text-gray-500 leading-relaxed">
+                  {t(service.descKey)}
                 </p>
               </div>
             ))}
@@ -218,19 +129,19 @@ const ServicesSection = () => {
 
         <div>
           <div className="flex items-center justify-center gap-4 mb-10">
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-purple-500/50" />
-            <span className="category-badge category-badge-tech">
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-r from-transparent to-purple-400/50" />
+            <span className="category-badge-light category-badge-tech">
               <CpuIcon size={16} />
-              Tecnologia & Desenvolvimento
+              {t("services.tech")}
             </span>
-            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 max-w-[100px] bg-gradient-to-l from-transparent to-purple-400/50" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {techServices.map((service, i) => (
               <div
-                key={service.title}
+                key={service.titleKey}
                 data-animate-item={i + marketingServices.length}
-                className={`service-card-dark scroll-animate ${service.floatClass} ${
+                className={`service-card-light scroll-animate ${service.floatClass} ${
                   visible ? "visible" : ""
                 }`}
                 style={{
@@ -238,14 +149,14 @@ const ServicesSection = () => {
                   transitionDelay: `${(i + marketingServices.length) * 0.08}s`,
                 }}
               >
-                <div className="service-icon-dark mb-6">
-                  <service.icon size={24} className="text-purple-400" />
+                <div className="service-icon-light mb-6">
+                  <service.icon size={24} className="text-purple-600" />
                 </div>
-                <h3 className="font-exo font-bold text-lg mb-3 text-white">
-                  {service.title}
+                <h3 className="font-exo font-bold text-lg mb-3 text-gray-900">
+                  {t(service.titleKey)}
                 </h3>
-                <p className="font-exo text-sm text-white/50 leading-relaxed">
-                  {service.description}
+                <p className="font-exo text-sm text-gray-500 leading-relaxed">
+                  {t(service.descKey)}
                 </p>
               </div>
             ))}

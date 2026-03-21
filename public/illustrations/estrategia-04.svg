@@ -1,0 +1,164 @@
+<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chart1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5B2EFF;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#5B2EFF;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="chart2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#D946EF;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#D946EF;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="money" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22C55E"/>
+      <stop offset="100%" style="stop-color:#10B981"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#fafafa"/>
+  
+  <!-- Dashboard frame -->
+  <rect x="50" y="50" width="700" height="400" rx="20" fill="white" filter="url(#glow4)"/>
+  <rect x="50" y="50" width="700" height="400" rx="20" fill="none" stroke="#5B2EFF" stroke-width="2" opacity="0.2"/>
+  
+  <!-- Dashboard header -->
+  <rect x="50" y="50" width="700" height="60" rx="20" fill="#f9fafb"/>
+  <rect x="50" y="90" width="700" height="20" fill="#f9fafb"/>
+  <text x="80" y="85" fill="#1f2937" font-size="18" font-weight="bold">Dashboard de Resultados</text>
+  <circle cx="700" cy="80" r="8" fill="#22C55E"/>
+  <text x="680" y="85" fill="#6b7280" font-size="12" text-anchor="end">Live</text>
+  
+  <!-- Main Chart Area -->
+  <g transform="translate(80, 130)">
+    <!-- Chart grid -->
+    <g stroke="#e5e7eb" stroke-width="1" opacity="0.5">
+      <line x1="0" y1="0" x2="500" y2="0"/>
+      <line x1="0" y1="60" x2="500" y2="60"/>
+      <line x1="0" y1="120" x2="500" y2="120"/>
+      <line x1="0" y1="180" x2="500" y2="180"/>
+      <line x1="0" y1="240" x2="500" y2="240"/>
+    </g>
+    
+    <!-- Area chart -->
+    <path d="M0 240 L0 200 Q50 180 100 160 T200 120 T300 80 T400 40 T500 0 L500 240 Z" 
+      fill="url(#chart1)" opacity="0.3"/>
+    <path d="M0 240 L0 200 Q50 180 100 160 T200 120 T300 80 T400 40 T500 0 L500 240" 
+      stroke="#5B2EFF" stroke-width="3" fill="none" filter="url(#glow4)"/>
+    
+    <!-- Data points -->
+    <g filter="url(#glow4)">
+      <circle cx="0" cy="200" r="6" fill="#5B2EFF"/>
+      <circle cx="100" cy="160" r="6" fill="#5B2EFF"/>
+      <circle cx="200" cy="120" r="6" fill="#5B2EFF"/>
+      <circle cx="300" cy="80" r="8" fill="#D946EF"/>
+      <circle cx="400" cy="40" r="6" fill="#5B2EFF"/>
+      <circle cx="500" cy="0" r="10" fill="#D946EF"/>
+    </g>
+    
+    <!-- Growth arrow -->
+    <g transform="translate(500, -20)">
+      <path d="M0 40 L0 0 L-10 10 M0 0 L10 10" stroke="#22C55E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Metrics Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(600, 130)">
+    <rect x="0" y="0" width="130" height="80" rx="12" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="15" y="25" fill="#6b7280" font-size="11">Receita</text>
+    <text x="15" y="55" fill="#1f2937" font-size="24" font-weight="bold">R$ 2.4M</text>
+    <rect x="15" y="62" width="50" height="6" rx="3" fill="#22C55E" opacity="0.2"/>
+    <text x="70" y="68" fill="#22C55E" font-size="10">+40%</text>
+    <path d="M100 20 L108 12 L116 20 M108 12 L108 28" stroke="#22C55E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Card 2 -->
+  <g transform="translate(600, 220)">
+    <rect x="0" y="0" width="130" height="80" rx="12" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="15" y="25" fill="#6b7280" font-size="11">Usuários</text>
+    <text x="15" y="55" fill="#1f2937" font-size="24" font-weight="bold">15.8K</text>
+    <rect x="15" y="62" width="50" height="6" rx="3" fill="#5B2EFF" opacity="0.2"/>
+    <text x="70" y="68" fill="#5B2EFF" font-size="10">+25%</text>
+    <path d="M100 20 L108 12 L116 20 M108 12 L108 28" stroke="#5B2EFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Donut Chart -->
+  <g transform="translate(720, 350)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#5B2EFF" stroke-width="10" 
+      stroke-dasharray="200 314" stroke-dashoffset="0" transform="rotate(-90)"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#D946EF" stroke-width="10" 
+      stroke-dasharray="78 314" stroke-dashoffset="-200" transform="rotate(-90)"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#22C55E" stroke-width="10" 
+      stroke-dasharray="36 314" stroke-dashoffset="-278" transform="rotate(-90)"/>
+    <text x="0" y="5" text-anchor="middle" fill="#1f2937" font-size="14" font-weight="bold">ROI</text>
+    <text x="0" y="20" text-anchor="middle" fill="#22C55E" font-size="10">+180%</text>
+  </g>
+  
+  <!-- Bar Chart Side -->
+  <g transform="translate(80, 400)">
+    <rect x="0" y="30" width="30" height="40" rx="4" fill="#5B2EFF" opacity="0.3"/>
+    <rect x="40" y="20" width="30" height="50" rx="4" fill="#5B2EFF" opacity="0.5"/>
+    <rect x="80" y="10" width="30" height="60" rx="4" fill="#5B2EFF" opacity="0.7"/>
+    <rect x="120" y="0" width="30" height="70" rx="4" fill="#5B2EFF"/>
+    <rect x="160" y="-15" width="30" height="85" rx="4" fill="url(#chart2)"/>
+  </g>
+  
+  <!-- Trophy with coins -->
+  <g transform="translate(320, 380)" filter="url(#glow4)">
+    <!-- Coins -->
+    <ellipse cx="-40" cy="50" rx="20" ry="8" fill="#FFD700"/>
+    <ellipse cx="-40" cy="45" rx="20" ry="8" fill="#FFC000"/>
+    <ellipse cx="-40" cy="40" rx="20" ry="8" fill="#FFD700"/>
+    <text x="-40" y="48" text-anchor="middle" fill="#B8860B" font-size="10" font-weight="bold">$</text>
+    
+    <ellipse cx="0" cy="55" rx="22" ry="9" fill="#FFD700"/>
+    <ellipse cx="0" cy="50" rx="22" ry="9" fill="#FFC000"/>
+    <ellipse cx="0" cy="45" rx="22" ry="9" fill="#FFD700"/>
+    <text x="0" y="53" text-anchor="middle" fill="#B8860B" font-size="12" font-weight="bold">$</text>
+    
+    <ellipse cx="45" cy="50" rx="20" ry="8" fill="#FFD700"/>
+    <ellipse cx="45" cy="45" rx="20" ry="8" fill="#FFC000"/>
+    <ellipse cx="45" cy="40" rx="20" ry="8" fill="#FFD700"/>
+    <text x="45" y="48" text-anchor="middle" fill="#B8860B" font-size="10" font-weight="bold">$</text>
+    
+    <!-- Mini chart going up -->
+    <path d="M-30 30 L-10 10 L10 -5 L30 -25" stroke="#22C55E" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="30" cy="-25" r="6" fill="#22C55E" filter="url(#glow4)"/>
+  </g>
+  
+  <!-- Growth indicators -->
+  <g transform="translate(450, 400)">
+    <rect x="0" y="0" width="100" height="40" rx="8" fill="#DCFCE7"/>
+    <text x="15" y="26" fill="#166534" font-size="12" font-weight="bold">+150 Projetos</text>
+  </g>
+  
+  <!-- Analytics icons -->
+  <g transform="translate(550, 400)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="#EEF2FF"/>
+    <path d="M12 28 L12 18 L20 12 L28 18 L28 28" stroke="#5B2EFF" stroke-width="2" fill="none"/>
+    <circle cx="20" cy="24" r="3" fill="#5B2EFF"/>
+  </g>
+  
+  <!-- Sparkles -->
+  <g fill="#FFD700" filter="url(#glow4)">
+    <polygon points="250,50 253,58 262,58 255,64 258,72 250,67 242,72 245,64 238,58 247,58"/>
+    <polygon points="580,120 582,126 590,126 584,131 586,138 580,134 574,138 576,131 570,126 578,126" transform="scale(0.7)"/>
+    <polygon points="180,150 182,156 190,156 184,161 186,168 180,164 174,168 176,161 170,156 178,156" transform="scale(0.6)"/>
+  </g>
+  
+  <!-- Connection lines to metrics -->
+  <g stroke="#5B2EFF" stroke-width="1" stroke-dasharray="4,4" opacity="0.3">
+    <line x1="180" y1="370" x2="180" y2="400"/>
+    <line x1="280" y1="350" x2="280" y2="400"/>
+    <line x1="380" y1="330" x2="380" y2="400"/>
+    <line x1="480" y1="310" x2="480" y2="400"/>
+  </g>
+</svg>

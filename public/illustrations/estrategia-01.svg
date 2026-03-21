@@ -1,0 +1,126 @@
+<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5B2EFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D946EF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D946EF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#5B2EFF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#5B2EFF" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Elements -->
+  <rect width="800" height="500" fill="#fafafa"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="150" fill="url(#grad2)" opacity="0.1"/>
+  <circle cx="700" cy="400" r="200" fill="url(#grad2)" opacity="0.1"/>
+  <circle cx="400" cy="250" r="180" fill="url(#grad2)" opacity="0.05"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1" stroke="#5B2EFF" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+  </g>
+  
+  <!-- Main Magnifying Glass -->
+  <g filter="url(#shadow)" transform="translate(250, 80)">
+    <!-- Glass circle -->
+    <circle cx="150" cy="150" r="120" fill="white" stroke="url(#grad1)" stroke-width="8"/>
+    <circle cx="150" cy="150" r="110" fill="none" stroke="#f3f4f6" stroke-width="2"/>
+    
+    <!-- Glass reflection -->
+    <ellipse cx="110" cy="110" rx="40" ry="25" fill="white" opacity="0.6" transform="rotate(-30, 110, 110)"/>
+    
+    <!-- Brain inside magnifying glass -->
+    <g transform="translate(80, 80)">
+      <!-- Brain shape -->
+      <path d="M70 20 C30 20 10 50 10 80 C10 120 30 140 70 140 C80 140 90 135 100 125 C110 135 120 140 130 140 C170 140 190 120 190 80 C190 50 170 20 130 20 C120 20 110 25 100 35 C90 25 80 20 70 20Z" 
+        fill="url(#grad1)" opacity="0.9"/>
+      
+      <!-- Brain folds -->
+      <path d="M50 60 Q70 40 90 60 Q110 80 130 60 Q150 40 170 60" stroke="white" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M40 90 Q60 70 80 90 Q100 110 120 90 Q140 70 160 90" stroke="white" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M50 120 Q70 100 90 120 Q110 140 130 120 Q150 100 170 120" stroke="white" stroke-width="3" fill="none" opacity="0.6"/>
+      
+      <!-- Lightbulb moment -->
+      <circle cx="100" cy="75" r="15" fill="#FFD700" filter="url(#glow)"/>
+      <path d="M95 92 L105 92 L103 100 L97 100 Z" fill="#FFD700"/>
+      <line x1="100" y1="100" x2="100" y2="105" stroke="#FFD700" stroke-width="2"/>
+    </g>
+    
+    <!-- Handle -->
+    <rect x="245" y="245" width="25" height="80" rx="5" fill="url(#grad1)" transform="rotate(45, 257, 285)"/>
+  </g>
+  
+  <!-- Floating elements - Problem indicators -->
+  <g filter="url(#glow)" opacity="0.8">
+    <!-- Exclamation mark -->
+    <circle cx="180" cy="120" r="20" fill="#FF6B6B"/>
+    <text x="180" y="128" text-anchor="middle" fill="white" font-size="24" font-weight="bold">!</text>
+    
+    <!-- Question marks -->
+    <text x="620" y="150" text-anchor="middle" fill="#5B2EFF" font-size="48" font-weight="bold" opacity="0.5">?</text>
+    <text x="680" y="200" text-anchor="middle" fill="#8B5CF6" font-size="36" font-weight="bold" opacity="0.4">?</text>
+  </g>
+  
+  <!-- Connecting lines -->
+  <g stroke="url(#grad1)" stroke-width="2" stroke-dasharray="8,8" opacity="0.4">
+    <line x1="200" y1="120" x2="280" y2="180"/>
+    <line x1="600" y1="170" x2="520" y2="200"/>
+  </g>
+  
+  <!-- Target/Bullseye -->
+  <g transform="translate(620, 350)">
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#5B2EFF" stroke-width="3" opacity="0.3"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#8B5CF6" stroke-width="3" opacity="0.4"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#D946EF" stroke-width="3" opacity="0.6"/>
+    <circle cx="0" cy="0" r="8" fill="#D946EF" filter="url(#glow)"/>
+    <line x1="-70" y1="0" x2="-30" y2="0" stroke="#D946EF" stroke-width="3" stroke-linecap="round"/>
+    <polygon points="-75,-5 -70,0 -75,5" fill="#D946EF"/>
+  </g>
+  
+  <!-- Data points -->
+  <g filter="url(#glow)">
+    <circle cx="150" cy="380" r="8" fill="#5B2EFF"/>
+    <circle cx="200" cy="400" r="6" fill="#8B5CF6"/>
+    <circle cx="250" cy="370" r="10" fill="#A855F7"/>
+    <circle cx="300" cy="390" r="7" fill="#D946EF"/>
+  </g>
+  
+  <!-- Chart bars emerging -->
+  <g transform="translate(80, 420)">
+    <rect x="0" y="30" width="25" height="40" rx="4" fill="url(#grad1)" opacity="0.3"/>
+    <rect x="35" y="20" width="25" height="50" rx="4" fill="url(#grad1)" opacity="0.5"/>
+    <rect x="70" y="0" width="25" height="70" rx="4" fill="url(#grad1)" opacity="0.7"/>
+    <rect x="105" y="-30" width="25" height="100" rx="4" fill="url(#grad1)"/>
+  </g>
+  
+  <!-- Sparkles -->
+  <g fill="#FFD700" filter="url(#glow)">
+    <polygon points="500,100 503,108 512,108 505,114 508,122 500,117 492,122 495,114 488,108 497,108" transform="scale(0.8)"/>
+    <polygon points="700,280 703,288 712,288 705,294 708,302 700,297 692,302 695,294 688,288 697,288" transform="scale(0.6)"/>
+    <polygon points="350,420 353,428 362,428 355,434 358,442 350,437 342,442 345,434 338,428 347,428" transform="scale(0.7)"/>
+  </g>
+</svg>
