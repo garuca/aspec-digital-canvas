@@ -83,28 +83,28 @@ const HeroSection = () => {
 
           <div className="max-w-2xl text-center">
             <p className="font-exo text-lg md:text-xl text-white/80 leading-relaxed mb-6">
-              A única consultoria que integra de verdade
+              {t("hero.intro")}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6">
               <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                design
+                {t("hero.design")}
               </span>
               <span className="text-purple-400 text-2xl font-light">+</span>
               <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                tecnologia
+                {t("hero.tech")}
               </span>
               <span className="text-cyan-400 text-2xl font-light">+</span>
               <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-pink-400 via-rose-400 to-pink-400 bg-clip-text text-transparent">
-                desenvolvimento
+                {t("hero.dev")}
               </span>
             </div>
             <p className="font-exo text-base md:text-lg text-white/60 leading-relaxed">
-              Geramos impactos expressivos com{" "}
+              {t("hero.subtitle1")}{" "}
               <span className="relative inline-block">
-                <span className="text-cyan-400 font-semibold">IA de última geração</span>
+                <span className="text-cyan-400 font-semibold">{t("hero.ai")}</span>
                 <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
               </span>{" "}
-              e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
+              {t("hero.subtitle2")}
             </p>
           </div>
 
