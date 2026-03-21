@@ -5,7 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 interface TeamMember {
   name: string;
   roleKey: string;
-  description: string;
+  descKey: string;
   icon: React.ElementType;
   color: string;
   gradient: string;
@@ -39,7 +39,7 @@ const TeamSection = () => {
     {
       name: "Gabriel Rufino",
       roleKey: "team.tech",
-      description: "Especialista em desenvolvimento de soluções digitais inovadoras, lidera nossa equipe técnica com visão de futuro e expertise em tecnologias modernas.",
+      descKey: "team.gabriel.desc",
       icon: Code2,
       color: "#06B6D4",
       gradient: "from-cyan-500/20 to-blue-500/20",
@@ -48,7 +48,7 @@ const TeamSection = () => {
     {
       name: "Weliton Mendanha",
       roleKey: "team.design",
-      description: "Criativo e visionário, transforma ideias em experiências visuais impactantes. Especialista em UX/UI Design e identidade visual de marcas.",
+      descKey: "team.weliton.desc",
       icon: Palette,
       color: "#D946EF",
       gradient: "from-pink-500/20 to-purple-500/20",
@@ -57,7 +57,7 @@ const TeamSection = () => {
     {
       name: "Leonardo Silva",
       roleKey: "team.commercial",
-      description: "Estratégico e comunicativo, conecta clientes às melhores soluções. Especialista em relacionamento e fechamento de parcerias de sucesso.",
+      descKey: "team.leonardo.desc",
       icon: TrendingUp,
       color: "#22C55E",
       gradient: "from-green-500/20 to-emerald-500/20",
@@ -211,7 +211,7 @@ const TeamSection = () => {
 
                   {/* Description */}
                   <p className="font-exo text-gray-400 text-sm leading-relaxed mb-6">
-                    {member.description}
+                    {t(member.descKey)}
                   </p>
 
                   {/* Decorative Elements */}

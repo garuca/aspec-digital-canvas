@@ -3,39 +3,6 @@ import { TrendingUp, Users, Download, GraduationCap, Zap, Target, Award } from "
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 
-const projectResults = [
-  {
-    client: "Banco Itaú",
-    project: "Assistente Virtual com IA",
-    icon: Users,
-    color: "#FF6B00",
-    metric: "70M+",
-    metricLabel: "clientes atendidos",
-    description: "Chatbot de atendimento automatizado com inteligência artificial generativa, reduziu tempo de resposta em 85%.",
-    tags: ["IA Generativa", "NLP", "Automação"],
-  },
-  {
-    client: "Banco BV",
-    project: "Aplicativo Mobile",
-    icon: Download,
-    color: "#06B6D4",
-    metric: "10M+",
-    metricLabel: "downloads",
-    description: "App completo de serviços bancários com interface moderna e experiência fluida para milhões de usuários.",
-    tags: ["Mobile", "React Native", "UX"],
-  },
-  {
-    client: "FL Mandic",
-    project: "Sistema de Gestão Acadêmica",
-    icon: GraduationCap,
-    color: "#A855F7",
-    metric: "100%",
-    metricLabel: "cobertura",
-    description: "Plataforma completa para gestão de graduação e pós-graduação de Medicina e Odontologia.",
-    tags: ["Web App", "Gestão", "Educação"],
-  },
-];
-
 const reasons = [
   { icon: Zap, titleKey: "results.why1", descKey: "results.why1" },
   { icon: Target, titleKey: "results.why2", descKey: "results.why2" },
@@ -51,6 +18,39 @@ const ResultsSection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+
+  const projectResults = [
+    {
+      client: "Banco Itaú",
+      projectKey: "results.itau.project",
+      icon: Users,
+      color: "#FF6B00",
+      metric: "70M+",
+      metricLabelKey: "results.itau.metricLabel",
+      descKey: "results.itau.desc",
+      tags: ["IA Generativa", "NLP", "Automação"],
+    },
+    {
+      client: "Banco BV",
+      projectKey: "results.bv.project",
+      icon: Download,
+      color: "#06B6D4",
+      metric: "10M+",
+      metricLabelKey: "results.bv.metricLabel",
+      descKey: "results.bv.desc",
+      tags: ["Mobile", "React Native", "UX"],
+    },
+    {
+      client: "FL Mandic",
+      projectKey: "results.mandic.project",
+      icon: GraduationCap,
+      color: "#A855F7",
+      metric: "100%",
+      metricLabelKey: "results.mandic.metricLabel",
+      descKey: "results.mandic.desc",
+      tags: ["Web App", "Gestão", "Educação"],
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -150,7 +150,7 @@ const ResultsSection = () => {
                     {project.client}
                   </div>
                   <div className="font-exo font-bold text-white">
-                    {project.project}
+                    {t(project.projectKey)}
                   </div>
                 </div>
               </div>
@@ -160,12 +160,12 @@ const ResultsSection = () => {
                   {project.metric}
                 </span>
                 <span className="block text-lg text-white/60 font-exo mt-1">
-                  {project.metricLabel}
+                  {t(project.metricLabelKey)}
                 </span>
               </div>
 
               <p className="font-exo text-sm text-white/50 leading-relaxed mb-4">
-                {project.description}
+                {t(project.descKey)}
               </p>
 
               <div className="flex flex-wrap gap-2">

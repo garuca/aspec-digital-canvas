@@ -341,6 +341,9 @@ const translations: Record<Language, Record<string, string>> = {
     "team.exp": "Anos de Experiência",
     "team.projects": "Projetos Entregues",
     "team.clients": "Clientes Satisfeitos",
+    "team.gabriel.desc": "Especialista em desenvolvimento de soluções digitais inovadoras, lidera nossa equipe técnica com visão de futuro e expertise em tecnologias modernas.",
+    "team.weliton.desc": "Criativo e visionário, transforma ideias em experiências visuais impactantes. Especialista em UX/UI Design e identidade visual de marcas.",
+    "team.leonardo.desc": "Estratégico e comunicativo, conecta clientes às melhores soluções. Especialista em relacionamento e fechamento de parcerias de sucesso.",
     
     // Results
     "results.badge": "Resultados Reais",
@@ -353,6 +356,17 @@ const translations: Record<Language, Record<string, string>> = {
     "results.why2": "Metodologia Ágil",
     "results.why3": "Qualidade Garantida",
     "results.cta": "Solicitar Proposta",
+    "results.speak": "Fale Com Especialista",
+    "results.discount": "Desconto Exclusivo",
+    "results.itau.project": "Assistente Virtual com IA",
+    "results.itau.desc": "Chatbot de atendimento automatizado com inteligência artificial generativa, reduziu tempo de resposta em 85%.",
+    "results.itau.metricLabel": "clientes atendidos",
+    "results.bv.project": "Aplicativo Mobile",
+    "results.bv.desc": "App completo de serviços bancários com interface moderna e experiência fluida para milhões de usuários.",
+    "results.bv.metricLabel": "downloads",
+    "results.mandic.project": "Sistema de Gestão Acadêmica",
+    "results.mandic.desc": "Plataforma completa para gestão de graduação e pós-graduação de Medicina e Odontologia.",
+    "results.mandic.metricLabel": "cobertura",
     
     // FAQ
     "faq.badge": "Perguntas Técnicas",
@@ -737,6 +751,9 @@ const translations: Record<Language, Record<string, string>> = {
     "team.exp": "Years of Experience",
     "team.projects": "Projects Delivered",
     "team.clients": "Satisfied Clients",
+    "team.gabriel.desc": "Specialist in developing innovative digital solutions, leads our technical team with vision and expertise in modern technologies.",
+    "team.weliton.desc": "Creative and visionary, transforms ideas into impactful visual experiences. Specialist in UX/UI Design and brand visual identity.",
+    "team.leonardo.desc": "Strategic and communicative, connects clients to the best solutions. Specialist in relationships and successful partnership closures.",
     
     // Results
     "results.badge": "Real Results",
@@ -749,6 +766,17 @@ const translations: Record<Language, Record<string, string>> = {
     "results.why2": "Agile Methodology",
     "results.why3": "Guaranteed Quality",
     "results.cta": "Request Proposal",
+    "results.speak": "Talk to Specialist",
+    "results.discount": "Exclusive Discount",
+    "results.itau.project": "Virtual Assistant with AI",
+    "results.itau.desc": "Automated customer service chatbot with generative AI, reduced response time by 85%.",
+    "results.itau.metricLabel": "clients served",
+    "results.bv.project": "Mobile Application",
+    "results.bv.desc": "Complete banking services app with modern interface and fluid experience for millions of users.",
+    "results.bv.metricLabel": "downloads",
+    "results.mandic.project": "Academic Management System",
+    "results.mandic.desc": "Complete platform for managing undergraduate and postgraduate Medicine and Dentistry programs.",
+    "results.mandic.metricLabel": "coverage",
     
     // FAQ
     "faq.badge": "Technical Questions",
@@ -1133,6 +1161,9 @@ const translations: Record<Language, Record<string, string>> = {
     "team.exp": "Años de Experiencia",
     "team.projects": "Proyectos Entregados",
     "team.clients": "Clientes Satisfechos",
+    "team.gabriel.desc": "Especialista en desarrollo de soluciones digitales innovadoras, lidera nuestro equipo técnico con visión y experiencia en tecnologías modernas.",
+    "team.weliton.desc": "Creativo y visionario, transforma ideas en experiencias visuales impactantes. Especialista en UX/UI Design e identidad visual de marcas.",
+    "team.leonardo.desc": "Estratégico y comunicativo, conecta clientes con las mejores soluciones. Especialista en relaciones y cierre exitoso de alianzas.",
     
     // Results
     "results.badge": "Resultados Reales",
@@ -1145,6 +1176,17 @@ const translations: Record<Language, Record<string, string>> = {
     "results.why2": "Metodología Ágil",
     "results.why3": "Calidad Garantizada",
     "results.cta": "Solicitar Propuesta",
+    "results.speak": "Hablar con Especialista",
+    "results.discount": "Descuento Exclusivo",
+    "results.itau.project": "Asistente Virtual con IA",
+    "results.itau.desc": "Chatbot de atención automatizada con inteligencia artificial generativa, redujo el tiempo de respuesta en 85%.",
+    "results.itau.metricLabel": "clientes atendidos",
+    "results.bv.project": "Aplicación Mobile",
+    "results.bv.desc": "App completa de servicios bancarios con interfaz moderna y experiencia fluida para millones de usuarios.",
+    "results.bv.metricLabel": "descargas",
+    "results.mandic.project": "Sistema de Gestión Académica",
+    "results.mandic.desc": "Plataforma completa para gestión de pregrado y posgrado de Medicina y Odontología.",
+    "results.mandic.metricLabel": "cobertura",
     
     // FAQ
     "faq.badge": "Preguntas Técnicas",
