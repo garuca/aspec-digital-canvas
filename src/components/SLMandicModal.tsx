@@ -1,52 +1,14 @@
 import { useEffect, useState } from "react";
 import { X, GraduationCap, BookOpen, Users, Globe, Shield, Smartphone, Award, MapPin, Star, Download } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SLMandicModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const features = [
-  {
-    icon: BookOpen,
-    title: "Gestão Acadêmica",
-    description: "Controle completo de matrículas, disciplinas e progresso dos alunos em Medicina e Odontologia."
-  },
-  {
-    icon: Users,
-    title: "Comunidade",
-    description: "Conexão direta entre alunos, professores e colaboradores da instituição."
-  },
-  {
-    icon: Shield,
-    title: "Segurança",
-    description: "Dados criptografados e protegidos com padrões internacionais de segurança."
-  },
-  {
-    icon: Globe,
-    title: "Multi-Campus",
-    description: "Acesso unificado para unidades em Campinas, São Paulo e outras localidades."
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile First",
-    description: "Experiência otimizada para dispositivos móveis com interface intuitiva."
-  },
-  {
-    icon: Award,
-    title: "Excelência",
-    description: "Nota máxima do MEC há 15 anos, referência em educação médica e odontológica."
-  }
-];
-
-const stats = [
-  { value: "4.6", label: "Estrelas", icon: Star, suffix: "★" },
-  { value: "1M+", label: "Downloads", icon: Download, suffix: "" },
-  { value: "18", label: "Avaliações", icon: Users, suffix: "" },
-  { value: "15", label: "Anos nota máxima", icon: Award, suffix: " anos" }
-];
-
 const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
+  const { t } = useLanguage();
   const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const [activeSection, setActiveSection] = useState<"overview" | "features" | "about">("overview");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -112,19 +74,19 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
             onClick={() => setActiveSection("overview")}
             className={`slmandic-nav-tab ${activeSection === "overview" ? "active" : ""}`}
           >
-            Visão Geral
+            {t("modals.overview")}
           </button>
           <button
             onClick={() => setActiveSection("features")}
             className={`slmandic-nav-tab ${activeSection === "features" ? "active" : ""}`}
           >
-            Funcionalidades
+            {t("modals.features")}
           </button>
           <button
             onClick={() => setActiveSection("about")}
             className={`slmandic-nav-tab ${activeSection === "about" ? "active" : ""}`}
           >
-            Sobre a Instituição
+            {t("modals.about")}
           </button>
         </div>
 
@@ -134,9 +96,14 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
             <div className="slmandic-overview">
               {/* Stats */}
               <div className="slmandic-stats">
-                {stats.map((stat, index) => (
+                {[
+                  { value: "4.6", label: t("modals.stars"), suffix: "★" },
+                  { value: "1M+", label: t("modals.downloads"), suffix: "" },
+                  { value: "18", label: t("modals.reviews"), suffix: "" },
+                  { value: "15", label: t("modals.yearsMaxNote"), suffix: " anos" }
+                ].map((stat, index) => (
                   <div key={index} className="slmandic-stat-card">
-                    <stat.icon size={20} className="text-purple-400" />
+                    <Star size={20} className="text-purple-400" />
                     <div className="slmandic-stat-value">
                       <span className="font-exo font-bold text-2xl">{stat.value}</span>
                       <span className="font-exo text-sm text-purple-300">{stat.suffix}</span>
@@ -157,7 +124,7 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
                     >
                       <div className="slmandic-gallery-phone-frame">
                         <div className="slmandic-gallery-phone-notch" />
-                        <img src={img} alt={`Tela ${index + 1}`} className="slmandic-gallery-image" />
+                        <img src={img} alt={`${t("modals.screen")} ${index + 1}`} className="slmandic-gallery-image" />
                       </div>
                     </div>
                   ))}
@@ -173,7 +140,7 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
                   className="slmandic-cta-button"
                 >
                   <Download size={20} />
-                  <span>Baixar na Google Play</span>
+                  <span>{t("modals.downloadGooglePlay")}</span>
                 </a>
                 <a 
                   href="https://slmandic.edu.br/" 
@@ -182,7 +149,7 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
                   className="slmandic-cta-secondary"
                 >
                   <Globe size={16} />
-                  <span>Visite o Site</span>
+                  <span>{t("modals.visitSite")}</span>
                 </a>
               </div>
             </div>
@@ -191,19 +158,26 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
           {activeSection === "features" && (
             <div className="slmandic-features">
               <div className="slmandic-features-header">
-                <h3 className="font-exo font-bold text-2xl text-white mb-2">Funcionalidades do Aplicativo</h3>
-                <p className="font-exo text-white/60">Soluções completas para gestão acadêmica de Medicina e Odontologia</p>
+                <h3 className="font-exo font-bold text-2xl text-white mb-2">{t("modals.appFeatures")}</h3>
+                <p className="font-exo text-white/60">{t("modals.appFeaturesDesc")}</p>
               </div>
               
               <div className="slmandic-features-grid">
-                {features.map((feature, index) => (
+                {[
+                  { icon: BookOpen, title: t("modals.academicMgmt"), desc: t("modals.academicMgmtDesc") },
+                  { icon: Users, title: t("modals.community"), desc: t("modals.communityDesc") },
+                  { icon: Shield, title: t("modals.security"), desc: t("modals.securityDesc") },
+                  { icon: Globe, title: t("modals.multiCampus"), desc: t("modals.multiCampusDesc") },
+                  { icon: Smartphone, title: t("modals.mobileFirst"), desc: t("modals.mobileFirstDesc") },
+                  { icon: Award, title: t("modals.excellence"), desc: t("modals.excellenceDesc") }
+                ].map((feature, index) => (
                   <div key={index} className="slmandic-feature-card">
                     <div className="slmandic-feature-icon">
                       <feature.icon size={24} />
                     </div>
                     <div className="slmandic-feature-content">
                       <h4 className="font-exo font-semibold text-white">{feature.title}</h4>
-                      <p className="font-exo text-sm text-white/50">{feature.description}</p>
+                      <p className="font-exo text-sm text-white/50">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -217,35 +191,35 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
                 <div className="slmandic-about-badge">
                   <GraduationCap size={32} />
                 </div>
-                <h3 className="font-exo font-bold text-3xl text-white mb-4">Faculdade São Leopoldo Mandic</h3>
+                <h3 className="font-exo font-bold text-3xl text-white mb-4">{t("modals.faculdade")}</h3>
                 <p className="font-exo text-white/60 text-lg max-w-2xl mx-auto">
-                  Referência nacional em educação médica e odontológica há mais de 30 anos
+                  {t("modals.faculdadeDesc")}
                 </p>
               </div>
 
               <div className="slmandic-about-grid">
                 <div className="slmandic-about-card">
                   <div className="slmandic-about-card-number">15</div>
-                  <div className="slmandic-about-card-label">Anos com nota máxima do MEC</div>
+                  <div className="slmandic-about-card-label">{t("modals.mecYears")}</div>
                 </div>
                 <div className="slmandic-about-card">
                   <div className="slmandic-about-card-number">12</div>
-                  <div className="slmandic-about-card-label">Unidades no Brasil</div>
+                  <div className="slmandic-about-card-label">{t("modals.units")}</div>
                 </div>
                 <div className="slmandic-about-card">
                   <div className="slmandic-about-card-number">30K+</div>
-                  <div className="slmandic-about-card-label">Profissionais especializados</div>
+                  <div className="slmandic-about-card-label">{t("modals.professionals")}</div>
                 </div>
                 <div className="slmandic-about-card">
                   <div className="slmandic-about-card-number">1ª</div>
-                  <div className="slmandic-about-card-label">IES no Scimago Rankings</div>
+                  <div className="slmandic-about-card-label">{t("modals.scimago")}</div>
                 </div>
               </div>
 
               <div className="slmandic-about-info">
                 <div className="slmandic-about-info-item">
                   <MapPin size={18} />
-                  <span>Rua da Abolição, 1827 - Campinas, SP</span>
+                  <span>{t("modals.address")}</span>
                 </div>
                 <div className="slmandic-about-info-item">
                   <Globe size={18} />
@@ -263,7 +237,7 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
                   className="slmandic-cta-button"
                 >
                   <Download size={20} />
-                  <span>Baixar Aplicativo</span>
+                  <span>{t("modals.downloadApp")}</span>
                 </a>
               </div>
             </div>
@@ -277,7 +251,7 @@ const SLMandicModal = ({ isOpen, onClose }: SLMandicModalProps) => {
               </button>
               <img 
                 src={lightboxImage} 
-                alt="Tela do app em tamanho completo" 
+                alt={t("modals.fullScreen")} 
                 className="slmandic-lightbox-image"
                 onClick={(e) => e.stopPropagation()}
               />

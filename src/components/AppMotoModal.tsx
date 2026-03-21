@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { X, Bike, Zap, ChevronLeft, ChevronRight, Play, Download, Smartphone, CreditCard, Wallet, Home as HomeIcon, Lock, Star, Users, Gift, Eye } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface AppMotoModalProps {
   isOpen: boolean;
@@ -7,33 +8,34 @@ interface AppMotoModalProps {
 }
 
 const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
+  const { t } = useLanguage();
   const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
 
   const screens = {
     splash: [
-      { name: "Splash", src: `${basePath}/portfolio/moto/Splash .png`, icon: Bike }
+      { name: t("modals.screen"), src: `${basePath}/portfolio/moto/Splash .png`, icon: Bike }
     ],
     onboarding: [
-      { name: "Login - Ativo", src: `${basePath}/portfolio/moto/Login - ativo.png`, icon: Lock },
-      { name: "Confirme seu cadastro", src: `${basePath}/portfolio/moto/Confirme seu cadastro.png`, icon: Users },
-      { name: "Validando informações", src: `${basePath}/portfolio/moto/Validando informações.png`, icon: Lock },
+      { name: "Login", src: `${basePath}/portfolio/moto/Login - ativo.png`, icon: Lock },
+      { name: t("modals.loginFlow"), src: `${basePath}/portfolio/moto/Confirme seu cadastro.png`, icon: Users },
+      { name: t("modals.security"), src: `${basePath}/portfolio/moto/Validando informações.png`, icon: Lock },
     ],
     home: [
-      { name: "Home", src: `${basePath}/portfolio/moto/Home.png`, icon: HomeIcon },
+      { name: t("modals.yourAccount"), src: `${basePath}/portfolio/moto/Home.png`, icon: HomeIcon },
       { name: "PIX", src: `${basePath}/portfolio/moto/pix.png`, icon: Zap },
     ],
     features: [
-      { name: "PIX - Envio", src: `${basePath}/portfolio/moto/PIX - envio.png`, icon: Zap },
-      { name: "PIX - Bancos", src: `${basePath}/portfolio/moto/Pix - Bancos.png`, icon: Wallet },
-      { name: "Receber", src: `${basePath}/portfolio/moto/Receber.png`, icon: Wallet },
-      { name: "Cartão", src: `${basePath}/portfolio/moto/Cartão.png`, icon: CreditCard },
-      { name: "Financiamento", src: `${basePath}/portfolio/moto/Financiamento.png`, icon: Gift },
-      { name: "Cursos", src: `${basePath}/portfolio/moto/Cursos.png`, icon: Star },
+      { name: "PIX", src: `${basePath}/portfolio/moto/PIX - envio.png`, icon: Zap },
+      { name: t("modals.pixPayments"), src: `${basePath}/portfolio/moto/Pix - Bancos.png`, icon: Wallet },
+      { name: t("modals.instantPix"), src: `${basePath}/portfolio/moto/Receber.png`, icon: Wallet },
+      { name: t("modals.creditCard"), src: `${basePath}/portfolio/moto/Cartão.png`, icon: CreditCard },
+      { name: t("modals.cardFinancing"), src: `${basePath}/portfolio/moto/Financiamento.png`, icon: Gift },
+      { name: t("modals.excellence"), src: `${basePath}/portfolio/moto/Cursos.png`, icon: Star },
     ],
     account: [
-      { name: "Minha Conta", src: `${basePath}/portfolio/moto/Minha conta.png`, icon: Users },
-      { name: "Configurações", src: `${basePath}/portfolio/moto/Configurações.png`, icon: Lock },
-      { name: "Notificações", src: `${basePath}/portfolio/moto/Notificações.png`, icon: Star },
+      { name: t("modals.yourAccount"), src: `${basePath}/portfolio/moto/Minha conta.png`, icon: Users },
+      { name: t("modals.mobileFirst"), src: `${basePath}/portfolio/moto/Configurações.png`, icon: Lock },
+      { name: t("modals.excellence"), src: `${basePath}/portfolio/moto/Notificações.png`, icon: Star },
     ]
   };
 
@@ -41,15 +43,7 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
   const [currentScreen, setCurrentScreen] = useState(0);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [preloadedImages, setPreloadedImages] = useState<string[]>([]);
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  const stats = [
-    { value: "4.8", label: "Estrelas", suffix: "★" },
-    { value: "1M+", label: "Entregadores" },
-    { value: "R$0", label: "Anuidade" },
-    { value: "24h", label: "Abertura" }
-  ];
 
   const allScreens = [
     ...screens.splash,
@@ -141,21 +135,21 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
             className={`moto-nav-tab ${activeSection === "hero" ? "active" : ""}`}
           >
             <Smartphone size={16} />
-            Visão Geral
+            {t("modals.overview")}
           </button>
           <button
             onClick={() => setActiveSection("journey")}
             className={`moto-nav-tab ${activeSection === "journey" ? "active" : ""}`}
           >
             <Play size={16} />
-            Tour pelo App
+            {t("modals.tourApp")}
           </button>
           <button
             onClick={() => setActiveSection("features")}
             className={`moto-nav-tab ${activeSection === "features" ? "active" : ""}`}
           >
             <Zap size={16} />
-            Funcionalidades
+            {t("modals.features")}
           </button>
         </div>
 
@@ -187,23 +181,26 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                 <div className="moto-hero-text">
                   <div className="moto-hero-badge">
                     <Bike size={14} />
-                    <span>Banco Digital #1 para Entregadores</span>
+                    <span>{t("modals.appMotoTitle")}</span>
                   </div>
                   
                   <h1 className="moto-hero-title">
-                    <span className="moto-title-line">Feito para quem</span>
-                    <span className="moto-title-accent">anda na estrada</span>
+                    <span className="moto-title-line">{t("modals.madeForRoad")}</span>
+                    <span className="moto-title-accent">{t("modals.ridesRoad")}</span>
                   </h1>
                   
                   <p className="moto-hero-subtitle">
-                    Protótipo navegável de alta fidelidade. 
-                    Conta grátis, PIX instantâneo, desconto em combustível 
-                    e muito mais para motociclistas entregadores.
+                    {t("modals.prototypeDesc")}
                   </p>
 
                   {/* Stats */}
                   <div className="moto-hero-stats">
-                    {stats.map((stat, index) => (
+                    {[
+                      { value: "4.8", label: t("modals.stars"), suffix: "★" },
+                      { value: "1M+", label: t("modals.riders") },
+                      { value: "R$0", label: t("modals.annuity") },
+                      { value: "24h", label: t("modals.opening") }
+                    ].map((stat, index) => (
                       <div key={index} className="moto-hero-stat">
                         <span className="moto-stat-value">
                           {stat.value}
@@ -218,7 +215,7 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                   <div className="moto-hero-cta">
                     <button onClick={() => setActiveSection("journey")} className="moto-cta-primary">
                       <Play size={18} />
-                      <span>Ver Tour Completo</span>
+                      <span>{t("modals.seeFullTour")}</span>
                     </button>
                   </div>
                 </div>
@@ -317,7 +314,7 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                 className="moto-journey-zoom"
               >
                 <Eye size={16} />
-                <span>Ver Tela Cheia</span>
+                <span>{t("modals.appMotoFullScreen")}</span>
               </button>
             </div>
           )}
@@ -331,8 +328,8 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                     <Lock size={24} />
                   </div>
                   <div>
-                    <h3>Fluxo de Login Seguro</h3>
-                    <p>Cadastro e autenticação com biometria</p>
+                    <h3>{t("modals.loginFlow")}</h3>
+                    <p>{t("modals.loginFlowDesc")}</p>
                   </div>
                 </div>
                 <div className="moto-feature-screens">
@@ -352,8 +349,8 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                     <Zap size={24} />
                   </div>
                   <div>
-                    <h3>PIX Instantâneo</h3>
-                    <p>Envio e recebimento em segundos</p>
+                    <h3>{t("modals.instantPix")}</h3>
+                    <p>{t("modals.instantPixDesc")}</p>
                   </div>
                 </div>
                 <div className="moto-feature-screens">
@@ -373,8 +370,8 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                     <CreditCard size={24} />
                   </div>
                   <div>
-                    <h3>Cartão e Financiamento</h3>
-                    <p>Gestão completa do seu cartão e crédito</p>
+                    <h3>{t("modals.cardFinancing")}</h3>
+                    <p>{t("modals.cardFinancingDesc")}</p>
                   </div>
                 </div>
                 <div className="moto-feature-screens">
@@ -394,8 +391,8 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
                     <Users size={24} />
                   </div>
                   <div>
-                    <h3>Sua Conta</h3>
-                    <p>Dados, configurações e notificações</p>
+                    <h3>{t("modals.yourAccount")}</h3>
+                    <p>{t("modals.yourAccountDesc")}</p>
                   </div>
                 </div>
                 <div className="moto-feature-screens">
@@ -418,7 +415,7 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
               </button>
               <img 
                 src={lightboxImage} 
-                alt="Tela em tamanho completo"
+                alt={t("modals.fullScreen")}
                 className="moto-lightbox-image"
                 onClick={(e) => e.stopPropagation()}
               />
@@ -492,32 +489,6 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
         .moto-header-text {
           display: flex;
           flex-direction: column;
-        }
-
-        .moto-header-actions {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-        }
-
-        .moto-header-btn {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.5rem 1rem;
-          background: rgba(34, 197, 94, 0.1);
-          border: 1px solid rgba(34, 197, 94, 0.3);
-          border-radius: 8px;
-          color: #22C55E;
-          font-family: 'Exo 2', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .moto-header-btn:hover {
-          background: rgba(34, 197, 94, 0.2);
         }
 
         .moto-modal-close {
@@ -777,27 +748,6 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
         .moto-cta-primary:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
-        }
-
-        .moto-cta-secondary {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.875rem 1.25rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
-          color: white;
-          font-family: 'Exo 2', sans-serif;
-          font-weight: 600;
-          font-size: 0.8rem;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-
-        .moto-cta-secondary:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(34, 197, 94, 0.3);
         }
 
         /* Journey Section */

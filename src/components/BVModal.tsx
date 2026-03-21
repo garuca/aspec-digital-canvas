@@ -1,52 +1,14 @@
 import { useEffect, useState } from "react";
-import { X, ExternalLink, Building2, Users, Shield, Smartphone, CreditCard, Wallet, Car, Sun, Download, Play } from "lucide-react";
+import { X, ExternalLink, Building2, Download, Play, Car, Wallet, CreditCard, Smartphone, Shield, Sun } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface BVModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const features = [
-  {
-    icon: Car,
-    title: "Financiamento de Veículos",
-    description: "Carro, moto, ônibus ou caminhão. Escolha o veículo, defina entrada e parcelas."
-  },
-  {
-    icon: Wallet,
-    title: "Empréstimo Pessoal",
-    description: "Crédito rápido e fácil para realizar seus planos com até 45 dias para começar a pagar."
-  },
-  {
-    icon: CreditCard,
-    title: "Cartão de Crédito",
-    description: "Escolha entre cashback de até 1,5% ou cartão sem anuidade para sempre."
-  },
-  {
-    icon: Smartphone,
-    title: "Conta Digital Grátis",
-    description: "Pix, saques ilimitados no Banco24Horas, investimentos e muito mais."
-  },
-  {
-    icon: Shield,
-    title: "Empréstimo com Garantia",
-    description: "Use seu veículo pago como garantia e consiga taxas menores."
-  },
-  {
-    icon: Sun,
-    title: "Energia Solar",
-    description: "Financiamento para instalação de painéis solares com condições especiais."
-  }
-];
-
-const stats = [
-  { value: "4.2", label: "Estrelas", suffix: "★" },
-  { value: "10M+", label: "Downloads", suffix: "" },
-  { value: "378K", label: "Avaliações", suffix: "" },
-  { value: "100%", label: "Digital", suffix: "grátis" }
-];
-
 const BVModal = ({ isOpen, onClose }: BVModalProps) => {
+  const { t } = useLanguage();
   const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
   const [activeSection, setActiveSection] = useState<"overview" | "features" | "about">("overview");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -113,19 +75,19 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
             onClick={() => setActiveSection("overview")}
             className={`bv-nav-tab ${activeSection === "overview" ? "active" : ""}`}
           >
-            Visão Geral
+            {t("modals.overview")}
           </button>
           <button
             onClick={() => setActiveSection("features")}
             className={`bv-nav-tab ${activeSection === "features" ? "active" : ""}`}
           >
-            Produtos
+            {t("modals.bvProducts")}
           </button>
           <button
             onClick={() => setActiveSection("about")}
             className={`bv-nav-tab ${activeSection === "about" ? "active" : ""}`}
           >
-            Sobre o Banco
+            {t("modals.bvAbout")}
           </button>
         </div>
 
@@ -135,7 +97,12 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
             <div className="bv-overview">
               {/* Stats */}
               <div className="bv-stats">
-                {stats.map((stat, index) => (
+                {[
+                  { value: "4.2", label: t("modals.stars"), suffix: "★" },
+                  { value: "10M+", label: t("modals.downloads"), suffix: "" },
+                  { value: "378K", label: t("modals.reviews"), suffix: "" },
+                  { value: "100%", label: t("modals.bvDigital"), suffix: "grátis" }
+                ].map((stat, index) => (
                   <div key={index} className="bv-stat-card">
                     <div className="bv-stat-value">
                       <span className="font-exo font-bold text-2xl">{stat.value}</span>
@@ -156,7 +123,7 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
                       onClick={() => setLightboxImage(img)}
                     >
                       <div className="bv-gallery-phone-frame">
-                        <img src={img} alt={`Tela ${index + 1}`} className="bv-gallery-image" />
+                        <img src={img} alt={`${t("modals.screen")} ${index + 1}`} className="bv-gallery-image" />
                         <div className="bv-gallery-overlay">
                           <Play size={20} />
                         </div>
@@ -175,7 +142,7 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
                   className="bv-cta-button"
                 >
                   <Download size={20} />
-                  <span>Baixar na Google Play</span>
+                  <span>{t("modals.downloadGooglePlay")}</span>
                 </a>
                 <a 
                   href="https://www.bv.com.br" 
@@ -184,7 +151,7 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
                   className="bv-cta-secondary"
                 >
                   <ExternalLink size={16} />
-                  <span>Visite o Site</span>
+                  <span>{t("modals.visitSite")}</span>
                 </a>
               </div>
             </div>
@@ -193,19 +160,26 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
           {activeSection === "features" && (
             <div className="bv-features">
               <div className="bv-features-header">
-                <h3 className="font-exo font-bold text-2xl text-white mb-2">Produtos e Serviços</h3>
-                <p className="font-exo text-white/60">Soluções financeiras completas para cada momento da sua vida</p>
+                <h3 className="font-exo font-bold text-2xl text-white mb-2">{t("modals.bvProductsTitle")}</h3>
+                <p className="font-exo text-white/60">{t("modals.bvProductsDesc")}</p>
               </div>
               
               <div className="bv-features-grid">
-                {features.map((feature, index) => (
+                {[
+                  { icon: Car, title: t("modals.vehicleFinancing"), desc: t("modals.vehicleFinancingDesc") },
+                  { icon: Wallet, title: t("modals.personalLoan"), desc: t("modals.personalLoanDesc") },
+                  { icon: CreditCard, title: t("modals.creditCard"), desc: t("modals.creditCardDesc") },
+                  { icon: Smartphone, title: t("modals.freeDigitalAccount"), desc: t("modals.freeDigitalAccountDesc") },
+                  { icon: Shield, title: t("modals.securedLoan"), desc: t("modals.securedLoanDesc") },
+                  { icon: Sun, title: t("modals.solarEnergy"), desc: t("modals.solarEnergyDesc") }
+                ].map((feature, index) => (
                   <div key={index} className="bv-feature-card">
                     <div className="bv-feature-icon">
                       <feature.icon size={24} />
                     </div>
                     <div className="bv-feature-content">
                       <h4 className="font-exo font-semibold text-white">{feature.title}</h4>
-                      <p className="font-exo text-sm text-white/50">{feature.description}</p>
+                      <p className="font-exo text-sm text-white/50">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -221,26 +195,26 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
                 </div>
                 <h3 className="font-exo font-bold text-3xl text-white mb-4">Banco Votorantim</h3>
                 <p className="font-exo text-white/60 text-lg max-w-2xl mx-auto">
-                  O banco especialista em financiamento, empréstimo, conta, cartão e muito mais
+                  {t("modals.bvProductsDesc")}
                 </p>
               </div>
 
               <div className="bv-about-grid">
                 <div className="bv-about-card">
                   <div className="bv-about-card-number">40+</div>
-                  <div className="bv-about-card-label">Anos de história</div>
+                  <div className="bv-about-card-label">{t("modals.bvYears")}</div>
                 </div>
                 <div className="bv-about-card">
                   <div className="bv-about-card-number">10M+</div>
-                  <div className="bv-about-card-label">Clientes</div>
+                  <div className="bv-about-card-label">{t("modals.bvClients")}</div>
                 </div>
                 <div className="bv-about-card">
                   <div className="bv-about-card-number">#1</div>
-                  <div className="bv-about-card-label">Financiamento de veículos</div>
+                  <div className="bv-about-card-label">{t("modals.bvVehicleFinancing")}</div>
                 </div>
                 <div className="bv-about-card">
                   <div className="bv-about-card-number">24/7</div>
-                  <div className="bv-about-card-label">Atendimento</div>
+                  <div className="bv-about-card-label">{t("modals.bvSupport")}</div>
                 </div>
               </div>
 
@@ -261,7 +235,7 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
                   className="bv-cta-button"
                 >
                   <Download size={20} />
-                  <span>Baixar Aplicativo</span>
+                  <span>{t("modals.downloadApp")}</span>
                 </a>
               </div>
             </div>
@@ -275,7 +249,7 @@ const BVModal = ({ isOpen, onClose }: BVModalProps) => {
               </button>
               <img 
                 src={lightboxImage} 
-                alt="Tela do app em tamanho completo" 
+                alt={t("modals.fullScreen")} 
                 className="bv-lightbox-image"
                 onClick={(e) => e.stopPropagation()}
               />

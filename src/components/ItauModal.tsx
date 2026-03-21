@@ -1,71 +1,35 @@
 import { useEffect, useState } from "react";
-import { X, ExternalLink, Bot, MessageCircle, Shield, Clock, Zap, CreditCard, Wallet, RefreshCw, HelpCircle, ChevronRight, CheckCircle, Smartphone, TrendingUp, Users, Globe, Lock, Volume2, Send, Sparkles } from "lucide-react";
+import { X, ExternalLink, Bot, MessageCircle, Shield, Clock, Zap, CreditCard, Wallet, RefreshCw, HelpCircle, CheckCircle, Smartphone, TrendingUp, Users, Globe, Lock, Volume2, Send, Sparkles } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ItauModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const capabilities = [
-  {
-    icon: Wallet,
-    title: "Consulta de Saldo",
-    description: "Consulte saldo e extrato em segundos",
-    color: "#EC7000"
-  },
-  {
-    icon: CreditCard,
-    title: "Gestão de Cartões",
-    description: "Segunda via, limites e fatura",
-    color: "#FF8C00"
-  },
-  {
-    icon: RefreshCw,
-    title: "Renegociação",
-    description: "Negocie dívidas de forma fácil",
-    color: "#FF6B00"
-  },
-  {
-    icon: TrendingUp,
-    title: "Empréstimos",
-    description: "Simule e contrate rapidamente",
-    color: "#E65100"
-  },
-  {
-    icon: HelpCircle,
-    title: "Tire Dúvidas",
-    description: "Respostas instantâneas 24h",
-    color: "#FF7F00"
-  },
-  {
-    icon: Zap,
-    title: "Pix no WhatsApp",
-    description: "Pagamentos pelo mensageiro",
-    color: "#FF9000"
-  }
-];
-
-const stats = [
-  { value: "70M+", label: "Clientes", icon: Users },
-  { value: "24/7", label: "Disponível", icon: Clock },
-  { value: "35%", label: "Mais Rápido", icon: Zap },
-  { value: "100%", label: "Seguro", icon: Shield }
-];
-
-const conversationDemo = [
-  { type: "user", text: "Quero fazer um Pix de R$ 50" },
-  { type: "bot", text: "Claro! Para quem você quer enviar?" },
-  { type: "user", text: "Para Maria, chave CPF" },
-  { type: "bot", text: "Encontrei Maria. Confirme: R$ 50,00 para Maria Silva. Posso procesar?" },
-  { type: "user", text: "Sim!" },
-  { type: "bot", text: "✅ Pix realizado com sucesso! R$ 50,00 enviado para Maria Silva. Comprovante enviado para seu e-mail." }
-];
-
 const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState<"overview" | "capabilities" | "demo">("overview");
   const [messageIndex, setMessageIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(false);
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
+
+  const capabilities = [
+    { icon: Wallet, title: t("modals.balance"), desc: t("modals.balanceDesc"), color: "#EC7000" },
+    { icon: CreditCard, title: t("modals.cardManagement"), desc: t("modals.cardManagementDesc"), color: "#FF8C00" },
+    { icon: RefreshCw, title: t("modals.negotiation"), desc: t("modals.negotiationDesc"), color: "#FF6B00" },
+    { icon: TrendingUp, title: t("modals.loans"), desc: t("modals.loansDesc"), color: "#E65100" },
+    { icon: HelpCircle, title: t("modals.faq"), desc: t("modals.faqDesc"), color: "#FF7F00" },
+    { icon: Zap, title: t("modals.pixWhatsApp"), desc: t("modals.pixWhatsAppDesc"), color: "#FF9000" }
+  ];
+
+  const conversationDemo = [
+    { type: "user", text: t("modals.pixDemo1") },
+    { type: "bot", text: t("modals.pixDemo2") },
+    { type: "user", text: t("modals.pixDemo3") },
+    { type: "bot", text: t("modals.pixDemo4") },
+    { type: "user", text: t("modals.pixDemo5") },
+    { type: "bot", text: t("modals.pixDemo6") }
+  ];
 
   useEffect(() => {
     if (isOpen) {
@@ -113,8 +77,8 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
               <Bot size={24} />
             </div>
             <div className="itau-header-text">
-              <span className="font-exo font-bold text-xl" style={{ color: "#FF6B00" }}>Assistente Virtual Itaú</span>
-              <span className="text-white/50 font-exo text-sm ml-2">CHATBOT COM IA</span>
+              <span className="font-exo font-bold text-xl" style={{ color: "#FF6B00" }}>{t("results.itau.project")}</span>
+              <span className="text-white/50 font-exo text-sm ml-2">{t("portfolio.itau.client")}</span>
             </div>
           </div>
           <button onClick={onClose} className="itau-modal-close">
@@ -129,21 +93,21 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
             className={`itau-nav-tab ${activeSection === "overview" ? "active" : ""}`}
           >
             <Sparkles size={16} />
-            Visão Geral
+            {t("modals.overview")}
           </button>
           <button
             onClick={() => setActiveSection("capabilities")}
             className={`itau-nav-tab ${activeSection === "capabilities" ? "active" : ""}`}
           >
             <MessageCircle size={16} />
-            Funcionalidades
+            {t("modals.capabilities")}
           </button>
           <button
             onClick={() => setActiveSection("demo")}
             className={`itau-nav-tab ${activeSection === "demo" ? "active" : ""}`}
           >
             <Volume2 size={16} />
-            Demo
+            {t("modals.demo")}
           </button>
         </div>
 
@@ -155,19 +119,24 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
               <div className="itau-hero-section">
                 <div className="itau-hero-badge">
                   <Globe size={14} />
-                  <span>O maior banco digital da América Latina</span>
+                  <span>{t("modals.largestBank")}</span>
                 </div>
                 <h2 className="itau-hero-title">
-                  Inteligência artificial que revoluciona o atendimento bancário
+                  {t("modals.aiRevolution")}
                 </h2>
                 <p className="itau-hero-subtitle">
-                  O Assistente Virtual Itaú utiliza IA generativa para oferecer um atendimento hiperpersonalizado, disponível 24 horas por dia, 7 dias por semana. Comaprendendo e evoluindo a cada interação.
+                  {t("modals.aiRevolutionDesc")}
                 </p>
               </div>
 
               {/* Stats Grid */}
               <div className="itau-stats-grid">
-                {stats.map((stat, index) => (
+                {[
+                  { value: "70M+", label: t("modals.clients"), icon: Users },
+                  { value: "24/7", label: t("modals.available"), icon: Clock },
+                  { value: "35%", label: t("modals.faster"), icon: Zap },
+                  { value: "100%", label: t("modals.secure"), icon: Shield }
+                ].map((stat, index) => (
                   <div key={index} className="itau-stat-card">
                     <div className="itau-stat-icon">
                       <stat.icon size={20} />
@@ -180,7 +149,7 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
 
               {/* Key Features */}
               <div className="itau-features-preview">
-                <h3 className="itau-section-title">O que o assistente faz por você</h3>
+                <h3 className="itau-section-title">{t("modals.whatAssistantDoes")}</h3>
                 <div className="itau-features-list">
                   {capabilities.slice(0, 4).map((cap, index) => (
                     <div key={index} className="itau-feature-item">
@@ -202,7 +171,7 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                   className="itau-cta-button"
                 >
                   <ExternalLink size={18} />
-                  <span>Conhecer o Assistente</span>
+                  <span>{t("modals.knowAssistant")}</span>
                 </a>
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.itau&hl=pt_BR" 
@@ -211,7 +180,7 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                   className="itau-cta-secondary"
                 >
                   <Smartphone size={16} />
-                  <span>Baixar App</span>
+                  <span>{t("modals.downloadApp")}</span>
                 </a>
               </div>
             </div>
@@ -220,8 +189,8 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
           {activeSection === "capabilities" && (
             <div className="itau-capabilities">
               <div className="itau-capabilities-header">
-                <h3 className="font-exo font-bold text-2xl text-white mb-2">Funcionalidades Completas</h3>
-                <p className="font-exo text-white/60">Tudo que você pode fazer com a Inteligência Itaú</p>
+                <h3 className="font-exo font-bold text-2xl text-white mb-2">{t("modals.fullCapabilities")}</h3>
+                <p className="font-exo text-white/60">{t("modals.fullCapabilitiesDesc")}</p>
               </div>
 
               <div className="itau-capabilities-grid">
@@ -235,7 +204,7 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                     </div>
                     <div className="itau-capability-content">
                       <h4 className="font-exo font-semibold text-white">{cap.title}</h4>
-                      <p className="font-exo text-sm text-white/60">{cap.description}</p>
+                      <p className="font-exo text-sm text-white/60">{cap.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -244,20 +213,20 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
               <div className="itau-security-section">
                 <div className="itau-security-badge">
                   <Lock size={20} />
-                  <span>Segurança Itaú</span>
+                  <span>{t("modals.itauSecurity")}</span>
                 </div>
                 <div className="itau-security-features">
                   <div className="itau-security-item">
                     <Shield size={16} />
-                    <span>Autenticação biométrica</span>
+                    <span>{t("modals.biometric")}</span>
                   </div>
                   <div className="itau-security-item">
                     <Shield size={16} />
-                    <span>Proteção contra fraudes</span>
+                    <span>{t("modals.fraudProtection")}</span>
                   </div>
                   <div className="itau-security-item">
                     <Shield size={16} />
-                    <span>Transferência para humanos</span>
+                    <span>{t("modals.humanTransfer")}</span>
                   </div>
                 </div>
               </div>
@@ -268,9 +237,9 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
             <div className="itau-demo">
               <div className="itau-demo-header">
                 <h3 className="font-exo font-bold text-2xl text-white mb-2">
-                  <span style={{ color: "#FF6B00" }}>Inteligência</span> Itaú em ação
+                  <span style={{ color: "#FF6B00" }}>{t("modals.itauIntelligence")}</span>
                 </h3>
-                <p className="font-exo text-white/60">Veja como é simples resolver suas necessidades</p>
+                <p className="font-exo text-white/60">{t("modals.itauIntelligenceDesc")}</p>
               </div>
 
               {/* Chat Demo */}
@@ -280,10 +249,10 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                     <Bot size={20} />
                   </div>
                   <div className="itau-chat-info">
-                    <span className="itau-chat-name">Inteligência Itaú</span>
+                    <span className="itau-chat-name">{t("modals.itauIntelligence")}</span>
                     <span className="itau-chat-status">
                       <span className="itau-status-dot" />
-                      Online
+                      {t("modals.online")}
                     </span>
                   </div>
                 </div>
@@ -304,7 +273,7 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                 <div className="itau-chat-input">
                   <input 
                     type="text" 
-                    placeholder="Digite sua mensagem..." 
+                    placeholder={t("modals.typeMessage")} 
                     disabled 
                     className="itau-input-field"
                   />
@@ -321,8 +290,8 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                     <Zap size={20} />
                   </div>
                   <div>
-                    <h4>Respostas instantâneas</h4>
-                    <p>Menos de 2 segundos</p>
+                    <h4>{t("modals.instantResponses")}</h4>
+                    <p>{t("modals.seconds")}</p>
                   </div>
                 </div>
                 <div className="itau-demo-highlight">
@@ -330,8 +299,8 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                     <MessageCircle size={20} />
                   </div>
                   <div>
-                    <h4>Voice & Text</h4>
-                    <p>Fale ou digite</p>
+                    <h4>{t("modals.voiceText")}</h4>
+                    <p>{t("modals.speakOrType")}</p>
                   </div>
                 </div>
                 <div className="itau-demo-highlight">
@@ -339,8 +308,8 @@ const ItauModal = ({ isOpen, onClose }: ItauModalProps) => {
                     <Globe size={20} />
                   </div>
                   <div>
-                    <h4>Pix no WhatsApp</h4>
-                    <p>Pagamentos rápidos</p>
+                    <h4>{t("modals.pixPayments")}</h4>
+                    <p>{t("modals.fastPayments")}</p>
                   </div>
                 </div>
               </div>
