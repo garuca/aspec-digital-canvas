@@ -81,17 +81,32 @@ const HeroSection = () => {
             <div className="absolute top-1/4 -right-10 w-2 h-2 bg-purple-300/40 rounded-full animate-ping" style={{ animationDuration: '1.8s' }} />
           </div>
 
-          <p className="font-exo text-lg text-white/70 max-w-xl text-center leading-relaxed">
-            A única consultoria que integra de verdade{" "}
-            <span className="text-gradient-aspec font-bold">design</span>
-            <span className="text-white/40 mx-1">+</span>
-            <span className="text-gradient-aspec font-bold">tecnologia</span>
-            <span className="text-white/40 mx-1">+</span>
-            <span className="text-gradient-aspec font-bold">desenvolvimento</span>.{" "}
-            Geramos impactos expressivos com{" "}
-            <span className="text-cyan-400 font-semibold">IA de última geração</span>{" "}
-            e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
-          </p>
+          <div className="max-w-2xl text-center">
+            <p className="font-exo text-lg md:text-xl text-white/80 leading-relaxed mb-6">
+              A única consultoria que integra de verdade
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6">
+              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                design
+              </span>
+              <span className="text-purple-400 text-2xl font-light">+</span>
+              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                tecnologia
+              </span>
+              <span className="text-cyan-400 text-2xl font-light">+</span>
+              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-pink-400 via-rose-400 to-pink-400 bg-clip-text text-transparent">
+                desenvolvimento
+              </span>
+            </div>
+            <p className="font-exo text-base md:text-lg text-white/60 leading-relaxed">
+              Geramos impactos expressivos com{" "}
+              <span className="relative inline-block">
+                <span className="text-cyan-400 font-semibold">IA de última geração</span>
+                <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
+              </span>{" "}
+              e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Button variant="gradient" size="lg" className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group">
