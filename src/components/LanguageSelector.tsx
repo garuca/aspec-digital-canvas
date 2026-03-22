@@ -6,12 +6,14 @@ const flags = {
   pt: "🇧🇷",
   en: "🇺🇸",
   es: "🇪🇸",
+  fr: "🇫🇷",
 };
 
 const flagLabels = {
   pt: "Português",
   en: "English",
   es: "Español",
+  fr: "Français",
 };
 
 export const LanguageSelector = () => {
@@ -34,6 +36,7 @@ export const LanguageSelector = () => {
     { code: "pt" as const, flag: flags.pt },
     { code: "en" as const, flag: flags.en },
     { code: "es" as const, flag: flags.es },
+    { code: "fr" as const, flag: flags.fr },
   ];
 
   return (
