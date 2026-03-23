@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Brush, Code2, ExternalLink, ArrowRight, Layers, Sparkles, Palette, Cpu, Database, Globe, Layout, Maximize2, Minimize2, Moon, Heart, CheckSquare, Image, LucideIcon, GraduationCap, Bot, Bike, Building2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 import ProjectModal from "./ProjectModal";
 import SocialmediaModal from "./SocialmediaModal";
 import SLMandicModal from "./SLMandicModal";
@@ -47,7 +48,7 @@ const portfolioStars = Array.from({ length: 35 }, (_, i) => ({
 }));
 
 const PortfolioSection = () => {
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 

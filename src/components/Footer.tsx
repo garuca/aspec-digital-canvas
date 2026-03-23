@@ -1,11 +1,12 @@
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 const Footer = () => {
   const { t } = useLanguage();
 
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
 
   const navItems = [
     { label: "nav.inicio", href: "#inicio" },

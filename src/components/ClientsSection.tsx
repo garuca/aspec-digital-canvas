@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { getBasePath } from "@/utils/basePath";
 
 const ClientsSection = () => {
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
   const [paused, setPaused] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 

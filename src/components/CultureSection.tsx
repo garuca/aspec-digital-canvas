@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Target, Lightbulb, Rocket, RefreshCw, Sparkles, Zap, TrendingUp, BarChart3 } from "lucide-react";
 import ArticleModal from "./ArticleModal";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 const pillars = [
   {
@@ -56,7 +57,7 @@ const CultureSection = () => {
   const [visible, setVisible] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
 
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
 
   const blocksWithPath = [
     {

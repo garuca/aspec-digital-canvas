@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Rocket } from "lucide-react";
 import { LanguageSelector } from "./LanguageSelector";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t, language } = useLanguage();
 
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
 
   const getNavItems = () => [
     { key: "nav.inicio", href: "#inicio" },

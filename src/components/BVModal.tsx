@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, ExternalLink, Building2, Download, Play, Car, Wallet, CreditCard, Smartphone, Shield, Sun } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 interface BVModalProps {
   isOpen: boolean;
@@ -9,7 +10,7 @@ interface BVModalProps {
 
 const BVModal = ({ isOpen, onClose }: BVModalProps) => {
   const { t } = useLanguage();
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
   const [activeSection, setActiveSection] = useState<"overview" | "features" | "about">("overview");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   

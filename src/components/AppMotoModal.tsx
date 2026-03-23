@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { X, Bike, Zap, ChevronLeft, ChevronRight, Play, Download, Smartphone, CreditCard, Wallet, Home as HomeIcon, Lock, Star, Users, Gift, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 interface AppMotoModalProps {
   isOpen: boolean;
@@ -9,7 +10,7 @@ interface AppMotoModalProps {
 
 const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
   const { t } = useLanguage();
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
 
   const screens = {
     splash: [

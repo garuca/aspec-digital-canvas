@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, Clock, BookOpen, ChevronRight, Share2, Printer, CheckCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 interface ArticleModalProps {
   isOpen: boolean;
@@ -9,7 +10,7 @@ interface ArticleModalProps {
 }
 
 const ArticleModal = ({ isOpen, onClose, strategyNumber }: ArticleModalProps) => {
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
   const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight, Image, ExternalLink, Layers, Maximize2, ZoomIn } from "lucide-react";
+import { getBasePath } from "@/utils/basePath";
 
 interface CarrosselGroup {
   id: string;
@@ -13,7 +14,7 @@ interface SocialmediaModalProps {
 }
 
 const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
 
   const carrosselGroups: CarrosselGroup[] = [
     {

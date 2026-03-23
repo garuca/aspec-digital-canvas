@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Code2, Palette, TrendingUp, Linkedin, Mail, Sparkles, Award, Heart, Zap } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getBasePath } from "@/utils/basePath";
 
 interface TeamMember {
   name: string;
@@ -31,7 +32,7 @@ const teamStars = Array.from({ length: 30 }, (_, i) => ({
 }));
 
 const TeamSection = () => {
-  const basePath = typeof window !== "undefined" && window.location.pathname.startsWith("/aspec-digital-canvas") ? "/aspec-digital-canvas" : "";
+  const basePath = getBasePath();
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 

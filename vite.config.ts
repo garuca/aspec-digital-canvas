@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 import fs from "fs";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/aspec-digital-canvas/" : "/",
+export default defineConfig({
+  base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
+    componentTagger(),
     {
       name: "copy-404",
       closeBundle() {
@@ -34,4 +34,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
