@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://garuca.github.io/aspec-digital-canvas/
+      url: https://aspec.ia.br
     steps:
       - name: Checkout
         uses: actions/checkout@v4

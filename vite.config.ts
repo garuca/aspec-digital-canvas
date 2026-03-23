@@ -6,7 +6,7 @@ import fs from "fs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/aspec-digital-canvas/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
