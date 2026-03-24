@@ -32,7 +32,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle1": "Geramos impactos expressivos com",
     "hero.ai": "IA de última geração",
     "hero.subtitle2": "e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.",
-    "hero.cta1": "Iniciar Projeto",
+    "hero.cta1": "Conversar Agora",
     "hero.cta2": "Conhecer Serviços",
     "hero.scroll": "Role para descobrir",
     
@@ -574,7 +574,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle1": "We generate expressive impacts with",
     "hero.ai": "cutting-edge AI",
     "hero.subtitle2": "and a rigorous scientific approach to tackle your business's most critical challenges.",
-    "hero.cta1": "Start Project",
+    "hero.cta1": "Talk Now",
     "hero.cta2": "See Services",
     "hero.scroll": "Scroll to discover",
     
@@ -1116,7 +1116,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle1": "Generamos impactos expresivos con",
     "hero.ai": "IA de última generación",
     "hero.subtitle2": "y un enfoque científico riguroso para enfrentar los desafíos más críticos de tu negocio.",
-    "hero.cta1": "Iniciar Proyecto",
+    "hero.cta1": "Hablar Ahora",
     "hero.cta2": "Conocer Servicios",
     "hero.scroll": "Desplázate para descubrir",
     
@@ -1658,7 +1658,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.subtitle1": "Nous générons des impacts significatifs avec",
     "hero.ai": "une IA de pointe",
     "hero.subtitle2": "et une approche scientifique rigoureuse pour relever les défis les plus critiques de votre entreprise.",
-    "hero.cta1": "Démarrer un Projet",
+    "hero.cta1": "Parler Maintenant",
     "hero.cta2": "Voir les Services",
     "hero.scroll": "Défiler pour découvrir",
 
