@@ -546,7 +546,7 @@ const PortfolioSection = () => {
                     </div>
                   </div>
 
-                  <div className="portfolio-cta-strip w-full py-2 flex flex-col items-center gap-1 cursor-pointer transition-all duration-300 group/cta">
+                  <div className="portfolio-cta-strip w-full py-2 flex flex-col items-center gap-2">
                     <span className="font-exo text-[10px] text-white/70 text-center leading-tight max-w-[90%]">
                       Geramos impactos expressivos com IA de última geração e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
                     </span>
@@ -554,26 +554,40 @@ const PortfolioSection = () => {
                       href="https://wa.me/556282412665"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center justify-center gap-2 py-1.5 px-4 rounded-lg overflow-hidden transition-all duration-300"
-                      style={{ background: `${project.accentColor || project.color}30`, border: `1px solid ${project.accentColor || project.color}50` }}
+                      className="group relative flex items-center justify-center gap-2 py-2 px-4 rounded-xl overflow-hidden border transition-all duration-300"
+                      style={{ 
+                        borderColor: `${project.accentColor || project.color}50`,
+                        background: `${project.accentColor || project.color}20`
+                      }}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div 
-                        className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300"
-                        style={{ background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color})` }}
+                        className="absolute inset-0 opacity-80 group-hover:opacity-0 transition-opacity duration-300"
+                        style={{ background: `${project.accentColor || project.color}` }}
                       />
-                      <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shine opacity-0 group-hover/cta:opacity-100" />
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                      <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shine opacity-0 group-hover:opacity-100" />
                       <div className="relative z-10 flex items-center gap-2">
-                        <MessageCircle 
-                          size={14} 
-                          className="text-white" 
-                          fill="currentColor"
-                          style={{ color: project.accentColor || project.color }}
-                        />
+                        <div className="relative flex-shrink-0">
+                          <div 
+                            className="w-7 h-7 bg-purple-500/30 group-hover:bg-white/20 rounded-lg flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6"
+                          >
+                            <MessageCircle 
+                              size={14} 
+                              className="text-purple-400 group-hover:text-white transition-colors duration-300" 
+                              fill="currentColor"
+                            />
+                          </div>
+                          <div 
+                            className="absolute inset-0 w-7 h-7 bg-purple-500/20 group-hover:bg-green-400/40 rounded-lg blur-sm group-hover:blur-md transition-all duration-300"
+                          />
+                        </div>
                         <span className="font-exo font-bold text-xs text-white uppercase tracking-wider">
                           {t("portfolio.seeCase")}
                         </span>
-                        <ArrowRight size={12} className="text-white transform group-hover/cta:translate-x-1 transition-transform duration-300" />
+                        <ArrowRight size={12} className="text-white transform group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
                     </a>
                   </div>
