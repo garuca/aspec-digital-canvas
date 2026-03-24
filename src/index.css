@@ -1212,9 +1212,16 @@
   .project-modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: linear-gradient(
+      135deg,
+      rgba(91, 46, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.3) 25%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(168, 85, 247, 0.15) 75%,
+      rgba(91, 46, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     animation: backdrop-appear 0.4s ease-out;
   }
 
