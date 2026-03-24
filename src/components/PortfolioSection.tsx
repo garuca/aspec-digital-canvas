@@ -547,7 +547,7 @@ const PortfolioSection = () => {
                   </div>
 
                   <div 
-                    className="portfolio-cta-strip w-full py-3 cursor-pointer transition-all duration-300 group/cta"
+                    className="portfolio-cta-strip w-full py-2 cursor-pointer transition-all duration-300 group/cta"
                     style={{
                       background: project.accentColor || project.color,
                     }}
@@ -563,11 +563,16 @@ const PortfolioSection = () => {
                       }
                     }}
                   >
-                    <div className="flex items-center justify-center gap-3">
-                      <span className="font-exo font-bold text-sm tracking-wider text-white uppercase">
-                        {t("portfolio.seeCase")}
+                    <div className="flex flex-col items-center justify-center gap-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-exo font-bold text-xs tracking-wider text-white uppercase">
+                          {t("portfolio.seeCase")}
+                        </span>
+                        <ExternalLink size={14} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
+                      </div>
+                      <span className="font-exo text-[10px] text-white/70 text-center leading-tight max-w-[90%]">
+                        Geramos impactos expressivos com IA de última geração e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
                       </span>
-                      <ExternalLink size={16} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
                     </div>
                   </div>
                 </div>
