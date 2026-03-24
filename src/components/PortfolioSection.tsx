@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from "react";
-import { Brush, Code2, ExternalLink, Sparkles, Palette, Cpu, Database, Globe, Layout, Image, GraduationCap, Bot, Bike, Building2, Moon, CheckSquare, Heart } from "lucide-react";
+import { Brush, Code2, ExternalLink, Sparkles, Palette, Cpu, Database, Globe, Layout, Image, GraduationCap, Bot, Bike, Building2, Moon, CheckSquare, Heart, MessageCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getBasePath } from "@/utils/basePath";
 import ProjectModal from "./ProjectModal";
@@ -546,34 +546,36 @@ const PortfolioSection = () => {
                     </div>
                   </div>
 
-                  <div 
-                    className="portfolio-cta-strip w-full py-2 cursor-pointer transition-all duration-300 group/cta"
-                    style={{
-                      background: project.accentColor || project.color,
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (project.isSocialmedia) setShowSocialmediaModal(true);
-                      else if (project.isSLMandic) setShowSLMandicModal(true);
-                      else if (project.isBV) setShowBVModal(true);
-                      else if (project.isItau) setShowItauModal(true);
-                      else if (project.isAppMoto) setShowAppMotoModal(true);
-                      else if (project.images && project.images.length > 0) {
-                        setSelectedProject({ title: project.titleKey, images: project.images });
-                      }
-                    }}
-                  >
-                    <div className="flex flex-col items-center justify-center gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-exo font-bold text-xs tracking-wider text-white uppercase">
+                  <div className="portfolio-cta-strip w-full py-2 flex flex-col items-center gap-1 cursor-pointer transition-all duration-300 group/cta">
+                    <span className="font-exo text-[10px] text-white/70 text-center leading-tight max-w-[90%]">
+                      Geramos impactos expressivos com IA de última geração e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
+                    </span>
+                    <a
+                      href="https://wa.me/556282412665"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative flex items-center justify-center gap-2 py-1.5 px-4 rounded-lg overflow-hidden transition-all duration-300"
+                      style={{ background: `${project.accentColor || project.color}30`, border: `1px solid ${project.accentColor || project.color}50` }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300"
+                        style={{ background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color})` }}
+                      />
+                      <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shine opacity-0 group-hover/cta:opacity-100" />
+                      <div className="relative z-10 flex items-center gap-2">
+                        <MessageCircle 
+                          size={14} 
+                          className="text-white" 
+                          fill="currentColor"
+                          style={{ color: project.accentColor || project.color }}
+                        />
+                        <span className="font-exo font-bold text-xs text-white uppercase tracking-wider">
                           {t("portfolio.seeCase")}
                         </span>
-                        <ExternalLink size={14} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
+                        <ArrowRight size={12} className="text-white transform group-hover/cta:translate-x-1 transition-transform duration-300" />
                       </div>
-                      <span className="font-exo text-[10px] text-white/70 text-center leading-tight max-w-[90%]">
-                        Geramos impactos expressivos com IA de última geração e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
-                      </span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
