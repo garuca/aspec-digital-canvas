@@ -354,7 +354,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Results
     "results.badge": "Resultados Reais",
-    "results.title": "Números Que",
+    "results.title": "Números Que Falam",
     "results.subtitle": "Métricas reais de projetos entregues.",
     "results.clients": "Clientes Atendidos",
     "results.satisfaction": "Taxa de Satisfação",
@@ -896,7 +896,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Results
     "results.badge": "Real Results",
-    "results.title": "Numbers That",
+    "results.title": "Numbers That Speak",
     "results.subtitle": "Real metrics from delivered projects.",
     "results.clients": "Clients Served",
     "results.satisfaction": "Satisfaction Rate",
@@ -1438,7 +1438,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Results
     "results.badge": "Resultados Reales",
-    "results.title": "Números Que",
+    "results.title": "Números Que Hablan",
     "results.subtitle": "Métricas reales de proyectos entregados.",
     "results.clients": "Clientes Atendidos",
     "results.satisfaction": "Tasa de Satisfacción",
