@@ -499,29 +499,29 @@ const PortfolioSection = () => {
                     </div>
                   </div>
 
-                  <div className="portfolio-cta-footer px-4 pb-4">
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (project.isSocialmedia) setShowSocialmediaModal(true);
-                        else if (project.isSLMandic) setShowSLMandicModal(true);
-                        else if (project.isBV) setShowBVModal(true);
-                        else if (project.isItau) setShowItauModal(true);
-                        else if (project.isAppMoto) setShowAppMotoModal(true);
-                        else if (project.images && project.images.length > 0) {
-                          setSelectedProject({ title: project.titleKey, images: project.images });
-                        }
-                      }}
-                      className="portfolio-cta-btn w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-exo font-bold text-sm transition-all duration-300"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
-                        color: "white",
-                        boxShadow: `0 4px 20px ${project.accentColor || project.color}40`
-                      }}
-                    >
-                      <span>{t("portfolio.seeCase")}</span>
-                      <ExternalLink size={16} className="portfolio-cta-icon transition-transform duration-300" />
-                    </button>
+                  <div 
+                    className="portfolio-cta-strip w-full py-4 cursor-pointer transition-all duration-300 group/cta"
+                    style={{
+                      background: `linear-gradient(90deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}99, ${project.accentColor || project.color})`,
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (project.isSocialmedia) setShowSocialmediaModal(true);
+                      else if (project.isSLMandic) setShowSLMandicModal(true);
+                      else if (project.isBV) setShowBVModal(true);
+                      else if (project.isItau) setShowItauModal(true);
+                      else if (project.isAppMoto) setShowAppMotoModal(true);
+                      else if (project.images && project.images.length > 0) {
+                        setSelectedProject({ title: project.titleKey, images: project.images });
+                      }
+                    }}
+                  >
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="font-exo font-bold text-sm tracking-wider text-white uppercase">
+                        {t("portfolio.seeCase")}
+                      </span>
+                      <ExternalLink size={18} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
+                    </div>
                   </div>
 
                   <div 
