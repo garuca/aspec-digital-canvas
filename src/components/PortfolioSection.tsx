@@ -188,7 +188,6 @@ const PortfolioSection = () => {
   ];
 
   const [visible, setVisible] = useState(false);
-  const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<{title: string; images: string[]} | null>(null);
   const [showSocialmediaModal, setShowSocialmediaModal] = useState(false);
   const [showSLMandicModal, setShowSLMandicModal] = useState(false);
@@ -303,19 +302,13 @@ const PortfolioSection = () => {
                 style={{ transitionDelay: `${300 + index * 100}ms` }}
               >
                 <div
-                  className={`relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer ${
-                    expandedProject === index ? "ring-2" : ""
-                  }`}
+                  className="portfolio-card-hover relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer group"
                   style={{ 
                     background: project.type === "tech" 
                       ? `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)`
                       : `linear-gradient(135deg, ${project.color}10 0%, ${project.color}05 100%)`,
                     border: "1px solid rgba(255,255,255,0.05)",
-                    ...(expandedProject === index ? { 
-                      '--tw-ring-color': project.accentColor || project.color 
-                    } as React.CSSProperties : {})
                   }}
-                  onClick={() => setExpandedProject(expandedProject === index ? null : index)}
                 >
                   <div className="neon-strip neon-strip-design" style={{ 
                     '--neon-color': project.color,
@@ -476,12 +469,7 @@ const PortfolioSection = () => {
                         </div>
 
                         <div
-                          className="flex items-center gap-4 transition-all duration-500"
-                          style={{
-                            maxHeight: expandedProject === index ? "60px" : "0",
-                            opacity: expandedProject === index ? 1 : 0,
-                            overflow: "hidden"
-                          }}
+                          className="portfolio-cta-wrapper flex items-center gap-4 transition-all duration-500"
                         >
                           <button 
                             onClick={(e) => {
@@ -495,7 +483,7 @@ const PortfolioSection = () => {
                                 setSelectedProject({ title: project.titleKey, images: project.images });
                               }
                             }}
-                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-exo font-semibold text-sm transition-all duration-300 hover:scale-105"
+                            className="portfolio-cta-btn flex items-center gap-2 px-6 py-3 rounded-xl font-exo font-bold text-sm transition-all duration-300"
                             style={{ 
                               background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
                               color: "white",
@@ -503,7 +491,7 @@ const PortfolioSection = () => {
                             }}
                           >
                             <span>{t("portfolio.seeCase")}</span>
-                            <ExternalLink size={14} />
+                            <ExternalLink size={16} className="portfolio-cta-icon transition-transform duration-300" />
                           </button>
                           
                           <div className="flex items-center gap-2">
@@ -522,9 +510,8 @@ const PortfolioSection = () => {
                   </div>
 
                   <div 
-                    className="h-1 transition-all duration-500"
+                    className="portfolio-card-bottom-bar h-1 transition-all duration-500"
                     style={{
-                      width: expandedProject === index ? "100%" : "0%",
                       background: `linear-gradient(90deg, ${project.accentColor || project.color}, transparent)`,
                     }}
                   />
