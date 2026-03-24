@@ -4786,7 +4786,7 @@
 }
 
 .portfolio-card-hover:hover .portfolio-cta-strip {
-  max-height: 70px;
+  max-height: 60px;
   opacity: 1;
 }
 
