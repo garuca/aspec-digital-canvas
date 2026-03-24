@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Brush, Code2, ExternalLink, ArrowRight, Layers, Sparkles, Palette, Cpu, Database, Globe, Layout, Maximize2, Minimize2, Moon, Heart, CheckSquare, Image, LucideIcon, GraduationCap, Bot, Bike, Building2 } from "lucide-react";
+import { Brush, Code2, ExternalLink, Sparkles, Palette, Cpu, Database, Globe, Layout, Image, GraduationCap, Bot, Bike, Building2, Moon, CheckSquare, Heart } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getBasePath } from "@/utils/basePath";
 import ProjectModal from "./ProjectModal";
@@ -14,7 +14,7 @@ interface Project {
   clientKey: string;
   descriptionKey: string;
   tagsKey: string;
-  icon: LucideIcon;
+  icon: React.ElementType;
   color: string;
   metricKey: string;
   images?: string[];
@@ -27,6 +27,7 @@ interface Project {
   gradient?: string;
   accentColor?: string;
   designStyle?: "luna" | "socialmedia" | "taskmaster" | "virtus";
+  type: "design" | "tech";
 }
 
 const floatingElements = Array.from({ length: 15 }, (_, i) => ({
@@ -52,7 +53,7 @@ const PortfolioSection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
-  const designProjects: Project[] = [
+  const allProjects: Project[] = [
     {
       titleKey: "portfolio.luna.title",
       clientKey: "portfolio.luna.client",
@@ -72,6 +73,7 @@ const PortfolioSection = () => {
       gradient: "from-pink-500/30 via-purple-500/20 to-fuchsia-500/30",
       accentColor: "#D946EF",
       designStyle: "luna",
+      type: "design",
     },
     {
       titleKey: "portfolio.socialmedia.title",
@@ -85,6 +87,7 @@ const PortfolioSection = () => {
       gradient: "from-indigo-600/30 via-blue-500/20 to-violet-500/30",
       accentColor: "#5B2EFF",
       designStyle: "socialmedia",
+      type: "design",
     },
     {
       titleKey: "portfolio.taskmaster.title",
@@ -104,6 +107,7 @@ const PortfolioSection = () => {
       gradient: "from-violet-600/30 via-purple-500/20 to-indigo-500/30",
       accentColor: "#8B5CF6",
       designStyle: "taskmaster",
+      type: "design",
     },
     {
       titleKey: "portfolio.virtus.title",
@@ -123,10 +127,8 @@ const PortfolioSection = () => {
       gradient: "from-pink-600/30 via-rose-500/20 to-pink-500/30",
       accentColor: "#EC4899",
       designStyle: "virtus",
+      type: "design",
     },
-  ];
-
-  const techProjects: Project[] = [
     {
       titleKey: "portfolio.slmandic.title",
       clientKey: "portfolio.slmandic.client",
@@ -139,6 +141,7 @@ const PortfolioSection = () => {
       previewImage: `${basePath}/portfolio/slmandic/unnamed.webp`,
       gradient: "from-purple-600/20 to-pink-600/20",
       accentColor: "#A855F7",
+      type: "tech",
     },
     {
       titleKey: "portfolio.itau.title",
@@ -152,6 +155,7 @@ const PortfolioSection = () => {
       previewImage: `${basePath}/portfolio/itau/itau-chat.svg`,
       gradient: "from-orange-600/20 to-yellow-600/20",
       accentColor: "#FF6B00",
+      type: "tech",
     },
     {
       titleKey: "portfolio.appmoto.title",
@@ -165,6 +169,7 @@ const PortfolioSection = () => {
       previewImage: `${basePath}/portfolio/moto/Home.png`,
       gradient: "from-green-600/20 to-emerald-600/20",
       accentColor: "#22C55E",
+      type: "tech",
     },
     {
       titleKey: "portfolio.bv.title",
@@ -178,9 +183,10 @@ const PortfolioSection = () => {
       previewImage: `${basePath}/portfolio/bv/bv_projeto_aspec3.webp`,
       gradient: "from-cyan-600/20 to-blue-600/20",
       accentColor: "#06B6D4",
+      type: "tech",
     },
   ];
-  const [activeTab, setActiveTab] = useState<"DESIGN" | "TECHNOLOGY">("TECHNOLOGY");
+
   const [visible, setVisible] = useState(false);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<{title: string; images: string[]} | null>(null);
@@ -207,8 +213,6 @@ const PortfolioSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const currentProjects = activeTab === "DESIGN" ? designProjects : techProjects;
-
   return (
     <>
       <section id="portfolio" ref={sectionRef} className="relative pt-8 pb-32 overflow-hidden scroll-mt-20">
@@ -216,11 +220,9 @@ const PortfolioSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-purple-950/20" />
         
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* Galaxy glow effects */}
           <div className="galaxy-glow top-1/4 -left-48" />
           <div className="galaxy-glow bottom-1/4 -right-48" />
           
-          {/* Orbit rings */}
           <div className="orbit-ring orbit-ring-1" style={{ top: "20%", right: "5%" }} />
           <div className="orbit-ring" style={{ 
             width: "180px", 
@@ -232,7 +234,6 @@ const PortfolioSection = () => {
             animation: "orbit-spin 50s linear infinite"
           }} />
 
-          {/* Stars */}
           {portfolioStars.map((star) => (
             <span
               key={star.id}
@@ -248,7 +249,6 @@ const PortfolioSection = () => {
             />
           ))}
 
-          {/* Floating particles */}
           {floatingElements.map((el) => (
             <div
               key={el.id}
@@ -258,9 +258,7 @@ const PortfolioSection = () => {
                 height: el.size,
                 top: el.top,
                 left: el.left,
-                background: activeTab === "DESIGN" 
-                  ? "linear-gradient(135deg, #D946EF, #5B2EFF)"
-                  : "linear-gradient(135deg, #06B6D4, #0891B2)",
+                background: "linear-gradient(135deg, #A855F7, #5B2EFF)",
                 animationDuration: el.duration,
                 animationDelay: el.delay,
               }}
@@ -282,96 +280,165 @@ const PortfolioSection = () => {
             </p>
           </div>
 
-          <div className={`flex justify-center mb-16 transition-all duration-1000 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="inline-flex bg-purple-950/50 rounded-2xl p-1.5 border border-purple-500/20 backdrop-blur-sm">
-              <button
-                onClick={() => setActiveTab("TECHNOLOGY")}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-exo font-semibold text-sm transition-all duration-300 ${
-                  activeTab === "TECHNOLOGY"
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                <Code2 size={18} />
-                {t("portfolio.technology")}
-              </button>
-              <button
-                onClick={() => setActiveTab("DESIGN")}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-exo font-semibold text-sm transition-all duration-300 ${
-                  activeTab === "DESIGN"
-                    ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg shadow-purple-500/25"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                <Brush size={18} />
-                {t("portfolio.design")}
-              </button>
+          <div className="flex items-center justify-center gap-8 mb-12">
+            <div className="flex items-center gap-3">
+              <div className="neon-bar neon-bar-design" />
+              <span className="font-exo text-sm text-gray-400">
+                {t("portfolio.design")} (4)
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="neon-bar neon-bar-tech" />
+              <span className="font-exo text-sm text-gray-400">
+                {t("portfolio.technology")} (4)
+              </span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {currentProjects.map((project, index) => (
+            {allProjects.map((project, index) => (
               <div
-                key={`${activeTab}-${index}`}
+                key={`${project.type}-${index}`}
                 className={`group transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${300 + index * 100}ms` }}
               >
-                {activeTab === "TECHNOLOGY" ? (
-                  // Tech Card Premium
-                  <div
-                    className={`tech-card relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer ${
-                      expandedProject === index ? "ring-2" : ""
-                    }`}
-                    style={{ 
-                      background: `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)`,
-                      ...(expandedProject === index ? { 
-                        '--tw-ring-color': project.accentColor || project.color 
-                      } as React.CSSProperties : {})
-                    }}
-                    onClick={() => setExpandedProject(expandedProject === index ? null : index)}
-                  >
-                    {/* Glow Effect */}
-                    <div 
-                      className="absolute -top-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-30"
-                      style={{ background: project.accentColor || project.color }}
-                    />
+                <div
+                  className={`relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer ${
+                    expandedProject === index ? "ring-2" : ""
+                  }`}
+                  style={{ 
+                    background: project.type === "tech" 
+                      ? `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)`
+                      : `linear-gradient(135deg, ${project.color}10 0%, ${project.color}05 100%)`,
+                    border: "1px solid rgba(255,255,255,0.05)",
+                    ...(expandedProject === index ? { 
+                      '--tw-ring-color': project.accentColor || project.color 
+                    } as React.CSSProperties : {})
+                  }}
+                  onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                >
+                  <div className="neon-strip neon-strip-design" style={{ 
+                    '--neon-color': project.color,
+                    background: `linear-gradient(180deg, ${project.color}, ${project.color}80, ${project.color}40)`,
+                  } as React.CSSProperties} />
+                  
+                  <div className="neon-strip neon-strip-tech" style={{ 
+                    '--neon-color': project.color,
+                    background: `linear-gradient(180deg, ${project.color}, ${project.color}80, ${project.color}40)`,
+                  } as React.CSSProperties} />
 
-                    {/* Mockup de Celular ou Ícone */}
-                    <div className="relative p-8">
-                      <div className="flex items-start gap-6">
-                        {project.previewImage ? (
-                          <div className="tech-phone-mockup flex-shrink-0">
-                            <div className="tech-phone-frame">
-                              <img 
-                                src={project.previewImage} 
-                                alt={t(project.titleKey)}
-                                className="tech-phone-screen"
-                                onError={(e) => {
-                                  e.currentTarget.parentElement.innerHTML = `<div class="tech-phone-icon-fallback" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, ${project.color}, ${project.color}80);border-radius:14px;"><span style="color:white;font-size:24px;">${t(project.titleKey).charAt(0)}</span></div>`;
-                                }}
-                              />
-                              <div className="tech-phone-notch" />
+                  <div className="glow-effect absolute -top-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-20"
+                    style={{ background: project.accentColor || project.color }} />
+
+                  {project.type === "design" && project.designStyle === "luna" && (
+                    <>
+                      <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20" style={{ background: "radial-gradient(circle, #D946EF, transparent)", filter: "blur(20px)" }} />
+                      <div className="absolute bottom-0 left-0 w-full h-32" style={{ background: "linear-gradient(to top, rgba(217, 70, 239, 0.1), transparent)" }} />
+                      <div className="absolute top-8 right-8 w-16 h-16 rounded-full border-2 border-pink-400/30 flex items-center justify-center">
+                        <Moon size={24} className="text-pink-400/60" />
+                      </div>
+                    </>
+                  )}
+                  
+                  {project.type === "design" && project.designStyle === "socialmedia" && (
+                    <>
+                      <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
+                        <svg viewBox="0 0 100 100" className="w-full h-full">
+                          <circle cx="50" cy="50" r="45" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.3"/>
+                          <circle cx="50" cy="50" r="35" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.4"/>
+                          <circle cx="50" cy="50" r="25" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.5"/>
+                          <circle cx="50" cy="50" r="15" fill="#5B2EFF" opacity="0.6"/>
+                        </svg>
+                      </div>
+                      <div className="absolute bottom-4 left-4 flex gap-1">
+                        {[1,2,3,4].map(i => (
+                          <div key={i} className="w-2 h-8 rounded-full" style={{ background: `linear-gradient(to top, ${project.color}, transparent)`, opacity: 0.4 }} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  
+                  {project.type === "design" && project.designStyle === "taskmaster" && (
+                    <>
+                      <div className="absolute top-6 right-6 flex flex-col gap-2">
+                        {[1,2,3].map(i => (
+                          <div key={i} className="flex items-center gap-2">
+                            <div className="w-4 h-4 rounded border-2 flex items-center justify-center" style={{ borderColor: `${project.color}60` }}>
+                              {i === 1 && <CheckSquare size={10} style={{ color: project.color }} />}
                             </div>
-                            <div className="tech-phone-glow" style={{ background: project.accentColor || project.color }} />
+                            <div className="w-16 h-2 rounded" style={{ background: `${project.color}30` }} />
                           </div>
-                        ) : (
-                          <div className="tech-icon-showcase flex-shrink-0">
-                            <div 
-                              className="tech-icon-circle"
-                              style={{ 
-                                background: `linear-gradient(135deg, ${project.color}, ${project.color}80)`,
-                                boxShadow: `0 8px 30px ${project.color}40`
+                        ))}
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10">
+                        <CheckSquare size={96} style={{ color: project.color }} />
+                      </div>
+                    </>
+                  )}
+                  
+                  {project.type === "design" && project.designStyle === "virtus" && (
+                    <>
+                      <div className="absolute top-0 left-0 w-full h-full">
+                        <div className="absolute top-8 left-8 w-4 h-4 rounded-full" style={{ background: "#EC4899", opacity: 0.3 }} />
+                        <div className="absolute top-16 left-20 w-3 h-3 rounded-full" style={{ background: "#F472B6", opacity: 0.4 }} />
+                        <div className="absolute top-12 right-12 w-5 h-5 rounded-full" style={{ background: "#EC4899", opacity: 0.2 }} />
+                        <svg className="absolute top-4 right-4 w-20 h-20" viewBox="0 0 100 100">
+                          <path d="M50 20 C30 20, 20 35, 20 50 C20 70, 50 85, 50 85 C50 85, 80 70, 80 50 C80 35, 70 20, 50 20" fill="none" stroke="#EC4899" strokeWidth="2" opacity="0.3"/>
+                          <circle cx="35" cy="40" r="4" fill="#EC4899" opacity="0.4"/>
+                          <circle cx="65" cy="40" r="4" fill="#EC4899" opacity="0.4"/>
+                        </svg>
+                      </div>
+                      <div className="absolute bottom-4 right-4 flex items-center gap-1">
+                        <Heart size={16} style={{ color: project.color }} />
+                        <span className="text-xs" style={{ color: project.color, opacity: 0.6 }}>Connections</span>
+                      </div>
+                    </>
+                  )}
+
+                  <div className="relative p-8">
+                    <div className="flex items-start gap-6">
+                      {project.type === "tech" && project.previewImage ? (
+                        <div className="tech-phone-mockup flex-shrink-0">
+                          <div className="tech-phone-frame">
+                            <img 
+                              src={project.previewImage} 
+                              alt={t(project.titleKey)}
+                              className="tech-phone-screen"
+                              onError={(e) => {
+                                e.currentTarget.parentElement.innerHTML = `<div class="tech-phone-icon-fallback" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, ${project.color}, ${project.color}80);border-radius:14px;"><span style="color:white;font-size:24px;">${t(project.titleKey).charAt(0)}</span></div>`;
                               }}
-                            >
-                              <project.icon size={32} className="text-white" />
-                            </div>
+                            />
+                            <div className="tech-phone-notch" />
                           </div>
-                        )}
-
-                        <div className="flex-1 min-w-0">
-                          {/* Badge */}
+                          <div className="tech-phone-glow" style={{ background: project.accentColor || project.color }} />
+                        </div>
+                      ) : project.previewImage ? (
+                        <div className="design-icon-showcase flex-shrink-0">
+                          <img 
+                            src={project.previewImage} 
+                            alt={t(project.titleKey)}
+                            className="w-20 h-20 rounded-2xl object-cover"
+                            style={{ boxShadow: `0 8px 32px ${project.color}40` }}
+                          />
+                        </div>
+                      ) : (
+                        <div className="design-icon-showcase flex-shrink-0">
                           <div 
-                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4"
+                            className="w-20 h-20 rounded-2xl flex items-center justify-center"
+                            style={{ 
+                              background: `linear-gradient(135deg, ${project.color}, ${project.color}80)`,
+                              boxShadow: `0 8px 32px ${project.color}40`
+                            }}
+                          >
+                            <project.icon size={28} className="text-white" />
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div 
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
                             style={{ 
                               background: `${project.accentColor || project.color}20`,
                               border: `1px solid ${project.accentColor || project.color}40`,
@@ -381,263 +448,96 @@ const PortfolioSection = () => {
                             <project.icon size={12} />
                             <span>{t(project.clientKey)}</span>
                           </div>
+                        </div>
 
-                          {/* Título */}
-                          <h3 
-                            className="font-exo font-bold text-2xl mb-3 transition-all duration-300"
-                            style={{ color: "white" }}
-                          >
-                            {t(project.titleKey)}
-                          </h3>
+                        <h3 
+                          className="font-exo font-bold text-2xl mb-3 transition-all duration-300"
+                          style={{ 
+                            color: "white",
+                            textShadow: project.type === "design" ? `0 0 30px ${project.color}40` : "none"
+                          }}
+                        >
+                          {t(project.titleKey)}
+                        </h3>
 
-                          {/* Descrição */}
-                          <p className="font-exo text-gray-400 text-sm leading-relaxed mb-4">
-                            {t(project.descriptionKey)}
-                          </p>
+                        <p className="font-exo text-gray-400 text-sm leading-relaxed mb-4">
+                          {t(project.descriptionKey)}
+                        </p>
 
-                          {/* Tags */}
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            {t(project.tagsKey).split(", ").map((tag, tagIndex) => (
-                              <span
-                                key={tagIndex}
-                                className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {t(project.tagsKey).split(", ").map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-                          {/* CTA */}
-                          <div
-                            className="flex items-center gap-4 transition-all duration-500"
-                            style={{
-                              maxHeight: expandedProject === index ? "60px" : "0",
-                              opacity: expandedProject === index ? 1 : 0,
-                              overflow: "hidden"
+                        <div
+                          className="flex items-center gap-4 transition-all duration-500"
+                          style={{
+                            maxHeight: expandedProject === index ? "60px" : "0",
+                            opacity: expandedProject === index ? 1 : 0,
+                            overflow: "hidden"
+                          }}
+                        >
+                          <button 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (project.isSocialmedia) setShowSocialmediaModal(true);
+                              else if (project.isSLMandic) setShowSLMandicModal(true);
+                              else if (project.isBV) setShowBVModal(true);
+                              else if (project.isItau) setShowItauModal(true);
+                              else if (project.isAppMoto) setShowAppMotoModal(true);
+                              else if (project.images && project.images.length > 0) {
+                                setSelectedProject({ title: project.titleKey, images: project.images });
+                              }
+                            }}
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-exo font-semibold text-sm transition-all duration-300 hover:scale-105"
+                            style={{ 
+                              background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
+                              color: "white",
+                              boxShadow: `0 4px 20px ${project.accentColor || project.color}40`
                             }}
                           >
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (project.isSLMandic) setShowSLMandicModal(true);
-                                else if (project.isBV) setShowBVModal(true);
-                                else if (project.isItau) setShowItauModal(true);
-                                else if (project.isAppMoto) setShowAppMotoModal(true);
-                              }}
-                              className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-exo font-semibold text-sm transition-all duration-300 hover:scale-105"
+                            <span>{t("portfolio.seeCase")}</span>
+                            <ExternalLink size={14} />
+                          </button>
+                          
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-2 h-2 rounded-full animate-pulse"
                               style={{ 
-                                background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
-                                color: "white",
-                                boxShadow: `0 4px 20px ${project.accentColor || project.color}40`
+                                backgroundColor: project.accentColor || project.color,
+                                boxShadow: `0 0 10px ${project.accentColor || project.color}`
                               }}
-                            >
-                              <span>{t("portfolio.seeCase")}</span>
-                              <ExternalLink size={14} />
-                            </button>
-                            
-                            <div className="flex items-center gap-2">
-                              <div 
-                                className="w-2 h-2 rounded-full animate-pulse"
-                                style={{ backgroundColor: project.accentColor || project.color }}
-                              />
-                              <span className="font-exo text-sm text-gray-400">{t(project.metricKey)}</span>
-                            </div>
+                            />
+                            <span className="font-exo text-sm text-gray-400">{t(project.metricKey)}</span>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    {/* Bottom Bar */}
-                    <div 
-                      className="h-1 transition-all duration-500"
-                      style={{
-                        width: expandedProject === index ? "100%" : "0%",
-                        background: `linear-gradient(90deg, ${project.accentColor || project.color}, transparent)`,
-                      }}
-                    />
                   </div>
-                ) : (
-                  // Design Card - Custom Artístico
-                  <div
-                    className={`design-card relative rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer ${
-                      expandedProject === index ? "ring-2" : ""
-                    }`}
+
+                  <div 
+                    className="h-1 transition-all duration-500"
                     style={{
-                      borderColor: expandedProject === index ? project.accentColor || project.color : "transparent",
+                      width: expandedProject === index ? "100%" : "0%",
+                      background: `linear-gradient(90deg, ${project.accentColor || project.color}, transparent)`,
                     }}
-                    onClick={() => setExpandedProject(expandedProject === index ? null : index)}
-                  >
-                    {/* Background Artístico */}
-                    <div className="absolute inset-0" style={{ background: project.gradient || `linear-gradient(135deg, ${project.color}30, ${project.color}10)` }} />
-                    
-                    {/* Elementos Decorativos */}
-                    {project.designStyle === "luna" && (
-                      <>
-                        <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20" style={{ background: "radial-gradient(circle, #D946EF, transparent)", filter: "blur(20px)" }} />
-                        <div className="absolute bottom-0 left-0 w-full h-32" style={{ background: "linear-gradient(to top, rgba(217, 70, 239, 0.1), transparent)" }} />
-                        <div className="absolute top-8 right-8 w-16 h-16 rounded-full border-2 border-pink-400/30 flex items-center justify-center">
-                          <Moon size={24} className="text-pink-400/60" />
-                        </div>
-                      </>
-                    )}
-                    
-                    {project.designStyle === "socialmedia" && (
-                      <>
-                        <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-                          <svg viewBox="0 0 100 100" className="w-full h-full">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.3"/>
-                            <circle cx="50" cy="50" r="35" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.4"/>
-                            <circle cx="50" cy="50" r="25" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.5"/>
-                            <circle cx="50" cy="50" r="15" fill="#5B2EFF" opacity="0.6"/>
-                          </svg>
-                        </div>
-                        <div className="absolute bottom-4 left-4 flex gap-1">
-                          {[1,2,3,4].map(i => (
-                            <div key={i} className="w-2 h-8 rounded-full" style={{ background: `linear-gradient(to top, ${project.color}, transparent)`, opacity: 0.4 }} />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                    
-                    {project.designStyle === "taskmaster" && (
-                      <>
-                        <div className="absolute top-6 right-6 flex flex-col gap-2">
-                          {[1,2,3].map(i => (
-                            <div key={i} className="flex items-center gap-2">
-                              <div className="w-4 h-4 rounded border-2 flex items-center justify-center" style={{ borderColor: `${project.color}60` }}>
-                                {i === 1 && <CheckSquare size={10} style={{ color: project.color }} />}
-                              </div>
-                              <div className="w-16 h-2 rounded" style={{ background: `${project.color}30` }} />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-24 h-24 opacity-10">
-                          <CheckSquare size={96} style={{ color: project.color }} />
-                        </div>
-                      </>
-                    )}
-                    
-                    {project.designStyle === "virtus" && (
-                      <>
-                        <div className="absolute top-0 left-0 w-full h-full">
-                          <div className="absolute top-8 left-8 w-4 h-4 rounded-full" style={{ background: "#EC4899", opacity: 0.3 }} />
-                          <div className="absolute top-16 left-20 w-3 h-3 rounded-full" style={{ background: "#F472B6", opacity: 0.4 }} />
-                          <div className="absolute top-12 right-12 w-5 h-5 rounded-full" style={{ background: "#EC4899", opacity: 0.2 }} />
-                          <svg className="absolute top-4 right-4 w-20 h-20" viewBox="0 0 100 100">
-                            <path d="M50 20 C30 20, 20 35, 20 50 C20 70, 50 85, 50 85 C50 85, 80 70, 80 50 C80 35, 70 20, 50 20" fill="none" stroke="#EC4899" strokeWidth="2" opacity="0.3"/>
-                            <circle cx="35" cy="40" r="4" fill="#EC4899" opacity="0.4"/>
-                            <circle cx="65" cy="40" r="4" fill="#EC4899" opacity="0.4"/>
-                          </svg>
-                        </div>
-                        <div className="absolute bottom-4 right-4 flex items-center gap-1">
-                          <Heart size={16} style={{ color: project.color }} />
-                          <span className="text-xs" style={{ color: project.color, opacity: 0.6 }}>Connections</span>
-                        </div>
-                      </>
-                    )}
-
-                    <div className="relative p-8">
-                      {/* Header com Badge */}
-                      <div className="flex items-start justify-between mb-6">
-                        <div
-                          className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 backdrop-blur-sm"
-                          style={{ background: `linear-gradient(135deg, ${project.color}, ${project.color}80)`, boxShadow: `0 8px 32px ${project.color}40` }}
-                        >
-                          <project.icon size={24} className="text-white" />
-                        </div>
-                        
-                        <div 
-                          className="px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm"
-                          style={{ background: `${project.color}20`, border: `1px solid ${project.color}40`, color: project.color }}
-                        >
-                          {t(project.clientKey)}
-                        </div>
-                      </div>
-
-                      {/* Título */}
-                      <h3 
-                        className="font-exo font-bold text-2xl text-white mb-3 transition-all duration-300"
-                        style={{ textShadow: `0 0 30px ${project.color}40` }}
-                      >
-                        {t(project.titleKey)}
-                      </h3>
-
-                      {/* Descrição */}
-                      <p className="font-exo text-gray-400 text-sm leading-relaxed mb-6">
-                        {t(project.descriptionKey)}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {t(project.tagsKey).split(", ").map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="text-xs font-medium px-3 py-1 rounded-full backdrop-blur-sm"
-                            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)" }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* CTA Expandido */}
-                      <div
-                        className="flex items-center justify-between pt-6 border-t backdrop-blur-sm transition-all duration-500 overflow-hidden"
-                        style={{ 
-                          maxHeight: expandedProject === index ? "100px" : "0",
-                          opacity: expandedProject === index ? 1 : 0,
-                          borderColor: "rgba(255,255,255,0.1)"
-                        }}
-                      >
-                        <div className="flex items-center gap-2">
-                          <div
-                            className="w-2 h-2 rounded-full animate-pulse"
-                            style={{ backgroundColor: project.color, boxShadow: `0 0 10px ${project.color}` }}
-                          />
-                          <span className="font-exo text-sm text-gray-300">{t(project.metricKey)}</span>
-                        </div>
-                        
-                        <button 
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (project.isSocialmedia) {
-                              setShowSocialmediaModal(true);
-                            } else if (project.images && project.images.length > 0) {
-                              setSelectedProject({ title: project.titleKey, images: project.images });
-                            }
-                          }}
-                          className="flex items-center gap-2 px-4 py-2 rounded-xl font-exo font-semibold text-sm transition-all duration-300 hover:scale-105"
-                          style={{ 
-                            background: `linear-gradient(135deg, ${project.color}, ${project.color}cc)`,
-                            color: "white",
-                            boxShadow: `0 4px 20px ${project.color}40`
-                          }}
-                        >
-                          <span>{t("portfolio.seeCase")}</span>
-                          <ExternalLink size={14} />
-                        </button>
-                      </div>
-
-                      {/* Bottom Bar */}
-                      <div
-                        className="absolute bottom-0 left-0 h-1 transition-all duration-500"
-                        style={{
-                          width: expandedProject === index ? "100%" : "0%",
-                          background: `linear-gradient(90deg, ${project.color}, transparent)`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                )}
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl pointer-events-none" 
-          style={{ background: activeTab === "DESIGN" ? "#D946EF" : "#06B6D4" }} />
+          style={{ background: "#A855F7" }} />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15 blur-3xl pointer-events-none"
-          style={{ background: activeTab === "TECHNOLOGY" ? "#06B6D4" : "#A855F7" }} />
+          style={{ background: "#06B6D4" }} />
       </section>
 
       <ProjectModal
