@@ -73,35 +73,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/cconserttus/33_carrossel1f_cconserttus_aspec.png.png`,
       ],
     },
-    // Don Luiz
-    {
-      id: "carrossel-6",
-      name: "Don Luiz - Logo Carrossel",
-      images: [
-        `${basePath}/portfolio/socialmedia/donluiz/41_don_luiz_logo_carrossel__01.png`,
-        `${basePath}/portfolio/socialmedia/donluiz/42_don_luiz_logo_carrossel__02.png`,
-        `${basePath}/portfolio/socialmedia/donluiz/43_don_luiz_logo_carrossel__03.png`,
-        `${basePath}/portfolio/socialmedia/donluiz/44_don_luiz_logo_carrossel__04.png`,
-        `${basePath}/portfolio/socialmedia/donluiz/45_don_luiz_logo_carrossel__05.png`,
-      ],
-    },
-    // Charutaria
-    {
-      id: "carrossel-7",
-      name: "Charutaria - Carrossel",
-      images: [
-        `${basePath}/portfolio/socialmedia/charutaria/46_carrossel1_charutaria.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/47_carrossel2_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/48_carrossel3_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/49_carrossel4_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/50_carrossel5_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/51_carrossel6_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/52_carrossel7_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/53_carrossel8_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/54_carrossel9_charutaria.png.png`,
-        `${basePath}/portfolio/socialmedia/charutaria/55_carrossel10_charutaria.png.png`,
-      ],
-    },
+    // Charutaria (removido temporariamente)
   ];
 
   const bannerImages = [
