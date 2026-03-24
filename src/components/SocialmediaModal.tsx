@@ -41,6 +41,76 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     {
       id: "carrossel-3",
+      name: "Cconserttus - Carrossel 1",
+      images: [
+        `${basePath}/portfolio/socialmedia/cconserttus/28_carrossel1a_cconserttus_aspec.png`,
+        `${basePath}/portfolio/socialmedia/cconserttus/29_carrossel1b_cconserttus_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/cconserttus/30_carrossel1c_cconserttus_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/cconserttus/31_carrossel1d_cconserttus_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/cconserttus/32_carrossel1e_cconserttus_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/cconserttus/33_carrossel1f_cconserttus_aspec.png.png`,
+      ],
+    },
+    {
+      id: "carrossel-4",
+      name: "Savanna - Logo",
+      images: [
+        `${basePath}/portfolio/socialmedia/savanna/34_logo_savanna_aspec.png`,
+      ],
+    },
+    {
+      id: "carrossel-5",
+      name: "Savanna - Embalagens",
+      images: [
+        `${basePath}/portfolio/socialmedia/savanna/35_embalagem_savanna_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/savanna/38_embalagem1_savanna_aspec.png.png`,
+        `${basePath}/portfolio/socialmedia/savanna/39_embalagem2_savanna_aspec.png.png.png`,
+        `${basePath}/portfolio/socialmedia/savanna/40_embalagem3_savanna_aspec.png.png.png`,
+      ],
+    },
+    {
+      id: "carrossel-6",
+      name: "Savanna - Branding",
+      images: [
+        `${basePath}/portfolio/socialmedia/savanna/36_branding_savanna_aspec.png.png`,
+      ],
+    },
+    {
+      id: "carrossel-7",
+      name: "SmartImports - Cartão",
+      images: [
+        `${basePath}/portfolio/socialmedia/smartimports/37_cartao_smartimports.png.png`,
+      ],
+    },
+    {
+      id: "carrossel-8",
+      name: "Don Luiz - Logo Carrossel",
+      images: [
+        `${basePath}/portfolio/socialmedia/donluiz/41_don_luiz_logo_carrossel__01.png`,
+        `${basePath}/portfolio/socialmedia/donluiz/42_don_luiz_logo_carrossel__02.png`,
+        `${basePath}/portfolio/socialmedia/donluiz/43_don_luiz_logo_carrossel__03.png`,
+        `${basePath}/portfolio/socialmedia/donluiz/44_don_luiz_logo_carrossel__04.png`,
+        `${basePath}/portfolio/socialmedia/donluiz/45_don_luiz_logo_carrossel__05.png`,
+      ],
+    },
+    {
+      id: "carrossel-9",
+      name: "Charutaria - Carrossel",
+      images: [
+        `${basePath}/portfolio/socialmedia/charutaria/46_carrossel1_charutaria.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/47_carrossel2_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/48_carrossel3_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/49_carrossel4_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/50_carrossel5_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/51_carrossel6_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/52_carrossel7_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/53_carrossel8_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/54_carrossel9_charutaria.png.png`,
+        `${basePath}/portfolio/socialmedia/charutaria/55_carrossel10_charutaria.png.png`,
+      ],
+    },
+    {
+      id: "carrossel-10",
       name: "Central Gráfica - Carrossel 1",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
@@ -49,7 +119,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
       ],
     },
     {
-      id: "carrossel-4",
+      id: "carrossel-11",
       name: "Central Gráfica - Carrossel 2",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
@@ -61,9 +131,11 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
   ];
 
   const bannerImages = [
+    // Banco 7Pay
     `${basePath}/portfolio/socialmedia/banco7pay/2_banner1_banco7pay_aspec.png`,
     `${basePath}/portfolio/socialmedia/banco7pay/3_banner2_banco7pay_aspec.png`,
     `${basePath}/portfolio/socialmedia/banco7pay/4_banner3_banco7pay_aspec.png`,
+    // Central Gráfica
     `${basePath}/portfolio/socialmedia/centralgrafica/18_banner1_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/19_banner2_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/20_banner3_centralgrafica_aspec.png`,
