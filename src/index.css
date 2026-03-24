@@ -4699,6 +4699,20 @@
   margin-top: 8px;
 }
 
+/* CTA Footer - Full width button in bottom */
+.portfolio-cta-footer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.portfolio-card-hover:hover .portfolio-cta-footer {
+  max-height: 80px;
+  opacity: 1;
+  padding-top: 8px;
+}
+
 /* CTA Button - Prominent with animation */
 .portfolio-cta-btn {
   position: relative;
@@ -4712,7 +4726,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.3) 50%,
     transparent 100%
   );
   transform: translateX(-100%);
@@ -4724,7 +4738,7 @@
 }
 
 .portfolio-card-hover:hover .portfolio-cta-btn {
-  transform: scale(1.05);
+  transform: translateY(-2px);
   box-shadow: 
     0 8px 30px var(--btn-glow, rgba(91, 46, 255, 0.5)),
     0 0 20px var(--btn-glow, rgba(91, 46, 255, 0.3));

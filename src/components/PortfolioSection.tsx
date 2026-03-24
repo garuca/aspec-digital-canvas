@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { Brush, Code2, ExternalLink, Sparkles, Palette, Cpu, Database, Globe, Layout, Image, GraduationCap, Bot, Bike, Building2, Moon, CheckSquare, Heart } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getBasePath } from "@/utils/basePath";
@@ -28,6 +28,7 @@ interface Project {
   accentColor?: string;
   designStyle?: "luna" | "socialmedia" | "taskmaster" | "virtus";
   type: "design" | "tech";
+  weight: number;
 }
 
 const floatingElements = Array.from({ length: 15 }, (_, i) => ({
@@ -74,6 +75,7 @@ const PortfolioSection = () => {
       accentColor: "#D946EF",
       designStyle: "luna",
       type: "design",
+      weight: 7,
     },
     {
       titleKey: "portfolio.socialmedia.title",
@@ -88,6 +90,7 @@ const PortfolioSection = () => {
       accentColor: "#5B2EFF",
       designStyle: "socialmedia",
       type: "design",
+      weight: 6,
     },
     {
       titleKey: "portfolio.taskmaster.title",
@@ -108,6 +111,7 @@ const PortfolioSection = () => {
       accentColor: "#8B5CF6",
       designStyle: "taskmaster",
       type: "design",
+      weight: 5,
     },
     {
       titleKey: "portfolio.virtus.title",
@@ -128,6 +132,7 @@ const PortfolioSection = () => {
       accentColor: "#EC4899",
       designStyle: "virtus",
       type: "design",
+      weight: 4,
     },
     {
       titleKey: "portfolio.slmandic.title",
@@ -142,6 +147,7 @@ const PortfolioSection = () => {
       gradient: "from-purple-600/20 to-pink-600/20",
       accentColor: "#A855F7",
       type: "tech",
+      weight: 8,
     },
     {
       titleKey: "portfolio.itau.title",
@@ -156,6 +162,7 @@ const PortfolioSection = () => {
       gradient: "from-orange-600/20 to-yellow-600/20",
       accentColor: "#FF6B00",
       type: "tech",
+      weight: 9,
     },
     {
       titleKey: "portfolio.appmoto.title",
@@ -170,6 +177,7 @@ const PortfolioSection = () => {
       gradient: "from-green-600/20 to-emerald-600/20",
       accentColor: "#22C55E",
       type: "tech",
+      weight: 6,
     },
     {
       titleKey: "portfolio.bv.title",
@@ -184,8 +192,17 @@ const PortfolioSection = () => {
       gradient: "from-cyan-600/20 to-blue-600/20",
       accentColor: "#06B6D4",
       type: "tech",
+      weight: 7,
     },
   ];
+
+  const shuffledProjects = useMemo(() => {
+    const withVariation = allProjects.map(p => ({
+      ...p,
+      sortWeight: p.weight + (Math.random() * 3 - 1.5)
+    }));
+    return withVariation.sort((a, b) => b.sortWeight - a.sortWeight);
+  }, []);
 
   const [visible, setVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<{title: string; images: string[]} | null>(null);
@@ -295,7 +312,7 @@ const PortfolioSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {allProjects.map((project, index) => (
+            {shuffledProjects.map((project, index) => (
               <div
                 key={`${project.type}-${index}`}
                 className={`group transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -457,7 +474,7 @@ const PortfolioSection = () => {
                           {t(project.descriptionKey)}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-2">
                           {t(project.tagsKey).split(", ").map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
@@ -468,45 +485,43 @@ const PortfolioSection = () => {
                           ))}
                         </div>
 
-                        <div
-                          className="portfolio-cta-wrapper flex items-center gap-4 transition-all duration-500"
-                        >
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (project.isSocialmedia) setShowSocialmediaModal(true);
-                              else if (project.isSLMandic) setShowSLMandicModal(true);
-                              else if (project.isBV) setShowBVModal(true);
-                              else if (project.isItau) setShowItauModal(true);
-                              else if (project.isAppMoto) setShowAppMotoModal(true);
-                              else if (project.images && project.images.length > 0) {
-                                setSelectedProject({ title: project.titleKey, images: project.images });
-                              }
-                            }}
-                            className="portfolio-cta-btn flex items-center gap-2 px-6 py-3 rounded-xl font-exo font-bold text-sm transition-all duration-300"
+                        <div className="flex items-center gap-2 mt-2">
+                          <div 
+                            className="w-2 h-2 rounded-full animate-pulse"
                             style={{ 
-                              background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
-                              color: "white",
-                              boxShadow: `0 4px 20px ${project.accentColor || project.color}40`
+                              backgroundColor: project.accentColor || project.color,
+                              boxShadow: `0 0 10px ${project.accentColor || project.color}`
                             }}
-                          >
-                            <span>{t("portfolio.seeCase")}</span>
-                            <ExternalLink size={16} className="portfolio-cta-icon transition-transform duration-300" />
-                          </button>
-                          
-                          <div className="flex items-center gap-2">
-                            <div 
-                              className="w-2 h-2 rounded-full animate-pulse"
-                              style={{ 
-                                backgroundColor: project.accentColor || project.color,
-                                boxShadow: `0 0 10px ${project.accentColor || project.color}`
-                              }}
-                            />
-                            <span className="font-exo text-sm text-gray-400">{t(project.metricKey)}</span>
-                          </div>
+                          />
+                          <span className="font-exo text-sm text-gray-400">{t(project.metricKey)}</span>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <div className="portfolio-cta-footer px-4 pb-4">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (project.isSocialmedia) setShowSocialmediaModal(true);
+                        else if (project.isSLMandic) setShowSLMandicModal(true);
+                        else if (project.isBV) setShowBVModal(true);
+                        else if (project.isItau) setShowItauModal(true);
+                        else if (project.isAppMoto) setShowAppMotoModal(true);
+                        else if (project.images && project.images.length > 0) {
+                          setSelectedProject({ title: project.titleKey, images: project.images });
+                        }
+                      }}
+                      className="portfolio-cta-btn w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-exo font-bold text-sm transition-all duration-300"
+                      style={{ 
+                        background: `linear-gradient(135deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}cc)`,
+                        color: "white",
+                        boxShadow: `0 4px 20px ${project.accentColor || project.color}40`
+                      }}
+                    >
+                      <span>{t("portfolio.seeCase")}</span>
+                      <ExternalLink size={16} className="portfolio-cta-icon transition-transform duration-300" />
+                    </button>
                   </div>
 
                   <div 
