@@ -80,7 +80,7 @@ const Footer = () => {
                 href="https://wa.me/556282412665"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center gap-3 py-2 px-3 rounded-lg overflow-hidden"
+                className="group relative flex items-center gap-3 py-2.5 px-4 rounded-lg overflow-hidden w-full"
               >
                 {/* Background gradiente animado */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
