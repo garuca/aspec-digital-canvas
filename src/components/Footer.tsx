@@ -80,40 +80,36 @@ const Footer = () => {
                 href="https://wa.me/556282412665"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-full py-4 px-6 rounded-xl overflow-hidden"
+                className="group relative flex items-center gap-3 py-3 px-4 rounded-xl overflow-hidden"
               >
                 {/* Background gradiente animado */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-100 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Efeito de brilho deslizante */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine" />
                 </div>
                 
-                {/* Partículas decorativas */}
-                <div className="absolute top-1 right-1 w-2 h-2 bg-white/30 rounded-full animate-ping" />
-                <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-white/20 rounded-full animate-ping" style={{ animationDelay: "0.5s" }} />
-                
                 {/* Conteúdo do botão */}
                 <div className="relative z-10 flex items-center gap-3">
                   {/* Ícone WhatsApp estilizado */}
                   <div className="relative">
-                    <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
-                      <MessageCircle size={22} className="text-white" fill="white" />
+                    <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
+                      <MessageCircle size={16} className="text-white" fill="white" />
                     </div>
                     {/* Halo effect */}
-                    <div className="absolute inset-0 w-10 h-10 bg-green-400/30 rounded-full blur-md animate-pulse" />
+                    <div className="absolute inset-0 w-8 h-8 bg-green-400/30 rounded-lg blur-md animate-pulse" />
                   </div>
                   
                   {/* Texto */}
                   <div className="flex flex-col items-start">
-                    <span className="font-exo font-bold text-white text-base leading-tight">{t("footer.whatsappAction")}</span>
-                    <span className="font-exo text-white/70 text-xs">{t("footer.whatsappSubtitle")}</span>
+                    <span className="font-exo font-bold text-white text-sm leading-tight">{t("footer.whatsappAction")}</span>
+                    <span className="font-exo text-white/70 text-[10px]">{t("footer.whatsappSubtitle")}</span>
                   </div>
                   
                   {/* Seta animada */}
-                  <div className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
-                    <ArrowRight size={20} className="text-white" />
+                  <div className="ml-auto transform group-hover:translate-x-1 transition-transform duration-300">
+                    <ArrowRight size={14} className="text-white" />
                   </div>
                 </div>
                 
