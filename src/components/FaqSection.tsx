@@ -33,7 +33,7 @@ const FaqSection = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           {faqData.map((faq, i) => (
             <div
               key={faq.qKey}
