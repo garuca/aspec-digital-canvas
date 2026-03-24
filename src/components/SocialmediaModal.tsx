@@ -80,15 +80,14 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     `${basePath}/portfolio/socialmedia/centralgrafica/21_banner4_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/22_banner5_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/23_banner6_centralgrafica_aspec.png`,
+    // SmartImports (substituiu Savanna 34)
+    `${basePath}/portfolio/socialmedia/smartimports/37_banner_smartimports.png.png`,
     // Savanna
-    `${basePath}/portfolio/socialmedia/savanna/34_banner_savanna_aspec.png`,
     `${basePath}/portfolio/socialmedia/savanna/35_banner_savanna_aspec.png.png`,
     `${basePath}/portfolio/socialmedia/savanna/36_banner_savanna_aspec.png.png`,
     `${basePath}/portfolio/socialmedia/savanna/38_banner1_savanna_aspec.png.png`,
     `${basePath}/portfolio/socialmedia/savanna/39_banner2_savanna_aspec.png.png.png`,
     `${basePath}/portfolio/socialmedia/savanna/40_banner3_savanna_aspec.png.png.png`,
-    // SmartImports
-    `${basePath}/portfolio/socialmedia/smartimports/37_banner_smartimports.png.png`,
   ];
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const [activeTab, setActiveTab] = useState<"carrossel" | "banner">("carrossel");
