@@ -426,10 +426,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contato",
     "footer.rights": "Todos os direitos reservados.",
     "footer.operational": "Sistema operacional",
-    "footer.whatsappLabel": "WhatsApp",
-    "footer.whatsappTipTitle": "IA Humanizada",
-    "footer.whatsappTipDesc": "Nossa inteligência artificial entende suas necessidades e conecta você ao especialista certo.",
-    "footer.whatsappAction": "Conversar com IA",
+    "footer.whatsappAction": "Fale Conosco",
+    "footer.whatsappSubtitle": "Resposta rápida",
 
     // SL Mandic Modal
     "modals.overview": "Visão Geral",
@@ -973,9 +971,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.rights": "All rights reserved.",
     "footer.operational": "Operational system",
     "footer.whatsappLabel": "WhatsApp",
-    "footer.whatsappTipTitle": "Humanized AI",
-    "footer.whatsappTipDesc": "Our artificial intelligence understands your needs and connects you with the right specialist.",
-    "footer.whatsappAction": "Chat with AI",
+    "footer.whatsappAction": "Talk to Us",
+    "footer.whatsappSubtitle": "Quick response",
 
     // SL Mandic Modal
     "modals.overview": "Overview",
@@ -1518,10 +1515,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contacto",
     "footer.rights": "Todos los derechos reservados.",
     "footer.operational": "Sistema operacional",
-    "footer.whatsappLabel": "WhatsApp",
-    "footer.whatsappTipTitle": "IA Humanizada",
-    "footer.whatsappTipDesc": "Nuestra inteligencia artificial entiende tus necesidades y te conecta con el especialista correcto.",
-    "footer.whatsappAction": "Chatear con IA",
+    "footer.whatsappAction": "Háblanos",
+    "footer.whatsappSubtitle": "Respuesta rápida",
 
     // SL Mandic Modal
     "modals.overview": "Visión General",
@@ -1962,9 +1957,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.rights": "Tous droits réservés.",
     "footer.operational": "Système opérationnel",
     "footer.whatsappLabel": "WhatsApp",
-    "footer.whatsappTipTitle": "IA Humanisée",
-    "footer.whatsappTipDesc": "Notre intelligence artificielle comprend vos besoins et vous connecte au bon spécialiste.",
-    "footer.whatsappAction": "Discuter avec IA",
+    "footer.whatsappAction": "Parlez-nous",
+    "footer.whatsappSubtitle": "Réponse rapide",
 
     // SL Mandic Modal
     "modals.overview": "Vue d'Ensemble",

@@ -2,13 +2,11 @@ import { Mail, MapPin, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { getBasePath } from "@/utils/basePath";
-import { useState } from "react";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   const basePath = getBasePath();
-  const [showWhatsAppTip, setShowWhatsAppTip] = useState(false);
 
   const navItems = [
     { label: "nav.inicio", href: "#inicio" },
@@ -77,51 +75,51 @@ const Footer = () => {
                 </div>
               </a>
               
-              {/* WhatsApp com Badge IA - Design Criativo */}
-              <div className="relative">
-                <a
-                  href="https://wa.me/556282412665"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-sm group"
-                  onMouseEnter={() => setShowWhatsAppTip(true)}
-                  onMouseLeave={() => setShowWhatsAppTip(false)}
-                >
-                  <div className="relative">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center flex-shrink-0 group-hover:from-green-400 group-hover:to-green-500 transition-all duration-300 shadow-lg shadow-green-500/20 group-hover:shadow-green-500/40 group-hover:scale-110">
-                      <MessageCircle size={14} className="text-white" />
-                    </div>
-                    {/* Badge IA */}
-                    <div className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                      <span className="text-[8px] font-bold text-white">IA</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-white/50 block">{t("footer.whatsappLabel")}</span>
-                    <span className="text-white/80 font-medium">+55 62 8241-2665</span>
-                    <span className="text-[10px] text-green-400 font-medium ml-1">→ {t("footer.whatsappAction")}</span>
-                  </div>
-                </a>
+              {/* Botão WhatsApp Criativo - ASPEC + WhatsApp */}
+              <a
+                href="https://wa.me/556282412665"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center w-full py-4 px-6 rounded-xl overflow-hidden"
+              >
+                {/* Background gradiente animado */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-100 group-hover:opacity-90 transition-opacity duration-300" />
                 
-                {/* Tooltip Criativo */}
-                <div className={`absolute left-0 bottom-full mb-2 w-64 p-3 bg-gray-900/95 backdrop-blur-xl border border-green-500/30 rounded-xl shadow-xl shadow-green-500/10 transition-all duration-300 z-50 ${showWhatsAppTip ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}>
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MessageCircle size={18} className="text-white" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-white font-semibold text-sm">{t("footer.whatsappTipTitle")}</span>
-                        <span className="px-1.5 py-0.5 bg-cyan-500/20 border border-cyan-500/30 rounded text-[10px] text-cyan-400 font-bold">NEW</span>
-                      </div>
-                      <p className="text-white/60 text-xs leading-relaxed">
-                        {t("footer.whatsappTipDesc")}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute left-6 -bottom-2 w-4 h-4 bg-gray-900/95 border-r border-b border-green-500/30 transform rotate-45" />
+                {/* Efeito de brilho deslizante */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine" />
                 </div>
-              </div>
+                
+                {/* Partículas decorativas */}
+                <div className="absolute top-1 right-1 w-2 h-2 bg-white/30 rounded-full animate-ping" />
+                <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-white/20 rounded-full animate-ping" style={{ animationDelay: "0.5s" }} />
+                
+                {/* Conteúdo do botão */}
+                <div className="relative z-10 flex items-center gap-3">
+                  {/* Ícone WhatsApp estilizado */}
+                  <div className="relative">
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
+                      <MessageCircle size={22} className="text-white" fill="white" />
+                    </div>
+                    {/* Halo effect */}
+                    <div className="absolute inset-0 w-10 h-10 bg-green-400/30 rounded-full blur-md animate-pulse" />
+                  </div>
+                  
+                  {/* Texto */}
+                  <div className="flex flex-col items-start">
+                    <span className="font-exo font-bold text-white text-base leading-tight">{t("footer.whatsappAction")}</span>
+                    <span className="font-exo text-white/70 text-xs">{t("footer.whatsappSubtitle")}</span>
+                  </div>
+                  
+                  {/* Seta animada */}
+                  <div className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
+                    <ArrowRight size={20} className="text-white" />
+                  </div>
+                </div>
+                
+                {/* Borda brilhante */}
+                <div className="absolute inset-0 rounded-xl border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
+              </a>
               
               <div className="flex items-start gap-3 text-sm">
                 <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
@@ -148,6 +146,17 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* CSS Animation */}
+      <style>{`
+        @keyframes shine {
+          from { transform: translateX(-100%) skewX(-12deg); }
+          to { transform: translateX(200%) skewX(-12deg); }
+        }
+        .animate-shine {
+          animation: shine 2s ease-in-out infinite;
+        }
+      `}</style>
     </footer>
   );
 };
