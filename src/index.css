@@ -4723,7 +4723,7 @@
 }
 
 .portfolio-card-hover:hover .portfolio-cta-strip {
-  max-height: 60px;
+  max-height: 50px;
   opacity: 1;
 }
 
@@ -4732,16 +4732,7 @@
 }
 
 .portfolio-cta-strip:hover {
-  filter: brightness(1.1);
-}
-
-/* Bottom bar animation */
-.portfolio-card-bottom-bar {
-  width: 0%;
-}
-
-.portfolio-card-hover:hover .portfolio-card-bottom-bar {
-  width: 100%;
+  filter: brightness(1.15);
 }
 
 /* Neon strip enhanced on hover */

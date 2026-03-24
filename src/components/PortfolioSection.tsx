@@ -500,9 +500,9 @@ const PortfolioSection = () => {
                   </div>
 
                   <div 
-                    className="portfolio-cta-strip w-full py-4 cursor-pointer transition-all duration-300 group/cta"
+                    className="portfolio-cta-strip w-full py-3 cursor-pointer transition-all duration-300 group/cta"
                     style={{
-                      background: `linear-gradient(90deg, ${project.accentColor || project.color}, ${project.accentColor || project.color}99, ${project.accentColor || project.color})`,
+                      background: project.accentColor || project.color,
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -520,16 +520,9 @@ const PortfolioSection = () => {
                       <span className="font-exo font-bold text-sm tracking-wider text-white uppercase">
                         {t("portfolio.seeCase")}
                       </span>
-                      <ExternalLink size={18} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
+                      <ExternalLink size={16} className="text-white transition-transform duration-300 group-hover/cta:translate-x-1" />
                     </div>
                   </div>
-
-                  <div 
-                    className="portfolio-card-bottom-bar h-1 transition-all duration-500"
-                    style={{
-                      background: `linear-gradient(90deg, ${project.accentColor || project.color}, transparent)`,
-                    }}
-                  />
                 </div>
               </div>
             ))}
