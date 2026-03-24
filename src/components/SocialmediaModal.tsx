@@ -17,6 +17,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
   const basePath = getBasePath();
 
   const carrosselGroups: CarrosselGroup[] = [
+    // Banco 7Pay
     {
       id: "carrossel-1",
       name: "Banco 7Pay - Carrossel 1",
@@ -39,8 +40,29 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/banco7pay/13_carrossel2i_banco7pay_aspec..png`,
       ],
     },
+    // Central Gráfica
     {
       id: "carrossel-3",
+      name: "Central Gráfica - Carrossel 1",
+      images: [
+        `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/16_carrossel1b_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/17_carrossel1c_centralgrafica_aspec.png`,
+      ],
+    },
+    {
+      id: "carrossel-4",
+      name: "Central Gráfica - Carrossel 2",
+      images: [
+        `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/25_carrossel2b_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/26_carrossel2c_centralgrafica_aspec.png`,
+        `${basePath}/portfolio/socialmedia/centralgrafica/27_carrossel2d_centralgrafica_aspec.png`,
+      ],
+    },
+    // Cconserttus
+    {
+      id: "carrossel-5",
       name: "Cconserttus - Carrossel 1",
       images: [
         `${basePath}/portfolio/socialmedia/cconserttus/28_carrossel1a_cconserttus_aspec.png`,
@@ -51,8 +73,9 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/cconserttus/33_carrossel1f_cconserttus_aspec.png.png`,
       ],
     },
+    // Don Luiz
     {
-      id: "carrossel-4",
+      id: "carrossel-6",
       name: "Don Luiz - Logo Carrossel",
       images: [
         `${basePath}/portfolio/socialmedia/donluiz/41_don_luiz_logo_carrossel__01.png`,
@@ -62,8 +85,9 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/donluiz/45_don_luiz_logo_carrossel__05.png`,
       ],
     },
+    // Charutaria
     {
-      id: "carrossel-5",
+      id: "carrossel-7",
       name: "Charutaria - Carrossel",
       images: [
         `${basePath}/portfolio/socialmedia/charutaria/46_carrossel1_charutaria.png`,
@@ -76,25 +100,6 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/charutaria/53_carrossel8_charutaria.png.png`,
         `${basePath}/portfolio/socialmedia/charutaria/54_carrossel9_charutaria.png.png`,
         `${basePath}/portfolio/socialmedia/charutaria/55_carrossel10_charutaria.png.png`,
-      ],
-    },
-    {
-      id: "carrossel-10",
-      name: "Central Gráfica - Carrossel 1",
-      images: [
-        `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
-        `${basePath}/portfolio/socialmedia/centralgrafica/16_carrossel1b_centralgrafica_aspec.png`,
-        `${basePath}/portfolio/socialmedia/centralgrafica/17_carrossel1c_centralgrafica_aspec.png`,
-      ],
-    },
-    {
-      id: "carrossel-11",
-      name: "Central Gráfica - Carrossel 2",
-      images: [
-        `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
-        `${basePath}/portfolio/socialmedia/centralgrafica/25_carrossel2b_centralgrafica_aspec.png`,
-        `${basePath}/portfolio/socialmedia/centralgrafica/26_carrossel2c_centralgrafica_aspec.png`,
-        `${basePath}/portfolio/socialmedia/centralgrafica/27_carrossel2d_centralgrafica_aspec.png`,
       ],
     },
   ];
