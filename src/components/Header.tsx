@@ -13,10 +13,11 @@ const Header = () => {
 
   const getNavItems = () => [
     { key: "nav.inicio", href: "#inicio" },
-    { key: "nav.servicos", href: "#servicos" },
-    { key: "nav.abordagem", href: "#abordagem" },
+    { key: "nav.clientes", href: "#clientes" },
     { key: "nav.portfolio", href: "#portfolio" },
-    { key: "nav.quemSomos", href: "#team" },
+    { key: "nav.servicos", href: "#servicos" },
+    { key: "nav.resultados", href: "#resultados" },
+    { key: "nav.faq", href: "#faq" },
   ];
 
   const getActiveItem = () => {

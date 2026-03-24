@@ -28,7 +28,7 @@ const CtaSection = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden light-section">
+    <section id="contato" className="py-24 relative overflow-hidden light-section">
       <div className="dot-pattern" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">

@@ -70,7 +70,7 @@ const ResultsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 relative overflow-hidden dark-section">
+    <section id="resultados" ref={sectionRef} className="py-24 relative overflow-hidden dark-section">
       <div className="dark-grid-pattern" />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

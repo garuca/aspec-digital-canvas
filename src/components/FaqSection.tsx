@@ -16,7 +16,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden light-section">
+    <section id="faq" className="py-24 relative overflow-hidden light-section">
       <div className="dot-pattern opacity-50" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">

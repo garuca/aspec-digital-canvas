@@ -14,10 +14,12 @@ const translations: Record<Language, Record<string, string>> = {
   pt: {
     // Header
     "nav.inicio": "Início",
-    "nav.servicos": "Serviços",
-    "nav.abordagem": "Abordagem",
+    "nav.clientes": "Clientes",
     "nav.portfolio": "Portfólio",
-    "nav.quemSomos": "Quem Somos",
+    "nav.servicos": "Serviços",
+    "nav.resultados": "Resultados",
+    "nav.faq": "FAQ",
+    "nav.contato": "Contato",
     "nav.conversar": "Conversar Agora",
     
     // Hero
@@ -558,10 +560,12 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
     "nav.inicio": "Home",
-    "nav.servicos": "Services",
-    "nav.abordagem": "Approach",
+    "nav.clientes": "Clients",
     "nav.portfolio": "Portfolio",
-    "nav.quemSomos": "About Us",
+    "nav.servicos": "Services",
+    "nav.resultados": "Results",
+    "nav.faq": "FAQ",
+    "nav.contato": "Contact",
     "nav.conversar": "Let's Talk",
     
     // Hero
@@ -1103,9 +1107,12 @@ const translations: Record<Language, Record<string, string>> = {
   es: {
     // Header
     "nav.inicio": "Inicio",
-    "nav.servicos": "Servicios",
-    "nav.abordagem": "Enfoque",
+    "nav.clientes": "Clientes",
     "nav.portfolio": "Portafolio",
+    "nav.servicos": "Servicios",
+    "nav.resultados": "Resultados",
+    "nav.faq": "FAQ",
+    "nav.contato": "Contacto",
     "nav.quemSomos": "Nosotros",
     "nav.conversar": "Hablemos",
     
@@ -1647,9 +1654,13 @@ const translations: Record<Language, Record<string, string>> = {
   fr: {
     // Header
     "nav.inicio": "Accueil",
-    "nav.servicos": "Services",
-    "nav.abordagem": "Approche",
+    "nav.clientes": "Clients",
     "nav.portfolio": "Portfolio",
+    "nav.servicos": "Services",
+    "nav.resultados": "Résultats",
+    "nav.faq": "FAQ",
+    "nav.contato": "Contact",
+    "nav.abordagem": "Approche",
     "nav.quemSomos": "À Propos",
     "nav.conversar": "Parlons",
 

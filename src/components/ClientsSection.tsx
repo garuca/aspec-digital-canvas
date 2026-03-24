@@ -19,7 +19,7 @@ const ClientsSection = () => {
   const clients = [...clientLogos, ...clientLogos];
 
   return (
-    <section className="py-16 overflow-hidden" style={{ backgroundColor: "#030712" }}>
+    <section id="clientes" className="py-16 overflow-hidden" style={{ backgroundColor: "#030712" }}>
       <div className="relative">
         <div 
           className="flex gap-16 animate-marquee"
