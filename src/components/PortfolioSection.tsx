@@ -10,8 +10,8 @@ import ItauModal from "./ItauModal";
 import AppMotoModal from "./AppMotoModal";
 
 const SocialmediaNeonIcon = () => (
-  <div className="socialmedia-neon-icon relative w-20 h-20">
-    <svg viewBox="0 0 100 100" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 10px #5B2EFF) drop-shadow(0 0 20px #5B2EFF) drop-shadow(0 0 40px rgba(91, 46, 255, 0.5))' }}>
+  <div className="socialmedia-neon-icon relative w-24 h-24">
+    <svg viewBox="0 0 100 100" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 8px #5B2EFF) drop-shadow(0 0 15px #5B2EFF)' }}>
       <defs>
         <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#5B2EFF" />
@@ -22,41 +22,32 @@ const SocialmediaNeonIcon = () => (
           <stop offset="0%" stopColor="#1a1a2e" />
           <stop offset="100%" stopColor="#0a0a1a" />
         </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
       
       <g className="animate-socialmedia-float">
-        <rect x="30" y="15" width="40" height="70" rx="8" fill="url(#phoneGrad)" className="animate-socialmedia-glow" />
-        <rect x="34" y="22" width="32" height="56" rx="4" fill="url(#screenGrad)" />
+        <rect x="28" y="12" width="44" height="76" rx="10" fill="url(#phoneGrad)" />
+        <rect x="32" y="18" width="36" height="64" rx="6" fill="url(#screenGrad)" />
         
-        <circle cx="50" cy="18" r="3" fill="#1a1a2e" />
+        <circle cx="50" cy="15" r="3" fill="#1a1a2e" />
         
-        <g className="animate-socialmedia-posts">
-          <rect x="38" y="28" width="24" height="12" rx="2" fill="#5B2EFF" opacity="0.8" className="animate-socialmedia-post1" />
-          <rect x="38" y="44" width="24" height="12" rx="2" fill="#8B5CF6" opacity="0.8" className="animate-socialmedia-post2" />
-          <rect x="38" y="60" width="24" height="12" rx="2" fill="#A855F7" opacity="0.8" className="animate-socialmedia-post3" />
-        </g>
+        <rect x="36" y="26" width="28" height="14" rx="3" fill="#5B2EFF" opacity="0.7" />
+        <rect x="36" y="44" width="28" height="14" rx="3" fill="#8B5CF6" opacity="0.7" />
+        <rect x="36" y="62" width="28" height="14" rx="3" fill="#A855F7" opacity="0.7" />
         
-        <g>
-          <circle cx="44" cy="32" r="2" fill="#fff" opacity="0.9" className="animate-socialmedia-heart" />
-          <path d="M44 35 L43 34 C41 32 41 30 42 29 C43 28 44 29 44 29 C44 29 45 28 46 29 C47 30 47 32 45 34 Z" fill="#D946EF" className="animate-socialmedia-heart" />
+        <g className="animate-socialmedia-heart">
+          <circle cx="42" cy="30" r="2" fill="#fff" opacity="0.9" />
+          <path d="M42 33 L41 32 C39 30 39 28 40 27 C41 26 42 27 42 27 C42 27 43 26 44 27 C45 28 45 30 43 32 Z" fill="#D946EF" />
         </g>
         
         <g className="animate-socialmedia-like">
-          <rect x="55" y="28" width="4" height="4" rx="1" fill="#fff" opacity="0.7" />
-          <rect x="55" y="44" width="4" height="4" rx="1" fill="#fff" opacity="0.7" />
+          <rect x="54" y="26" width="5" height="5" rx="1" fill="#fff" opacity="0.7" />
+          <rect x="54" y="44" width="5" height="5" rx="1" fill="#fff" opacity="0.7" />
         </g>
       </g>
       
-      <circle cx="25" cy="75" r="15" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.3" className="animate-socialmedia-ring1" />
-      <circle cx="75" cy="30" r="12" fill="none" stroke="#A855F7" strokeWidth="2" opacity="0.3" className="animate-socialmedia-ring2" />
-      <circle cx="80" cy="70" r="8" fill="none" stroke="#D946EF" strokeWidth="1.5" opacity="0.4" className="animate-socialmedia-ring3" />
+      <circle cx="22" cy="78" r="16" fill="none" stroke="#5B2EFF" strokeWidth="2" opacity="0.3" className="animate-socialmedia-ring1" />
+      <circle cx="78" cy="28" r="14" fill="none" stroke="#A855F7" strokeWidth="2" opacity="0.3" className="animate-socialmedia-ring2" />
+      <circle cx="82" cy="72" r="10" fill="none" stroke="#D946EF" strokeWidth="1.5" opacity="0.4" className="animate-socialmedia-ring3" />
     </svg>
   </div>
 );
