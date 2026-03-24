@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const FaqSection = () => {
   const { t } = useLanguage();
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqData = [
     { qKey: "faq.q1", aKey: "faq.a1" },
@@ -33,29 +33,33 @@ const FaqSection = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-3">
           {faqData.map((faq, i) => (
             <div
               key={faq.qKey}
-              className="faq-item"
+              className={`faq-item-two7 ${openIndex === i ? "active" : ""}`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="faq-question"
+                className="faq-question-two7"
               >
-                <span className="font-exo font-semibold text-gray-900 text-left">
+                <div className="faq-number">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <span className="faq-question-text">
                   {t(faq.qKey)}
                 </span>
                 <ChevronDown 
-                  size={20} 
-                  className={`text-purple-500 transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
+                  size={18} 
+                  className={`faq-chevron ${openIndex === i ? "rotated" : ""}`}
                 />
               </button>
               <div 
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? "max-h-48" : "max-h-0"
+                className={`faq-answer-container ${
+                  openIndex === i ? "open" : ""
                 }`}
               >
+                <div className="faq-answer-line" />
                 <p className="faq-answer">
                   {t(faq.aKey)}
                 </p>
@@ -64,6 +68,125 @@ const FaqSection = () => {
           ))}
         </div>
       </div>
+
+      <style>{`
+        .faq-item-two7 {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .faq-item-two7:hover {
+          border-color: #5B2EFF;
+          box-shadow: 0 4px 15px rgba(91, 46, 255, 0.08);
+        }
+
+        .faq-item-two7.active {
+          border-color: #5B2EFF;
+          box-shadow: 0 8px 25px rgba(91, 46, 255, 0.12);
+        }
+
+        .faq-question-two7 {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 18px 20px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+
+        .faq-question-two7:hover {
+          background: #fafafa;
+        }
+
+        .faq-number {
+          font-family: 'Exo', sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          color: #5B2EFF;
+          background: rgba(91, 46, 255, 0.08);
+          padding: 6px 10px;
+          border-radius: 8px;
+          min-width: 48px;
+          text-align: center;
+          flex-shrink: 0;
+        }
+
+        .faq-item-two7.active .faq-number {
+          background: #5B2EFF;
+          color: #ffffff;
+        }
+
+        .faq-question-text {
+          font-family: 'Exo', sans-serif;
+          font-weight: 600;
+          font-size: 15px;
+          color: #1f2937;
+          text-align: left;
+          flex: 1;
+          line-height: 1.4;
+        }
+
+        .faq-item-two7.active .faq-question-text {
+          color: #5B2EFF;
+        }
+
+        .faq-chevron {
+          color: #9ca3af;
+          flex-shrink: 0;
+          transition: all 0.3s ease;
+        }
+
+        .faq-chevron.rotated {
+          color: #5B2EFF;
+          transform: rotate(180deg);
+        }
+
+        .faq-answer-container {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-answer-container.open {
+          max-height: 300px;
+        }
+
+        .faq-answer-line {
+          height: 1px;
+          background: #f3f4f6;
+          margin: 0 20px;
+        }
+
+        .faq-answer {
+          padding: 16px 20px 20px;
+          font-family: 'Exo', sans-serif;
+          font-size: 14px;
+          color: #6b7280;
+          line-height: 1.7;
+        }
+
+        @media (max-width: 640px) {
+          .faq-question-two7 {
+            padding: 14px 16px;
+          }
+          
+          .faq-question-text {
+            font-size: 14px;
+          }
+          
+          .faq-number {
+            font-size: 12px;
+            padding: 5px 8px;
+            min-width: 40px;
+          }
+        }
+      `}</style>
     </section>
   );
 };
