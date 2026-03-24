@@ -80,7 +80,7 @@ const Footer = () => {
                 href="https://wa.me/556282412665"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center gap-3 py-3 px-4 rounded-xl overflow-hidden"
+                className="group relative flex items-center gap-3 py-2 px-3 rounded-lg overflow-hidden"
               >
                 {/* Background gradiente animado */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
@@ -91,24 +91,20 @@ const Footer = () => {
                 </div>
                 
                 {/* Conteúdo do botão */}
-                <div className="relative z-10 flex items-center gap-3">
-                  {/* Ícone WhatsApp estilizado */}
-                  <div className="relative">
-                    <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
-                      <MessageCircle size={16} className="text-white" fill="white" />
+                <div className="relative z-10 flex items-center gap-2">
+                  {/* Ícone WhatsApp */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-7 h-7 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
+                      <MessageCircle size={14} className="text-white" fill="white" />
                     </div>
-                    {/* Halo effect */}
-                    <div className="absolute inset-0 w-8 h-8 bg-green-400/30 rounded-lg blur-md animate-pulse" />
+                    <div className="absolute inset-0 w-7 h-7 bg-green-400/30 rounded-lg blur-sm animate-pulse" />
                   </div>
                   
                   {/* Texto */}
-                  <div className="flex flex-col items-start">
-                    <span className="font-exo font-bold text-white text-sm leading-tight">{t("footer.whatsappAction")}</span>
-                    <span className="font-exo text-white/70 text-[10px]">{t("footer.whatsappSubtitle")}</span>
-                  </div>
+                  <span className="font-exo font-bold text-white text-sm">{t("footer.whatsappAction")}</span>
                   
                   {/* Seta animada */}
-                  <div className="ml-auto transform group-hover:translate-x-1 transition-transform duration-300">
+                  <div className="transform group-hover:translate-x-1 transition-transform duration-300 ml-1">
                     <ArrowRight size={14} className="text-white" />
                   </div>
                 </div>
