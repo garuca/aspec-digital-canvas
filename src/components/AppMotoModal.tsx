@@ -439,8 +439,16 @@ const AppMotoModal = ({ isOpen, onClose }: AppMotoModalProps) => {
         .moto-modal-backdrop {
           position: absolute;
           inset: 0;
-          background: rgba(0, 0, 0, 0.9);
-          backdrop-filter: blur(12px);
+          background: linear-gradient(
+            135deg,
+            rgba(91, 46, 255, 0.15) 0%,
+            rgba(0, 0, 0, 0.3) 25%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(168, 85, 247, 0.15) 75%,
+            rgba(0, 0, 0, 0.3) 100()
+          );
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
           animation: fadeIn 0.3s ease;
         }
 
