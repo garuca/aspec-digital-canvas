@@ -22,13 +22,6 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
       id: "carrossel-1",
       name: "Banco 7Pay - Carrossel 1",
       images: [
-        `${basePath}/portfolio/socialmedia/banco7pay/1_carrossel1_banco7pay_aspec.png`,
-      ],
-    },
-    {
-      id: "carrossel-2",
-      name: "Banco 7Pay - Carrossel 2",
-      images: [
         `${basePath}/portfolio/socialmedia/banco7pay/5_carrossel2a_banco7pay_aspec.png`,
         `${basePath}/portfolio/socialmedia/banco7pay/6_carrossel2b_banco7pay_aspec..png`,
         `${basePath}/portfolio/socialmedia/banco7pay/7_carrossel2c_banco7pay_aspec..png`,
@@ -42,7 +35,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     // Central Gráfica
     {
-      id: "carrossel-3",
+      id: "carrossel-2",
       name: "Central Gráfica - Carrossel 1",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
@@ -51,7 +44,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
       ],
     },
     {
-      id: "carrossel-4",
+      id: "carrossel-3",
       name: "Central Gráfica - Carrossel 2",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
@@ -62,7 +55,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     // Cconserttus
     {
-      id: "carrossel-5",
+      id: "carrossel-4",
       name: "Cconserttus - Carrossel 1",
       images: [
         `${basePath}/portfolio/socialmedia/cconserttus/28_carrossel1a_cconserttus_aspec.png`,
@@ -73,7 +66,6 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
         `${basePath}/portfolio/socialmedia/cconserttus/33_carrossel1f_cconserttus_aspec.png.png`,
       ],
     },
-    // Charutaria (removido temporariamente)
   ];
 
   const bannerImages = [
