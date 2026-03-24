@@ -73,6 +73,15 @@ export default {
         magenta: {
           700: "#D946EF",
         },
+        aspec: {
+          "purple-deep": "#5B2EFF",
+          "purple-medium": "#8B5CF6",
+          "purple-light": "#A855F7",
+          pink: "#D946EF",
+          cyan: "#06B6D4",
+          "text-secondary": "#94A3B8",
+          "text-muted": "#64748B",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

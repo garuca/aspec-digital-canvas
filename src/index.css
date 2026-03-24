@@ -52,6 +52,13 @@
     --surface-footer: #030712;
     --border-subtle: #2D2D44;
     --glow-violet: 0 0 30px rgba(168, 85, 247, 0.3);
+    --aspec-purple-deep: #5B2EFF;
+    --aspec-purple-medium: #8B5CF6;
+    --aspec-purple-light: #A855F7;
+    --aspec-pink: #D946EF;
+    --aspec-cyan: #06B6D4;
+    --aspec-text-secondary: #94A3B8;
+    --aspec-text-muted: #64748B;
 
     --font-display: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
