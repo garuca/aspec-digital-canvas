@@ -53,37 +53,6 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     {
       id: "carrossel-4",
-      name: "Savanna - Logo",
-      images: [
-        `${basePath}/portfolio/socialmedia/savanna/34_logo_savanna_aspec.png`,
-      ],
-    },
-    {
-      id: "carrossel-5",
-      name: "Savanna - Embalagens",
-      images: [
-        `${basePath}/portfolio/socialmedia/savanna/35_embalagem_savanna_aspec.png.png`,
-        `${basePath}/portfolio/socialmedia/savanna/38_embalagem1_savanna_aspec.png.png`,
-        `${basePath}/portfolio/socialmedia/savanna/39_embalagem2_savanna_aspec.png.png.png`,
-        `${basePath}/portfolio/socialmedia/savanna/40_embalagem3_savanna_aspec.png.png.png`,
-      ],
-    },
-    {
-      id: "carrossel-6",
-      name: "Savanna - Branding",
-      images: [
-        `${basePath}/portfolio/socialmedia/savanna/36_branding_savanna_aspec.png.png`,
-      ],
-    },
-    {
-      id: "carrossel-7",
-      name: "SmartImports - Cartão",
-      images: [
-        `${basePath}/portfolio/socialmedia/smartimports/37_cartao_smartimports.png.png`,
-      ],
-    },
-    {
-      id: "carrossel-8",
       name: "Don Luiz - Logo Carrossel",
       images: [
         `${basePath}/portfolio/socialmedia/donluiz/41_don_luiz_logo_carrossel__01.png`,
@@ -94,7 +63,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
       ],
     },
     {
-      id: "carrossel-9",
+      id: "carrossel-5",
       name: "Charutaria - Carrossel",
       images: [
         `${basePath}/portfolio/socialmedia/charutaria/46_carrossel1_charutaria.png`,
@@ -142,6 +111,15 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     `${basePath}/portfolio/socialmedia/centralgrafica/21_banner4_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/22_banner5_centralgrafica_aspec.png`,
     `${basePath}/portfolio/socialmedia/centralgrafica/23_banner6_centralgrafica_aspec.png`,
+    // Savanna
+    `${basePath}/portfolio/socialmedia/savanna/34_banner_savanna_aspec.png`,
+    `${basePath}/portfolio/socialmedia/savanna/35_banner_savanna_aspec.png.png`,
+    `${basePath}/portfolio/socialmedia/savanna/36_banner_savanna_aspec.png.png`,
+    `${basePath}/portfolio/socialmedia/savanna/38_banner1_savanna_aspec.png.png`,
+    `${basePath}/portfolio/socialmedia/savanna/39_banner2_savanna_aspec.png.png.png`,
+    `${basePath}/portfolio/socialmedia/savanna/40_banner3_savanna_aspec.png.png.png`,
+    // SmartImports
+    `${basePath}/portfolio/socialmedia/smartimports/37_banner_smartimports.png.png`,
   ];
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const [activeTab, setActiveTab] = useState<"carrossel" | "banner">("carrossel");
