@@ -75,42 +75,44 @@ const Footer = () => {
                 </div>
               </a>
               
-              {/* Botão WhatsApp Criativo - ASPEC + WhatsApp */}
+              {/* Botão WhatsApp - ASPEC Style + WhatsApp Green Hover */}
               <a
                 href="https://wa.me/556282412665"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center gap-3 py-2.5 px-4 rounded-lg overflow-hidden w-1/2"
+                className="group relative flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl overflow-hidden w-1/2 border border-purple-500/30 hover:border-green-500/50 transition-all duration-300"
               >
-                {/* Background gradiente animado */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-green-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Background ASPEC default */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_100%] opacity-80 group-hover:opacity-0 transition-opacity duration-300" />
                 
-                {/* Efeito de brilho deslizante */}
+                {/* Background WhatsApp Green on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Shine effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine" />
                 </div>
                 
-                {/* Conteúdo do botão */}
+                {/* Conteúdo */}
                 <div className="relative z-10 flex items-center gap-2">
-                  {/* Ícone WhatsApp */}
+                  {/* Ícone WhatsApp com transformação */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-7 h-7 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
-                      <MessageCircle size={14} className="text-white" fill="white" />
+                    {/* Ícone ASPEC default (roxo) */}
+                    <div className="w-8 h-8 bg-purple-500/30 group-hover:bg-white/20 rounded-lg flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6">
+                      <MessageCircle size={16} className="text-purple-400 group-hover:text-white transition-colors duration-300" fill="currentColor" />
                     </div>
-                    <div className="absolute inset-0 w-7 h-7 bg-green-400/30 rounded-lg blur-sm animate-pulse" />
+                    {/* Halo */}
+                    <div className="absolute inset-0 w-8 h-8 bg-purple-500/20 rounded-lg blur-sm group-hover:bg-green-400/40 group-hover:blur-md transition-all duration-300" />
                   </div>
                   
                   {/* Texto */}
                   <span className="font-exo font-bold text-white text-sm">{t("footer.whatsappAction")}</span>
                   
-                  {/* Seta animada */}
-                  <div className="transform group-hover:translate-x-1 transition-transform duration-300 ml-1">
+                  {/* Seta */}
+                  <div className="transform group-hover:translate-x-1 transition-transform duration-300">
                     <ArrowRight size={14} className="text-white" />
                   </div>
                 </div>
-                
-                {/* Borda brilhante */}
-                <div className="absolute inset-0 rounded-xl border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
               </a>
               
               <div className="flex items-start gap-3 text-sm">
