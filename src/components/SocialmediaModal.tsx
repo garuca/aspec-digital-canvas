@@ -18,8 +18,15 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
 
   const carrosselGroups: CarrosselGroup[] = [
     {
+      id: "carrossel-1",
+      name: "Banco 7Pay - Carrossel 1",
+      images: [
+        `${basePath}/portfolio/socialmedia/banco7pay/1_carrossel1_banco7pay_aspec.png`,
+      ],
+    },
+    {
       id: "carrossel-2",
-      name: "Carrossel 1",
+      name: "Banco 7Pay - Carrossel 2",
       images: [
         `${basePath}/portfolio/socialmedia/banco7pay/5_carrossel2a_banco7pay_aspec.png`,
         `${basePath}/portfolio/socialmedia/banco7pay/6_carrossel2b_banco7pay_aspec..png`,
@@ -34,7 +41,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     {
       id: "carrossel-3",
-      name: "Carrossel 2",
+      name: "Central Gráfica - Carrossel 1",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/15_carrossel1a_centralgrafica_aspec.png`,
         `${basePath}/portfolio/socialmedia/centralgrafica/16_carrossel1b_centralgrafica_aspec.png`,
@@ -43,7 +50,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
     },
     {
       id: "carrossel-4",
-      name: "Carrossel 3",
+      name: "Central Gráfica - Carrossel 2",
       images: [
         `${basePath}/portfolio/socialmedia/centralgrafica/24_carrossel2a_centralgrafica_aspec.png`,
         `${basePath}/portfolio/socialmedia/centralgrafica/25_carrossel2b_centralgrafica_aspec.png`,
@@ -299,7 +306,7 @@ const SocialmediaModal = ({ isOpen, onClose }: SocialmediaModalProps) => {
               {/* Attribution */}
               <div className="socialmedia-attribution">
                 <ExternalLink size={12} />
-                <span>Peças gráficas solicitadas pela agência Sixx Social Media</span>
+                <span>ASPEC Soluções Digitais</span>
               </div>
             </div>
           </div>
