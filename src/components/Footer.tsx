@@ -72,13 +72,19 @@ const Footer = () => {
                 href="https://wa.me/556282412665"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center gap-2 py-2 px-4 rounded-xl border border-purple-500/30 hover:border-green-500/50 transition-all duration-300 w-fit"
+                className="group relative flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl overflow-hidden border border-purple-500/30 hover:border-green-500/50 transition-all duration-300"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_100%] opacity-80 group-hover:opacity-0 transition-opacity duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute -inset-full top-0 left-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine" />
+                </div>
                 <div className="relative z-10 flex items-center gap-2">
-                  <div className="w-7 h-7 bg-purple-500/30 group-hover:bg-white/20 rounded-lg flex items-center justify-center transition-all duration-300">
-                    <MessageCircle size={14} className="text-purple-400 group-hover:text-white" fill="currentColor" />
+                  <div className="relative flex-shrink-0">
+                    <div className="w-8 h-8 bg-purple-500/30 group-hover:bg-white/20 rounded-lg flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6">
+                      <MessageCircle size={16} className="text-purple-400 group-hover:text-white transition-colors duration-300" fill="currentColor" />
+                    </div>
+                    <div className="absolute inset-0 w-8 h-8 bg-purple-500/20 rounded-lg blur-sm group-hover:bg-green-400/40 group-hover:blur-md transition-all duration-300" />
                   </div>
                   <span className="font-exo font-bold text-white text-sm">{t("footer.whatsappAction")}</span>
                   <ArrowRight size={14} className="text-white transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -110,6 +116,16 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes shine {
+          from { transform: translateX(-100%) skewX(-12deg); }
+          to { transform: translateX(200%) skewX(-12deg); }
+        }
+        .animate-shine {
+          animation: shine 2s ease-in-out infinite;
+        }
+      `}</style>
     </footer>
   );
 };
