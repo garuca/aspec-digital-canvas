@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, ArrowRight, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { getBasePath } from "@/utils/basePath";
 
@@ -65,6 +65,23 @@ const Footer = () => {
                 <div>
                   <span className="text-white/50 block">Email</span>
                   <span className="text-white/80 font-medium">contato@aspec.ia.br</span>
+                </div>
+              </a>
+              
+              <a
+                href="https://wa.me/556282412665"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-2 py-2 px-4 rounded-xl border border-purple-500/30 hover:border-green-500/50 transition-all duration-300 w-fit"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 bg-[length:200%_100%] opacity-80 group-hover:opacity-0 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex items-center gap-2">
+                  <div className="w-7 h-7 bg-purple-500/30 group-hover:bg-white/20 rounded-lg flex items-center justify-center transition-all duration-300">
+                    <MessageCircle size={14} className="text-purple-400 group-hover:text-white" fill="currentColor" />
+                  </div>
+                  <span className="font-exo font-bold text-white text-sm">{t("footer.whatsappAction")}</span>
+                  <ArrowRight size={14} className="text-white transform group-hover:translate-x-1 transition-transform duration-300" />
                 </div>
               </a>
               
