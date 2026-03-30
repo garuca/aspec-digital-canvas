@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, AlertTriangle, TrendingDown, DollarSign, Smartphone, Brain, MessageSquare, BarChart3, Star, Shield, Zap, Bell, CreditCard, MessageCircle, Calendar, TrendingUp, QrCode, Calculator, Check, ArrowRight } from "lucide-react";
+import { Sparkles, AlertTriangle, TrendingDown, DollarSign, Smartphone, Brain, MessageSquare, BarChart3, Star, Shield, Zap, Bell, CreditCard, MessageCircle, Calendar, TrendingUp, QrCode, Calculator, Check, ArrowRight, FileText, MapPin, Settings, User, ClipboardList, GraduationCap, Building, Wrench, HeadphonesIcon, Wifi, Download, FileCheck, Clock, Users, BookOpen, Receipt, HelpCircle, ShieldCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const StarField = ({ count = 50 }: { count?: number }) => (
@@ -50,36 +50,118 @@ const pains = [
 const features = [
   {
     icon: Smartphone,
-    title: "App Nativo para Pais e Alunos",
-    desc: "Acompanhamento de desempenho em tempo real, frequência e comunicação direta.",
+    title: "App Nativo Completo",
+    desc: "Plataforma mobile para iOS e Android com experiência nativa e interface intuitiva.",
+    category: "mobile",
   },
   {
     icon: Brain,
-    title: "Algoritmo de Previsão de Evasão",
-    desc: "IA que detecta alunos em risco antes que a família decida sair.",
+    title: "IA Preditiva de Evasão",
+    desc: "Machine learning que detecta alunos em risco baseado em notas, faltas e padrões comportamentais.",
+    category: "ai",
   },
   {
     icon: MessageSquare,
-    title: "Cobrança Automática via WhatsApp e PIX",
-    desc: "Régua de cobrança inteligente que envia lembretes personalizados.",
+    title: "Cobrança Automatizada",
+    desc: "Régua de cobrança via WhatsApp, SMS e e-mail com links de PIX para pagamento instantâneo.",
+    category: "financeiro",
   },
   {
     icon: BarChart3,
-    title: "Dashboard de Saúde Financeira",
-    desc: "Visão completa da receita, inadimplência e projeções.",
+    title: "Dashboard Estratégico",
+    desc: "Visão 360° da instituição com métricas em tempo real, projeções e alertas proativos.",
+    category: "analytics",
+  },
+  {
+    icon: GraduationCap,
+    title: "Gestão Acadêmica",
+    desc: "Controle de notas, frequências, boletins online e histórico escolar completo.",
+    category: "academico",
+  },
+  {
+    icon: Receipt,
+    title: "Financeiro Completo",
+    desc: "Gestão de mensalidades, boletos, inadimplência e controle de receitas.",
+    category: "financeiro",
+  },
+  {
+    icon: Calendar,
+    title: "Calendário Inteligente",
+    desc: "Agenda de eventos, provas e atividades integrado com Google Calendar.",
+    category: "academico",
+  },
+  {
+    icon: MessageCircle,
+    title: "Chat Institucional",
+    desc: "Comunicação em tempo real entre pais, alunos e coordenação via Firebase.",
+    category: "comunicacao",
+  },
+  {
+    icon: FileText,
+    title: "Requisição de Documentos",
+    desc: "Solicitação online de históricos, atestados e declarações sem ir à secretaria.",
+    category: "servicos",
+  },
+  {
+    icon: Wrench,
+    title: "Gestão de Manutenção",
+    desc: "Abertura e acompanhamento de chamados de manutenção com fotos e geolocalização.",
+    category: "operacional",
+  },
+  {
+    icon: QrCode,
+    title: "Carteirinha Digital",
+    desc: "QR Code para identificação do aluno no campus e controle de acesso.",
+    category: "mobile",
+  },
+  {
+    icon: MapPin,
+    title: "Mapa do Campus",
+    desc: "Mapa interativo com localização de salas, laboratórios e áreas comuns.",
+    category: "mobile",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Controle de Acesso",
+    desc: "Registro de entrada e saída de alunos com notificações em tempo real aos pais.",
+    category: "seguranca",
+  },
+  {
+    icon: Wifi,
+    title: "Integração Office 365",
+    desc: "Single Sign-On com Azure AD para acesso a email corporativo e ferramentas Microsoft.",
+    category: "integracoes",
+  },
+  {
+    icon: Settings,
+    title: "App do Aluno e Pais",
+    desc: "Experiências separadas e personalizadas para cada perfil com configurações de tema e idioma.",
+    category: "mobile",
+  },
+  {
+    icon: Download,
+    title: "Sincronização Offline",
+    desc: "Dados disponíveis mesmo sem conexão internet com sincronização automática.",
+    category: "mobile",
   },
 ];
 
 const parentBenefits = [
-  { icon: Bell, title: "Notificações em Tempo Real", desc: "Saber exatamente quando o aluno entra e sai.", badge: "Segurança" },
-  { icon: CreditCard, title: "Pagamento em um Clique", desc: "Integração com PIX e Boleto para reduzir inadimplência.", badge: "Financeiro" },
-  { icon: MessageCircle, title: "Comunicação Sem Ruídos", desc: "Canal direto com a coordenação.", badge: "Retenção" },
+  { icon: Bell, title: "Notificações em Tempo Real", desc: "Saber exatamente quando o aluno entra e sai da instituição.", badge: "Segurança" },
+  { icon: CreditCard, title: "Pagamento em um Clique", desc: "Integração com PIX e Boleto para reduzir inadimplência em 20%.", badge: "Financeiro" },
+  { icon: MessageCircle, title: "Comunicação Direta", desc: "Chat com a coordenação sem intermediários, organizada por tema.", badge: "Comunicação" },
+  { icon: FileText, title: "Documentos Online", desc: "Solicitar históricos, atestados e declarações pelo app.", badge: "Serviços" },
+  { icon: TrendingUp, title: "Acompanhamento Pedagógico", desc: "Ver notas, frequências e evolução do aluno em tempo real.", badge: "Acadêmico" },
+  { icon: Calendar, title: "Agenda de Eventos", desc: "Calendário com provas, trabalhos e eventos da escola.", badge: "Organização" },
 ];
 
 const studentBenefits = [
-  { icon: Calendar, title: "Agenda Inteligente", desc: "Provas, trabalhos e materiais centralizados.", badge: "Organização" },
-  { icon: TrendingUp, title: "Dashboard de Desempenho", desc: "Gráficos de evolução pedagógica.", badge: "Performance" },
-  { icon: QrCode, title: "Carteirinha Digital", desc: "Acesso modernizado via QR Code.", badge: "Identidade" },
+  { icon: Calendar, title: "Agenda Inteligente", desc: "Provas, trabalhos e materiais centralizados com alertas automáticos.", badge: "Organização" },
+  { icon: TrendingUp, title: "Dashboard de Desempenho", desc: "Gráficos de evolução pedagógica que estimulam a autonomia.", badge: "Performance" },
+  { icon: QrCode, title: "Carteirinha Digital", desc: "Acesso via QR Code no celular para cantina, biblioteca e catraca.", badge: "Identidade" },
+  { icon: MessageCircle, title: "Chat com Coordenação", desc: "Comunicação direta para dúvidas sobre aulas e atividades.", badge: "Comunicação" },
+  { icon: BookOpen, title: "Material Digital", desc: "Acesso a apostilas, livros e recursos pedagógicos online.", badge: "Acadêmico" },
+  { icon: Shield, title: "Login Seguro", desc: "Autenticação biométrica e proteção de dados dos estudantes.", badge: "Segurança" },
 ];
 
 const plans = [
@@ -88,24 +170,44 @@ const plans = [
     name: "Setup de Implementação",
     price: "R$ 7.000",
     period: "pagamento único",
-    desc: "Configuração completa, treinamento e personalização.",
-    features: ["Configuração completa", "Treinamento presencial", "Personalização", "Suporte 30 dias"],
+    desc: "Configuração completa da plataforma, treinamento da equipe e personalização para sua escola.",
+    features: [
+      "Configuração completa do sistema",
+      "Treinamento presencial da equipe",
+      "Personalização com identidade da escola",
+      "Suporte prioritário nos primeiros 30 dias",
+      "Migração de dados básica",
+    ],
   },
   {
     icon: Calculator,
     name: "Migração de Dados",
     price: "R$ 8.099",
     period: "pagamento único",
-    desc: "Transferência profissional com garantia de integridade.",
-    features: ["Migração histórico", "Importação financeira", "Validação completa", "Garantia"],
+    desc: "Transferência profissional de todo o histórico escolar com garantia de integridade.",
+    features: [
+      "Migração de histórico acadêmico",
+      "Importação de dados financeiros",
+      "Validação e auditoria completa",
+      "Garantia de integridade dos dados",
+      "Suporte durante transição",
+    ],
   },
   {
     icon: CreditCard,
     name: "Licenciamento Mensal",
     price: "R$ 14,99",
     period: "por aluno / mês",
-    desc: "Acesso completo com todas as funcionalidades.",
-    features: ["Todas funcionalidades", "App nativo", "IA preditiva", "Cobrança automática"],
+    desc: "Acesso completo à plataforma com todas as funcionalidades e atualizações inclusas.",
+    features: [
+      "Todas as funcionalidades incluídas",
+      "App nativo para pais e alunos",
+      "IA preditiva de evasão",
+      "Cobrança automática via WhatsApp e PIX",
+      "Mínimo: R$ 1.500/mês",
+      "Suporte prioritário",
+      "Atualizações contínuas",
+    ],
     highlight: true,
   },
 ];
@@ -158,11 +260,13 @@ const SchoolNavigatorSection = () => {
             Payback em menos de 2 meses.
           </p>
 
-          <div className={`flex flex-col md:flex-row items-center justify-center gap-8 mt-12 transition-all duration-700 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "0.6s" }}>
+          <div className={`flex flex-wrap items-center justify-center gap-8 mt-12 transition-all duration-700 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ transitionDelay: "0.6s" }}>
             {[
-              { value: "94%", label: "Redução na inadimplência" },
+              { value: "94%", label: "Redução inadimplência" },
               { value: "<2 meses", label: "Payback médio" },
-              { value: "+27%", label: "Retenção de alunos" },
+              { value: "+27%", label: "Retenção alunos" },
+              { value: "60%", label: "Redução evasão" },
+              { value: "100%", label: "Digitalização" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-exo font-bold text-2xl text-gradient-aspec">{stat.value}</div>
@@ -220,18 +324,18 @@ const SchoolNavigatorSection = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feat, i) => (
               <div
                 key={feat.title}
-                className={`relative p-8 bg-gradient-to-br from-purple-950/50 to-pink-950/30 rounded-3xl border border-aspec-purple-deep/20 backdrop-blur-sm hover:border-aspec-purple-deep/40 transition-all duration-500 group ${featuresVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${300 + i * 120}ms` }}
+                className={`relative p-6 bg-gradient-to-br from-purple-950/50 to-pink-950/30 rounded-2xl border border-aspec-purple-deep/20 backdrop-blur-sm hover:border-aspec-purple-deep/40 transition-all duration-500 group ${featuresVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                style={{ transitionDelay: `${300 + i * 80}ms` }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-aspec-purple-deep to-aspec-pink flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feat.icon className="text-white" size={24} />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-aspec-purple-deep to-aspec-pink flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feat.icon className="text-white" size={20} />
                 </div>
-                <h3 className="font-exo font-bold text-xl text-white mb-3">{feat.title}</h3>
-                <p className="font-exo text-aspec-text-secondary leading-relaxed">{feat.desc}</p>
+                <h3 className="font-exo font-bold text-lg text-white mb-2">{feat.title}</h3>
+                <p className="font-exo text-sm text-aspec-text-secondary leading-relaxed">{feat.desc}</p>
               </div>
             ))}
           </div>

@@ -17,6 +17,7 @@ export default {
         display: ["Poppins", "sans-serif"],
         body: ["Inter", "sans-serif"],
         exo: ["Exo", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
