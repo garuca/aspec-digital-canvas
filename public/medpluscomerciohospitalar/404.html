@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MedPlus Hospitalar</title>
+  <script>
+    sessionStorage.redirect = sessionStorage.redirect || '';
+    var parts = window.location.pathname.split('/');
+    var url = '/medpluscomerciohospitalar/' + (parts[1] || '');
+    url += '/index.html';
+    if (sessionStorage.redirect == url) {
+      sessionStorage.redirect = null;
+    } else {
+      sessionStorage.redirect = window.location.pathname;
+      window.location.replace(url);
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
