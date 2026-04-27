@@ -71,11 +71,6 @@ export default defineConfig({
             "/*  /medpluscomerciohospitalar/index.html  200\n"
           );
         }
-
-        fs.writeFileSync(
-          path.join(distPath, "_redirects"),
-          "/medpluscomerciohospitalar/*  /medpluscomerciohospitalar/:splat  200\n"
-        );
       },
     },
   ].filter(Boolean),
