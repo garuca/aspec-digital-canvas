@@ -59,6 +59,7 @@ export default defineConfig({
       closeBundle() {
         const distPath = path.resolve(__dirname, "dist");
         const indexContent = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
+        
         fs.writeFileSync(
           path.join(distPath, "404.html"),
           indexContent
@@ -66,10 +67,23 @@ export default defineConfig({
 
         const medplusPath = path.join(distPath, "medpluscomerciohospitalar");
         if (fs.existsSync(medplusPath)) {
+          const medplusIndex = fs.readFileSync(
+            path.join(medplusPath, "index.html"),
+            "utf-8"
+          );
           fs.writeFileSync(
             path.join(medplusPath, "_redirects"),
             "/*  /medpluscomerciohospitalar/index.html  200\n"
           );
+          
+          const subdirs = ["admin", "carrinho", "produtos", "sobre", "contato", "servicos"];
+          subdirs.forEach(subdir => {
+            const subdirPath = path.join(medplusPath, subdir);
+            if (!fs.existsSync(subdirPath)) {
+              fs.mkdirSync(subdirPath, { recursive: true });
+            }
+            fs.writeFileSync(path.join(subdirPath, "index.html"), medplusIndex);
+          });
         }
       },
     },
