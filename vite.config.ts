@@ -68,7 +68,7 @@ export default defineConfig({
         if (fs.existsSync(medplusPath)) {
           fs.writeFileSync(
             path.join(medplusPath, "_redirects"),
-            "/* /medpluscomerciohospitalar/index.html 200\n"
+            "/*  /medpluscomerciohospitalar/index.html  200\n/admin*  /medpluscomerciohospitalar/index.html  200\n"
           );
         }
       },
