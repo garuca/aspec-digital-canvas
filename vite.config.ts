@@ -5,6 +5,36 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import fs from "fs";
 
+const vividPlugin = () => ({
+  name: "vivid-static",
+  configureServer(server: ViteDevServer) {
+    server.middlewares.use(async (req, res, next) => {
+      if (req.url?.startsWith("/vivid")) {
+        const filePath = req.url.replace("/vivid", "");
+        const staticPath = path.resolve(
+          __dirname,
+          "public/vivid",
+          filePath === "/" || filePath === "" ? "index.html" : filePath
+        );
+        if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+          const content = fs.readFileSync(staticPath);
+          const ext = path.extname(staticPath);
+          const contentType =
+            ext === ".html" ? "text/html"
+            : ext === ".js" ? "application/javascript"
+            : ext === ".css" ? "text/css"
+            : ext === ".webp" ? "image/webp"
+            : ext === ".png" ? "image/png"
+            : "text/plain";
+          res.setHeader("Content-Type", contentType);
+          return res.end(content);
+        }
+      }
+      next();
+    });
+  },
+});
+
 const medplusPlugin = () => ({
   name: "medplus-static",
   configureServer(server: ViteDevServer) {
@@ -53,6 +83,7 @@ export default defineConfig({
   plugins: [
     react(),
     componentTagger(),
+    vividPlugin(),
     medplusPlugin(),
     {
       name: "copy-404",
