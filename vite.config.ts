@@ -5,6 +5,36 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import fs from "fs";
 
+const vividPlugin = () => ({
+  name: "vivid-static",
+  configureServer(server: ViteDevServer) {
+    server.middlewares.use(async (req, res, next) => {
+      if (req.url?.startsWith("/vivid")) {
+        const filePath = req.url.replace("/vivid", "");
+        const staticPath = path.resolve(
+          __dirname,
+          "public/vivid",
+          filePath === "/" || filePath === "" ? "index.html" : filePath
+        );
+        if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+          const content = fs.readFileSync(staticPath);
+          const ext = path.extname(staticPath);
+          const contentType =
+            ext === ".html" ? "text/html"
+            : ext === ".js" ? "application/javascript"
+            : ext === ".css" ? "text/css"
+            : ext === ".webp" ? "image/webp"
+            : ext === ".png" ? "image/png"
+            : "text/plain";
+          res.setHeader("Content-Type", contentType);
+          return res.end(content);
+        }
+      }
+      next();
+    });
+  },
+});
+
 const medplusPlugin = () => ({
   name: "medplus-static",
   configureServer(server: ViteDevServer) {
@@ -40,6 +70,39 @@ const medplusPlugin = () => ({
   },
 });
 
+const luizvieiraPlugin = () => ({
+  name: "luizvieira-static",
+  configureServer(server: ViteDevServer) {
+    server.middlewares.use(async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+      if (req.url?.startsWith("/luizvieira")) {
+        const filePath = req.url.replace("/luizvieira", "");
+        const staticPath = path.resolve(
+          __dirname,
+          "public/luizvieira",
+          filePath === "/" || filePath === "" ? "index.html" : filePath.startsWith('/') ? filePath.slice(1) : filePath
+        );
+
+        console.log(`[LuizVieira Plugin] Request: ${req.url} -> Resolved to: ${staticPath}`);
+
+        if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+          const content = fs.readFileSync(staticPath);
+          const ext = path.extname(staticPath);
+          const contentType =
+            ext === ".html" ? "text/html"
+            : ext === ".js" ? "application/javascript"
+            : ext === ".css" ? "text/css"
+            : ext === ".webp" ? "image/webp"
+            : ext === ".png" ? "image/png"
+            : "text/plain";
+          res.setHeader("Content-Type", contentType);
+          return res.end(content);
+        }
+      }
+      next();
+    });
+  },
+});
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/",
@@ -53,7 +116,9 @@ export default defineConfig({
   plugins: [
     react(),
     componentTagger(),
+    vividPlugin(),
     medplusPlugin(),
+    luizvieiraPlugin(),
     {
       name: "copy-404",
       closeBundle() {
