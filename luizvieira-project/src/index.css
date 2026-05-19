@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 15% 8%;
+    --foreground: 40 15% 95%;
+
+    --card: 15 20% 12%;
+    --card-foreground: 40 15% 95%;
+
+    --popover: 15 20% 12%;
+    --popover-foreground: 40 15% 95%;
+
+    --primary: 40 42% 55%;
+    --primary-foreground: 0 0% 2%;
+
+    --secondary: 36 30% 50%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 36 30% 50%;
+
+    --accent: 40 42% 55%;
+    --accent-foreground: 0 0% 2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 40 42% 55% / 0.2;
+    --input: 0 0% 15%;
+    --ring: 40 42% 55%;
+
+    --radius: 0.25rem;
+
+    --gold-start: 30 61% 50%;
+    --gold-mid: 29 56% 46%;
+    --gold-end: 25 75% 31%;
+
+    --sidebar-background: 15 20% 12%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 40 42% 55%;
+    --sidebar-primary-foreground: 0 0% 2%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 40 42% 55% / 0.2;
+    --sidebar-ring: 40 42% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #CD7F32 0%, #B87333 50%, #8B4513 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #CD7F32 0%, #B87333 50%, #8B4513 100%);
+  }
+
+  .border-gold {
+    border-color: rgba(184, 115, 51, 0.4);
+  }
+
+  .border-gold-hover {
+    border-color: rgba(184, 115, 51, 0.7);
+  }
+
+  .divider-gold {
+    background: linear-gradient(90deg, transparent, #B87333, transparent);
+    height: 0.5px;
+  }
+
+  .glass {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.15);
+  }
+
+  .shadow-gold-lg {
+    box-shadow: 0 0 40px rgba(197, 160, 89, 0.2);
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::after {
+    display: none;
+  }
+}
