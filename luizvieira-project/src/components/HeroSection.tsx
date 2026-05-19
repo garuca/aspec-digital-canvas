@@ -42,18 +42,20 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <a
-                href="/#experiencias"
-                className="group relative inline-flex items-center justify-center gap-3 bg-gold-gradient text-primary-foreground font-heading text-sm tracking-luxury uppercase px-10 py-5 overflow-hidden"
-              >
+               <a
+                 href="/luizvieira/#experiencias"
+                 className="group relative inline-flex items-center justify-center gap-3 bg-gold-gradient text-primary-foreground font-heading text-sm tracking-luxury uppercase px-10 py-5 overflow-hidden"
+               >
+
                 <span className="relative z-10">{t('hero_btn_experiences')}</span>
                 <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
               </a>
-              <a
-             href="/#catalogo-completo"
-                className="group inline-flex items-center justify-center gap-3 border border-primary/30 text-primary font-heading text-sm tracking-luxury uppercase px-10 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all duration-500"
-              >
+               <a
+                 href="/luizvieira/#catalogo-completo"
+                 className="group inline-flex items-center justify-center gap-3 border border-primary/30 text-primary font-heading text-sm tracking-luxury uppercase px-10 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all duration-500"
+               >
+
                 <span>{t('hero_btn_catalog')}</span>
               </a>
             </div>

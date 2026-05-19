@@ -17,12 +17,13 @@ const Footer = () => {
 
           <div className="space-y-4">
             <h4 className="font-heading text-sm tracking-luxury uppercase text-primary">{t('footer_nav')}</h4>
-            {[
-              { key: "nav_about", href: "/#sobre" },
-              { key: "nav_experiences", href: "/#experiencias" },
-               { key: "nav_catalog", href: "/#catalogo-completo" },
-              { key: "nav_blog", href: "/#blog" }
+            {             [
+              { key: "nav_about", href: "/luizvieira/#sobre" },
+              { key: "nav_experiences", href: "/luizvieira/#experiencias" },
+              { key: "nav_catalog", href: "/luizvieira/#catalogo-completo" },
+              { key: "nav_blog", href: "/luizvieira/#blog" }
             ].map((item) => (
+
               <a
                 key={item.key}
                 href={item.href}

@@ -5,11 +5,11 @@ import logoLM from "@/assets/logo-lm.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { key: "nav_home", href: "/#inicio" },
-  { key: "nav_about", href: "/#sobre" },
-  { key: "nav_experiences", href: "/#experiencias" },
-  { key: "nav_catalog", href: "/#catalogo-completo" },
-  { key: "nav_blog", href: "/#blog" },
+  { key: "nav_home", href: "/luizvieira/#inicio" },
+  { key: "nav_about", href: "/luizvieira/#sobre" },
+  { key: "nav_experiences", href: "/luizvieira/#experiencias" },
+  { key: "nav_catalog", href: "/luizvieira/#catalogo-completo" },
+  { key: "nav_blog", href: "/luizvieira/#blog" },
 ];
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
@@ -31,7 +31,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/10">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
       <div className="container mx-auto flex items-center justify-between h-20 px-6 relative">
-        <a href="/#inicio" className="relative group flex items-center">
+        <a href="/luizvieira/#inicio" className="relative group flex items-center">
           <span className="font-heading text-xl md:text-2xl tracking-luxury uppercase text-white relative z-10 transition-transform duration-500 group-hover:scale-105">LUIZ VIEIRA</span>
           <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </a>
