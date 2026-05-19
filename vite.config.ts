@@ -70,37 +70,46 @@ const medplusPlugin = () => ({
   },
 });
 
-const luizvieiraPlugin = () => ({
-  name: "luizvieira-static",
+const staticContentTypes: Record<string, string> = {
+  ".html": "text/html",
+  ".js": "application/javascript",
+  ".css": "text/css",
+  ".webp": "image/webp",
+  ".png": "image/png",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
+  ".svg": "image/svg+xml",
+  ".ico": "image/x-icon",
+};
+
+const serveStaticSubapp = (mount: string, publicDir: string) => ({
   configureServer(server: ViteDevServer) {
-    server.middlewares.use(async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
-      if (req.url?.startsWith("/luizvieira")) {
-        const filePath = req.url.replace("/luizvieira", "");
-        const staticPath = path.resolve(
-          __dirname,
-          "public/luizvieira",
-          filePath === "/" || filePath === "" ? "index.html" : filePath.startsWith('/') ? filePath.slice(1) : filePath
-        );
-
-        console.log(`[LuizVieira Plugin] Request: ${req.url} -> Resolved to: ${staticPath}`);
-
-        if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
-          const content = fs.readFileSync(staticPath);
-          const ext = path.extname(staticPath);
-          const contentType =
-            ext === ".html" ? "text/html"
-            : ext === ".js" ? "application/javascript"
-            : ext === ".css" ? "text/css"
-            : ext === ".webp" ? "image/webp"
-            : ext === ".png" ? "image/png"
-            : "text/plain";
-          res.setHeader("Content-Type", contentType);
-          return res.end(content);
-        }
+    server.middlewares.use(async (req, res, next) => {
+      if (!req.url?.startsWith(mount)) {
+        next();
+        return;
+      }
+      const filePath = req.url.replace(mount, "");
+      const staticPath = path.resolve(
+        __dirname,
+        publicDir,
+        filePath === "/" || filePath === "" ? "index.html" : filePath.replace(/^\//, "")
+      );
+      if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+        const content = fs.readFileSync(staticPath);
+        const ext = path.extname(staticPath);
+        res.setHeader("Content-Type", staticContentTypes[ext] ?? "text/plain");
+        res.end(content);
+        return;
       }
       next();
     });
   },
+});
+
+const luizvieiraPlugin = () => ({
+  name: "luizvieira-static",
+  ...serveStaticSubapp("/luizvieira", "public/luizvieira"),
 });
 
 // https://vitejs.dev/config/
@@ -128,10 +137,13 @@ export default defineConfig({
         // Copia para a raiz
         fs.writeFileSync(path.join(distPath, "404.html"), indexContent);
 
-        // Copia para luizvieira (para permitir roteamento interno no GitHub Pages)
         const luizvieiraPath = path.join(distPath, "luizvieira");
         if (fs.existsSync(luizvieiraPath)) {
-            fs.writeFileSync(path.join(luizvieiraPath, "404.html"), indexContent);
+          const luizIndexPath = path.join(luizvieiraPath, "index.html");
+          if (fs.existsSync(luizIndexPath)) {
+            const luizIndex = fs.readFileSync(luizIndexPath, "utf-8");
+            fs.writeFileSync(path.join(luizvieiraPath, "404.html"), luizIndex);
+          }
         }
 
         const medplusPath = path.join(distPath, "medpluscomerciohospitalar");

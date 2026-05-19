@@ -52,6 +52,17 @@ jobs:
             cd -
             cp -r ../decision-flow/dist/* dist/radar/
           fi
+
+          # Build luizvieira (same GitHub Pages pattern as vivid)
+          if [ -d "luizvieira-project" ]; then
+            cd luizvieira-project
+            bun install
+            bun run build
+            cd ..
+            rm -rf dist/luizvieira
+            mkdir -p dist/luizvieira
+            cp -r luizvieira-project/dist/* dist/luizvieira/
+          fi
         shell: bash
       
       - name: Upload artifact

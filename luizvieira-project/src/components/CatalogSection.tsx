@@ -34,7 +34,7 @@ const CatalogSection = () => {
             {t('cat_desc')}
           </p>
           <a
-             href="/luizvieira/#catalogo-completo"
+             href="#catalogo-completo"
             className="inline-block border border-primary/40 text-primary font-heading text-sm tracking-luxury uppercase px-8 py-4 rounded hover:border-primary/70 hover:shadow-gold transition-all duration-500 mt-6"
           >
             {t('cat_btn')}

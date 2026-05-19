@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-      // Redireciona para a raiz do SPA mantendo a rota desejada na query string
-      // para o React Router processar.
-      
-      var base = '/luizvieira/';
-      var l = window.location;
-      
-      // Cria a URL de redirecionamento:
-      // Mantém o protocolo/host/porta + base + ?/ + rota original
-      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-                        base + '?/' + l.pathname.substring(base.length);
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231f1f1f'/><text x='50' y='65' font-family='serif' font-size='50' fill='%23D4AF37' text-anchor='middle'>LV</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luiz Vieira | Premium Cigar Concierge</title>
+    <meta name="description" content="Especialista em charutos premium, degustações exclusivas e consultoria para eventos. Harmonização, história e curadoria de tabacos selecionados." />
+    <meta name="author" content="Luiz Vieira" />
+    <meta property="og:title" content="Luiz Vieira | Cigar Concierge" />
+    <meta property="og:description" content="A arte da degustação e curadoria premium de charutos e experiências." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://luizvieira.com/og-image.jpg" />
 
-      l.replace(redirectUrl);
-    </script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@LuizVieira" />
+    <meta name="twitter:image" content="https://luizvieira.com/og-image.jpg" />
+    <script type="module" crossorigin src="/luizvieira/assets/index-BPzfI75Z.js"></script>
+    <link rel="stylesheet" crossorigin href="/luizvieira/assets/index-yipY5qwh.css">
   </head>
+
   <body>
+    <div id="root"></div>
   </body>
 </html>
