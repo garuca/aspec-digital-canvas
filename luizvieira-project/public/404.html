@@ -4,20 +4,18 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
+      // Redireciona para a raiz do SPA mantendo a rota desejada na query string
+      // para o React Router processar.
       
-      // If the path contains the base path, we need to keep it.
-      // Our base path is /luizvieira/ (2 segments: / and luizvieira)
-      
+      var base = '/luizvieira/';
       var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/luizvieira/?/' +
-        l.pathname.substring(12).split('/').filter(p => p).join('/') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      
+      // Cria a URL de redirecionamento:
+      // Mantém o protocolo/host/porta + base + ?/ + rota original
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                        base + '?/' + l.pathname.substring(base.length);
+
+      l.replace(redirectUrl);
     </script>
   </head>
   <body>
