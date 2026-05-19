@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // Redireciona para a raiz do SPA mantendo a rota desejada na query string
+      // para o React Router processar.
+      
+      var base = '/luizvieira/';
+      var l = window.location;
+      
+      // Cria a URL de redirecionamento:
+      // Mantém o protocolo/host/porta + base + ?/ + rota original
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+                        base + '?/' + l.pathname.substring(base.length);
+
+      l.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

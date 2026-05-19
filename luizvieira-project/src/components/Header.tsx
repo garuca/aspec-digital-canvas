@@ -8,7 +8,7 @@ const navItems = [
   { key: "nav_home", href: "/#inicio" },
   { key: "nav_about", href: "/#sobre" },
   { key: "nav_experiences", href: "/#experiencias" },
-  { key: "nav_catalog", href: "/luizvieira/catalogo" },
+  { key: "nav_catalog", href: "/#catalogo-completo" },
   { key: "nav_blog", href: "/#blog" },
 ];
 
