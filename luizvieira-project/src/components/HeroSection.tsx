@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
               </a>
               <a
-                href="#catalogo"
+                href="/luizvieira/catalogo"
                 className="group inline-flex items-center justify-center gap-3 border border-primary/30 text-primary font-heading text-sm tracking-luxury uppercase px-10 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all duration-500"
               >
                 <span>{t('hero_btn_catalog')}</span>
