@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Sparkles, Rocket } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import GalaxyBackground from "./GalaxyBackground";
+import { GlobePulse } from "./GlobePulse";
 
 // Reusable Shader Background Hook
-const useShaderBackground = (heroType: 'old' | 'new') => {
+const useShaderBackground = (heroType: 'old' | 'new' | 'globe') => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const rendererRef = useRef<WebGLRenderer | null>(null);
@@ -306,18 +307,21 @@ const useShaderBackground = (heroType: 'old' | 'new') => {
 const HeroSection = () => {
   const { t } = useLanguage();
   
-  // Alternate between old (nebula + globe) and new (colliding galaxies) backgrounds on successive page visits
-  const [heroType, setHeroType] = useState<'old' | 'new'>(() => {
+  // Alternate between old (nebula), new (colliding galaxies), and globe backgrounds on successive page visits
+  const [heroType, setHeroType] = useState<'old' | 'new' | 'globe'>(() => {
     if (typeof window !== 'undefined') {
       const current = localStorage.getItem('aspec_hero_type');
-      return current === 'new' ? 'new' : 'old';
+      if (current === 'globe') return 'globe';
+      if (current === 'new') return 'new';
+      return 'old';
     }
     return 'old';
   });
 
   useEffect(() => {
-    // Save the other type for the next visit
-    localStorage.setItem('aspec_hero_type', heroType === 'old' ? 'new' : 'old');
+    // Save the next type for the subsequent visit
+    const nextType = heroType === 'old' ? 'new' : heroType === 'new' ? 'globe' : 'old';
+    localStorage.setItem('aspec_hero_type', nextType);
   }, [heroType]);
 
   const canvasRef = useShaderBackground(heroType);
@@ -333,6 +337,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {heroType === 'new' ? (
           <GalaxyBackground />
+        ) : heroType === 'globe' ? (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
+            <GlobePulse className="w-full max-w-[500px] md:max-w-[700px] lg:max-w-[900px] opacity-70" />
+          </div>
         ) : (
           <canvas
             ref={canvasRef}
@@ -348,7 +356,7 @@ const HeroSection = () => {
 
 
       {/* Content layer - z-10 */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col min-h-screen">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col min-h-screen pointer-events-none">
         
         {/* Spacer for header */}
         <div className="h-24" />
@@ -411,7 +419,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pointer-events-auto">
             <Button 
               variant="gradient" 
               size="lg" 
