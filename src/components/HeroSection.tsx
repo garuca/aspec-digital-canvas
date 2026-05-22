@@ -397,8 +397,12 @@ const HeroSection = () => {
           />
         )}
         {/* Vignette & gradient to make the typography pop and harmonize with the dark aesthetic */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.75)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+        {heroType !== 'aurora' && (
+          <>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.75)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+          </>
+        )}
       </div>
 
 

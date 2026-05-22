@@ -120,7 +120,7 @@ const Starfield = () => {
 };
 
 export const AuroraBackground: React.FC<AuroraBackgroundProps> = ({ color }) => {
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 35%, ${color})`;
 
   return (
     <motion.div
