@@ -1,10 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, Sparkles, Rocket } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import GalaxyBackground from "./GalaxyBackground";
 
 // Reusable Shader Background Hook
-const useShaderBackground = () => {
+const useShaderBackground = (heroType: 'old' | 'new') => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const rendererRef = useRef<WebGLRenderer | null>(null);
@@ -258,9 +259,18 @@ const useShaderBackground = () => {
   };
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (heroType !== 'old' || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
+    
+    // Safety check for WebGL2 support to prevent runtime context crashes
+    const gl = canvas.getContext('webgl2');
+    if (!gl) {
+      console.warn('WebGL2 is not supported. Skipping background shader animation.');
+      canvas.style.background = 'radial-gradient(circle at center, #1e0b36 0%, #000 100%)';
+      return;
+    }
+
     const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
     
     rendererRef.current = new WebGLRenderer(canvas, dpr);
@@ -288,14 +298,29 @@ const useShaderBackground = () => {
         rendererRef.current.reset();
       }
     };
-  }, []);
+  }, [heroType]);
 
   return canvasRef;
 };
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const canvasRef = useShaderBackground();
+  
+  // Alternate between old (nebula + globe) and new (colliding galaxies) backgrounds on successive page visits
+  const [heroType, setHeroType] = useState<'old' | 'new'>(() => {
+    if (typeof window !== 'undefined') {
+      const current = localStorage.getItem('aspec_hero_type');
+      return current === 'new' ? 'new' : 'old';
+    }
+    return 'old';
+  });
+
+  useEffect(() => {
+    // Save the other type for the next visit
+    localStorage.setItem('aspec_hero_type', heroType === 'old' ? 'new' : 'old');
+  }, [heroType]);
+
+  const canvasRef = useShaderBackground(heroType);
 
   return (
     <section
@@ -306,15 +331,21 @@ const HeroSection = () => {
 
       {/* Background layer - z-0 */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full block touch-none"
-          style={{ background: 'black' }}
-        />
+        {heroType === 'new' ? (
+          <GalaxyBackground />
+        ) : (
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full block touch-none"
+            style={{ background: 'black' }}
+          />
+        )}
         {/* Vignette & gradient to make the typography pop and harmonize with the dark aesthetic */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.75)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
       </div>
+
+
 
       {/* Content layer - z-10 */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col min-h-screen">
@@ -349,7 +380,7 @@ const HeroSection = () => {
             {/* Small floating particles around title */}
             <div className="absolute -top-4 -left-8 w-2 h-2 bg-purple-400/60 rounded-full animate-ping" style={{ animationDuration: '2s' }} />
             <div className="absolute -bottom-2 -right-6 w-1.5 h-1.5 bg-pink-400/60 rounded-full animate-ping" style={{ animationDuration: '2.5s' }} />
-            <div className="absolute top-1/2 -left-12 w-1 h-1 bg-white/50 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
+            <div className="absolute top-1/2 -left-12 w-1.5 h-1.5 bg-white/50 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
             <div className="absolute top-1/4 -right-10 w-2 h-2 bg-purple-300/40 rounded-full animate-ping" style={{ animationDuration: '1.8s' }} />
           </div>
 
@@ -381,11 +412,29 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Button variant="gradient" size="lg" className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group">
-              <Rocket size={18} className="group-hover:-translate-y-1 transition-transform" />
+            <Button 
+              variant="gradient" 
+              size="lg" 
+              className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = 'https://wa.me/5582999158022';
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.click();
+              }}
+            >
+              <Rocket size={18} className="group-hover:-translate-y-1 transition-transform animate-bounce" />
               {t("hero.cta1")}
             </Button>
-            <Button variant="hero" size="lg" className="gap-2 text-base px-10 py-6 rounded-xl border-white/20 hover:bg-white/10 transition-all duration-300">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="gap-2 text-base px-10 py-6 rounded-xl border-white/20 hover:bg-white/10 transition-all duration-300"
+              onClick={() => {
+                document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <span>{t("hero.cta2")}</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Button>
