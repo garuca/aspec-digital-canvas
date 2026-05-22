@@ -4,9 +4,11 @@ import { ArrowRight, ChevronDown, Sparkles, Rocket } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import GalaxyBackground from "./GalaxyBackground";
 import { GlobePulse } from "./GlobePulse";
+import SplineBackground from "./SplineBackground";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 // Reusable Shader Background Hook
-const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small') => {
+const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small' | 'spline') => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const rendererRef = useRef<WebGLRenderer | null>(null);
@@ -307,10 +309,11 @@ const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small') 
 const HeroSection = () => {
   const { t } = useLanguage();
   
-  // Alternate between old (nebula), new (colliding galaxies), and globe backgrounds on successive page visits
-  const [heroType, setHeroType] = useState<'old' | 'new' | 'globe' | 'globe-small'>(() => {
+  // Alternate between old (nebula), new (colliding galaxies), globe, and spline backgrounds on successive page visits
+  const [heroType, setHeroType] = useState<'old' | 'new' | 'globe' | 'globe-small' | 'spline'>(() => {
     if (typeof window !== 'undefined') {
       const current = localStorage.getItem('aspec_hero_type');
+      if (current === 'spline') return 'spline';
       if (current === 'globe-small') return 'globe-small';
       if (current === 'globe') return 'globe';
       if (current === 'new') return 'new';
@@ -327,6 +330,8 @@ const HeroSection = () => {
       ? 'globe' 
       : heroType === 'globe' 
       ? 'globe-small' 
+      : heroType === 'globe-small'
+      ? 'spline'
       : 'old';
     localStorage.setItem('aspec_hero_type', nextType);
   }, [heroType]);
@@ -343,7 +348,9 @@ const HeroSection = () => {
       {/* Background layer - z-0 */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {heroType === 'new' ? (
-          <GalaxyBackground />
+          <ErrorBoundary>
+            <GalaxyBackground />
+          </ErrorBoundary>
         ) : heroType === 'globe' ? (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
             <GlobePulse className="w-full max-w-[500px] md:max-w-[700px] lg:max-w-[900px] opacity-70" />
@@ -352,6 +359,10 @@ const HeroSection = () => {
           <div className="absolute bottom-4 right-4 md:bottom-12 md:right-12 pointer-events-auto">
             <GlobePulse className="w-[250px] h-[250px] sm:w-[320px] sm:h-[320px] md:w-[420px] md:h-[420px] opacity-80" />
           </div>
+        ) : heroType === 'spline' ? (
+          <ErrorBoundary>
+            <SplineBackground />
+          </ErrorBoundary>
         ) : (
           <canvas
             ref={canvasRef}
