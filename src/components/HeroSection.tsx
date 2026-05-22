@@ -238,8 +238,8 @@ const useShaderBackground = () => {
     const canvas = canvasRef.current;
     const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
     
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
+    canvas.width = (canvas.clientWidth || window.innerWidth) * dpr;
+    canvas.height = (canvas.clientHeight || window.innerHeight) * dpr;
     
     if (rendererRef.current) {
       rendererRef.current.updateScale(dpr);
@@ -308,7 +308,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full object-cover touch-none"
+          className="absolute inset-0 w-full h-full block touch-none"
           style={{ background: 'black' }}
         />
         {/* Vignette & gradient to make the typography pop and harmonize with the dark aesthetic */}
