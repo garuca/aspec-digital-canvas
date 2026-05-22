@@ -5,10 +5,12 @@ import { useLanguage } from "@/context/LanguageContext";
 import GalaxyBackground from "./GalaxyBackground";
 import { GlobePulse } from "./GlobePulse";
 import SplineBackground from "./SplineBackground";
+import AuroraBackground from "./AuroraBackground";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { motion, useMotionValue, useMotionTemplate, animate } from "framer-motion";
 
 // Reusable Shader Background Hook
-const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small' | 'spline') => {
+const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small' | 'spline' | 'aurora') => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const rendererRef = useRef<WebGLRenderer | null>(null);
@@ -309,10 +311,11 @@ const useShaderBackground = (heroType: 'old' | 'new' | 'globe' | 'globe-small' |
 const HeroSection = () => {
   const { t } = useLanguage();
   
-  // Alternate between old (nebula), new (colliding galaxies), globe, and spline backgrounds on successive page visits
-  const [heroType, setHeroType] = useState<'old' | 'new' | 'globe' | 'globe-small' | 'spline'>(() => {
+  // Alternate between old (nebula), new (colliding galaxies), globe, spline, and aurora backgrounds on successive page visits
+  const [heroType, setHeroType] = useState<'old' | 'new' | 'globe' | 'globe-small' | 'spline' | 'aurora'>(() => {
     if (typeof window !== 'undefined') {
       const current = localStorage.getItem('aspec_hero_type');
+      if (current === 'aurora') return 'aurora';
       if (current === 'spline') return 'spline';
       if (current === 'globe-small') return 'globe-small';
       if (current === 'globe') return 'globe';
@@ -332,11 +335,30 @@ const HeroSection = () => {
       ? 'globe-small' 
       : heroType === 'globe-small'
       ? 'spline'
+      : heroType === 'spline'
+      ? 'aurora'
       : 'old';
     localStorage.setItem('aspec_hero_type', nextType);
   }, [heroType]);
 
   const canvasRef = useShaderBackground(heroType);
+
+  const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+  const color = useMotionValue(COLORS_TOP[0]);
+
+  useEffect(() => {
+    if (heroType !== 'aurora') return;
+    const controls = animate(color, COLORS_TOP, {
+      ease: "easeInOut",
+      duration: 10,
+      repeat: Infinity,
+      repeatType: "mirror",
+    });
+    return () => controls.stop();
+  }, [heroType, color]);
+
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
 
   return (
     <section
@@ -363,6 +385,10 @@ const HeroSection = () => {
           <ErrorBoundary>
             <SplineBackground />
           </ErrorBoundary>
+        ) : heroType === 'aurora' ? (
+          <ErrorBoundary>
+            <AuroraBackground color={color} />
+          </ErrorBoundary>
         ) : (
           <canvas
             ref={canvasRef}
@@ -385,53 +411,73 @@ const HeroSection = () => {
         
         <div className="flex-1 flex flex-col items-center justify-center gap-8">
           {/* Badge centered */}
-          <div className="hero-badge inline-flex items-center gap-2 rounded-full px-5 py-2">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" />
-            <span className="text-sm font-medium text-white/90 flex items-center gap-2">
-              <Sparkles size={14} className="text-purple-400" />
+          {heroType === 'aurora' ? (
+            <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-4 py-1.5 text-sm text-gray-200 font-exo hero-badge">
               {t("hero.badge")}
             </span>
-          </div>
+          ) : (
+            <div className="hero-badge inline-flex items-center gap-2 rounded-full px-5 py-2">
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" />
+              <span className="text-sm font-medium text-white/90 flex items-center gap-2">
+                <Sparkles size={14} className="text-purple-400" />
+                {t("hero.badge")}
+              </span>
+            </div>
+          )}
 
           <div className="relative">
-            <div className="absolute -inset-20 bg-gradient-to-r from-purple-900/30 via-pink-900/20 to-purple-900/30 blur-3xl rounded-full animate-pulse" />
-            <div className="absolute -inset-10 bg-gradient-to-r from-purple-600/20 via-pink-500/10 to-purple-600/20 blur-2xl rounded-full" />
+            {heroType !== 'aurora' && (
+              <>
+                <div className="absolute -inset-20 bg-gradient-to-r from-purple-900/30 via-pink-900/20 to-purple-900/30 blur-3xl rounded-full animate-pulse" />
+                <div className="absolute -inset-10 bg-gradient-to-r from-purple-600/20 via-pink-500/10 to-purple-600/20 blur-2xl rounded-full" />
+              </>
+            )}
             
-            <h1 className="font-exo font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight text-center relative hero-title-glow tracking-tight">
-              <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
-                {t("hero.line1")}
-              </span>
-              <br />
-              <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
-                {t("hero.line2")}
-              </span>
-            </h1>
+            {heroType === 'aurora' ? (
+              <h1 className="font-exo font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight text-center relative tracking-tight max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                {t("hero.line1")}<br />{t("hero.line2")}
+              </h1>
+            ) : (
+              <h1 className="font-exo font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight text-center relative hero-title-glow tracking-tight">
+                <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent">
+                  {t("hero.line1")}
+                </span>
+                <br />
+                <span className="text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                  {t("hero.line2")}
+                </span>
+              </h1>
+            )}
             
-            {/* Small floating particles around title */}
-            <div className="absolute -top-4 -left-8 w-2 h-2 bg-purple-400/60 rounded-full animate-ping" style={{ animationDuration: '2s' }} />
-            <div className="absolute -bottom-2 -right-6 w-1.5 h-1.5 bg-pink-400/60 rounded-full animate-ping" style={{ animationDuration: '2.5s' }} />
-            <div className="absolute top-1/2 -left-12 w-1.5 h-1.5 bg-white/50 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
-            <div className="absolute top-1/4 -right-10 w-2 h-2 bg-purple-300/40 rounded-full animate-ping" style={{ animationDuration: '1.8s' }} />
+            {heroType !== 'aurora' && (
+              <>
+                {/* Small floating particles around title */}
+                <div className="absolute -top-4 -left-8 w-2 h-2 bg-purple-400/60 rounded-full animate-ping" style={{ animationDuration: '2s' }} />
+                <div className="absolute -bottom-2 -right-6 w-1.5 h-1.5 bg-pink-400/60 rounded-full animate-ping" style={{ animationDuration: '2.5s' }} />
+                <div className="absolute top-1/2 -left-12 w-1.5 h-1.5 bg-white/50 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
+                <div className="absolute top-1/4 -right-10 w-2 h-2 bg-purple-300/40 rounded-full animate-ping" style={{ animationDuration: '1.8s' }} />
+              </>
+            )}
           </div>
 
           <div className="max-w-2xl text-center">
-            <p className="font-exo text-lg md:text-xl text-purple-100/90 leading-relaxed mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+            <p className={`font-exo text-lg md:text-xl leading-relaxed mb-6 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] ${heroType === 'aurora' ? 'text-gray-300' : 'text-purple-100/90'}`}>
               {t("hero.intro")}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6">
-              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+              <span className={`text-2xl md:text-3xl font-exo font-bold ${heroType === 'aurora' ? 'text-white' : 'bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent'}`}>
                 {t("hero.design")}
               </span>
               <span className="text-white/40 text-2xl font-light">+</span>
-              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
+              <span className={`text-2xl md:text-3xl font-exo font-bold ${heroType === 'aurora' ? 'text-white' : 'bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent'}`}>
                 {t("hero.tech")}
               </span>
               <span className="text-white/40 text-2xl font-light">+</span>
-              <span className="text-2xl md:text-3xl font-exo font-bold bg-gradient-to-r from-pink-300 via-rose-300 to-pink-300 bg-clip-text text-transparent">
+              <span className={`text-2xl md:text-3xl font-exo font-bold ${heroType === 'aurora' ? 'text-white' : 'bg-gradient-to-r from-pink-300 via-rose-300 to-pink-300 bg-clip-text text-transparent'}`}>
                 {t("hero.dev")}
               </span>
             </div>
-            <p className="font-exo text-base md:text-lg text-white/70 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+            <p className={`font-exo text-base md:text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] ${heroType === 'aurora' ? 'text-gray-400' : 'text-white/70'}`}>
               {t("hero.subtitle1")}{" "}
               <span className="relative inline-block">
                 <span className="text-cyan-300 font-semibold">{t("hero.ai")}</span>
@@ -442,32 +488,73 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pointer-events-auto">
-            <Button 
-              variant="gradient" 
-              size="lg" 
-              className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = 'https://wa.me/5582999158022';
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                link.click();
-              }}
-            >
-              <Rocket size={18} className="group-hover:-translate-y-1 transition-transform animate-bounce" />
-              {t("hero.cta1")}
-            </Button>
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="gap-2 text-base px-10 py-6 rounded-xl border-white/20 hover:bg-white/10 transition-all duration-300"
-              onClick={() => {
-                document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              <span>{t("hero.cta2")}</span>
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Button>
+            {heroType === 'aurora' ? (
+              <>
+                <motion.button
+                  style={{
+                    border,
+                    boxShadow,
+                  }}
+                  whileHover={{
+                    scale: 1.015,
+                  }}
+                  whileTap={{
+                    scale: 0.985,
+                  }}
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = 'https://wa.me/5582999158022';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.click();
+                  }}
+                  className="group relative flex w-full sm:w-fit items-center justify-center gap-2 rounded-full bg-slate-950/20 px-10 py-5 text-gray-50 transition-colors hover:bg-slate-950/60 font-exo text-base font-semibold border-white/10"
+                >
+                  <Rocket size={18} className="group-hover:-translate-y-1 transition-transform animate-bounce" />
+                  {t("hero.cta1")}
+                </motion.button>
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="gap-2 text-base px-10 py-6 rounded-full border-white/20 hover:bg-white/10 transition-all duration-300 font-exo"
+                  onClick={() => {
+                    document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <span>{t("hero.cta2")}</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="gradient" 
+                  size="lg" 
+                  className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = 'https://wa.me/5582999158022';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.click();
+                  }}
+                >
+                  <Rocket size={18} className="group-hover:-translate-y-1 transition-transform animate-bounce" />
+                  {t("hero.cta1")}
+                </Button>
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="gap-2 text-base px-10 py-6 rounded-xl border-white/20 hover:bg-white/10 transition-all duration-300"
+                  onClick={() => {
+                    document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <span>{t("hero.cta2")}</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
