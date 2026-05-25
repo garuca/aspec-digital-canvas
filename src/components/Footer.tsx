@@ -69,7 +69,7 @@ const Footer = () => {
               </a>
               
               <a
-                href="https://wa.me/556282412665"
+                href="https://wa.me/5562982412665"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl overflow-hidden border border-purple-500/30 hover:border-green-500/50 transition-all duration-300"

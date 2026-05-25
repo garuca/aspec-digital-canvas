@@ -507,7 +507,7 @@ const HeroSection = () => {
                   }}
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = 'https://wa.me/5582999158022';
+                    link.href = 'https://wa.me/5562982412665';
                     link.target = '_blank';
                     link.rel = 'noopener noreferrer';
                     link.click();
@@ -537,7 +537,7 @@ const HeroSection = () => {
                   className="gap-2 text-base px-10 py-6 rounded-xl shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 group"
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = 'https://wa.me/5582999158022';
+                    link.href = 'https://wa.me/5562982412665';
                     link.target = '_blank';
                     link.rel = 'noopener noreferrer';
                     link.click();
