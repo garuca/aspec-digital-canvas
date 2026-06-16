@@ -130,6 +130,7 @@ export default defineConfig({
     luizvieiraPlugin(),
     {
       name: "copy-404",
+      enforce: "post",
       closeBundle() {
         const distPath = path.resolve(__dirname, "dist");
         const indexContent = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
