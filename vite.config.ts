@@ -128,43 +128,6 @@ export default defineConfig({
     vividPlugin(),
     medplusPlugin(),
     luizvieiraPlugin(),
-    {
-      name: "copy-404",
-      enforce: "post",
-      closeBundle() {
-        const distPath = path.resolve(__dirname, "dist");
-        const indexContent = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");
-        
-        // Copia para a raiz
-        fs.writeFileSync(path.join(distPath, "404.html"), indexContent);
-
-        const luizvieiraPath = path.join(distPath, "luizvieira");
-        if (fs.existsSync(luizvieiraPath)) {
-          const luizIndexPath = path.join(luizvieiraPath, "index.html");
-          if (fs.existsSync(luizIndexPath)) {
-            const luizIndex = fs.readFileSync(luizIndexPath, "utf-8");
-            fs.writeFileSync(path.join(luizvieiraPath, "404.html"), luizIndex);
-          }
-        }
-
-        const medplusPath = path.join(distPath, "medpluscomerciohospitalar");
-        if (fs.existsSync(medplusPath)) {
-          const medplusIndex = fs.readFileSync(
-            path.join(medplusPath, "index.html"),
-            "utf-8"
-          );
-          // ... (mantendo lógica existente)
-          const subdirs = ["admin", "carrinho", "produtos", "sobre", "contato", "servicos"];
-          subdirs.forEach(subdir => {
-            const subdirPath = path.join(medplusPath, subdir);
-            if (!fs.existsSync(subdirPath)) {
-              fs.mkdirSync(subdirPath, { recursive: true });
-            }
-            fs.writeFileSync(path.join(subdirPath, "index.html"), medplusIndex);
-          });
-        }
-      },
-    },
   ].filter(Boolean),
   resolve: {
     alias: {
