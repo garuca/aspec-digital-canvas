@@ -48,5 +48,47 @@ if (fs.existsSync(medplusPath)) {
     console.log('Successfully created medplus subdirectory HTML files');
   }
 }
+// 4. Generate school/index.html with School-specific OG tags
+const schoolDir = path.join(distPath, "school");
+if (!fs.existsSync(schoolDir)) {
+  fs.mkdirSync(schoolDir, { recursive: true });
+}
+// Start from the built index.html (has correct bundled script/CSS refs)
+let schoolHtml = fs.readFileSync(indexPath, "utf-8");
+// Replace title
+schoolHtml = schoolHtml.replace(
+  /<title>.*?<\/title>/,
+  '<title>ASPEC School Navigator - Gestão Escolar Inteligente</title>'
+);
+// Replace meta description
+schoolHtml = schoolHtml.replace(
+  /<meta name="description" content="[^"]*" \/>/,
+  '<meta name="description" content="Aumente a retenção de alunos e recupere sua receita com inteligência de dados. IA preditiva de evasão, cobrança automatizada e app nativo." />'
+);
+// Replace OG tags
+schoolHtml = schoolHtml.replace(
+  /<meta property="og:title" content="[^"]*" \/>/,
+  '<meta property="og:title" content="ASPEC School Navigator - Gestão Escolar Inteligente" />'
+);
+schoolHtml = schoolHtml.replace(
+  /<meta property="og:description" content="[^"]*" \/>/,
+  '<meta property="og:description" content="Aumente a retenção de alunos e recupere sua receita com inteligência de dados. Payback em menos de 2 meses." />'
+);
+schoolHtml = schoolHtml.replace(
+  /<meta property="og:url" content="[^"]*" \/>/,
+  '<meta property="og:url" content="https://aspec.ia.br/school" />'
+);
+// Replace Twitter tags
+schoolHtml = schoolHtml.replace(
+  /<meta name="twitter:title" content="[^"]*" \/>/,
+  '<meta name="twitter:title" content="ASPEC School Navigator - Gestão Escolar Inteligente" />'
+);
+schoolHtml = schoolHtml.replace(
+  /<meta name="twitter:description" content="[^"]*" \/>/,
+  '<meta name="twitter:description" content="Aumente a retenção de alunos e recupere sua receita com inteligência de dados. Payback em menos de 2 meses." />'
+);
+fs.writeFileSync(path.join(schoolDir, "index.html"), schoolHtml);
+console.log('Successfully generated school/index.html with School-specific OG tags');
+
 
 console.log('Post-build script finished successfully!');
