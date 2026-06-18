@@ -91,4 +91,12 @@ fs.writeFileSync(path.join(schoolDir, "index.html"), schoolHtml);
 console.log('Successfully generated school/index.html with School-specific OG tags');
 
 
+// 5. Ensure academia directory exists in dist (static HTML served from public/)
+const academiaDir = path.join(distPath, "academia");
+if (fs.existsSync(academiaDir)) {
+  console.log('Academia directory found in dist (served from public/)');
+} else {
+  console.log('Warning: academia directory not found in dist');
+}
+
 console.log('Post-build script finished successfully!');

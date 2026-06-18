@@ -1,0 +1,1057 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELITE — Academia Premium | Alcance Seu Potencial Máximo</title>
+  <meta name="description" content="A experiência fitness premium que redefine seus limites. Equipamentos de ponta, ambiente exclusivo e profissionais que transformam cada treino em resultado real." />
+  <meta name="author" content="ASPEC" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:title" content="🏋️ ELITE Academia Premium — Seu Corpo Merece o Melhor" />
+  <meta property="og:description" content="Transforme seu treino em resultado. Equipamentos de ponta, personal trainers especializados e ambiente premium. Agende sua visita VIP agora!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aspec.ia.br/academia" />
+  <meta property="og:image" content="https://aspec.ia.br/academia/og-academia.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="ELITE Academia Premium" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="🏋️ ELITE Academia Premium — Seu Corpo Merece o Melhor" />
+  <meta name="twitter:description" content="Transforme seu treino em resultado. Equipamentos de ponta, personal trainers especializados e ambiente premium. Agende sua visita VIP agora!" />
+  <meta name="twitter:image" content="https://aspec.ia.br/academia/og-academia.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: oklch(12% 0.012 260);
+      --surface: oklch(17% 0.015 260);
+      --fg: oklch(92% 0.005 85);
+      --muted: oklch(55% 0.015 85);
+      --border: oklch(25% 0.012 260);
+      --accent: oklch(72% 0.14 85);
+
+      --font-display: 'Montserrat', system-ui, sans-serif;
+      --font-body: 'Lato', system-ui, sans-serif;
+
+      --nav-h: 72px;
+      --max-w: 1200px;
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font: 17px/1.6 var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* === Navigation === */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(10, 12, 22, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      font: 800 22px/1 var(--font-display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font: 600 13px/1 var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg) !important;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-weight: 700 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--fg);
+      font-size: 28px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h); left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(10, 12, 22, 0.96);
+        backdrop-filter: blur(14px);
+        padding: 24px 32px;
+        gap: 20px;
+        transform: translateY(-120%);
+        transition: transform 0.35s ease;
+      }
+      .nav-links.open { transform: translateY(0); }
+      .nav-toggle { display: block; }
+    }
+
+    /* === Hero === */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-bg-fallback {
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse 140% 60% at 30% 40%, oklch(18% 0.03 260) 0%, transparent 70%),
+        radial-gradient(ellipse 120% 50% at 70% 60%, oklch(14% 0.02 280) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 40% at 50% 20%, oklch(20% 0.04 250) 0%, transparent 50%),
+        var(--bg);
+    }
+    .hero-bg-fallback::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(255,255,255,0.012) 2px,
+          rgba(255,255,255,0.012) 4px
+        );
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(5, 6, 14, 0.82) 0%,
+        rgba(5, 6, 14, 0.55) 50%,
+        rgba(5, 6, 14, 0.78) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 0 32px;
+      margin-top: -40px;
+    }
+    .hero-kicker {
+      font: 600 11px/1 var(--font-display);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font: 800 clamp(36px, 5.5vw, 68px)/1.1 var(--font-display);
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero p {
+      font: 400 18px/1.7 var(--font-body);
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: var(--bg);
+      font: 700 15px/1 var(--font-display);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 100px;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.25);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--muted);
+      font: 600 10px/1 var(--font-display);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: float 2.5s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content { max-width: 100%; padding: 0 24px; }
+      .hero h1 { font-size: clamp(28px, 8vw, 42px); }
+      .hero p { font-size: 16px; }
+    }
+
+    /* === Section shared === */
+    section { padding: 100px 0; }
+    .section-label {
+      font: 600 10px/1 var(--font-display);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font: 700 clamp(28px, 3.2vw, 40px)/1.2 var(--font-display);
+      letter-spacing: -0.015em;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font: 400 17px/1.7 var(--font-body);
+      color: var(--muted);
+      max-width: 560px;
+    }
+    .section-title.centered,
+    .section-sub.centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === Diferenciais === */
+    #diferenciais {
+      background: var(--surface);
+    }
+    .diffs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .diff-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 28px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .diff-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .diff-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+    .diff-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+    }
+    .diff-card h3 {
+      font: 700 18px/1.3 var(--font-display);
+      margin-bottom: 10px;
+    }
+    .diff-card p {
+      font: 400 15px/1.6 var(--font-body);
+      color: var(--muted);
+    }
+
+    @media (max-width: 1024px) {
+      .diffs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .diffs-grid { grid-template-columns: 1fr; }
+      .diff-card { padding: 28px 20px; }
+    }
+
+    /* === Planos === */
+    #planos {
+      background: var(--bg);
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .plan-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--surface) 0%, oklch(20% 0.02 260) 100%);
+      transform: scale(1.04);
+      z-index: 1;
+    }
+    .plan-card.featured:hover {
+      transform: scale(1.04) translateY(-4px);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--bg);
+      font: 700 10px/1 var(--font-display);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+    }
+    .plan-name {
+      font: 700 14px/1 var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .plan-price {
+      font: 800 40px/1 var(--font-display);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .plan-price .currency {
+      font-size: 20px;
+      vertical-align: super;
+    }
+    .plan-price .period {
+      font: 400 14px/1 var(--font-body);
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+    .plan-desc {
+      font: 400 14px/1.5 var(--font-body);
+      color: var(--muted);
+      margin: 16px 0 24px;
+    }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .plan-features li {
+      font: 400 14px/1.4 var(--font-body);
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .plan-features li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .plan-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font: 600 13px/1 var(--font-display);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg);
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .plan-btn:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--fg);
+    }
+    .plan-card.featured .plan-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+    .plan-card.featured .plan-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 1024px) {
+      .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .plan-card.featured { transform: none; }
+      .plan-card.featured:hover { transform: translateY(-4px); }
+    }
+
+    /* === Depoimentos === */
+    #depoimentos {
+      background: var(--surface);
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .test-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+    }
+    .test-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+    .test-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    .test-quote {
+      font: 400 16px/1.7 var(--font-body);
+      color: var(--fg);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .test-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), oklch(52% 0.16 35)) !important;
+      color: var(--bg) !important;
+      font-weight: 800 !important;
+      border: 2px solid oklch(65% 0.12 45 / 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 14px/1 var(--font-display);
+      flex-shrink: 0;
+    }
+    .test-name {
+      font: 700 14px/1.3 var(--font-display);
+    }
+    .test-role {
+      font: 400 12px/1.3 var(--font-body);
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .test-grid { grid-template-columns: 1fr; }
+    }
+
+    /* === Footer === */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo {
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 320px;
+      line-height: 1.7;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+    }
+    footer h4 {
+      font: 700 12px/1 var(--font-display);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-links a {
+      font: 400 14px/1 var(--font-body);
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--fg); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font: 400 13px/1 var(--font-body);
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* === Stats / Números === */
+    #numeros {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+    #numeros::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, oklch(18% 0.035 260) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .stat-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    .stat-number {
+      font: 800 clamp(36px, 4vw, 52px)/1 var(--font-display);
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font: 400 15px/1.4 var(--font-body);
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .stat-plus {
+      font: 400 24px/1 var(--font-display);
+      color: var(--muted);
+      vertical-align: super;
+    }
+
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .stat-item { padding: 24px 12px; }
+      .stat-number { font-size: 32px; }
+    }
+
+    /* === Stagger reveal delays === */
+    .diffs-grid .reveal:nth-child(1) { transition-delay: 0s; }
+    .diffs-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .diffs-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .diffs-grid .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+    .plans-grid .reveal:nth-child(1) { transition-delay: 0s; }
+    .plans-grid .reveal:nth-child(2) { transition-delay: 0.15s; }
+    .plans-grid .reveal:nth-child(3) { transition-delay: 0.30s; }
+
+    .test-grid .reveal:nth-child(1) { transition-delay: 0s; }
+    .test-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .test-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
+
+    /* === Scroll reveal === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === ASPEC Badge === */
+    .aspec-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background: rgba(10, 12, 22, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font: 600 11px/1 var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: border-color 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+    .aspec-badge:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .aspec-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#" class="nav-logo">ELIT<span>E</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato" class="nav-cta">Agende Sua Visita</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-fallback"></div>
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="video-gym.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-kicker">Excelência em cada movimento</p>
+      <h1>Alcance Seu Potencial<br />Máximo. Treine com <em>Excelência</em>.</h1>
+      <p>A experiência fitness premium que redefine seus limites. Equipamentos de ponta, ambiente exclusivo e profissionais que transformam cada treino em resultado real.</p>
+      <a href="#planos" class="btn-primary">Agende Sua Visita VIP →</a>
+    </div>
+    <div class="hero-scroll">Role para explorar</div>
+  </section>
+
+  <section id="numeros">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <p class="stat-number">15.000<span class="stat-plus">+</span></p>
+          <p class="stat-label">Membros Ativos</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">8</p>
+          <p class="stat-label">Unidades</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">12<span class="stat-plus">+</span></p>
+          <p class="stat-label">Anos de Excelência</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">98<span class="stat-plus">%</span></p>
+          <p class="stat-label">Satisfação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenciais">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Nossa Filosofia</p>
+        <h2 class="section-title">Por que a ELITE?</h2>
+        <p class="section-sub">Cada detalhe foi pensado para entregar a melhor experiência fitness do país. Dos equipamentos ao atendimento, tudo existe para um único propósito: sua evolução.</p>
+      </div>
+      <div class="diffs-grid">
+        <div class="diff-card reveal">
+          <div class="diff-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Equipamentos de Ponta</h3>
+          <p>Máquinas importadas de última geração, com biomecânica precisa para máximo resultado e segurança em cada exercício.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Personal Trainers Especializados</h3>
+          <p>Profissionais certificados com acompanhamento individualizado para potencializar cada treino e evitar lesões.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h3>Ambiente Exclusivo</h3>
+          <p>Espaço sofisticado com iluminação projetada, som ambiente premium e área VIP para membros.</p>
+        </div>
+        <div class="diff-card reveal">
+          <div class="diff-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Aulas Personalizadas</h3>
+          <p>Yoga, pilates, funcional, spinning e artes marciais em turmas reduzidas com instrutores dedicados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planos">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <p class="section-label">Investimento</p>
+        <h2 class="section-title centered">Planos e Membrosia</h2>
+        <p class="section-sub centered">Escolha o plano ideal para sua jornada. Todos incluem acesso ilimitado, suporte dedicado e benefícios que evoluem com você.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card reveal">
+          <p class="plan-name">Essential</p>
+          <p class="plan-price"><span class="currency">R$</span>149<span class="period">/mês</span></p>
+          <p class="plan-desc">O essencial para quem começa sua jornada fitness com qualidade.</p>
+          <ul class="plan-features">
+            <li>Acesso ilimitado à academia</li>
+            <li>Avaliação física mensal</li>
+            <li>Horário comercial</li>
+            <li>Aplicativo exclusivo</li>
+          </ul>
+          <a href="#" class="plan-btn">Começar Agora</a>
+        </div>
+        <div class="plan-card featured reveal">
+          <span class="plan-badge">Mais popular</span>
+          <p class="plan-name">Premium</p>
+          <p class="plan-price"><span class="currency">R$</span>289<span class="period">/mês</span></p>
+          <p class="plan-desc">A experiência completa da ELITE com acompanhamento personalizado.</p>
+          <ul class="plan-features">
+            <li>Tudo do Essential</li>
+            <li>Personal trainer 2x/semana</li>
+            <li>Aulas coletivas ilimitadas</li>
+            <li>Acesso 24h / 7 dias</li>
+            <li>Área VIP e recuperação</li>
+          </ul>
+          <a href="#" class="plan-btn">Quero ser Premium</a>
+        </div>
+        <div class="plan-card reveal">
+          <p class="plan-name">Elite</p>
+          <p class="plan-price"><span class="currency">R$</span>449<span class="period">/mês</span></p>
+          <p class="plan-desc">O auge da experiência fitness. Para quem não abre mão do melhor.</p>
+          <ul class="plan-features">
+            <li>Tudo do Premium</li>
+            <li>Personal trainer 5x/semana</li>
+            <li>Nutricionista particular</li>
+            <li>Massagem e recuperação</li>
+            <li>Convidado VIP ilimitado</li>
+            <li>Armário privativo</li>
+          </ul>
+          <a href="#" class="plan-btn">Quero ser Elite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <p class="section-label">Depoimentos</p>
+        <h2 class="section-title centered">Quem treina na ELITE recomenda</h2>
+        <p class="section-sub centered">Histórias reais de quem já transformou a própria vida com a ELITE. Cada depoimento é um resultado que conquistamos juntos.</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-card reveal">
+          <div class="test-stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+          </div>
+          <p class="test-quote">"Entrei na ELITE há 8 meses e meu condicionamento mudou completamente. O acompanhamento dos professores fez toda diferença."</p>
+          <div class="test-author">
+            <div class="test-avatar">CM</div>
+            <div>
+              <p class="test-name">Carlos Mendes</p>
+              <p class="test-role">Membro Premium · 8 meses</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card reveal">
+          <div class="test-stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+          </div>
+          <p class="test-quote">"Ambiente sofisticado e motivador. Em 3 meses vi resultados que não tive em 2 anos em outras academias. O plano Premium vale cada centavo."</p>
+          <div class="test-author">
+            <div class="test-avatar">AL</div>
+            <div>
+              <p class="test-name">Ana Lúcia</p>
+              <p class="test-role">Membro Premium · 3 meses</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card reveal">
+          <div class="test-stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L17.6 7.1l-3.8 3.7.9 5.2L10 13.8l-4.7 2.2.9-5.2-3.8-3.7 5.21-1.26Z"/></svg>
+          </div>
+          <p class="test-quote">"O acompanhamento nutricional integrado ao treino mudou minha relação com a saúde. Equipamentos incríveis e profissionais nota 10."</p>
+          <div class="test-author">
+            <div class="test-avatar">RF</div>
+            <div>
+              <p class="test-name">Rafael Fontes</p>
+              <p class="test-role">Membro Elite · 1 ano</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">ELIT<span>E</span></a>
+          <p>Mais que uma academia, um estilo de vida. Treine com excelência, viva com intensidade.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29.6 29.6 0 0 0 1 12a29.6 29.6 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29.6 29.6 0 0 0 23 12a29.6 29.6 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <ul class="footer-links">
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+            <li><a href="mailto:contato@eliteacademia.com.br">contato@eliteacademia.com.br</a></li>
+            <li><a href="#">Av. Brigadeiro Faria Lima, 1571</a></li>
+            <li><a href="#">São Paulo — SP</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Horários</h4>
+          <ul class="footer-links">
+            <li><a href="#">Seg—Sex: 5h — 23h</a></li>
+            <li><a href="#">Sáb: 7h — 20h</a></li>
+            <li><a href="#">Dom: 8h — 14h</a></li>
+            <li><a href="#">Planos Elite: 24h</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ELITE Academia Premium. Todos os direitos reservados.</p>
+        <p>CNPJ: 00.000.000/0001-00</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ASPEC Badge -->
+  <a href="https://aspec.ia.br" target="_blank" rel="noopener" class="aspec-badge">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    Feito por ASPEC
+  </a>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('nav');
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+      }, { passive: true });
+
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          links.classList.toggle('open');
+        });
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            links.classList.remove('open');
+          });
+        });
+      }
+    })();
+
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function(el) { obs.observe(el); });
+    })();
+  </script>
+</body>
+</html>

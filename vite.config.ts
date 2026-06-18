@@ -112,6 +112,11 @@ const luizvieiraPlugin = () => ({
   ...serveStaticSubapp("/luizvieira", "public/luizvieira"),
 });
 
+const academiaPlugin = () => ({
+  name: "academia-static",
+  ...serveStaticSubapp("/academia", "public/academia"),
+});
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/",
@@ -128,6 +133,7 @@ export default defineConfig({
     vividPlugin(),
     medplusPlugin(),
     luizvieiraPlugin(),
+    academiaPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
