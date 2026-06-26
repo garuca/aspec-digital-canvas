@@ -1,2 +1,1 @@
-# GitHub Pages runs in Jekyll, which ignores files starting with underscore
-# This file tells GitHub Pages to not ignore _redirects and other files
+# Bypass Jekyll processing
