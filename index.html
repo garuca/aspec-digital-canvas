@@ -1294,10 +1294,10 @@
               <!-- Overview -->
               <div id="itau-overview-tab" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  \${c.stats.map(s => `
+                  ${c.stats.map(s => `
                     <div class="p-4 bg-slate-50 border border-border text-center">
-                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
-                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                      <div class="font-mono text-2xl font-bold text-primary">${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">${s.label}</div>
                     </div>
                   `).join('')}
                 </div>
@@ -1311,12 +1311,12 @@
 
               <!-- Features -->
               <div id="itau-features-tab" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-                \${c.capabilities.map(cap => `
+                ${c.capabilities.map(cap => `
                   <div class="p-4 bg-white border border-border">
                     <h5 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1 flex items-center gap-1.5">
-                      <i data-lucide="\${cap.icon}" class="w-4 h-4 text-primary"></i> \${cap.title}
+                      <i data-lucide="${cap.icon}" class="w-4 h-4 text-primary"></i> ${cap.title}
                     </h5>
-                    <p class="text-xs text-slate-600 leading-relaxed">\${cap.desc}</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">${cap.desc}</p>
                   </div>
                 `).join('')}
               </div>
@@ -1346,10 +1346,10 @@
               <!-- Overview -->
               <div id="moto-overview-tab" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  \${c.stats.map(s => `
+                  ${c.stats.map(s => `
                     <div class="p-4 bg-slate-50 border border-border text-center">
-                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
-                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                      <div class="font-mono text-2xl font-bold text-primary">${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">${s.label}</div>
                     </div>
                   `).join('')}
                 </div>
@@ -1364,12 +1364,12 @@
               <!-- Tour -->
               <div id="moto-tour-tab" class="hidden flex flex-col items-center gap-6">
                 <div class="relative bg-slate-950 p-6 border-4 border-slate-900 max-w-[280px]">
-                  <img id="moto-screen-img" src="\${getAssetPath(c.images[0])}" alt="Tela" class="w-full h-auto object-contain">
-                  <div class="mt-2 text-center text-[10px] font-mono text-white" id="moto-screen-name">\${c.imageNames[0]}</div>
+                  <img id="moto-screen-img" src="${getAssetPath(c.images[0])}" alt="Tela" class="w-full h-auto object-contain">
+                  <div class="mt-2 text-center text-[10px] font-mono text-white" id="moto-screen-name">${c.imageNames[0]}</div>
                 </div>
                 <div class="flex items-center gap-4">
                   <button onclick="navigateMotoTour(-1)" class="p-2 border border-slate-950 hover:bg-slate-50 font-mono font-bold text-xs uppercase transition-colors">&lt; ANTERIOR</button>
-                  <span id="moto-tour-counter" class="font-mono text-xs">1 / \${c.images.length}</span>
+                  <span id="moto-tour-counter" class="font-mono text-xs">1 / ${c.images.length}</span>
                   <button onclick="navigateMotoTour(1)" class="p-2 border border-slate-950 hover:bg-slate-50 font-mono font-bold text-xs uppercase transition-colors">PRÓXIMA &gt;</button>
                 </div>
               </div>
@@ -1380,30 +1380,30 @@
           bodyHtml = `
             <div class="space-y-6">
               <div class="flex flex-col sm:flex-row border-b border-border font-mono text-xs font-bold bg-slate-50 border-2 border-slate-950">
-                <button onclick="switchStandardTab('\${caseId}', 'overview')" id="\${caseId}-tab-btn-overview" class="flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Visão Geral</button>
-                <button onclick="switchStandardTab('\${caseId}', 'features')" id="\${caseId}-tab-btn-features" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Funcionalidades</button>
-                <button onclick="switchStandardTab('\${caseId}', 'about')" id="\${caseId}-tab-btn-about" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase">Institucional</button>
+                <button onclick="switchStandardTab('${caseId}', 'overview')" id="${caseId}-tab-btn-overview" class="flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Visão Geral</button>
+                <button onclick="switchStandardTab('${caseId}', 'features')" id="${caseId}-tab-btn-features" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Funcionalidades</button>
+                <button onclick="switchStandardTab('${caseId}', 'about')" id="${caseId}-tab-btn-about" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase">Institucional</button>
               </div>
 
               <!-- Visão Geral -->
-              <div id="\${caseId}-overview-tab" class="space-y-6">
+              <div id="${caseId}-overview-tab" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  \${c.stats.map(s => `
+                  ${c.stats.map(s => `
                     <div class="p-4 bg-slate-50 border border-border text-center">
-                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
-                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                      <div class="font-mono text-2xl font-bold text-primary">${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">${s.label}</div>
                     </div>
                   `).join('')}
                 </div>
                 <div class="space-y-4">
                   <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Resumo da Solução</h4>
                   <p class="text-sm text-slate-600 leading-relaxed">
-                    \${caseId === 'slmandic' ? 'Desenvolvimento completo do aplicativo oficial acadêmico, unificando registros de notas, grade horária de aulas, reserva de laboratórios e canais de relacionamento das sedes da instituição.' : 'Construção da interface mobile de crédito, empréstimo facilitado com garantias e financiamento de painéis fotovoltaicos e automóveis de forma automatizada.'}
+                    ${caseId === 'slmandic' ? 'Desenvolvimento completo do aplicativo oficial acadêmico, unificando registros de notas, grade horária de aulas, reserva de laboratórios e canais de relacionamento das sedes da instituição.' : 'Construção da interface mobile de crédito, empréstimo facilitado com garantias e financiamento de painéis fotovoltaicos e automóveis de forma automatizada.'}
                   </p>
                   <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
-                    \${c.images.map(img => `
-                      <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('\${getAssetPath(img)}')">
-                        <img src="\${getAssetPath(img)}" alt="Mockup" class="w-full h-auto object-cover border-2 border-slate-200">
+                    ${c.images.map(img => `
+                      <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('${getAssetPath(img)}')">
+                        <img src="${getAssetPath(img)}" alt="Mockup" class="w-full h-auto object-cover border-2 border-slate-200">
                       </div>
                     `).join('')}
                   </div>
@@ -1411,22 +1411,22 @@
               </div>
 
               <!-- Funcionalidades -->
-              <div id="\${caseId}-features-tab" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-                \${c.features.map(f => `
+              <div id="${caseId}-features-tab" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                ${c.features.map(f => `
                   <div class="p-4 bg-white border border-border">
                     <h5 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1 flex items-center gap-1.5">
-                      <i data-lucide="\${f.icon}" class="w-4 h-4 text-primary"></i> \${f.title}
+                      <i data-lucide="${f.icon}" class="w-4 h-4 text-primary"></i> ${f.title}
                     </h5>
-                    <p class="text-xs text-slate-600 leading-relaxed">\${f.desc}</p>
+                    <p class="text-xs text-slate-600 leading-relaxed">${f.desc}</p>
                   </div>
                 `).join('')}
               </div>
 
               <!-- Sobre -->
-              <div id="\${caseId}-about-tab" class="hidden space-y-4">
+              <div id="${caseId}-about-tab" class="hidden space-y-4">
                 <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Sobre o Cliente</h4>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                  \${caseId === 'slmandic' ? 'A Faculdade Leopoldo Mandic é referência em ensino e pesquisa odontológica e de medicina do país, com classificação máxima nos indicadores de avaliação educacional de graduação.' : 'O Banco Votorantim (BV) é uma das maiores instituições bancárias privadas do mercado, especialista em crédito automotivo e soluções estruturadas de energia limpa.'}
+                  ${caseId === 'slmandic' ? 'A Faculdade Leopoldo Mandic é referência em ensino e pesquisa odontológica e de medicina do país, com classificação máxima nos indicadores de avaliação educacional de graduação.' : 'O Banco Votorantim (BV) é uma das maiores instituições bancárias privadas do mercado, especialista em crédito automotivo e soluções estruturadas de energia limpa.'}
                 </p>
               </div>
             </div>
