@@ -68,9 +68,7 @@
         <div class="flex h-20 items-center justify-between">
           <!-- Logo -->
           <a href="#inicio" class="flex items-center gap-2 group">
-            <span class="font-mono text-2xl font-bold tracking-tight text-slate-900 group-hover:text-primary transition-colors duration-300">
-              ASPEC<span class="text-primary group-hover:text-primary">.</span>
-            </span>
+            <img id="header-logo" src="logo.svg" class="h-10 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC">
           </a>
           
           <!-- Nav Links -->
@@ -704,9 +702,7 @@
           <!-- Column 1 -->
           <div>
             <a href="#inicio" class="inline-block group mb-4">
-              <h4 class="font-mono text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-300 uppercase">
-                ASPEC<span class="text-primary group-hover:text-primary">.</span>
-              </h4>
+              <img id="footer-logo" src="logo.svg" class="h-8 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC">
             </a>
             <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
               Transformamos ideias e dados complexos em software robusto e interfaces de alta performance.
@@ -807,6 +803,12 @@
 
       // Initialize Lucide Icons
       lucide.createIcons();
+
+      // Initialize Header and Footer Logos
+      const headerLogo = document.getElementById('header-logo');
+      const footerLogo = document.getElementById('footer-logo');
+      if (headerLogo) headerLogo.src = getAssetPath('logo.svg');
+      if (footerLogo) footerLogo.src = getAssetPath('logo.svg');
       
       // Initialize Client Logos with hover transitions
       document.querySelectorAll('.client-logo-img').forEach(img => {
