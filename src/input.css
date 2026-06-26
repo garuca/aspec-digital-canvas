@@ -7,6 +7,16 @@
   border-radius: 0 !important;
 }
 
+/* Visible focus indicator for all interactive elements */
+:focus-visible {
+  outline: 2px solid #FF6B2C;
+  outline-offset: 2px;
+}
+/* Remove default outline when :focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* Marquee animation */
 @keyframes marquee {
   0% { transform: translateX(0); }
