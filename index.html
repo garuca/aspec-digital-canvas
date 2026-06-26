@@ -3,8 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ASPEC — Design & Tecnologia</title>
-    
+    <title>ASPEC | Desenvolvimento de Software, Aplicativos e Inteligência Artificial</title>
+    <meta name="description" content="Empresa especializada em desenvolvimento de software sob medida, aplicativos Android e iOS, sistemas web, automação empresarial e soluções com Inteligência Artificial." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.aspec.ia.br/" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ASPEC - Desenvolvimento de Software, Aplicativos e IA" />
+    <meta property="og:description" content="Desenvolvimento de Software, Apps, IA e Sistemas Web sob medida para empresas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aspec.ia.br/" />
+    <meta property="og:image" content="https://www.aspec.ia.br/og-image.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ASPEC" />
+    <meta name="twitter:description" content="Desenvolvimento de Software e Inteligência Artificial" />
+
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ASPEC",
+        "url": "https://www.aspec.ia.br/",
+        "logo": "https://www.aspec.ia.br/logo.svg",
+        "description": "Empresa especializada em desenvolvimento de software sob medida, aplicativos Android e iOS, sistemas web, automação empresarial e soluções com Inteligência Artificial.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-62-98241-2665",
+          "contactType": "sales",
+          "availableLanguage": ["Portuguese", "English"]
+        },
+        "sameAs": ["https://wa.me/5562982412665"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ASPEC",
+        "url": "https://www.aspec.ia.br/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto custa desenvolver um aplicativo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O custo varia conforme a complexidade, funcionalidades e plataformas. Oferecemos desde MVPs a partir de R$ 30 mil até aplicativos completos com integrações e IA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo leva para desenvolver um sistema web?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prazos médios: Landing pages em 2 a 4 semanas, sistemas web completos em 2 a 4 meses, aplicativos mobile em 3 a 6 meses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual tecnologia vocês utilizam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabalhamos com React, Next.js, React Native, Flutter, Node.js, Python (Django), Rust, PostgreSQL, MongoDB, Redis, Docker e AWS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto tempo leva um projeto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Trabalhamos com entregas incrementais. Um MVP pode sair em 6 semanas, projetos mais complexos levam de 3 a 6 meses com entregas quinzenais."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vocês desenvolvem SaaS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim, desenvolvemos plataformas SaaS completas com autenticação multitenant, cobrança recorrente e infraestrutura escalável em cloud."
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -16,6 +109,24 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xd8g99tu7f");
+    </script>
+
     <script>
       tailwind.config = {
         theme: {
@@ -40,12 +151,10 @@
     </script>
     
     <style>
-      /* Enforce strict zero-radius border styling to match the novo designer.html */
       * {
         border-radius: 0px !important;
       }
-      
-      /* Marquee Animation */
+
       @keyframes marquee {
         0% { transform: translateX(0%); }
         100% { transform: translateX(-50%); }
@@ -58,9 +167,36 @@
       .animate-marquee:hover {
         animation-play-state: paused;
       }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 100;
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        border: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
     </style>
   </head>
   <body class="bg-background text-slate-900 font-sans antialiased">
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
     
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -68,7 +204,7 @@
         <div class="flex h-20 items-center justify-between">
           <!-- Logo -->
           <a href="#inicio" class="flex items-center gap-2 group">
-            <img id="header-logo" src="logo.svg" class="h-16 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC">
+            <img id="header-logo" src="logo.svg" class="h-16 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC - Desenvolvimento de Software e Inteligência Artificial">
           </a>
           
           <!-- Nav Links -->
@@ -112,26 +248,26 @@
       </div>
     </header>
     
+    <main>
+    
     <!-- Hero Section -->
     <section id="inicio" class="min-h-screen flex items-center pt-20 border-b border-border bg-white relative overflow-hidden">
-      <!-- Background grid overlay -->
       <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px); background-size: 60px 60px;"></div>
       
       <div class="container mx-auto px-4 py-20 relative z-10">
         <div class="max-w-5xl mx-auto flex flex-col items-center text-center">
-          <!-- Badge -->
           <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-4 py-1.5 mb-8 text-xs font-mono font-bold text-primary tracking-wider uppercase">
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Transformação Digital
           </div>
           
           <!-- Heading -->
           <h1 class="font-mono text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight uppercase leading-[1.05] text-slate-900 mb-8 max-w-4xl">
-            SOLUÇÕES DIGITAIS <br class="hidden sm:inline" /> <span class="text-primary">QUE FUNCIONAM</span>
+            Desenvolvimento de Software, <br class="hidden sm:inline" />Aplicativos Mobile e <span class="text-primary">Inteligência Artificial para Empresas</span>
           </h1>
           
           <!-- Subtitle -->
           <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-12">
-            A única parceira que integra de verdade <span class="font-mono font-bold text-slate-950">desenvolvimento de sistemas</span>, <span class="font-mono font-bold text-slate-950">tecnologia</span> e <span class="font-mono font-bold text-slate-950">inteligência artificial</span>. Desenvolvemos e escalamos <span class="font-mono font-bold text-slate-950">aplicativos mobile</span>, <span class="font-mono font-bold text-slate-950">plataformas web</span> e <span class="font-mono font-bold text-slate-950">automações</span> de alto impacto para otimizar processos e gerar escala real para o seu negócio.
+            Empresa de <span class="font-mono font-bold text-slate-950">desenvolvimento de software sob medida</span>, especializada em <span class="font-mono font-bold text-slate-950">sistemas web</span>, <span class="font-mono font-bold text-slate-950">aplicativos Android e iOS</span>, <span class="font-mono font-bold text-slate-950">automação empresarial</span> e <span class="font-mono font-bold text-slate-950">soluções com Inteligência Artificial</span>. Transformamos seu negócio com tecnologia de ponta e resultados mensuráveis.
           </p>
           
           <!-- Tech Indicators -->
@@ -164,47 +300,47 @@
         <div class="animate-marquee flex items-center gap-16 py-4">
           <!-- original logo elements -->
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Itaú">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Assistente Virtual com IA desenvolvido pela ASPEC para o Banco Itaú">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Banco BV">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Aplicativo mobile desenvolvido pela ASPEC para o Banco BV">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="SL Mandic">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Aplicativo acadêmico desenvolvido pela ASPEC para a Faculdade SL Mandic">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Kovi">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Plataforma digital desenvolvida pela ASPEC para a Kovi">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Easy">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Solução digital desenvolvida pela ASPEC para a Easy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Appmax">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Sistema desenvolvido pela ASPEC para a Appmax">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Estrela Bet">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Plataforma digital desenvolvida pela ASPEC para a Estrela Bet">
           </div>
           <!-- duplicate elements for seamless loop -->
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Itaú">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Assistente Virtual com IA desenvolvido pela ASPEC para o Banco Itaú">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Banco BV">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Aplicativo mobile desenvolvido pela ASPEC para o Banco BV">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="SL Mandic">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Aplicativo acadêmico desenvolvido pela ASPEC para a Faculdade SL Mandic">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Kovi">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Plataforma digital desenvolvida pela ASPEC para a Kovi">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Easy">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Solução digital desenvolvida pela ASPEC para a Easy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Appmax">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Sistema desenvolvido pela ASPEC para a Appmax">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Estrela Bet">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Plataforma digital desenvolvida pela ASPEC para a Estrela Bet">
           </div>
         </div>
       </div>
@@ -216,7 +352,7 @@
         <!-- Header -->
         <div class="text-center max-w-2xl mx-auto mb-16">
           <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSO DIFERENCIAL</div>
-          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">POR QUE A ASPEC É DIFERENTE</h2>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">DESENVOLVIMENTO DE SOFTWARE E INOVAÇÃO</h2>
           <p class="text-slate-600">O que faz a gente entregar resultados onde outros param no meio do projeto.</p>
         </div>
         
@@ -256,7 +392,7 @@
         <!-- Header -->
         <div class="text-center max-w-2xl mx-auto mb-16">
           <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSA METODOLOGIA</div>
-          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">COMO ENTREGAMOS RESULTADOS</h2>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">METODOLOGIA DE DESENVOLVIMENTO DE SOFTWARE</h2>
           <p class="text-slate-600">Um processo estruturado que combina estratégia de negócios, design centrado no usuário e tecnologia de ponta.</p>
         </div>
 
@@ -367,15 +503,15 @@
         <!-- Header -->
         <div class="text-center max-w-2xl mx-auto mb-16">
           <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSOS PROJETOS</div>
-          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">CASES DE SUCESSO</h2>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">PROJETOS DE SOFTWARE E APPS MOBILE</h2>
           <p class="text-slate-600">Projetos que integraram tecnologia de ponta para alavancar os resultados dos nossos clientes.</p>
         </div>
         
         <!-- Projects Grid -->
         <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto border-l border-t border-border">
           
-          <!-- Project 5 (Tech) -->
-          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+          <!-- Project: Banco BV -->
+          <article class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
             <div class="flex items-center justify-between mb-6">
               <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">APP FULL</span>
               <span class="text-xs font-mono text-slate-400 font-bold">10M+ Downloads</span>
@@ -390,10 +526,10 @@
               <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">FINANÇAS</span>
             </div>
             <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('bv')">VER CASO</button>
-          </div>
+          </article>
  
-          <!-- Project 6 (Tech) -->
-          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+          <!-- Project: Banco Itaú -->
+          <article class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
             <div class="flex items-center justify-between mb-6">
               <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">CHATBOT COM IA</span>
               <span class="text-xs font-mono text-slate-400 font-bold">70M+ Clientes</span>
@@ -408,10 +544,10 @@
               <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">AUTOMAÇÃO</span>
             </div>
             <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('itau')">VER CASO</button>
-          </div>
+          </article>
  
-          <!-- Project 7 (Tech) -->
-          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+          <!-- Project: App Moto -->
+          <article class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
             <div class="flex items-center justify-between mb-6">
               <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">PROTÓTIPO DE ALTA FIDELIDADE</span>
               <span class="text-xs font-mono text-slate-400 font-bold">1M+ Entregadores</span>
@@ -426,10 +562,10 @@
               <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">UX/UI</span>
             </div>
             <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('appmoto')">VER CASO</button>
-          </div>
+          </article>
 
-          <!-- Project 8 (Tech) -->
-          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+          <!-- Project: SL Mandic -->
+          <article class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
             <div class="flex items-center justify-between mb-6">
               <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">APP FULL</span>
               <span class="text-xs font-mono text-slate-400 font-bold">Gestão acadêmica</span>
@@ -444,8 +580,10 @@
               <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">GESTÃO</span>
             </div>
             <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('slmandic')">VER CASO</button>
-          </div>
+          </article>
         </div>
+      </div>
+    </section>
     
     <!-- Services Section -->
     <section id="servicos" class="py-24 bg-slate-50 border-b border-border">
@@ -453,7 +591,7 @@
         <!-- Header -->
         <div class="text-center max-w-2xl mx-auto mb-20">
           <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">O QUE FAZEMOS</div>
-          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">NOSSOS SERVIÇOS</h2>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">DESENVOLVIMENTO WEB, APPS E IA</h2>
           <p class="text-slate-600">Cobrimos toda a cadeia de valor digital focados em especialidade técnica e desenvolvimento de software.</p>
         </div>
         
@@ -472,32 +610,44 @@
               <!-- Item 1 -->
               <div>
                 <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Sites & Sistemas Web</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Desenvolvimento de portais, sites institucionais e painéis administrativos responsivos com excelente velocidade e SEO.</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Desenvolvimento de portais, sites institucionais e painéis administrativos responsivos com excelente velocidade e SEO.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Tecnologias:</strong> React, Next.js, Node.js, Django, PostgreSQL</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Diferenciais:</strong> Performance otimizada, SEO técnico, design responsivo, hospedagem em nuvem AWS</p>
               </div>
               <!-- Item 2 -->
               <div>
                 <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Apps Mobile</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Criação de aplicativos nativos ou híbridos de alta usabilidade para as plataformas iOS e Android.</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Criação de aplicativos nativos ou híbridos de alta usabilidade para as plataformas iOS e Android.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Tecnologias:</strong> React Native, Flutter, Swift, Kotlin</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Diferenciais:</strong> UI/UX centrada no usuário, performance nativa, integração com APIs e notificações push</p>
               </div>
               <!-- Item 3 -->
               <div>
                 <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">APIs & Integrações</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Conexões seguras e otimizadas entre os seus bancos de dados e sistemas externos, CRMs, ERPs e gateways de pagamento.</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Conexões seguras e otimizadas entre os seus bancos de dados e sistemas externos, CRMs, ERPs e gateways de pagamento.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Tecnologias:</strong> REST, GraphQL, WebSockets, Redis, Docker</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Exemplos:</strong> Integração com Totvs, Salesforce, PagSeguro, Stripe, iugu e sistemas legados</p>
               </div>
               <!-- Item 4 -->
               <div>
-                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Automação</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Fluxos de trabalho e processos automatizados que economizam tempo operacional e reduzem erros humanos drásticos.</p>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Automação Empresarial</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Fluxos de trabalho e processos automatizados que economizam tempo operacional e reduzem erros humanos drásticos.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Benefícios:</strong> Redução de custos operacionais, eliminação de retrabalho, escalabilidade dos processos</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Exemplos:</strong> Automação de fluxos de aprovação, disparo de e-mails transacionais, sincronização de dados</p>
               </div>
               <!-- Item 5 -->
               <div>
                 <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Consultoria Tech</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Assessoria especializada para escolha da stack ideal de desenvolvimento e arquitetura de software escalável.</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Assessoria especializada para escolha da stack ideal de desenvolvimento e arquitetura de software escalável.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Diferenciais:</strong> Análise de arquitetura, definição de roadmap técnico, escolha de tecnologias, revisão de código</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Para quem é:</strong> Startups em fase de crescimento, empresas migrando para cloud, times que precisam de aceleração</p>
               </div>
               <!-- Item 6 -->
               <div>
                 <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Inteligência Artificial</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Soluções inovadoras de chatbots integrados, modelos de machine learning e processamento inteligente automatizado.</p>
+                <p class="text-xs text-slate-600 leading-relaxed mb-2">Soluções inovadoras de chatbots integrados, modelos de machine learning e processamento inteligente automatizado.</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Tecnologias:</strong> LLMs, NLP, TensorFlow, Python, integração com APIs de IA</p>
+                <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Casos de uso:</strong> Chatbots de atendimento, análise preditiva, recomendação inteligente, processamento de documentos</p>
               </div>
             </div>
           </div>
@@ -505,11 +655,25 @@
       </div>
     </section>
     
-
+    <!-- CTA after Services -->
+    <section class="py-16 bg-primary border-b border-border">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-mono text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">Vamos Transformar Seu Negócio?</h2>
+        <p class="text-white/80 text-sm max-w-2xl mx-auto mb-8">Solicite um orçamento gratuito e descubra como podemos tirar sua ideia do papel com tecnologia de ponta.</p>
+        <a href="#contato" class="inline-flex items-center bg-white text-primary hover:bg-slate-100 text-sm font-mono font-bold px-10 py-4 border border-white transition-all duration-300">
+          SOLICITAR ORÇAMENTO <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+        </a>
+      </div>
+    </section>
     
     <!-- Results / Statistics Section -->
     <section id="resultados" class="py-24 bg-slate-50 border-b border-border">
       <div class="container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">RESULTADOS COMPROVADOS</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">IMPACTO EM NÚMEROS</h2>
+          <p class="text-slate-600">Métricas reais de projetos de desenvolvimento de software que entregamos.</p>
+        </div>
         <!-- Statistics Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center mb-20">
           <div class="p-8 bg-white border border-border">
@@ -561,7 +725,7 @@
         <!-- Header -->
         <div class="text-center mb-16">
           <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">PERGUNTAS FREQUENTES</div>
-          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">ENTENDA NOSSA METODOLOGIA</h2>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">PERGUNTAS FREQUENTES SOBRE DESENVOLVIMENTO</h2>
           <p class="text-slate-600">Confira respostas rápidas sobre nossa forma de trabalhar, stacks de tecnologia e escopo.</p>
         </div>
         
@@ -632,6 +796,94 @@
               Todo código é seu. Fornecemos documentação técnica completa, repositório Git com histórico e código fonte ao final do projeto. Sem travas, sem mensalidades escondidas para manter o site no ar.
             </div>
           </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Quanto custa desenvolver um aplicativo?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              O custo varia conforme a complexidade, funcionalidades e plataformas (Android, iOS ou ambos). Oferecemos desde MVPs a partir de R$ 30 mil até aplicativos completos com integrações e IA. Solicite um diagnóstico gratuito para receber uma estimativa personalizada.
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Quanto tempo leva para desenvolver um sistema web?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+      Prazos médios: Landing pages em 2 a 4 semanas, sistemas web completos em 2 a 4 meses, aplicativos mobile em 3 a 6 meses. Trabalhamos com entregas incrementais para que você tenha valor real em produção o mais rápido possível.
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Vocês desenvolvem SaaS (Software as a Service)?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. Temos vasta experiência no desenvolvimento de plataformas SaaS completas, incluindo autenticação multitenant, cobrança recorrente via assinatura, dashboards de administração e infraestrutura escalável em cloud.
+            </div>
+          </div>
+
+          <!-- FAQ 10 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Trabalham com React, Next.js e React Native?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. React, Next.js e React Native são nossas principais stacks de frontend. Também desenvolvemos com Flutter para apps mobile, Node.js e Python (Django) no backend, e Rust para sistemas de alta performance.
+            </div>
+          </div>
+
+          <!-- FAQ 11 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Vocês fazem manutenção e suporte após o lançamento?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. Oferecemos planos de manutenção contínua, correção de bugs, atualizações de segurança, monitoramento de performance e evolução do produto com novas funcionalidades conforme seu negócio cresce.
+            </div>
+          </div>
+
+          <!-- FAQ 12 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Vocês atendem projetos internacionais?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. Atendemos clientes no Brasil e exterior. Nossa equipe trabalha remotamente com comunicação em português, inglês e espanhol. Já entregamos projetos para clientes nos Estados Unidos, Europa e América Latina.
+            </div>
+          </div>
+
+          <!-- FAQ 13 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Como funciona o processo de desenvolvimento de software?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Nosso processo inclui: 1) Diagnóstico e levantamento de requisitos, 2) Prototipação e validação, 3) Desenvolvimento ágil com entregas semanais, 4) Testes e garantia de qualidade, 5) Lançamento e monitoramento, 6) Evolução contínua baseada em dados de uso.
+            </div>
+          </div>
+
+          <!-- FAQ 14 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Quais métodos de pagamento e contratos são utilizados?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Trabalhamos com contratos transparentes baseados em escopo definido ou horas dedicadas. Aceitamos pagamentos via PIX, boleto bancário e transferência. Oferecemos parcelamento para projetos de maior porte. Todos os contratos incluem cláusulas de NDA e propriedade intelectual.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -650,32 +902,79 @@
           <!-- Form -->
           <form id="roi-form" class="space-y-6">
             <div>
-              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Nome Completo</label>
-              <input type="text" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: Gabriel Vieira" />
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Nome Completo *</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: Gabriel Vieira" />
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">E-mail Profissional *</label>
+                <input type="email" name="email" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: gabriel@empresa.com" />
+              </div>
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Telefone / WhatsApp</label>
+                <input type="tel" name="phone" class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: (62) 98241-2665" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Empresa</label>
+                <input type="text" name="company" class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: ASPEC S/A" />
+              </div>
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Segmento</label>
+                <select name="segment" class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="financeiro">Financeiro / Bancário</option>
+                  <option value="saude">Saúde</option>
+                  <option value="educacao">Educação</option>
+                  <option value="varejo">Varejo / E-commerce</option>
+                  <option value="tecnologia">Tecnologia</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Tipo de Projeto *</label>
+                <select name="project_type" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
+                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option value="website">Website / Landing Page</option>
+                  <option value="ecommerce">E-commerce</option>
+                  <option value="app">Aplicativo Mobile</option>
+                  <option value="system">Sistema Web / SaaS</option>
+                  <option value="automation">Automação</option>
+                  <option value="ai">Inteligência Artificial</option>
+                  <option value="consulting">Consultoria</option>
+                  <option value="other">Outro</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Orçamento Estimado</label>
+                <select name="budget" class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="ate-20k">Até R$ 20 mil</option>
+                  <option value="20k-50k">R$ 20 mil a R$ 50 mil</option>
+                  <option value="50k-100k">R$ 50 mil a R$ 100 mil</option>
+                  <option value="100k-200k">R$ 100 mil a R$ 200 mil</option>
+                  <option value="acima-200k">Acima de R$ 200 mil</option>
+                  <option value="indefinido">Ainda não definido</option>
+                </select>
+              </div>
             </div>
             <div>
-              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">E-mail Profissional</label>
-              <input type="email" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: gabriel@empresa.com" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Empresa</label>
-              <input type="text" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: ASPEC S/A" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Tipo de Projeto</label>
-              <select required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
-                <option value="" disabled selected>Selecione uma opção</option>
-                <option value="website">Website / Landing Page</option>
-                <option value="ecommerce">E-commerce</option>
-                <option value="app">Aplicativo Mobile</option>
-                <option value="system">Sistema Web / SaaS</option>
-                <option value="marketing">Marketing Digital</option>
-                <option value="other">Outro</option>
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Prazo Desejado</label>
+              <select name="deadline" class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
+                <option value="" disabled selected>Selecione</option>
+                <option value="urgente">Urgente (até 1 mês)</option>
+                <option value="curto">Curto prazo (1 a 3 meses)</option>
+                <option value="medio">Médio prazo (3 a 6 meses)</option>
+                <option value="longo">Longo prazo (6+ meses)</option>
+                <option value="indefinido">Ainda não definido</option>
               </select>
             </div>
             
             <button type="submit" class="w-full py-4 bg-primary hover:bg-primary-hover text-white font-mono text-sm font-bold tracking-wider border border-primary transition-all duration-300">
-              QUERO GARANTIR MINHA VAGA
+              SOLICITAR DIAGNÓSTICO GRATUITO
             </button>
             
             <p class="text-[10px] text-slate-400 font-mono text-center">Ao enviar, você concorda com nossa política de privacidade.</p>
@@ -725,13 +1024,13 @@
           <!-- Column 3 -->
           <div>
             <h4 class="font-mono text-xs font-bold tracking-widest text-slate-400 uppercase mb-4">CONTATO</h4>
-            <div class="space-y-3 text-sm text-slate-600">
+            <address class="space-y-3 text-sm text-slate-600 not-italic">
               <p class="flex items-center gap-2 font-mono"><i data-lucide="mail" class="w-4 h-4 text-primary"></i> contato@aspec.ia.br</p>
               <p class="flex items-center gap-2 font-mono"><i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> Brasil</p>
               <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-mono text-primary font-bold hover:underline">
                 <i data-lucide="message-circle" class="w-4 h-4"></i> FALE CONOSCO no WhatsApp
               </a>
-            </div>
+            </address>
           </div>
           
         </div>
@@ -746,6 +1045,8 @@
         </div>
       </div>
     </footer>
+    
+    </main>
     
     <!-- Unified Zero-Radius Modal -->
     <div id="unified-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
@@ -1403,7 +1704,7 @@
                   <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
                     ${c.images.map(img => `
                       <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('${getAssetPath(img)}')">
-                        <img src="${getAssetPath(img)}" alt="Mockup" class="w-full h-auto object-cover border-2 border-slate-200">
+                        <img src="${getAssetPath(img)}" alt="Case ASPEC - Mockup de aplicativo mobile desenvolvido para o cliente" class="w-full h-auto object-cover border-2 border-slate-200">
                       </div>
                     `).join('')}
                   </div>
