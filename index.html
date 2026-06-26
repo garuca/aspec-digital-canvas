@@ -791,6 +791,17 @@
     <script>
       // Asset Path Helper
       function getAssetPath(path) {
+        if (!path) return '';
+        if (path.startsWith('http') || path.startsWith('/')) {
+          return path;
+        }
+        const pathName = window.location.pathname;
+        if (window.location.hostname.endsWith('github.io')) {
+          const repoName = pathName.split('/')[1];
+          if (repoName && repoName !== 'index.html' && repoName !== 'index.htm') {
+            return '/' + repoName + '/' + path;
+          }
+        }
         return path;
       }
 
