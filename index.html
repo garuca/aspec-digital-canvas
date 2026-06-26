@@ -1,31 +1,1560 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ASPEC Soluções em Tecnologia - Desenvolvimento de software sob medida, focado em entregar valor real para o seu negócio." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ASPEC — Design & Tecnologia</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter (sans-serif) and Space Mono (monospace) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>ASPEC Soluções em Tecnologia</title>
-    <meta name="author" content="ASPEC" />
-
-    <meta property="og:title" content="ASPEC - Soluções em Tecnologia" />
-    <meta property="og:description" content="Desenvolvimento de software sob medida, focado em entregar valor real para o seu negócio." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aspec.ia.br/" />
-    <meta property="og:image" content="https://aspec.ia.br/og-image.png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ASPEC - Soluções em Tecnologia" />
-    <meta name="twitter:description" content="Desenvolvimento de software sob medida, focado em entregar valor real para o seu negócio." />
-    <meta name="twitter:image" content="https://aspec.ia.br/og-image.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;750&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Space Mono', 'monospace'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#FF6B2C',
+                hover: '#E55A1B',
+                light: '#FFF0EA',
+              },
+              background: '#F4F7FA',
+              card: '#FFFFFF',
+              border: '#E2E8F0',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      /* Enforce strict zero-radius border styling to match the novo designer.html */
+      * {
+        border-radius: 0px !important;
+      }
+      
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 30s linear infinite;
+      }
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+    </style>
   </head>
+  <body class="bg-background text-slate-900 font-sans antialiased">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div class="container mx-auto px-4">
+        <div class="flex h-20 items-center justify-between">
+          <!-- Logo -->
+          <a href="#inicio" class="flex items-center gap-2 group">
+            <span class="font-mono text-2xl font-bold tracking-tight text-slate-900 group-hover:text-primary transition-colors duration-300">
+              ASPEC<span class="text-primary group-hover:text-primary">.</span>
+            </span>
+          </a>
+          
+          <!-- Nav Links -->
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#inicio" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">INÍCIO</a>
+            <a href="#clientes" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">CLIENTES</a>
+            <a href="#metodologia" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">METODOLOGIA</a>
+            <a href="#portfolio" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">PORTFÓLIO</a>
+            <a href="#servicos" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">SERVIÇOS</a>
+            <a href="#resultados" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">RESULTADOS</a>
+            <a href="#faq" class="text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors">FAQ</a>
+          </nav>
+          
+          <!-- CTA and Menu -->
+          <div class="flex items-center space-x-4">
+            <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-mono font-bold tracking-wider px-6 py-3 border border-primary transition-all duration-300">
+              CONVERSAR AGORA <i data-lucide="arrow-up-right" class="ml-2 w-4 h-4"></i>
+            </a>
+            
+            <button id="menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-primary focus:outline-none">
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-border bg-background">
+        <div class="container mx-auto px-4 py-6 flex flex-col space-y-4 font-mono text-sm font-bold">
+          <a href="#inicio" class="mobile-link text-slate-600 hover:text-primary py-2">INÍCIO</a>
+          <a href="#clientes" class="mobile-link text-slate-600 hover:text-primary py-2">CLIENTES</a>
+          <a href="#metodologia" class="mobile-link text-slate-600 hover:text-primary py-2">METODOLOGIA</a>
+          <a href="#portfolio" class="mobile-link text-slate-600 hover:text-primary py-2">PORTFÓLIO</a>
+          <a href="#servicos" class="mobile-link text-slate-600 hover:text-primary py-2">SERVIÇOS</a>
+          <a href="#resultados" class="mobile-link text-slate-600 hover:text-primary py-2">RESULTADOS</a>
+          <a href="#faq" class="mobile-link text-slate-600 hover:text-primary py-2">FAQ</a>
+          <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-primary text-white py-3">
+            CONVERSAR AGORA <i data-lucide="arrow-up-right" class="ml-2 w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center pt-20 border-b border-border bg-white relative overflow-hidden">
+      <!-- Background grid overlay -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.05]" style="background-image: linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px); background-size: 60px 60px;"></div>
+      
+      <div class="container mx-auto px-4 py-20 relative z-10">
+        <div class="max-w-5xl mx-auto flex flex-col items-center text-center">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-4 py-1.5 mb-8 text-xs font-mono font-bold text-primary tracking-wider uppercase">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Transformação Digital
+          </div>
+          
+          <!-- Heading -->
+          <h1 class="font-mono text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight uppercase leading-[1.05] text-slate-900 mb-8 max-w-4xl">
+            SOLUÇÕES DIGITAIS <br class="hidden sm:inline" /> <span class="text-primary">QUE FUNCIONAM</span>
+          </h1>
+          
+          <!-- Subtitle -->
+          <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-12">
+            A única consultoria que integra de verdade <span class="font-mono font-bold text-slate-950">design</span>, <span class="font-mono font-bold text-slate-950">tecnologia</span> e <span class="font-mono font-bold text-slate-950">desenvolvimento</span>. Geramos impactos expressivos com IA de última geração e uma abordagem científica rigorosa para enfrentar os desafios mais críticos do seu negócio.
+          </p>
+          
+          <!-- Tech Indicators -->
+          <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-12 text-sm font-mono tracking-wider font-bold text-slate-800">
+            <div class="flex items-center gap-2"><i data-lucide="crosshair" class="w-5 h-5 text-primary"></i> DIAGNÓSTICO PRECISO</div>
+            <div class="flex items-center gap-2"><i data-lucide="trending-up" class="w-5 h-5 text-primary"></i> FOCO EM RESULTADO</div>
+            <div class="flex items-center gap-2"><i data-lucide="zap" class="w-5 h-5 text-primary"></i> VELOCIDADE DE EXECUÇÃO</div>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-primary hover:bg-primary-hover text-white text-sm font-mono font-bold px-10 py-5 border border-primary transition-all duration-300 flex items-center justify-center">
+              CONVERSAR AGORA <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </a>
+            <a href="#servicos" class="w-full sm:w-auto text-center bg-transparent hover:bg-slate-50 text-slate-800 text-sm font-mono font-bold px-10 py-5 border border-slate-350 transition-all duration-300">
+              CONHECER SERVIÇOS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Clients Section -->
+    <section id="clientes" class="py-12 bg-slate-50 border-b border-border overflow-hidden">
+      <div class="container mx-auto px-4 mb-6">
+        <p class="text-center text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">EMPRESAS QUE CONFIAM EM NÓS</p>
+      </div>
+      
+      <div class="relative w-full">
+        <div class="animate-marquee flex items-center gap-16 py-4">
+          <!-- original logo elements -->
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Itaú">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Banco BV">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="SL Mandic">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Kovi">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Easy">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Appmax">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Estrela Bet">
+          </div>
+          <!-- duplicate elements for seamless loop -->
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Itaú">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Banco BV">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="SL Mandic">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Kovi">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Easy">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Appmax">
+          </div>
+          <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet-dup">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Estrela Bet">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Differentials Section -->
+    <section class="py-24 bg-white border-b border-border">
+      <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSO DIFERENCIAL</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">POR QUE A ASPEC É DIFERENTE</h2>
+          <p class="text-slate-600">O que faz a gente entregar resultados onde outros param no meio do projeto.</p>
+        </div>
+        
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 border-l border-t border-border">
+          <!-- Card 1 -->
+          <div class="p-8 bg-white border-r border-b border-border hover:shadow-lg transition-shadow group">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mb-6">
+              <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-lg font-bold text-slate-900 uppercase mb-3">Time Completo</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Design + Desenvolvimento + Marketing em um só lugar. Sem intermediários.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="p-8 bg-white border-r border-b border-border hover:shadow-lg transition-shadow group">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mb-6">
+              <i data-lucide="trending-up" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-lg font-bold text-slate-900 uppercase mb-3">Foco em Resultado</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Não entregamos projetos. Entregamos ROI mensurável e crescimento real.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="p-8 bg-white border-r border-b border-border hover:shadow-lg transition-shadow group">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mb-6">
+              <i data-lucide="zap" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-lg font-bold text-slate-900 uppercase mb-3">Velocidade de Execução</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">MVP em semanas, não meses. Seu projeto no ar antes da concorrência.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Methodology Section -->
+    <section id="metodologia" class="py-24 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSA METODOLOGIA</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">COMO ENTREGAMOS RESULTADOS</h2>
+          <p class="text-slate-600">Um processo estruturado que combina estratégia de negócios, design centrado no usuário e tecnologia de ponta.</p>
+        </div>
+
+        <!-- Pillars Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-border mb-16 max-w-5xl mx-auto bg-white">
+          <div class="p-6 border-r border-b border-border group hover:shadow-lg transition-shadow">
+            <div class="font-mono text-[10px] font-bold text-slate-400 mb-2">PILAR 01</div>
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="target" class="w-4 h-4 text-primary"></i> Diagnóstico Preciso
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Analisamos cada detalhe do seu negócio para encontrar a solução exata.</p>
+          </div>
+          <div class="p-6 border-r border-b border-border group hover:shadow-lg transition-shadow">
+            <div class="font-mono text-[10px] font-bold text-slate-400 mb-2">PILAR 02</div>
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-4 h-4 text-primary"></i> Solução Sob Medida
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Nada de soluções genéricas. Criamos exatamente o que seu negócio precisa.</p>
+          </div>
+          <div class="p-6 border-r border-b border-border group hover:shadow-lg transition-shadow">
+            <div class="font-mono text-[10px] font-bold text-slate-400 mb-2">PILAR 03</div>
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="rocket" class="w-4 h-4 text-primary"></i> Execução Veloz
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Do zero ao mercado em tempo recorde. Sem enrolação, só resultado.</p>
+          </div>
+          <div class="p-6 border-r border-b border-border group hover:shadow-lg transition-shadow">
+            <div class="font-mono text-[10px] font-bold text-slate-400 mb-2">PILAR 04</div>
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="refresh-cw" class="w-4 h-4 text-primary"></i> Evolução Constante
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Seus resultados não param de crescer. Monitoramos, otimizamos e escalamos.</p>
+          </div>
+        </div>
+        
+        <!-- Flow List -->
+        <div class="max-w-5xl mx-auto space-y-12">
+          <!-- Step 1 -->
+          <div class="bg-white border border-border p-8 flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-shadow">
+            <span class="font-mono text-5xl font-bold text-primary/20 leading-none">01</span>
+            <div class="flex-1">
+              <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3 flex items-center gap-2">
+                <i data-lucide="search" class="w-5 h-5 text-primary"></i> Entendemos Seu Problema Antes de Criar Qualquer Solução
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Mapeamos seus processos existentes, identificamos pontos de atrito e gargalos operacionais, e encontramos exatamente onde a tecnologia pode gerar mais impacto financeiro e operacional no menor tempo possível.
+              </p>
+              <button class="mt-4 inline-flex items-center text-xs font-mono font-bold text-primary hover:text-primary-hover uppercase tracking-wider gap-1 border-b border-primary/20 pb-0.5 transition-colors cursor-pointer select-none" onclick="openArticleModal('01')">
+                SAIBA MAIS <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="bg-white border border-border p-8 flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-shadow">
+            <span class="font-mono text-5xl font-bold text-primary/20 leading-none">02</span>
+            <div class="flex-1">
+              <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3 flex items-center gap-2">
+                <i data-lucide="git-branch" class="w-5 h-5 text-primary"></i> Construímos o Caminho Completo
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Nossos squads multidisciplinares embarcam Marketing estratégico e Engenharia de software juntos. Isso garante que a jornada do seu cliente seja fluida, rápida e focada em conversão e usabilidade desde a primeira página.
+              </p>
+              <button class="mt-4 inline-flex items-center text-xs font-mono font-bold text-primary hover:text-primary-hover uppercase tracking-wider gap-1 border-b border-primary/20 pb-0.5 transition-colors cursor-pointer select-none" onclick="openArticleModal('02')">
+                SAIBA MAIS <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="bg-white border border-border p-8 flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-shadow">
+            <span class="font-mono text-5xl font-bold text-primary/20 leading-none">03</span>
+            <div class="flex-1">
+              <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3 flex items-center gap-2">
+                <i data-lucide="send" class="w-5 h-5 text-primary"></i> Lançamos Rápido, Aprendemos Rápido
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Lançamos um Produto Mínimo Viável (MVP) em semanas ao invés de meses para coletar feedback real e dados do mercado rapidamente. Cada ciclo de aprendizado economiza centenas de horas de desenvolvimento desnecessário.
+              </p>
+              <button class="mt-4 inline-flex items-center text-xs font-mono font-bold text-primary hover:text-primary-hover uppercase tracking-wider gap-1 border-b border-primary/20 pb-0.5 transition-colors cursor-pointer select-none" onclick="openArticleModal('03')">
+                SAIBA MAIS <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="bg-white border border-border p-8 flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-shadow">
+            <span class="font-mono text-5xl font-bold text-primary/20 leading-none">04</span>
+            <div class="flex-1">
+              <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3 flex items-center gap-2">
+                <i data-lucide="bar-chart-2" class="w-5 h-5 text-primary"></i> Seus Números Disparam
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Criamos dashboards e painéis de BI em tempo real para monitorar cada clique, cada conversão e cada transação. Tomamos decisões de otimização estritamente baseadas em comportamento de uso e conversões reais.
+              </p>
+              <button class="mt-4 inline-flex items-center text-xs font-mono font-bold text-primary hover:text-primary-hover uppercase tracking-wider gap-1 border-b border-primary/20 pb-0.5 transition-colors cursor-pointer select-none" onclick="openArticleModal('04')">
+                SAIBA MAIS <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white border-b border-border">
+      <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSOS PROJETOS</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">CASES DE SUCESSO</h2>
+          <p class="text-slate-600">Projetos que integraram tecnologia de ponta para alavancar os resultados dos nossos clientes.</p>
+        </div>
+        
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto border-l border-t border-border">
+          
+          <!-- Project 5 (Tech) -->
+          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">APP FULL</span>
+              <span class="text-xs font-mono text-slate-400 font-bold">10M+ Downloads</span>
+            </div>
+            <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3">Banco BV</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Desenvolvimento completo do aplicativo mobile do Banco BV, especialista em financiamento, empréstimos, investimentos e cartões de crédito.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">MOBILE</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">BANCO</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">FINANÇAS</span>
+            </div>
+            <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('bv')">VER CASO</button>
+          </div>
+ 
+          <!-- Project 6 (Tech) -->
+          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">CHATBOT COM IA</span>
+              <span class="text-xs font-mono text-slate-400 font-bold">70M+ Clientes</span>
+            </div>
+            <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3">Banco Itaú</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Assistente Virtual Itaú com integração de canais de atendimento inovadores, totalmente automatizados utilizando modelos de inteligência artificial.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">IA GENERATIVA</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">ATENDIMENTO</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">AUTOMAÇÃO</span>
+            </div>
+            <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('itau')">VER CASO</button>
+          </div>
+ 
+          <!-- Project 7 (Tech) -->
+          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">PROTÓTIPO DE ALTA FIDELIDADE</span>
+              <span class="text-xs font-mono text-slate-400 font-bold">1M+ Entregadores</span>
+            </div>
+            <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3">App Moto</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Estruturação e prototipagem interativa de alta fidelidade de banco digital focado em motociclistas entregadores de centros urbanos.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">PROTÓTIPO</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">MOBILE</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">UX/UI</span>
+            </div>
+            <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('appmoto')">VER CASO</button>
+          </div>
+
+          <!-- Project 8 (Tech) -->
+          <div class="project-card tech p-8 bg-white border-r border-b border-border hover:shadow-lg transition-all" data-type="tech">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold text-primary px-3 py-1 bg-primary-light">APP FULL</span>
+              <span class="text-xs font-mono text-slate-400 font-bold">Gestão acadêmica</span>
+            </div>
+            <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-3">SL Mandic</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Aplicativo do sistema de graduação e pós-graduação dos cursos de Medicina e Odontologia da Faculdade Leopoldo Mandic.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">MOBILE</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">EDUCAÇÃO</span>
+              <span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">GESTÃO</span>
+            </div>
+            <button class="w-full py-3 bg-slate-50 hover:bg-primary hover:text-white border border-border hover:border-primary font-mono text-xs font-bold tracking-wider transition-colors duration-300" onclick="openCaseModal('slmandic')">VER CASO</button>
+          </div>
+        </div>
+    
+    <!-- Services Section -->
+    <section id="servicos" class="py-24 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">O QUE FAZEMOS</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">NOSSOS SERVIÇOS</h2>
+          <p class="text-slate-600">Cobrimos toda a cadeia de valor digital focados em especialidade técnica e desenvolvimento de software.</p>
+        </div>
+        
+        <!-- Single Column Block -->
+        <div class="max-w-4xl mx-auto">
+          <!-- Column 2 (Tecnologia) -->
+          <div class="bg-white border border-border p-8 md:p-12 hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3 border-b border-border pb-6 mb-8">
+              <div class="w-10 h-10 bg-primary-light flex items-center justify-center">
+                <i data-lucide="code" class="w-5 h-5 text-primary"></i>
+              </div>
+              <h3 class="font-mono text-xl font-bold tracking-tight text-slate-900 uppercase">Tecnologia & Dev</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8">
+              <!-- Item 1 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Sites & Sistemas Web</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Desenvolvimento de portais, sites institucionais e painéis administrativos responsivos com excelente velocidade e SEO.</p>
+              </div>
+              <!-- Item 2 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Apps Mobile</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Criação de aplicativos nativos ou híbridos de alta usabilidade para as plataformas iOS e Android.</p>
+              </div>
+              <!-- Item 3 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">APIs & Integrações</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Conexões seguras e otimizadas entre os seus bancos de dados e sistemas externos, CRMs, ERPs e gateways de pagamento.</p>
+              </div>
+              <!-- Item 4 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Automação</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Fluxos de trabalho e processos automatizados que economizam tempo operacional e reduzem erros humanos drásticos.</p>
+              </div>
+              <!-- Item 5 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Consultoria Tech</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Assessoria especializada para escolha da stack ideal de desenvolvimento e arquitetura de software escalável.</p>
+              </div>
+              <!-- Item 6 -->
+              <div>
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase mb-2">Inteligência Artificial</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Soluções inovadoras de chatbots integrados, modelos de machine learning e processamento inteligente automatizado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    
+    <!-- Results / Statistics Section -->
+    <section id="resultados" class="py-24 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4">
+        <!-- Statistics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center mb-20">
+          <div class="p-8 bg-white border border-border">
+            <div class="font-mono text-5xl font-bold text-primary mb-2">150+</div>
+            <div class="text-xs font-mono font-bold text-slate-500 uppercase">CLIENTES ATENDIDOS</div>
+          </div>
+          <div class="p-8 bg-white border border-border">
+            <div class="font-mono text-5xl font-bold text-primary mb-2">98%</div>
+            <div class="text-xs font-mono font-bold text-slate-500 uppercase">SATISFAÇÃO DO CLIENTE</div>
+          </div>
+          <div class="p-8 bg-white border border-border">
+            <div class="font-mono text-5xl font-bold text-primary mb-2">3.5x</div>
+            <div class="text-xs font-mono font-bold text-slate-500 uppercase">RETORNO SOBRE INVESTIMENTO MÉDIO</div>
+          </div>
+        </div>
+        
+        <!-- Case Snippets -->
+        <div class="max-w-4xl mx-auto bg-white border border-border p-8 md:p-12">
+          <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-8 text-center">NÚMEROS QUE GERAM IMPACTO</h3>
+          <div class="space-y-8 divide-y divide-border">
+            <!-- Case 1 -->
+            <div class="pt-6 first:pt-0">
+              <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase">Banco Itaú</h4>
+                <span class="text-xs font-mono font-bold text-primary bg-primary-light px-3 py-1">70M+ CLIENTES ATENDIDOS</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Desenvolvemos o robô de inteligência artificial generativa de atendimento integrado para otimização de fluxos operacionais, reduzindo tempo de atendimento em 85%.
+              </p>
+            </div>
+            <!-- Case 2 -->
+            <div class="pt-6">
+              <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <h4 class="font-mono text-base font-bold text-slate-900 uppercase">Banco BV</h4>
+                <span class="text-xs font-mono font-bold text-primary bg-primary-light px-3 py-1">10M+ DOWNLOADS</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                App mobile completo para concessão de crédito, pagamentos e financiamentos, implementando uma UI/UX rápida e segura que virou referência no setor financeiro.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-white border-b border-border">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">PERGUNTAS FREQUENTES</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">ENTENDA NOSSA METODOLOGIA</h2>
+          <p class="text-slate-600">Confira respostas rápidas sobre nossa forma de trabalhar, stacks de tecnologia e escopo.</p>
+        </div>
+        
+        <!-- Accordion container -->
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Vocês utilizam metodologias ágeis no desenvolvimento?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. Utilizamos frameworks inspirados em Scrum e Kanban para entregas incrementais frequentes, transparência total nas etapas de desenvolvimento e rápida adaptação de novas regras de negócio.
+            </div>
+          </div>
+          
+          <!-- FAQ 2 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Como é feita a Arquitetura de Informação dos projetos?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Começamos com análises profundas de jornada do usuário, evoluindo para wireframes estruturais e, finalmente, protótipos de alta fidelidade interativos que você pode testar e validar no Figma antes de escrever qualquer linha de código.
+            </div>
+          </div>
+          
+          <!-- FAQ 3 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Quais tecnologias e frameworks vocês utilizam?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Trabalhamos com as tecnologias mais modernas de mercado: React, Next.js, React Native no frontend; Node.js, Python (Django) e Rust no backend; PostgreSQL, MongoDB e Redis para dados, orquestrados em contêineres Docker e implantados em nuvem AWS.
+            </div>
+          </div>
+          
+          <!-- FAQ 4 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Como vocês garantem a performance e SEO dos sites?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Otimizamos a performance na base técnica: compactação agressiva de ativos de mídia, carregamento sob demanda (lazy-loading), renderização híbrida pelo servidor (SSR) e uso de redes CDN de distribuição global. Garantimos Lighthouse scores acima de 90.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Vocês fazem integração com sistemas existentes?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Sim. Desenvolvemos APIs REST e GraphQL para integrar com ERPs, CRMs, gateways de pagamento e outros sistemas. Já integramos com Totvs, Salesforce, PagSeguro, Stripe, iugu e diversos outros.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item border border-border">
+            <button class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-mono text-sm font-bold text-slate-900 uppercase">Como funciona a propriedade intelectual do código?</span>
+              <i data-lucide="plus" class="faq-icon w-5 h-5 text-slate-500 transition-transform flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden p-6 pt-0 border-t border-border/50 text-sm text-slate-600 leading-relaxed">
+              Todo código é seu. Fornecemos documentação técnica completa, repositório Git com histórico e código fonte ao final do projeto. Sem travas, sem mensalidades escondidas para manter o site no ar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA / Contact Form Section -->
+    <section id="contato" class="py-24 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="bg-white border border-border p-8 md:p-12 shadow-sm">
+          <!-- Header -->
+          <div class="text-center mb-10">
+            <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">DIAGNÓSTICO GRATUITO</div>
+            <h2 class="font-mono text-3xl font-bold uppercase tracking-tight text-slate-900 mb-4">DESCUBRA O ROI DO SEU PROJETO</h2>
+            <p class="text-slate-600 text-sm">Receba uma análise de arquitetura, funil e gargalos do seu produto sem custo algum.</p>
+          </div>
+          
+          <!-- Form -->
+          <form id="roi-form" class="space-y-6">
+            <div>
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Nome Completo</label>
+              <input type="text" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: Gabriel Vieira" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">E-mail Profissional</label>
+              <input type="email" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: gabriel@empresa.com" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Empresa</label>
+              <input type="text" required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm" placeholder="Ex: ASPEC S/A" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">Tipo de Projeto</label>
+              <select required class="w-full px-4 py-3 border border-border focus:border-primary focus:outline-none bg-slate-50 text-sm text-slate-600">
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="website">Website / Landing Page</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="app">Aplicativo Mobile</option>
+                <option value="system">Sistema Web / SaaS</option>
+                <option value="marketing">Marketing Digital</option>
+                <option value="other">Outro</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="w-full py-4 bg-primary hover:bg-primary-hover text-white font-mono text-sm font-bold tracking-wider border border-primary transition-all duration-300">
+              QUERO GARANTIR MINHA VAGA
+            </button>
+            
+            <p class="text-[10px] text-slate-400 font-mono text-center">Ao enviar, você concorda com nossa política de privacidade.</p>
+          </form>
+          
+          <!-- Success State -->
+          <div id="form-success" class="hidden text-center py-12">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i data-lucide="check" class="w-8 h-8 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-xl font-bold text-slate-900 uppercase mb-2">RECEBEMOS SEU CONTATO!</h3>
+            <p class="text-slate-600 text-sm mb-6">Nossa equipe entrará em contato em até 24 horas.</p>
+            <button id="form-reset" class="px-6 py-2 border border-slate-300 hover:border-slate-800 text-xs font-mono font-bold tracking-wider transition-colors">ENVIAR OUTRO</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t border-border py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          
+          <!-- Column 1 -->
+          <div>
+            <a href="#inicio" class="inline-block group mb-4">
+              <h4 class="font-mono text-lg font-bold text-slate-900 group-hover:text-primary transition-colors duration-300 uppercase">
+                ASPEC<span class="text-primary group-hover:text-primary">.</span>
+              </h4>
+            </a>
+            <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
+              Transformamos ideias e dados complexos em software robusto e interfaces de alta performance.
+            </p>
+          </div>
+          
+          <!-- Column 2 -->
+          <div>
+            <h4 class="font-mono text-xs font-bold tracking-widest text-slate-400 uppercase mb-4">NAVEGAÇÃO</h4>
+            <div class="grid grid-cols-2 gap-2 text-sm font-mono font-bold text-slate-600">
+              <a href="#inicio" class="hover:text-primary transition-colors">INÍCIO</a>
+              <a href="#clientes" class="hover:text-primary transition-colors">CLIENTES</a>
+              <a href="#metodologia" class="hover:text-primary transition-colors">MÉTODO</a>
+              <a href="#portfolio" class="hover:text-primary transition-colors">PORTFÓLIO</a>
+              <a href="#servicos" class="hover:text-primary transition-colors">SERVIÇOS</a>
+              <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+            </div>
+          </div>
+          
+          <!-- Column 3 -->
+          <div>
+            <h4 class="font-mono text-xs font-bold tracking-widest text-slate-400 uppercase mb-4">CONTATO</h4>
+            <div class="space-y-3 text-sm text-slate-600">
+              <p class="flex items-center gap-2 font-mono"><i data-lucide="mail" class="w-4 h-4 text-primary"></i> contato@aspec.ia.br</p>
+              <p class="flex items-center gap-2 font-mono"><i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> Brasil</p>
+              <a href="https://wa.me/5562982412665" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-mono text-primary font-bold hover:underline">
+                <i data-lucide="message-circle" class="w-4 h-4"></i> FALE CONOSCO no WhatsApp
+              </a>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Bottom bar -->
+        <div class="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-400">
+          <p>© 2026 ASPEC Soluções em Tecnologia. Todos os direitos reservados.</p>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span>SISTEMA OPERACIONAL ESTÁVEL</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Unified Zero-Radius Modal -->
+    <div id="unified-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+      <div id="modal-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-md transition-opacity duration-300 opacity-0"></div>
+      <div id="modal-container" class="relative bg-white border-4 border-slate-950 w-full max-w-4xl max-h-[90vh] flex flex-col z-10 transition-all duration-300 transform scale-95 opacity-0">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 sm:p-6 border-b-2 border-slate-950 bg-slate-50 flex-shrink-0">
+          <div class="flex items-center gap-3 min-w-0">
+            <div id="modal-header-icon" class="w-10 h-10 bg-primary-light flex items-center justify-center border border-primary/20 text-primary flex-shrink-0">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <div class="min-w-0">
+              <h3 id="modal-title" class="font-mono text-sm sm:text-base md:text-lg font-bold text-slate-900 uppercase truncate">Title</h3>
+              <span id="modal-subtitle" class="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-slate-400 uppercase truncate block">Subtitle</span>
+            </div>
+          </div>
+          <button id="modal-close-btn" class="border border-slate-350 hover:border-slate-900 text-slate-600 hover:text-slate-900 p-2 font-mono font-bold text-xs uppercase cursor-pointer transition-colors flex items-center justify-center flex-shrink-0">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <!-- Body -->
+        <div id="modal-body" class="p-4 sm:p-6 md:p-8 flex-1 overflow-y-auto bg-white font-sans text-slate-700">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox-overlay" class="fixed inset-0 z-[60] hidden bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-4">
+      <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white border border-white/20 p-2 font-mono font-bold text-xs uppercase cursor-pointer transition-colors">
+        FECHAR
+      </button>
+      <div class="max-w-4xl max-h-[80vh] flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="Zoom" class="max-w-full max-h-[80vh] object-contain border-2 border-white/10">
+      </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+      // Asset Path Helper
+      function getAssetPath(path) {
+        return path;
+      }
+
+      // Initialize Lucide Icons
+      lucide.createIcons();
+      
+      // Initialize Client Logos with hover transitions
+      document.querySelectorAll('.client-logo-img').forEach(img => {
+        const grayPath = getAssetPath(img.getAttribute('data-gray'));
+        const colorPath = getAssetPath(img.getAttribute('data-color'));
+        img.src = grayPath;
+        
+        const container = img.closest('.client-logo-container');
+        if (container) {
+          container.addEventListener('mouseenter', () => {
+            img.src = colorPath;
+          });
+          container.addEventListener('mouseleave', () => {
+            img.src = grayPath;
+          });
+        }
+      });
+      
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const iconName = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
+        menuToggle.innerHTML = `<i data-lucide="${iconName}" class="w-6 h-6"></i>`;
+        lucide.createIcons();
+      });
+      
+      // Close mobile menu when clicking nav links
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
+          lucide.createIcons();
+        });
+      });
+      
+      // (Portfolio Filter Logic removed because only Tech cases remain)
+      
+      // FAQ Accordion Logic
+      document.querySelectorAll('.faq-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector('.faq-icon');
+          const isHidden = content.classList.contains('hidden');
+          
+          // Collapse all others
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          document.querySelectorAll('.faq-icon').forEach(i => {
+            i.setAttribute('data-lucide', 'plus');
+          });
+          
+          if (isHidden) {
+            content.classList.remove('hidden');
+            icon.setAttribute('data-lucide', 'minus');
+          } else {
+            content.classList.add('hidden');
+            icon.setAttribute('data-lucide', 'plus');
+          }
+          
+          lucide.createIcons();
+        });
+      });
+      
+      // Form Submission Logic
+      const roiForm = document.getElementById('roi-form');
+      const formSuccess = document.getElementById('form-success');
+      const formReset = document.getElementById('form-reset');
+      
+      roiForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        roiForm.classList.add('hidden');
+        formSuccess.classList.remove('hidden');
+      });
+      
+      formReset.addEventListener('click', () => {
+        roiForm.reset();
+        roiForm.classList.remove('hidden');
+        formSuccess.classList.add('hidden');
+      });
+
+      // Modals Infrastructure
+      const unifiedModal = document.getElementById('unified-modal');
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const modalContainer = document.getElementById('modal-container');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const modalTitle = document.getElementById('modal-title');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalHeaderIcon = document.getElementById('modal-header-icon');
+      const modalBody = document.getElementById('modal-body');
+
+      const lightboxOverlay = document.getElementById('lightbox-overlay');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function openModalLayout() {
+        document.body.style.overflow = 'hidden';
+        unifiedModal.classList.remove('hidden');
+        setTimeout(() => {
+          modalBackdrop.classList.remove('opacity-0');
+          modalBackdrop.classList.add('opacity-100');
+          modalContainer.classList.remove('scale-95', 'opacity-0');
+          modalContainer.classList.add('scale-100', 'opacity-100');
+        }, 10);
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.remove('opacity-100');
+        modalBackdrop.classList.add('opacity-0');
+        modalContainer.classList.remove('scale-100', 'opacity-100');
+        modalContainer.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+          unifiedModal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+
+      modalCloseBtn.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+
+      // ESC key to close modal or lightbox
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (!lightboxOverlay.classList.contains('hidden')) {
+            closeLightbox();
+          } else if (!unifiedModal.classList.contains('hidden')) {
+            closeModal();
+          }
+        }
+      });
+
+      function openLightbox(src) {
+        lightboxImg.src = src;
+        lightboxOverlay.classList.remove('hidden');
+      }
+
+      function closeLightbox() {
+        lightboxOverlay.classList.add('hidden');
+        lightboxImg.src = '';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxOverlay.addEventListener('click', closeLightbox);
+      lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+
+      // Methodology Articles Database
+      const articlesData = {
+        '01': {
+          title: "Diagnóstico Preciso: A Arte de Encontrar a Oportunidade Oculta",
+          subtitle: "Como uma análise profunda transformou empresas perdendo dinheiro em máquinas de crescimento",
+          icon: "search",
+          highlights: "80% das empresas nunca fizeram uma análise profunda dos seus processos. Por isso, operam com eficiência média de apenas 40% do potencial real.",
+          stats: [
+            { value: "40%", label: "Das PMEs operam abaixo do potencial real" },
+            { value: "3.2x", label: "Empresas com diagnóstico estrutural crescem mais" },
+            { value: "R$ 180k", label: "Perda média estimada por falta de análise interna" }
+          ],
+          sections: [
+            {
+              title: "O Problema Que Ninguém Vê",
+              content: "Você já parou para pensar por que algumas empresas crescem exponencialmente enquanto outras se mantêm estagnadas por anos, mesmo oferecendo produtos ou serviços similares? A resposta raramente está no produto em si — está no diagnóstico.<br><br>A maioria dos empreendedores e gestores olham para seus negócios com os olhos da operação. Eles veem o dia-a-dia, as tarefas pendentes, os clientes que reclamam. Mas poucos têm a capacidade de olhar para o negócio como um todo e fazer as perguntas estruturais que revelam ineficiências latentes."
+            },
+            {
+              title: "Nossa Metodologia de Diagnóstico: O Framework ASPEC",
+              content: "Desenvolvemos ao longo de 150+ projetos um framework de diagnóstico que combina análise quantitativa com compreensão qualitativa, estruturado em 4 camadas:<br><br><strong>1. Rastreamento de Valor:</strong> Mapeamos cada fluxo financeiro e operacional da empresa, identificando onde cada recurso gera valor e onde ele é destruído.<br><strong>2. Análise de Gargalos:</strong> Identificamos os pontos de estrangulamento que limitam o crescimento da operação.<br><strong>3. Mapeamento de Personas:</strong> Entendemos profundamente quem são seus clientes ideais, seus medos, desejos e pontos de contato da jornada.<br><strong>4. Oportunidade de Impacto:</strong> Cruzamos dados de mercado e internos para desenhar roadmaps focados em oportunidades de 10x de crescimento real."
+            }
+          ],
+          takeaways: [
+            "80% das empresas operam com menos de 50% de sua capacidade máxima real.",
+            "O diagnóstico de gargalos paga a si mesmo em média 3.5x no primeiro ano.",
+            "As 3 maiores fontes de dinheiro perdido: processos manuais, atração de leads ruins e churn de usuários.",
+            "Priorizar oportunidades de alto impacto sobre melhorias marginais acelera a captação de valor."
+          ]
+        },
+        '02': {
+          title: "Caminho Completo: Marketing + Tecnologia Embarcados",
+          subtitle: "A integração que unifica squads para criar canais de aquisição previsíveis",
+          icon: "git-branch",
+          highlights: "Empresas com Marketing e Tecnologia integrados crescem 30% mais rápido e têm 2x mais chances de serem líderes em seus setores de mercado.",
+          stats: [
+            { value: "67%", label: "Das empresas têm silos severos entre tecnologia e marketing" },
+            { value: "R$ 1.2M", label: "Perda média de receita anual por falta de alinhamento" },
+            { value: "40%", label: "Do tempo de engenharia é perdido em retrabalho de funil" }
+          ],
+          sections: [
+            {
+              title: "A Separação Que Está Destruindo Seu Crescimento",
+              content: "Por décadas, as empresas estruturaram seus departamentos de forma isolada: o Marketing cria as campanhas, e a Tecnologia cuida dos servidores. Esse desalinhamento gera landing pages lentas que não convertem, campanhas atraindo leads desqualificados e features construídas sem validação comercial.<br><br>A comunicação falha entre essas duas pontas atua como um balde furado: você gasta orçamento de publicidade para atrair usuários, mas os gargalos de usabilidade e infraestrutura fazem o lead ir embora."
+            },
+            {
+              title: "O Modelo Embarcado: Uma Equipe Unificada",
+              content: "O modelo ASPEC propõe que engenharia de software, design e marketing trabalhem no mesmo squad sob a mesma meta central de conversão e receita. A tecnologia apoia na automação e análise de comportamento em tempo real, enquanto o marketing direciona o tom do design e os requisitos de produto para que o usuário sinta valor imediatamente."
+            }
+          ],
+          takeaways: [
+            "Squads integrados eliminam o tempo de comunicação interna e retrabalho em até 60%.",
+            "Métricas compartilhadas alinham engenheiros e publicitários para a mesma North Star.",
+            "A velocidade de carregamento e usabilidade são otimizados diretamente sob feedback de anúncios.",
+            "A experiência de onboarding de produto torna-se a principal ferramenta de retenção."
+          ]
+        },
+        '03': {
+          title: "Velocidade Vence: A Estratégia MVP de Alta Performance",
+          subtitle: "Como lançar em semanas ao invés de meses para dominar mercados",
+          icon: "send",
+          highlights: "Projetos que lançam versões mínimas validadas em semanas têm 2.5x mais chance de sucesso do que aqueles que passam meses planejando no papel.",
+          stats: [
+            { value: "6 sem", label: "Tempo médio para colocar o primeiro MVP estruturado no ar" },
+            { value: "2.5x", label: "Mais chance de capturar feedbacks de mercado iniciais" },
+            { value: "40%", label: "Menos risco de falha de lançamento por desalinhamento" }
+          ],
+          sections: [
+            {
+              title: "A Nova Economia da Velocidade",
+              content: "Gastar um ano desenvolvendo a plataforma 'perfeita' para descobrir que o cliente não quer usar metade das funcionalidades é o erro mais comum e caro de novos produtos digitais.<br><br>A velocidade de aprendizado no mercado real é a única vantagem competitiva sustentável. Lançar uma versão funcional contendo a principal tese de valor do negócio permite coletar dados estruturados de uso imediatamente."
+            },
+            {
+              title: "MVP Não é Produto Ruim: É Aprendizado Focado",
+              content: "O MVP estruturado foca estritamente em responder à hipótese mais arriscada de negócio. Ele elimina dashboards administrativos redundantes, fluxos complexos de configurações e integrações de terceiro que podem ser feitas manualmente na fase inicial, focando apenas no core que resolve a dor do cliente."
+            }
+          ],
+          takeaways: [
+            "O MVP serve para testar as maiores incertezas comerciais e usabilidade.",
+            "10 usuários recorrentes ensinam mais sobre produto do que 100 reuniões internas.",
+            "Reduzir o escopo inicial economiza centenas de horas e recursos financeiros valiosos.",
+            "Cada iteração de software subsequente deve ser baseada em comportamento de uso real."
+          ]
+        },
+        '04': {
+          title: "Métricas Que Dinheiro: Tomada de Decisão Orientada a Dados",
+          subtitle: "Como dashboards integrados orientam o roadmap em dias ao invés de meses",
+          icon: "bar-chart-2",
+          highlights: "Empresas orientadas a dados possuem 30% mais assertividade em roadmaps de produtos e reduzem taxas de cancelamento (churn) significativamente.",
+          stats: [
+            { value: "23x", label: "Maior facilidade na aquisição de clientes de alto valor" },
+            { value: "6x", label: "Mais taxa de retenção de contas corporativas" },
+            { value: "5.2x", label: "ROI médio em ferramentas e infraestrutura de analytics" }
+          ],
+          sections: [
+            {
+              title: "O Custo de Decidir Baseado em Intuições",
+              content: "Lançar novos produtos, criar campanhas promocionais ou investir em alterações de UI com base em pura intuição aumenta a probabilidade de falhas e gera desperdício de recursos. Painéis de dados integrados mostram de forma fria e exata onde as conversões acontecem e onde os leads abandonam o fluxo.<br><br>Dashboards estruturados não servem apenas para auditar o passado — eles direcionam o desenvolvimento futuro."
+            },
+            {
+              title: "Implementação em Camadas",
+              content: "Construímos o funil de dados em 3 etapas lógicas:<br>1. <strong>Métricas de Funil:</strong> Taxas de conversão em cada etapa da jornada.<br>2. <strong>Cohorts de Comportamento:</strong> Identificamos que padrões de uso diferenciam clientes fiéis de usuários propensos ao cancelamento.<br>3. <strong>Atribuição:</strong> Mapeamos exatamente qual canal de aquisição traz o melhor ROI de faturamento real."
+            }
+          ],
+          takeaways: [
+            "Métricas de vaidade (curtidas, acessos) não geram crescimento; meça faturamento e engajamento real.",
+            "Dados integrados eliminam opiniões subjetivas em reuniões de produto.",
+            "Identificar padrões de abandono no funil reduz a taxa de atrito em até 80%.",
+            "Monitore a jornada completa de onboarding para garantir a ativação do usuário."
+          ]
+        }
+      };
+
+      function openArticleModal(articleId) {
+        const article = articlesData[articleId];
+        if (!article) return;
+
+        modalTitle.textContent = article.title;
+        modalSubtitle.textContent = article.subtitle;
+        modalHeaderIcon.innerHTML = `<i data-lucide="${article.icon}" class="w-5 h-5"></i>`;
+
+        let statsHtml = '';
+        article.stats.forEach(stat => {
+          statsHtml += `
+            <div class="p-4 bg-slate-50 border border-border text-center">
+              <div class="font-mono text-3xl font-bold text-primary mb-1">${stat.value}</div>
+              <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider leading-tight">${stat.label}</div>
+            </div>
+          `;
+        });
+
+        let sectionsHtml = '';
+        article.sections.forEach(sec => {
+          sectionsHtml += `
+            <div class="space-y-3">
+              <h4 class="font-mono text-base font-bold text-slate-900 uppercase tracking-tight border-b-2 border-slate-100 pb-2">${sec.title}</h4>
+              <p class="text-sm text-slate-600 leading-relaxed">${sec.content}</p>
+            </div>
+          `;
+        });
+
+        let takeawaysHtml = '';
+        article.takeaways.forEach(item => {
+          takeawaysHtml += `
+            <li class="flex items-start gap-2 text-sm text-slate-600">
+              <span class="text-primary font-mono font-bold select-none">•</span>
+              <span>${item}</span>
+            </li>
+          `;
+        });
+
+        modalBody.innerHTML = `
+          <div class="space-y-8 max-w-3xl mx-auto">
+            <!-- Quote Banner -->
+            <div class="bg-primary-light border-l-4 border-primary p-5 font-sans italic text-sm md:text-base text-slate-800 leading-relaxed">
+              "${article.highlights}"
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              ${statsHtml}
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 pt-4">
+              ${sectionsHtml}
+            </div>
+
+            <!-- Key Takeaways -->
+            <div class="border-t border-border pt-6 space-y-4">
+              <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Principais Conclusões</h4>
+              <ul class="space-y-2">
+                ${takeawaysHtml}
+              </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-slate-50 border border-border p-6 text-center space-y-4">
+              <h4 class="font-mono text-base font-bold text-slate-900 uppercase">Pronto Para Alavancar Seus Resultados?</h4>
+              <p class="text-xs text-slate-500 max-w-md mx-auto">Agende um diagnóstico preliminar sem custo com nossos diretores técnicos.</p>
+              <button class="bg-primary hover:bg-primary-hover text-white font-mono text-xs font-bold tracking-wider px-6 py-3 border border-primary transition-all duration-300 inline-block cursor-pointer" onclick="closeModalAndScrollToContact()">
+                SOLICITAR DIAGNÓSTICO GRATUITO
+              </button>
+            </div>
+          </div>
+        `;
+
+        openModalLayout();
+        lucide.createIcons();
+      }
+
+      function closeModalAndScrollToContact() {
+        closeModal();
+        setTimeout(() => {
+          const contactSection = document.getElementById('contato');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 350);
+      }
+
+      // Case Studies Details Database
+      const casesData = {
+        'slmandic': {
+          title: "SL Mandic",
+          subtitle: "APP FULL & SISTEMA ACADÊMICO",
+          icon: "graduation-cap",
+          images: [
+            "portfolio/slmandic/unnamed.webp",
+            "portfolio/slmandic/unnamed (1).webp",
+            "portfolio/slmandic/unnamed (2).webp",
+            "portfolio/slmandic/unnamed (3).webp"
+          ],
+          stats: [
+            { value: "4.6 ★", label: "Avaliação média nas lojas de apps" },
+            { value: "1M+", label: "Instalações e acessos acadêmicos" },
+            { value: "15 anos", label: "Nota máxima no recredenciamento MEC" }
+          ],
+          features: [
+            { icon: "book-open", title: "Gestão Acadêmica Integral", desc: "Acompanhamento de notas, frequências, grade horária e rotinas de clínicas laboratoriais dos cursos de saúde." },
+            { icon: "users", title: "Comunidade Estudantil", desc: "Canais oficiais de contato com coordenação, biblioteca acadêmica e secretaria integrados no celular." },
+            { icon: "shield", title: "Segurança de Dados", desc: "Acesso por criptografia SSL de registros de notas, exames práticos e pagamentos mensais de forma estável." },
+            { icon: "globe", title: "Navegação Integrada", desc: "Conexão com os múltiplos campi da instituição em Campinas, São Paulo, Rio de Janeiro e Brasília." }
+          ]
+        },
+        'bv': {
+          title: "Banco BV",
+          subtitle: "APP MOBILE DE CONTA & FINANCIAMENTO",
+          icon: "building-2",
+          images: [
+            "portfolio/bv/bv_projeto_aspec1.webp",
+            "portfolio/bv/bv_projeto_aspec2.webp",
+            "portfolio/bv/bv_projeto_aspec3.webp",
+            "portfolio/bv/bv_projeto_aspec4.webp",
+            "portfolio/bv/bv_projeto_aspec5.webp"
+          ],
+          stats: [
+            { value: "4.2 ★", label: "Avaliação média dos usuários" },
+            { value: "10M+", label: "Instalações e acessos qualificados" },
+            { value: "378K+", label: "Avaliações registradas nas lojas" }
+          ],
+          features: [
+            { icon: "car", title: "Crédito de Veículos", desc: "Simulação e aprovação automatizada de financiamento de automóveis integrada." },
+            { icon: "wallet", title: "Empréstimos Pessoais", desc: "Aprovação rápida e liquidação automática de crédito pessoal direto em conta corrente." },
+            { icon: "credit-card", title: "Cartões Múltiplos", desc: "Controle de fatura, bloqueio provisório e ajuste de limites do cartão de débito e crédito." },
+            { icon: "smartphone", title: "Conta 100% Digital", desc: "Transferências PIX instantâneas sem cobrança de taxas e rendimento automático de saldo." }
+          ]
+        },
+        'itau': {
+          title: "Banco Itaú",
+          subtitle: "ASSISTENTE VIRTUAL COM IA GENERATIVA",
+          icon: "bot",
+          stats: [
+            { value: "70M+", label: "Clientes atendidos no canal digital" },
+            { value: "24/7", label: "Disponibilidade de atendimento de IA" },
+            { value: "85%", label: "Redução no tempo de espera do suporte" }
+          ],
+          capabilities: [
+            { icon: "wallet", title: "Consulta de Saldos", desc: "Resposta imediata de saldos e extratos da conta e limite de investimentos." },
+            { icon: "credit-card", title: "Bloqueio e Segunda Via", desc: "Gerenciamento de segurança dos cartões de crédito adicionais via robô de atendimento." },
+            { icon: "refresh-cw", title: "Negociação de Dívidas", desc: "Apresentação e parcelamento de acordos com assinatura eletrônica de contratos." },
+            { icon: "zap", title: "PIX por Comando de Voz", desc: "Instruções inteligentes para transferência instantânea via assistente interativo." }
+          ],
+          dialogue: [
+            { type: "user", text: "Quero transferir R$ 150 no Pix para o Gabriel." },
+            { type: "bot", text: "Perfeito! Localizei o contato 'Gabriel Vieira'. Posso confirmar a transferência de R$ 150 no Pix para a conta Itaú dele?" },
+            { type: "user", text: "Sim, confirme por favor." },
+            { type: "bot", text: "Pix de R$ 150 enviado com sucesso! O comprovante já está disponível nas suas notificações de conta." }
+          ]
+        },
+        'appmoto': {
+          title: "App Moto",
+          subtitle: "BANCO DIGITAL PARA ENTREGADORES",
+          icon: "bike",
+          images: [
+            "portfolio/moto/Splash .png",
+            "portfolio/moto/Login - ativo.png",
+            "portfolio/moto/Confirme seu cadastro.png",
+            "portfolio/moto/Validando informações.png",
+            "portfolio/moto/Home.png",
+            "portfolio/moto/pix.png",
+            "portfolio/moto/PIX - envio.png",
+            "portfolio/moto/Pix - Bancos.png",
+            "portfolio/moto/Receber.png",
+            "portfolio/moto/Cartão.png",
+            "portfolio/moto/Financiamento.png",
+            "portfolio/moto/Cursos.png",
+            "portfolio/moto/Minha conta.png",
+            "portfolio/moto/Configurações.png",
+            "portfolio/moto/Notificações.png"
+          ],
+          imageNames: [
+            "Splash Inicial",
+            "Identificação",
+            "Verificar CPF",
+            "Autenticação Facial",
+            "Painel da Conta",
+            "Navegação PIX",
+            "Envio PIX",
+            "Bancos Disponíveis",
+            "QR Code Receber",
+            "Fatura do Cartão",
+            "Linha de Crédito",
+            "Educação e Cursos",
+            "Dados de Perfil",
+            "Ajustes de Limite",
+            "Notificações Recentes"
+          ],
+          stats: [
+            { value: "4.8 ★", label: "Avaliação dos motoristas" },
+            { value: "1M+", label: "Entregadores beneficiados no país" },
+            { value: "R$ 0", label: "Anuidade em cartões de combustível" }
+          ]
+        }
+      };
+
+      // Modal open controllers
+      function openCaseModal(caseId) {
+        const c = casesData[caseId];
+        if (!c) return;
+
+        modalTitle.textContent = c.title;
+        modalSubtitle.textContent = c.subtitle;
+        modalHeaderIcon.innerHTML = `<i data-lucide="${c.icon}" class="w-5 h-5"></i>`;
+
+        let bodyHtml = '';
+
+        if (caseId === 'itau') {
+          // Tabs structure for Itaú
+          bodyHtml = `
+            <div class="space-y-6">
+              <div class="flex flex-col sm:flex-row border-b border-border font-mono text-xs font-bold bg-slate-50 border-2 border-slate-950">
+                <button onclick="switchItauTab('overview')" id="itau-tab-btn-overview" class="flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Visão Geral</button>
+                <button onclick="switchItauTab('features')" id="itau-tab-btn-features" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Recursos</button>
+                <button onclick="switchItauTab('sim')" id="itau-tab-btn-sim" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase" onclick="startItauChatDemo()">Simulador</button>
+              </div>
+
+              <!-- Overview -->
+              <div id="itau-overview-tab" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  \${c.stats.map(s => `
+                    <div class="p-4 bg-slate-50 border border-border text-center">
+                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                    </div>
+                  `).join('')}
+                </div>
+                <div class="space-y-2">
+                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Impacto Operacional</h4>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    Construção do canal e infraestrutura de processamento inteligente de linguagem natural com base em modelos preditivos para automação de tarefas cotidianas do banco, integrados de forma transparente via API de chat e WhatsApp corporativo.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Features -->
+              <div id="itau-features-tab" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                \${c.capabilities.map(cap => `
+                  <div class="p-4 bg-white border border-border">
+                    <h5 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1 flex items-center gap-1.5">
+                      <i data-lucide="\${cap.icon}" class="w-4 h-4 text-primary"></i> \${cap.title}
+                    </h5>
+                    <p class="text-xs text-slate-600 leading-relaxed">\${cap.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Simulator -->
+              <div id="itau-sim-tab" class="hidden space-y-4">
+                <div class="border border-slate-950 bg-slate-900 p-4 font-mono text-xs text-white max-w-md mx-auto space-y-3" style="min-height: 250px;" id="itau-chat-box">
+                  <!-- dialogue populated by JS -->
+                </div>
+                <div class="text-center">
+                  <button onclick="startItauChatDemo()" class="px-4 py-2 border border-slate-950 text-slate-900 hover:bg-slate-50 text-xs font-mono font-bold uppercase transition-colors">
+                    REINICIAR DIÁLOGO
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (caseId === 'appmoto') {
+          // Tabs structure for App Moto
+          bodyHtml = `
+            <div class="space-y-6">
+              <div class="flex flex-col sm:flex-row border-b border-border font-mono text-xs font-bold bg-slate-50 border-2 border-slate-950">
+                <button onclick="switchAppmotoTab('overview')" id="moto-tab-btn-overview" class="flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Visão Geral</button>
+                <button onclick="switchAppmotoTab('tour')" id="moto-tab-btn-tour" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase">Tour no App</button>
+              </div>
+
+              <!-- Overview -->
+              <div id="moto-overview-tab" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  \${c.stats.map(s => `
+                    <div class="p-4 bg-slate-50 border border-border text-center">
+                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                    </div>
+                  `).join('')}
+                </div>
+                <div class="space-y-2">
+                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Inovação e Usabilidade</h4>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    Protótipo de alta fidelidade e estudos detalhados de interações contendo mais de 15 telas mobile completas para validação e testes práticos com motoristas parceiros em centros logísticos e operacionais.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tour -->
+              <div id="moto-tour-tab" class="hidden flex flex-col items-center gap-6">
+                <div class="relative bg-slate-950 p-6 border-4 border-slate-900 max-w-[280px]">
+                  <img id="moto-screen-img" src="\${getAssetPath(c.images[0])}" alt="Tela" class="w-full h-auto object-contain">
+                  <div class="mt-2 text-center text-[10px] font-mono text-white" id="moto-screen-name">\${c.imageNames[0]}</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <button onclick="navigateMotoTour(-1)" class="p-2 border border-slate-950 hover:bg-slate-50 font-mono font-bold text-xs uppercase transition-colors">&lt; ANTERIOR</button>
+                  <span id="moto-tour-counter" class="font-mono text-xs">1 / \${c.images.length}</span>
+                  <button onclick="navigateMotoTour(1)" class="p-2 border border-slate-950 hover:bg-slate-50 font-mono font-bold text-xs uppercase transition-colors">PRÓXIMA &gt;</button>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (caseId === 'slmandic' || caseId === 'bv') {
+          // Standard tabbed structured view for SL Mandic and BV
+          bodyHtml = `
+            <div class="space-y-6">
+              <div class="flex flex-col sm:flex-row border-b border-border font-mono text-xs font-bold bg-slate-50 border-2 border-slate-950">
+                <button onclick="switchStandardTab('\${caseId}', 'overview')" id="\${caseId}-tab-btn-overview" class="flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Visão Geral</button>
+                <button onclick="switchStandardTab('\${caseId}', 'features')" id="\${caseId}-tab-btn-features" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase">Funcionalidades</button>
+                <button onclick="switchStandardTab('\${caseId}', 'about')" id="\${caseId}-tab-btn-about" class="flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase">Institucional</button>
+              </div>
+
+              <!-- Visão Geral -->
+              <div id="\${caseId}-overview-tab" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  \${c.stats.map(s => `
+                    <div class="p-4 bg-slate-50 border border-border text-center">
+                      <div class="font-mono text-2xl font-bold text-primary">\${s.value}</div>
+                      <div class="text-[10px] font-mono text-slate-500 uppercase">\${s.label}</div>
+                    </div>
+                  `).join('')}
+                </div>
+                <div class="space-y-4">
+                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Resumo da Solução</h4>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    \${caseId === 'slmandic' ? 'Desenvolvimento completo do aplicativo oficial acadêmico, unificando registros de notas, grade horária de aulas, reserva de laboratórios e canais de relacionamento das sedes da instituição.' : 'Construção da interface mobile de crédito, empréstimo facilitado com garantias e financiamento de painéis fotovoltaicos e automóveis de forma automatizada.'}
+                  </p>
+                  <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
+                    \${c.images.map(img => `
+                      <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('\${getAssetPath(img)}')">
+                        <img src="\${getAssetPath(img)}" alt="Mockup" class="w-full h-auto object-cover border-2 border-slate-200">
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Funcionalidades -->
+              <div id="\${caseId}-features-tab" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                \${c.features.map(f => `
+                  <div class="p-4 bg-white border border-border">
+                    <h5 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1 flex items-center gap-1.5">
+                      <i data-lucide="\${f.icon}" class="w-4 h-4 text-primary"></i> \${f.title}
+                    </h5>
+                    <p class="text-xs text-slate-600 leading-relaxed">\${f.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Sobre -->
+              <div id="\${caseId}-about-tab" class="hidden space-y-4">
+                <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Sobre o Cliente</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  \${caseId === 'slmandic' ? 'A Faculdade Leopoldo Mandic é referência em ensino e pesquisa odontológica e de medicina do país, com classificação máxima nos indicadores de avaliação educacional de graduação.' : 'O Banco Votorantim (BV) é uma das maiores instituições bancárias privadas do mercado, especialista em crédito automotivo e soluções estruturadas de energia limpa.'}
+                </p>
+              </div>
+            </div>
+          `;
+        }
+
+        modalBody.innerHTML = bodyHtml;
+        openModalLayout();
+        lucide.createIcons();
+
+        // Custom states initialization
+        if (caseId === 'itau') {
+          startItauChatDemo();
+        }
+        if (caseId === 'appmoto') {
+          currentMotoScreenIndex = 0;
+        }
+      }
+
+      // Itaú modal tabs controller
+      function switchItauTab(tabName) {
+        const oTab = document.getElementById('itau-overview-tab');
+        const fTab = document.getElementById('itau-features-tab');
+        const sTab = document.getElementById('itau-sim-tab');
+        const btnO = document.getElementById('itau-tab-btn-overview');
+        const btnF = document.getElementById('itau-tab-btn-features');
+        const btnS = document.getElementById('itau-tab-btn-sim');
+
+        oTab.classList.add('hidden');
+        fTab.classList.add('hidden');
+        sTab.classList.add('hidden');
+        btnO.className = "flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+        btnF.className = "flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+        btnS.className = "flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase";
+
+        if (tabName === 'overview') {
+          oTab.classList.remove('hidden');
+          btnO.className = "flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+        } else if (tabName === 'features') {
+          fTab.classList.remove('hidden');
+          btnF.className = "flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+        } else {
+          sTab.classList.remove('hidden');
+          btnS.className = "flex-1 py-3 text-center bg-primary text-white uppercase";
+          startItauChatDemo();
+        }
+      }
+
+      // App Moto modal tabs controller
+      function switchAppmotoTab(tabName) {
+        const oTab = document.getElementById('moto-overview-tab');
+        const tTab = document.getElementById('moto-tour-tab');
+        const btnO = document.getElementById('moto-tab-btn-overview');
+        const btnT = document.getElementById('moto-tab-btn-tour');
+
+        if (tabName === 'overview') {
+          oTab.classList.remove('hidden');
+          tTab.classList.add('hidden');
+          btnO.className = "flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+          btnT.className = "flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase";
+        } else {
+          oTab.classList.add('hidden');
+          tTab.classList.remove('hidden');
+          btnO.className = "flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase";
+          btnT.className = "flex-1 py-3 text-center bg-primary text-white uppercase";
+        }
+      }
+
+      // SL Mandic & BV tabs controller
+      function switchStandardTab(caseId, tabName) {
+        const oTab = document.getElementById(`${caseId}-overview-tab`);
+        const fTab = document.getElementById(`${caseId}-features-tab`);
+        const aTab = document.getElementById(`${caseId}-about-tab`);
+        const btnO = document.getElementById(`${caseId}-tab-btn-overview`);
+        const btnF = document.getElementById(`${caseId}-tab-btn-features`);
+        const btnA = document.getElementById(`${caseId}-tab-btn-about`);
+
+        oTab.classList.add('hidden');
+        fTab.classList.add('hidden');
+        aTab.classList.add('hidden');
+        btnO.className = `flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase`;
+        btnF.className = `flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 border-b sm:border-b-0 sm:border-r border-slate-950 uppercase`;
+        btnA.className = `flex-1 py-3 text-center hover:bg-slate-100 text-slate-600 uppercase`;
+
+        if (tabName === 'overview') {
+          oTab.classList.remove('hidden');
+          btnO.className = `flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase`;
+        } else if (tabName === 'features') {
+          fTab.classList.remove('hidden');
+          btnF.className = `flex-1 py-3 text-center bg-primary text-white border-b sm:border-b-0 sm:border-r border-slate-950 uppercase`;
+        } else {
+          aTab.classList.remove('hidden');
+          btnA.className = `flex-1 py-3 text-center bg-primary text-white uppercase`;
+        }
+      }
+
+      // Interactive Chatbot Simulator logic
+      let itauChatTimers = [];
+      function startItauChatDemo() {
+        // Clear active timers
+        itauChatTimers.forEach(t => clearTimeout(t));
+        itauChatTimers = [];
+
+        const chatBox = document.getElementById('itau-chat-box');
+        if (!chatBox) return;
+
+        chatBox.innerHTML = '';
+        const dialogue = casesData.itau.dialogue;
+
+        dialogue.forEach((msg, idx) => {
+          const t = setTimeout(() => {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex flex-col ${msg.type === 'user' ? 'items-end' : 'items-start'}`;
+            msgDiv.innerHTML = `
+              <div class="px-3 py-2 ${msg.type === 'user' ? 'bg-primary text-white border border-primary' : 'bg-slate-800 text-white border border-slate-700'} max-w-[80%]">
+                ${msg.text}
+              </div>
+            `;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+          }, 600 + idx * 2200);
+          itauChatTimers.push(t);
+        });
+      }
+
+      // App Moto Screen flow controller
+      let currentMotoScreenIndex = 0;
+      function navigateMotoTour(direction) {
+        const c = casesData.appmoto;
+        currentMotoScreenIndex = (currentMotoScreenIndex + direction + c.images.length) % c.images.length;
+        
+        const screenImg = document.getElementById('moto-screen-img');
+        const screenName = document.getElementById('moto-screen-name');
+        const counter = document.getElementById('moto-tour-counter');
+
+        if (screenImg && screenName && counter) {
+          screenImg.src = getAssetPath(c.images[currentMotoScreenIndex]);
+          screenName.textContent = c.imageNames[currentMotoScreenIndex];
+          counter.textContent = `${currentMotoScreenIndex + 1} / ${c.images.length}`;
+        }
+      }
+    </script>
   </body>
 </html>
