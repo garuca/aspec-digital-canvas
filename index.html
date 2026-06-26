@@ -97,6 +97,101 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ASPEC",
+        "url": "https://www.aspec.ia.br/",
+        "logo": "https://www.aspec.ia.br/logo.svg",
+        "image": "https://www.aspec.ia.br/og-image.jpg",
+        "description": "Empresa de desenvolvimento de software em Goiânia, especializada em sistemas web, aplicativos mobile e inteligência artificial.",
+        "telephone": "+55-62-98241-2665",
+        "email": "contato@aspec.ia.br",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Goiânia",
+          "addressRegion": "GO",
+          "addressCountry": "BR"
+        },
+        "areaServed": ["BR"],
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "sameAs": ["https://wa.me/5562982412665"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.aspec.ia.br/"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.aspec.ia.br/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.aspec.ia.br/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Service Schemas -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Desenvolvimento de Sistemas Web",
+        "provider": { "@type": "Organization", "name": "ASPEC" },
+        "description": "Criação de portais, sites institucionais e painéis administrativos responsivos com React, Next.js e Node.js."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Desenvolvimento de Aplicativos Mobile",
+        "provider": { "@type": "Organization", "name": "ASPEC" },
+        "description": "Aplicativos nativos e híbridos para iOS e Android com React Native e Flutter."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Inteligência Artificial",
+        "provider": { "@type": "Organization", "name": "ASPEC" },
+        "description": "Chatbots com IA, machine learning, processamento de linguagem natural e automação inteligente."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Automação Empresarial",
+        "provider": { "@type": "Organization", "name": "ASPEC" },
+        "description": "Automação de fluxos de trabalho, integração de sistemas e eliminação de processos manuais."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Consultoria em Tecnologia",
+        "provider": { "@type": "Organization", "name": "ASPEC" },
+        "description": "Assessoria em arquitetura de software, escolha de stack tecnológica e revisão de código."
+      }
+    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -346,6 +441,22 @@
       </div>
     </section>
     
+    <!-- SEO Local / About Section -->
+    <section class="py-16 bg-white border-b border-border">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">SOBRE NÓS</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-6">EMPRESA DE DESENVOLVIMENTO DE SOFTWARE EM GOIÂNIA</h2>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            A <strong>ASPEC</strong> é uma <strong>empresa de desenvolvimento de software</strong> sediada em <strong>Goiânia</strong>, atendendo empresas de todo o Brasil com soluções em <strong>sistemas web</strong>, <strong>aplicativos mobile</strong> e <strong>inteligência artificial</strong>. Atendemos projetos em <strong>Goiânia</strong>, <strong>Brasília</strong>, <strong>São Paulo</strong>, <strong>Belo Horizonte</strong>, <strong>Curitiba</strong> e <strong>Rio de Janeiro</strong>, além de clientes internacionais.
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Com mais de <strong>150 projetos entregues</strong> e <strong>98% de satisfação</strong>, nossa equipe combina engenharia de software, design estratégico e inteligência artificial para criar produtos digitais de alto impacto. Somos especialistas em <strong>React</strong>, <strong>Next.js</strong>, <strong>React Native</strong>, <strong>Flutter</strong>, <strong>Node.js</strong>, <strong>Python</strong> e <strong>Rust</strong>, com infraestrutura em nuvem <strong>AWS</strong> e containers <strong>Docker</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    
     <!-- Differentials Section -->
     <section class="py-24 bg-white border-b border-border">
       <div class="container mx-auto px-4">
@@ -494,6 +605,79 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    
+    <!-- Como Trabalhamos Section -->
+    <section class="py-24 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">NOSSO PROCESSO</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">COMO TRABALHAMOS</h2>
+          <p class="text-slate-600">Um processo estruturado em 7 etapas para transformar sua ideia em software de alto impacto.</p>
+        </div>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="search" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">1. Descoberta</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Entendemos seu negócio, dores e objetivos para mapear a melhor solução.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="clipboard-list" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">2. Requisitos</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Detalhamos funcionalidades, fluxos e regras de negócio com documentação clara.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="pen-tool" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">3. UX/UI</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Prototipamos interfaces validadas com usuários antes de escrever código.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="code" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">4. Desenvolvimento</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Ciclos ágeis com entregas quinzenais e total transparência do progresso.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="check-circle" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">5. Testes</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Garantia de qualidade com testes automatizados e validação de performance.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="rocket" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">6. Publicação</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Deploy em produção com infraestrutura escalável em nuvem AWS.</p>
+          </div>
+          <div class="bg-white border border-border p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-primary-light flex items-center justify-center mx-auto mb-4">
+              <i data-lucide="refresh-cw" class="w-6 h-6 text-primary"></i>
+            </div>
+            <h3 class="font-mono text-sm font-bold text-slate-900 uppercase mb-2">7. Suporte</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Monitoramento contínuo, evolução do produto e suporte técnico dedicado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA after Como Trabalhamos -->
+    <section class="py-16 bg-slate-900 border-b border-slate-800">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-mono text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">Quer Transformar Sua Ideia em Software?</h2>
+        <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-8">Nosso time está pronto para tirar seu projeto do papel. Agende uma reunião sem compromisso.</p>
+        <a href="#contato" class="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-sm font-mono font-bold px-10 py-4 border border-primary transition-all duration-300">
+          FALE COM UM ESPECIALISTA <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+        </a>
       </div>
     </section>
     
@@ -666,6 +850,66 @@
       </div>
     </section>
     
+    <!-- Tecnologias Section -->
+    <section class="py-24 bg-white border-b border-border">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4">TECNOLOGIAS</div>
+          <h2 class="font-mono text-3xl sm:text-4xl font-bold uppercase tracking-tight text-slate-900 mb-4">STACK DE DESENVOLVIMENTO</h2>
+          <p class="text-slate-600">Tecnologias modernas que utilizamos para entregar produtos digitais de alto desempenho.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-primary"></i> React
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Biblioteca JavaScript para interfaces de usuário dinâmicas e componentes reutilizáveis. Utilizamos React com hooks, context API e Next.js para renderização híbrida, garantindo performance excepcional e SEO otimizado em sistemas web modernos.</p>
+          </div>
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="globe" class="w-4 h-4 text-primary"></i> Next.js
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Framework React para produção com renderização server-side (SSR) e geração de sites estáticos (SSG). Next.js entrega páginas com carregamento instantâneo, SEO superior e excelente Core Web Vitals, ideal para sites institucionais e plataformas SaaS.</p>
+          </div>
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="smartphone" class="w-4 h-4 text-primary"></i> Flutter
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Framework da Google para desenvolvimento multiplataforma com performance nativa. Criamos apps Android e iOS com uma única base de código, reduzindo custos e tempo de desenvolvimento sem comprometer a qualidade da experiência do usuário.</p>
+          </div>
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="tablet" class="w-4 h-4 text-primary"></i> React Native
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Framework para desenvolvimento de aplicativos mobile nativos usando JavaScript e React. React Native combina a produtividade do desenvolvimento web com a performance e os recursos nativos de dispositivos iOS e Android.</p>
+          </div>
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="cpu" class="w-4 h-4 text-primary"></i> Inteligência Artificial
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Aplicações empresariais de IA generativa, processamento de linguagem natural (NLP), chatbots inteligentes e modelos de machine learning. Integramos LLMs, APIs de IA e algoritmos preditivos para automatizar processos e gerar insights de negócio.</p>
+          </div>
+          <div class="bg-slate-50 border border-border p-6 hover:shadow-md transition-shadow">
+            <h3 class="font-mono text-base font-bold text-slate-900 uppercase mb-2 flex items-center gap-2">
+              <i data-lucide="server" class="w-4 h-4 text-primary"></i> Node.js & Python
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Backend robusto com Node.js para aplicações em tempo real e APIs de alta concorrência, e Python (Django) para sistemas complexos com processamento de dados. Tudo orquestrado em containers Docker e implantado em infraestrutura AWS escalável.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA after Tecnologias -->
+    <section class="py-16 bg-slate-50 border-b border-border">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 uppercase tracking-tight mb-4">Solicite uma Demonstração</h2>
+        <p class="text-slate-500 text-sm max-w-2xl mx-auto mb-8">Veja na prática como nossas soluções podem acelerar o crescimento do seu negócio.</p>
+        <a href="#contato" class="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-sm font-mono font-bold px-10 py-4 border border-primary transition-all duration-300">
+          SOLICITAR DEMONSTRAÇÃO <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+        </a>
+      </div>
+    </section>
+    
     <!-- Results / Statistics Section -->
     <section id="resultados" class="py-24 bg-slate-50 border-b border-border">
       <div class="container mx-auto px-4">
@@ -716,6 +960,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CTA after Results -->
+    <section class="py-16 bg-primary border-b border-border">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-mono text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">Pronto para Acelerar Seu Negócio?</h2>
+        <p class="text-white/80 text-sm max-w-2xl mx-auto mb-8">Agende um diagnóstico gratuito e descubra o ROI do seu projeto de desenvolvimento de software.</p>
+        <a href="#contato" class="inline-flex items-center bg-white text-primary hover:bg-slate-100 text-sm font-mono font-bold px-10 py-4 border border-white transition-all duration-300">
+          AGENDAR REUNIÃO <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+        </a>
       </div>
     </section>
     
@@ -1462,6 +1717,10 @@
           title: "SL Mandic",
           subtitle: "APP FULL & SISTEMA ACADÊMICO",
           icon: "graduation-cap",
+          segment: "Educação",
+          problem: "A Faculdade Leopoldo Mandic precisava unificar a gestão acadêmica de seus cursos de Medicina e Odontologia em um único aplicativo mobile, integrando notas, grade horária, laboratórios e comunicação institucional.",
+          technologies: ["React Native", "Node.js", "PostgreSQL", "Docker", "AWS"],
+          resultsDetail: "App com mais de 1 milhão de instalações, avaliação média de 4.6 estrelas, e nota máxima no recredenciamento MEC (15 anos).",
           images: [
             "portfolio/slmandic/unnamed.webp",
             "portfolio/slmandic/unnamed (1).webp",
@@ -1484,6 +1743,10 @@
           title: "Banco BV",
           subtitle: "APP MOBILE DE CONTA & FINANCIAMENTO",
           icon: "building-2",
+          segment: "Financeiro",
+          problem: "O Banco BV, especialista em crédito automotivo e financiamentos, precisava de um aplicativo mobile completo que unificasse conta digital, crédito, investimentos e pagamentos em uma experiência fluida e segura.",
+          technologies: ["React Native", "Node.js", "Python", "PostgreSQL", "Redis", "Docker", "AWS"],
+          resultsDetail: "Mais de 10 milhões de downloads, 378 mil avaliações positivas, e referência em UI/UX no setor financeiro brasileiro.",
           images: [
             "portfolio/bv/bv_projeto_aspec1.webp",
             "portfolio/bv/bv_projeto_aspec2.webp",
@@ -1507,6 +1770,10 @@
           title: "Banco Itaú",
           subtitle: "ASSISTENTE VIRTUAL COM IA GENERATIVA",
           icon: "bot",
+          segment: "Financeiro",
+          problem: "O Itaú, maior banco privado do Brasil, buscava automatizar o atendimento a mais de 70 milhões de clientes utilizando inteligência artificial generativa para reduzir filas e tempo de espera.",
+          technologies: ["Python", "Django", "NLP", "LLMs", "Redis", "Docker", "AWS"],
+          resultsDetail: "85% de redução no tempo de espera do suporte, disponibilidade 24/7 para 70 milhões de clientes, e automação de consultas de saldo, bloqueio de cartões e transações PIX.",
           stats: [
             { value: "70M+", label: "Clientes atendidos no canal digital" },
             { value: "24/7", label: "Disponibilidade de atendimento de IA" },
@@ -1529,6 +1796,10 @@
           title: "App Moto",
           subtitle: "BANCO DIGITAL PARA ENTREGADORES",
           icon: "bike",
+          segment: "Fintech",
+          problem: "Criar um banco digital exclusivo para motociclistas entregadores, oferecendo conta digital, financiamento de veículos, seguro e educação financeira em uma interface simples e acessível.",
+          technologies: ["Flutter", "Node.js", "MongoDB", "Redis", "Docker", "AWS"],
+          resultsDetail: "Mais de 1 milhão de entregadores impactados, avaliação de 4.8 estrelas entre motoristas parceiros, e R$ 0 anuidade em cartões de combustível.",
           images: [
             "portfolio/moto/Splash .png",
             "portfolio/moto/Login - ativo.png",
@@ -1602,11 +1873,21 @@
                     </div>
                   `).join('')}
                 </div>
-                <div class="space-y-2">
-                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Impacto Operacional</h4>
-                  <p class="text-sm text-slate-600 leading-relaxed">
-                    Construção do canal e infraestrutura de processamento inteligente de linguagem natural com base em modelos preditivos para automação de tarefas cotidianas do banco, integrados de forma transparente via API de chat e WhatsApp corporativo.
-                  </p>
+                <div class="space-y-3">
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1">Problema</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.problem || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1">Resultados</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.resultsDetail || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase mb-1">Tecnologias</h4>
+                    <div class="flex flex-wrap gap-1.5">
+                      ${(c.technologies || []).map(t => `<span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">${t}</span>`).join('')}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -1654,11 +1935,21 @@
                     </div>
                   `).join('')}
                 </div>
-                <div class="space-y-2">
-                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Inovação e Usabilidade</h4>
-                  <p class="text-sm text-slate-600 leading-relaxed">
-                    Protótipo de alta fidelidade e estudos detalhados de interações contendo mais de 15 telas mobile completas para validação e testes práticos com motoristas parceiros em centros logísticos e operacionais.
-                  </p>
+                <div class="space-y-3">
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Problema</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.problem || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Resultados</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.resultsDetail || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Tecnologias</h4>
+                    <div class="flex flex-wrap gap-1.5">
+                      ${(c.technologies || []).map(t => `<span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">${t}</span>`).join('')}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -1697,10 +1988,26 @@
                   `).join('')}
                 </div>
                 <div class="space-y-4">
-                  <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Resumo da Solução</h4>
-                  <p class="text-sm text-slate-600 leading-relaxed">
-                    ${caseId === 'slmandic' ? 'Desenvolvimento completo do aplicativo oficial acadêmico, unificando registros de notas, grade horária de aulas, reserva de laboratórios e canais de relacionamento das sedes da instituição.' : 'Construção da interface mobile de crédito, empréstimo facilitado com garantias e financiamento de painéis fotovoltaicos e automóveis de forma automatizada.'}
-                  </p>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Problema</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.problem || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Solução</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      ${caseId === 'slmandic' ? 'Desenvolvimento completo do aplicativo oficial acadêmico, unificando registros de notas, grade horária de aulas, reserva de laboratórios e canais de relacionamento das sedes da instituição.' : 'Construção da interface mobile de crédito, empréstimo facilitado com garantias e financiamento de painéis fotovoltaicos e automóveis de forma automatizada.'}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Resultados</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${c.resultsDetail || ''}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-mono text-sm font-bold text-slate-900 uppercase">Tecnologias</h4>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                      ${(c.technologies || []).map(t => `<span class="text-[10px] font-mono px-2 py-1 bg-slate-50 border border-border">${t}</span>`).join('')}
+                    </div>
+                  </div>
                   <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
                     ${c.images.map(img => `
                       <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('${getAssetPath(img)}')">
