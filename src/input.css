@@ -21,6 +21,12 @@
   animation-play-state: paused;
 }
 
+/* Defer rendering of below-fold sections */
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
 /* Floating WhatsApp button */
 .whatsapp-float {
   position: fixed;
