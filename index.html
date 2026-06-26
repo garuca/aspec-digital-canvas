@@ -193,80 +193,19 @@
       }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter (sans-serif) and Space Mono (monospace) -->
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://unpkg.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;750&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (built locally) -->
+    <link rel="stylesheet" href="css/output.css">
+    
+    <!-- Google Fonts: Inter (sans-serif) and Space Mono (monospace) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;750&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              mono: ['Space Mono', 'monospace'],
-            },
-            colors: {
-              primary: {
-                DEFAULT: '#FF6B2C',
-                hover: '#E55A1B',
-                light: '#FFF0EA',
-              },
-              background: '#F4F7FA',
-              card: '#FFFFFF',
-              border: '#E2E8F0',
-            }
-          }
-        }
-      }
-    </script>
-    
-    <style>
-      * {
-        border-radius: 0px !important;
-      }
-
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        display: flex;
-        width: max-content;
-        animation: marquee 30s linear infinite;
-      }
-      .animate-marquee:hover {
-        animation-play-state: paused;
-      }
-
-      .whatsapp-float {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        z-index: 100;
-        background-color: #25D366;
-        color: white;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        transition: transform 0.2s, box-shadow 0.2s;
-        cursor: pointer;
-        border: none;
-      }
-      .whatsapp-float:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      }
-    </style>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
   </head>
   <body class="bg-background text-slate-900 font-sans antialiased">
 
@@ -281,7 +220,7 @@
         <div class="flex h-20 items-center justify-between">
           <!-- Logo -->
           <a href="#inicio" class="flex items-center gap-2 group">
-            <img id="header-logo" src="logo.svg" class="h-16 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC - Desenvolvimento de Software e Inteligência Artificial">
+            <img id="header-logo" src="logo.svg" class="h-16 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC - Desenvolvimento de Software e Inteligência Artificial" width="64" height="64" fetchpriority="high">
           </a>
           
           <!-- Nav Links -->
@@ -377,47 +316,47 @@
         <div class="animate-marquee flex items-center gap-16 py-4">
           <!-- original logo elements -->
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Logotipo oficial em tons de cinza do Banco Itaú, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Logotipo oficial em tons de cinza do Banco Itaú, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Logotipo oficial em tons de cinza do Banco BV, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Logotipo oficial em tons de cinza do Banco BV, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Logotipo oficial em tons de cinza da Faculdade SL Mandic, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Logotipo oficial em tons de cinza da Faculdade SL Mandic, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Logotipo oficial em tons de cinza da Kovi, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Logotipo oficial em tons de cinza da Kovi, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Logotipo oficial em tons de cinza da Easy, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Logotipo oficial em tons de cinza da Easy, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Logotipo oficial em tons de cinza da Appmax, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Logotipo oficial em tons de cinza da Appmax, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Logotipo oficial em tons de cinza da Estrela Bet, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Logotipo oficial em tons de cinza da Estrela Bet, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <!-- duplicate elements for seamless loop -->
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="itau-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Logotipo oficial em tons de cinza do Banco Itaú, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/itau-cinza.png" data-color="clientes/itau-colorido.png" alt="Logotipo oficial em tons de cinza do Banco Itaú, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="bv-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Logotipo oficial em tons de cinza do Banco BV, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/bv-cinza_.png" data-color="clientes/bv-colorido.png" alt="Logotipo oficial em tons de cinza do Banco BV, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="flmandic-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Logotipo oficial em tons de cinza da Faculdade SL Mandic, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/flmandic-cinza_.png" data-color="clientes/flmandic-colorido_.png" alt="Logotipo oficial em tons de cinza da Faculdade SL Mandic, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="kovi-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Logotipo oficial em tons de cinza da Kovi, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/kovi-cinza.png" data-color="clientes/kovi-colorido.png" alt="Logotipo oficial em tons de cinza da Kovi, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="easy-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Logotipo oficial em tons de cinza da Easy, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/easy-cinza.png" data-color="clientes/easy-colorido.png" alt="Logotipo oficial em tons de cinza da Easy, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="appmax-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Logotipo oficial em tons de cinza da Appmax, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/appmax-cinza.png" data-color="clientes/appmax-colorido.png" alt="Logotipo oficial em tons de cinza da Appmax, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
           <div class="flex items-center justify-center h-28 w-56 opacity-50 hover:opacity-100 transition-opacity client-logo-container" data-client="estrelabet-dup">
-            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Logotipo oficial em tons de cinza da Estrela Bet, cliente parceiro da ASPEC">
+            <img class="h-20 max-w-full object-contain client-logo-img" data-gray="clientes/estrelabet-cinza.png" data-color="clientes/estrelabet-colorido.png" alt="Logotipo oficial em tons de cinza da Estrela Bet, cliente parceiro da ASPEC" width="224" height="80" loading="lazy">
           </div>
         </div>
       </div>
@@ -1238,7 +1177,7 @@
           <!-- Column 1 -->
           <div>
             <a href="#inicio" class="inline-block group mb-4">
-              <img id="footer-logo" src="logo.svg" class="h-14 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC">
+              <img id="footer-logo" src="logo.svg" class="h-14 w-auto group-hover:opacity-85 transition-all duration-300" alt="ASPEC" width="56" height="56" loading="lazy">
             </a>
             <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
               Transformamos ideias e dados complexos em software robusto e interfaces de alta performance.
@@ -1317,7 +1256,7 @@
         FECHAR
       </button>
       <div class="max-w-4xl max-h-[80vh] flex items-center justify-center">
-        <img id="lightbox-img" src="" alt="Zoom" class="max-w-full max-h-[80vh] object-contain border-2 border-white/10">
+        <img id="lightbox-img" src="" alt="Zoom" class="max-w-full max-h-[80vh] object-contain border-2 border-white/10" loading="lazy">
       </div>
     </div>
 
@@ -1956,7 +1895,7 @@
               <!-- Tour -->
               <div id="moto-tour-tab" class="hidden flex flex-col items-center gap-6">
                 <div class="relative bg-slate-950 p-6 border-4 border-slate-900 max-w-[280px]">
-                  <img id="moto-screen-img" src="${getAssetPath(c.images[0])}" alt="Tela" class="w-full h-auto object-contain">
+                  <img id="moto-screen-img" src="${getAssetPath(c.images[0])}" alt="Tela" class="w-full h-auto object-contain" loading="lazy">
                   <div class="mt-2 text-center text-[10px] font-mono text-white" id="moto-screen-name">${c.imageNames[0]}</div>
                 </div>
                 <div class="flex items-center gap-4">
@@ -2011,7 +1950,7 @@
                   <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
                     ${c.images.map(img => `
                       <div class="flex-shrink-0 w-36 border border-border cursor-zoom-in" onclick="openLightbox('${getAssetPath(img)}')">
-                        <img src="${getAssetPath(img)}" alt="Case ASPEC - Mockup de aplicativo mobile desenvolvido para o cliente" class="w-full h-auto object-cover border-2 border-slate-200">
+                        <img src="${getAssetPath(img)}" alt="Case ASPEC - Mockup de aplicativo mobile desenvolvido para o cliente" class="w-full h-auto object-cover border-2 border-slate-200" loading="lazy">
                       </div>
                     `).join('')}
                   </div>

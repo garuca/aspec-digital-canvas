@@ -1,0 +1,29 @@
+{
+  "name": "aspec-digital-canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o css/output.css --minify",
+    "dev": "tailwindcss -i src/input.css -o css/output.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garuca/aspec-digital-canvas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/garuca/aspec-digital-canvas/issues"
+  },
+  "homepage": "https://github.com/garuca/aspec-digital-canvas#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.5.2",
+    "cssnano": "^8.0.2",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.19"
+  }
+}
