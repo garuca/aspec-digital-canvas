@@ -1301,7 +1301,16 @@
       }
 
       // Initialize Lucide Icons
-      lucide.createIcons();
+      function initLucide() {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLucide);
+      } else {
+        initLucide();
+      }
 
       // Initialize Header and Footer Logos
       const headerLogo = document.getElementById('header-logo');
