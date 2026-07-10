@@ -1,0 +1,742 @@
+{
+  ".opencode/opencode.json": {
+    "mtime": 1783561844.9317026,
+    "ast_hash": "e5f74d14a81702b55bdf53b33ec991d7",
+    "semantic_hash": "e5f74d14a81702b55bdf53b33ec991d7"
+  },
+  ".opencode/package.json": {
+    "mtime": 1783561851.311479,
+    "ast_hash": "b5db6068ee8acaf216ce0e75257e7361",
+    "semantic_hash": "b5db6068ee8acaf216ce0e75257e7361"
+  },
+  ".opencode/plugins/graphify.js": {
+    "mtime": 1783561795.1214893,
+    "ast_hash": "3ea725724bc8ebe483c9f13d6aa1124f",
+    "semantic_hash": "3ea725724bc8ebe483c9f13d6aa1124f"
+  },
+  "dnadigital/js/app.js": {
+    "mtime": 1782562006.9275947,
+    "ast_hash": "cc9e28a37c2324a3e743c76ade4b3118",
+    "semantic_hash": "cc9e28a37c2324a3e743c76ade4b3118"
+  },
+  "dnadigital/js/config/ai.js": {
+    "mtime": 1782654302.2844586,
+    "ast_hash": "4a9a82c16a3953f1fdedae69c1b9211b",
+    "semantic_hash": "4a9a82c16a3953f1fdedae69c1b9211b"
+  },
+  "dnadigital/js/config/gemini.js": {
+    "mtime": 1782653462.3108606,
+    "ast_hash": "5847b203a10aeb2a0547e1897345e8e0",
+    "semantic_hash": "5847b203a10aeb2a0547e1897345e8e0"
+  },
+  "dnadigital/js/config/supabase.js": {
+    "mtime": 1782561676.090041,
+    "ast_hash": "8181f5aaf799b5ebeb018638db038a84",
+    "semantic_hash": "8181f5aaf799b5ebeb018638db038a84"
+  },
+  "dnadigital/js/controllers/DashboardController.js": {
+    "mtime": 1782561877.4379504,
+    "ast_hash": "9a6c2e192213628ddea909824fd74bf4",
+    "semantic_hash": "9a6c2e192213628ddea909824fd74bf4"
+  },
+  "dnadigital/js/controllers/DnaController.js": {
+    "mtime": 1782660848.485678,
+    "ast_hash": "d52e0a78f984235df40cb380b6a7c5d9",
+    "semantic_hash": "d52e0a78f984235df40cb380b6a7c5d9"
+  },
+  "dnadigital/js/controllers/LoginController.js": {
+    "mtime": 1782561840.4380596,
+    "ast_hash": "27e891284d5254433130a4615a864638",
+    "semantic_hash": "27e891284d5254433130a4615a864638"
+  },
+  "dnadigital/js/controllers/PostController.js": {
+    "mtime": 1782670464.650642,
+    "ast_hash": "7a862b804bcb15427297f591939e0714",
+    "semantic_hash": "7a862b804bcb15427297f591939e0714"
+  },
+  "dnadigital/js/entities/BrandDna.js": {
+    "mtime": 1782660351.5752735,
+    "ast_hash": "80fe84ef3464c98e1aefc82e06a97e37",
+    "semantic_hash": "80fe84ef3464c98e1aefc82e06a97e37"
+  },
+  "dnadigital/js/entities/InstagramPost.js": {
+    "mtime": 1782561619.0875444,
+    "ast_hash": "8c8246d14ffc5d34a0b3f6473138c649",
+    "semantic_hash": "8c8246d14ffc5d34a0b3f6473138c649"
+  },
+  "dnadigital/js/gateways/AIGateway.js": {
+    "mtime": 1782675121.057308,
+    "ast_hash": "22187bfd14facac559ccfccf64afa8b7",
+    "semantic_hash": "22187bfd14facac559ccfccf64afa8b7"
+  },
+  "dnadigital/js/gateways/GeminiGateway.js": {
+    "mtime": 1782675097.228353,
+    "ast_hash": "38c21ec282686b3634c1cc5a9bebcf0b",
+    "semantic_hash": "38c21ec282686b3634c1cc5a9bebcf0b"
+  },
+  "dnadigital/js/gateways/ImagenGateway.js": {
+    "mtime": 1782561727.9833624,
+    "ast_hash": "e5adf96b9570f5898e4926ae589a233c",
+    "semantic_hash": "e5adf96b9570f5898e4926ae589a233c"
+  },
+  "dnadigital/js/gateways/OpenRouterGateway.js": {
+    "mtime": 1782678661.025927,
+    "ast_hash": "c12445ba748dfe0d2380e66812252a91",
+    "semantic_hash": "c12445ba748dfe0d2380e66812252a91"
+  },
+  "dnadigital/js/repositories/BrandRepository.js": {
+    "mtime": 1782561736.9556692,
+    "ast_hash": "70f66797867f8c89fba07d2d95c2932b",
+    "semantic_hash": "70f66797867f8c89fba07d2d95c2932b"
+  },
+  "dnadigital/js/repositories/PostRepository.js": {
+    "mtime": 1782666146.0067656,
+    "ast_hash": "56be12e77fca02dd552254238c341ee4",
+    "semantic_hash": "56be12e77fca02dd552254238c341ee4"
+  },
+  "dnadigital/js/services/PromptService.js": {
+    "mtime": 1782678379.1859047,
+    "ast_hash": "2883d18034dc83227f64e7d9b1964743",
+    "semantic_hash": "2883d18034dc83227f64e7d9b1964743"
+  },
+  "dnadigital/js/services/WebScraperService.js": {
+    "mtime": 1782660831.0069659,
+    "ast_hash": "bf14105f8c48b18377ec82accc9ab47c",
+    "semantic_hash": "bf14105f8c48b18377ec82accc9ab47c"
+  },
+  "dnadigital/js/usecases/ExtractBrandDnaUseCase.js": {
+    "mtime": 1782660366.2921917,
+    "ast_hash": "be522137831dc1dd821b9c72adf4311a",
+    "semantic_hash": "be522137831dc1dd821b9c72adf4311a"
+  },
+  "dnadigital/js/usecases/GeneratePostUseCase.js": {
+    "mtime": 1782675132.498083,
+    "ast_hash": "fab2a3af62d1731a20b56ce0f338cfb2",
+    "semantic_hash": "fab2a3af62d1731a20b56ce0f338cfb2"
+  },
+  "dnadigital/js/utils/helpers.js": {
+    "mtime": 1782561651.6817434,
+    "ast_hash": "03fa7a473ab8ec6b7b0ea66afc4a7466",
+    "semantic_hash": "03fa7a473ab8ec6b7b0ea66afc4a7466"
+  },
+  "dnadigital/js/utils/validators.js": {
+    "mtime": 1782670441.3860364,
+    "ast_hash": "69ae819e5df0fb958e1a42e4858dd336",
+    "semantic_hash": "69ae819e5df0fb958e1a42e4858dd336"
+  },
+  "js/lucide.min.js": {
+    "mtime": 1782520018.9103384,
+    "ast_hash": "13d5a356bbc63a80fb53432f1b9b3c6e",
+    "semantic_hash": "13d5a356bbc63a80fb53432f1b9b3c6e"
+  },
+  "package.json": {
+    "mtime": 1782519988.2663853,
+    "ast_hash": "b23821cc58368dbc333f68b588b9ec66",
+    "semantic_hash": "b23821cc58368dbc333f68b588b9ec66"
+  },
+  "postcss.config.js": {
+    "mtime": 1782506563.3163135,
+    "ast_hash": "b3936bb785fde7bd2380b0b6b47216ea",
+    "semantic_hash": "b3936bb785fde7bd2380b0b6b47216ea"
+  },
+  "tailwind.config.js": {
+    "mtime": 1782822399.271749,
+    "ast_hash": "1d9fab188168bd6fcc21448a22a50ce6",
+    "semantic_hash": "1d9fab188168bd6fcc21448a22a50ce6"
+  },
+  ".github/workflows/deploy.yml": {
+    "mtime": 1782531222.0874276,
+    "ast_hash": "87cbb534c3284135f7f3eff1acd27c40",
+    "semantic_hash": "87cbb534c3284135f7f3eff1acd27c40"
+  },
+  "AGENTS.md": {
+    "mtime": 1783561795.1211824,
+    "ast_hash": "6a47d64fcc136324ca395065a707ef76",
+    "semantic_hash": "6a47d64fcc136324ca395065a707ef76"
+  },
+  "DESIGN_SYSTEM.md": {
+    "mtime": 1782788676.4302166,
+    "ast_hash": "f10292ac91431ea110940a47663c90f5",
+    "semantic_hash": "f10292ac91431ea110940a47663c90f5"
+  },
+  "design-system.html": {
+    "mtime": 1782788702.079425,
+    "ast_hash": "37a2e4a98c789a1f2e3b45c38ea492ca",
+    "semantic_hash": "37a2e4a98c789a1f2e3b45c38ea492ca"
+  },
+  "dnadigital/index.html": {
+    "mtime": 1782563162.3824055,
+    "ast_hash": "89e0dfe91b914a3efd32e1c91f72f70d",
+    "semantic_hash": "89e0dfe91b914a3efd32e1c91f72f70d"
+  },
+  "gemini-code-1782505586932.md": {
+    "mtime": 1782505647.1587045,
+    "ast_hash": "ecb885f4ae40de92b036a89467fdf147",
+    "semantic_hash": "ecb885f4ae40de92b036a89467fdf147"
+  },
+  "gerador-post.html": {
+    "mtime": 1782839387.237186,
+    "ast_hash": "7d8bcccdbdd30a124900d83835cf6d37",
+    "semantic_hash": "7d8bcccdbdd30a124900d83835cf6d37"
+  },
+  "index.html": {
+    "mtime": 1782531238.6094892,
+    "ast_hash": "56e0f4bee991dec4556c9917624ff5c1",
+    "semantic_hash": "56e0f4bee991dec4556c9917624ff5c1"
+  },
+  "parsed_swift.txt": {
+    "mtime": 1782789100.7817388,
+    "ast_hash": "780d72b28e0509e55a1c9b4e2489a6d4",
+    "semantic_hash": "780d72b28e0509e55a1c9b4e2489a6d4"
+  },
+  "robots.txt": {
+    "mtime": 1783393703.1504724,
+    "ast_hash": "a69f398e6a907cbab62f91df5e2ed39f",
+    "semantic_hash": "a69f398e6a907cbab62f91df5e2ed39f"
+  },
+  "swift/inscricao.html": {
+    "mtime": 1782826364.4245017,
+    "ast_hash": "89f53d991ae9f937839e19e739b93e20",
+    "semantic_hash": "89f53d991ae9f937839e19e739b93e20"
+  },
+  "swift/matriz.md": {
+    "mtime": 1782821843.449113,
+    "ast_hash": "071b84eab722f28748e1f4a555dd1341",
+    "semantic_hash": "071b84eab722f28748e1f4a555dd1341"
+  },
+  "swift/swift-getstarted.html": {
+    "mtime": 1782790195.2441063,
+    "ast_hash": "2b38862448b40188e11dd908407fcf4a",
+    "semantic_hash": "2b38862448b40188e11dd908407fcf4a"
+  },
+  "swift/swift-presentation.html": {
+    "mtime": 1782789796.4448729,
+    "ast_hash": "feced40d80e277860e3f96499a872ef8",
+    "semantic_hash": "feced40d80e277860e3f96499a872ef8"
+  },
+  "temp_swift_intro.html": {
+    "mtime": 1782789071.7570975,
+    "ast_hash": "0a483e0d6d95bdc25be47faa3906f518",
+    "semantic_hash": "0a483e0d6d95bdc25be47faa3906f518"
+  },
+  "w/index.html": {
+    "mtime": 1783396454.5295358,
+    "ast_hash": "a37533d6b09b17ba8766d9fd89c94031",
+    "semantic_hash": "a37533d6b09b17ba8766d9fd89c94031"
+  },
+  "Plano de Otimizac\u0327o\u0303es SEO \u2013 ASPEC.pdf": {
+    "mtime": 1782504745.883048,
+    "ast_hash": "7c498521d33ca81e221182dfd3cf97bd",
+    "semantic_hash": "7c498521d33ca81e221182dfd3cf97bd"
+  },
+  "SEO Quick Wins - Melhorias Imediatas para o Site da ASPEC.pdf": {
+    "mtime": 1782503674.939497,
+    "ast_hash": "399108d7d92d7eeb03059147d44ee876",
+    "semantic_hash": "399108d7d92d7eeb03059147d44ee876"
+  },
+  "clientes/appmax-cinza.png": {
+    "mtime": 1782484437.3957834,
+    "ast_hash": "5061ce14e18c74a37d2ac954a76d02f7",
+    "semantic_hash": "5061ce14e18c74a37d2ac954a76d02f7"
+  },
+  "clientes/appmax-colorido.png": {
+    "mtime": 1782484437.388314,
+    "ast_hash": "76335f3bfd385243de39daed70fc29e1",
+    "semantic_hash": "76335f3bfd385243de39daed70fc29e1"
+  },
+  "clientes/bv-cinza_.png": {
+    "mtime": 1782484437.3918996,
+    "ast_hash": "66102cc3b560507ad8ed8fb30fdc45bd",
+    "semantic_hash": "66102cc3b560507ad8ed8fb30fdc45bd"
+  },
+  "clientes/bv-colorido.png": {
+    "mtime": 1782484437.3893993,
+    "ast_hash": "55d6381a7b63667f3b9c5cf63be33022",
+    "semantic_hash": "55d6381a7b63667f3b9c5cf63be33022"
+  },
+  "clientes/easy-cinza.png": {
+    "mtime": 1782484437.3910902,
+    "ast_hash": "0cdc2bffa0a014d030957a352f903d13",
+    "semantic_hash": "0cdc2bffa0a014d030957a352f903d13"
+  },
+  "clientes/easy-colorido.png": {
+    "mtime": 1782484437.39001,
+    "ast_hash": "0600e2b50eed812bed168af5e06edbd3",
+    "semantic_hash": "0600e2b50eed812bed168af5e06edbd3"
+  },
+  "clientes/estrelabet-cinza.png": {
+    "mtime": 1782484437.394478,
+    "ast_hash": "9a8c439d35042a1fdc7c355d6f738e1a",
+    "semantic_hash": "9a8c439d35042a1fdc7c355d6f738e1a"
+  },
+  "clientes/estrelabet-colorido.png": {
+    "mtime": 1782484437.393084,
+    "ast_hash": "d93f256b1e71a52e9f98c75e2644c67a",
+    "semantic_hash": "d93f256b1e71a52e9f98c75e2644c67a"
+  },
+  "clientes/flmandic-cinza_.png": {
+    "mtime": 1782484437.3954237,
+    "ast_hash": "fee0380e2ec72428c63298331b4d294f",
+    "semantic_hash": "fee0380e2ec72428c63298331b4d294f"
+  },
+  "clientes/flmandic-colorido_.png": {
+    "mtime": 1782484437.3926172,
+    "ast_hash": "77af05ff6e4d72107a7987411a33f38b",
+    "semantic_hash": "77af05ff6e4d72107a7987411a33f38b"
+  },
+  "clientes/itau-cinza.png": {
+    "mtime": 1782484437.3940372,
+    "ast_hash": "496ef2655f410d8175a0db85de0793d2",
+    "semantic_hash": "496ef2655f410d8175a0db85de0793d2"
+  },
+  "clientes/itau-colorido.png": {
+    "mtime": 1782484437.3905036,
+    "ast_hash": "c8becf63fa9d6775f05fdb5f162fcf58",
+    "semantic_hash": "c8becf63fa9d6775f05fdb5f162fcf58"
+  },
+  "clientes/kovi-cinza.png": {
+    "mtime": 1782484437.394808,
+    "ast_hash": "6191e6fa78c83a526300ddae685984cb",
+    "semantic_hash": "6191e6fa78c83a526300ddae685984cb"
+  },
+  "clientes/kovi-colorido.png": {
+    "mtime": 1782484437.3935525,
+    "ast_hash": "3adf4c7283a9592cc532408da68987ae",
+    "semantic_hash": "3adf4c7283a9592cc532408da68987ae"
+  },
+  "logo.svg": {
+    "mtime": 1782489328.3319278,
+    "ast_hash": "2546bd436cb9915832bbbea5178ab579",
+    "semantic_hash": "2546bd436cb9915832bbbea5178ab579"
+  },
+  "portfolio/bv/bv_projeto_aspec1.webp": {
+    "mtime": 1782484437.4686306,
+    "ast_hash": "fac999e1e84fd86e426107be59aa794d",
+    "semantic_hash": "fac999e1e84fd86e426107be59aa794d"
+  },
+  "portfolio/bv/bv_projeto_aspec2.webp": {
+    "mtime": 1782484437.4672904,
+    "ast_hash": "58898c5e742f22898860edbc39e4a3ee",
+    "semantic_hash": "58898c5e742f22898860edbc39e4a3ee"
+  },
+  "portfolio/bv/bv_projeto_aspec3.webp": {
+    "mtime": 1782484437.4667566,
+    "ast_hash": "44efc7d0bfddd9c43d382b7c55aea534",
+    "semantic_hash": "44efc7d0bfddd9c43d382b7c55aea534"
+  },
+  "portfolio/bv/bv_projeto_aspec4.webp": {
+    "mtime": 1782484437.4682193,
+    "ast_hash": "29a39800be50a49619f8524d573a54c9",
+    "semantic_hash": "29a39800be50a49619f8524d573a54c9"
+  },
+  "portfolio/bv/bv_projeto_aspec5.webp": {
+    "mtime": 1782484437.4677703,
+    "ast_hash": "5c31c5ef8e24fd7eea650a674b8dcfb5",
+    "semantic_hash": "5c31c5ef8e24fd7eea650a674b8dcfb5"
+  },
+  "portfolio/itau/itau-chat.svg": {
+    "mtime": 1782484437.469201,
+    "ast_hash": "679ed5e210079557b18c563019ee07ff",
+    "semantic_hash": "679ed5e210079557b18c563019ee07ff"
+  },
+  "portfolio/moto/Adicionar dinheiroo.png": {
+    "mtime": 1782484437.7315018,
+    "ast_hash": "9ad7c8080db864e167aaa379fc85d1e6",
+    "semantic_hash": "9ad7c8080db864e167aaa379fc85d1e6"
+  },
+  "portfolio/moto/Alterar foto do perfil.png": {
+    "mtime": 1782484437.6956854,
+    "ast_hash": "c94b9e8f437f01b0c3080cf57506d6de",
+    "semantic_hash": "c94b9e8f437f01b0c3080cf57506d6de"
+  },
+  "portfolio/moto/Alterar senha.png": {
+    "mtime": 1782484437.732104,
+    "ast_hash": "1a6333e550de4928d3a0e398dc64d79a",
+    "semantic_hash": "1a6333e550de4928d3a0e398dc64d79a"
+  },
+  "portfolio/moto/BOLETO-1.png": {
+    "mtime": 1782484437.743839,
+    "ast_hash": "23eab2f52b824bfaae2c6b71c1b071eb",
+    "semantic_hash": "23eab2f52b824bfaae2c6b71c1b071eb"
+  },
+  "portfolio/moto/BOLETO-2.png": {
+    "mtime": 1782484437.739024,
+    "ast_hash": "e6a674c16ca75acb448fbb7712ef0048",
+    "semantic_hash": "e6a674c16ca75acb448fbb7712ef0048"
+  },
+  "portfolio/moto/BOLETO.png": {
+    "mtime": 1782484437.702473,
+    "ast_hash": "ceb45a97531948ced19a10c175eac0fd",
+    "semantic_hash": "ceb45a97531948ced19a10c175eac0fd"
+  },
+  "portfolio/moto/Cart\u00e3o.png": {
+    "mtime": 1782484437.7428415,
+    "ast_hash": "5ae784e365a6ab51c49be2cb3366c7ef",
+    "semantic_hash": "5ae784e365a6ab51c49be2cb3366c7ef"
+  },
+  "portfolio/moto/Central de ajuda.png": {
+    "mtime": 1782484437.7005403,
+    "ast_hash": "d0406e4e077982d4df31f0816e3e72f0",
+    "semantic_hash": "d0406e4e077982d4df31f0816e3e72f0"
+  },
+  "portfolio/moto/Cobrar - boleto.png": {
+    "mtime": 1782484437.6751382,
+    "ast_hash": "7838f48869d48f9fc09fdd8b125a2cd3",
+    "semantic_hash": "7838f48869d48f9fc09fdd8b125a2cd3"
+  },
+  "portfolio/moto/Cobrar boleto.png": {
+    "mtime": 1782484437.6784914,
+    "ast_hash": "8fd75f2b180713588332a1fec3c25be3",
+    "semantic_hash": "8fd75f2b180713588332a1fec3c25be3"
+  },
+  "portfolio/moto/Compartilhe sua conta.png": {
+    "mtime": 1782484437.7638733,
+    "ast_hash": "6a7e5069ff51c58d380229238c15488f",
+    "semantic_hash": "6a7e5069ff51c58d380229238c15488f"
+  },
+  "portfolio/moto/Comprovante Modal.png": {
+    "mtime": 1782484437.7368026,
+    "ast_hash": "a49ad438aa804be1b8d24ac0131e1746",
+    "semantic_hash": "a49ad438aa804be1b8d24ac0131e1746"
+  },
+  "portfolio/moto/Comprovante Tela inteira.png": {
+    "mtime": 1782484437.6995623,
+    "ast_hash": "aee6c1e16a77c837d05cdab8b7cbb2ce",
+    "semantic_hash": "aee6c1e16a77c837d05cdab8b7cbb2ce"
+  },
+  "portfolio/moto/Configura\u00e7\u00f5es.png": {
+    "mtime": 1782484437.7247417,
+    "ast_hash": "f9a9d84cb25b7783cb34c774c7bffe70",
+    "semantic_hash": "f9a9d84cb25b7783cb34c774c7bffe70"
+  },
+  "portfolio/moto/Confirme seu cadastro - ATIVO-1.png": {
+    "mtime": 1782484437.7381446,
+    "ast_hash": "f36a35ac2e4906ce7fcfef4ff76e49a3",
+    "semantic_hash": "f36a35ac2e4906ce7fcfef4ff76e49a3"
+  },
+  "portfolio/moto/Confirme seu cadastro - ATIVO.png": {
+    "mtime": 1782484437.7326746,
+    "ast_hash": "e59ca86564a8858053cc52ee47d092a1",
+    "semantic_hash": "e59ca86564a8858053cc52ee47d092a1"
+  },
+  "portfolio/moto/Confirme seu cadastro.png": {
+    "mtime": 1782484437.696168,
+    "ast_hash": "d501043936f86804376e1b2347705a04",
+    "semantic_hash": "d501043936f86804376e1b2347705a04"
+  },
+  "portfolio/moto/Cursos-1.png": {
+    "mtime": 1782484437.693521,
+    "ast_hash": "b7eec11bd6162f06366919821bdfff70",
+    "semantic_hash": "b7eec11bd6162f06366919821bdfff70"
+  },
+  "portfolio/moto/Cursos.png": {
+    "mtime": 1782484437.6722715,
+    "ast_hash": "1ff44e270c91ece279cf0f44432a6899",
+    "semantic_hash": "1ff44e270c91ece279cf0f44432a6899"
+  },
+  "portfolio/moto/Dados pessoais-1.png": {
+    "mtime": 1782484437.6865895,
+    "ast_hash": "257088d7363d82d22c48d6211e133572",
+    "semantic_hash": "257088d7363d82d22c48d6211e133572"
+  },
+  "portfolio/moto/Dados pessoais-2.png": {
+    "mtime": 1782484437.69413,
+    "ast_hash": "8827701b91f2173f696eba59e489a38d",
+    "semantic_hash": "8827701b91f2173f696eba59e489a38d"
+  },
+  "portfolio/moto/Dados pessoais.png": {
+    "mtime": 1782484437.7029142,
+    "ast_hash": "65424a167322ae9e29bc12ed01ca186b",
+    "semantic_hash": "65424a167322ae9e29bc12ed01ca186b"
+  },
+  "portfolio/moto/Detalhes da conta-1.png": {
+    "mtime": 1782484437.7644198,
+    "ast_hash": "9daa12c626e7826754f03d002b61c43a",
+    "semantic_hash": "9daa12c626e7826754f03d002b61c43a"
+  },
+  "portfolio/moto/Detalhes da conta.png": {
+    "mtime": 1782484437.7444415,
+    "ast_hash": "5f74933060f0f5cae14634477b787754",
+    "semantic_hash": "5f74933060f0f5cae14634477b787754"
+  },
+  "portfolio/moto/Detalhes do Curso-1.png": {
+    "mtime": 1782484437.7522736,
+    "ast_hash": "9df4f57b6b8bc1d7199e7c05969361fb",
+    "semantic_hash": "9df4f57b6b8bc1d7199e7c05969361fb"
+  },
+  "portfolio/moto/Detalhes do Curso.png": {
+    "mtime": 1782484437.7565334,
+    "ast_hash": "9df4f57b6b8bc1d7199e7c05969361fb",
+    "semantic_hash": "9df4f57b6b8bc1d7199e7c05969361fb"
+  },
+  "portfolio/moto/Em processamento-1.png": {
+    "mtime": 1782484437.6758401,
+    "ast_hash": "286b811c644c445366768209260db186",
+    "semantic_hash": "286b811c644c445366768209260db186"
+  },
+  "portfolio/moto/Em processamento-2.png": {
+    "mtime": 1782484437.6790137,
+    "ast_hash": "d0621ab9a1f7503ebecffa514ffb2e1e",
+    "semantic_hash": "d0621ab9a1f7503ebecffa514ffb2e1e"
+  },
+  "portfolio/moto/Em processamento.png": {
+    "mtime": 1782484437.7472403,
+    "ast_hash": "6eb22359f0a052b80307af76dcbcd546",
+    "semantic_hash": "6eb22359f0a052b80307af76dcbcd546"
+  },
+  "portfolio/moto/Envie-me um c\u00f3digo de uso \u00fanico para fazer login..png": {
+    "mtime": 1782484437.7231789,
+    "ast_hash": "e06414d4533d8d45768329abfeb5e19b",
+    "semantic_hash": "e06414d4533d8d45768329abfeb5e19b"
+  },
+  "portfolio/moto/Financiamento.png": {
+    "mtime": 1782484437.6824403,
+    "ast_hash": "eae80a791916bafca59324d768c88614",
+    "semantic_hash": "eae80a791916bafca59324d768c88614"
+  },
+  "portfolio/moto/Financioamento-1.png": {
+    "mtime": 1782484437.7000747,
+    "ast_hash": "73e5de0bb94888809ffbfdfd49feab85",
+    "semantic_hash": "73e5de0bb94888809ffbfdfd49feab85"
+  },
+  "portfolio/moto/Frame 63.png": {
+    "mtime": 1782484437.6989346,
+    "ast_hash": "a31a6a88c063b8b604cdbe802b30def7",
+    "semantic_hash": "a31a6a88c063b8b604cdbe802b30def7"
+  },
+  "portfolio/moto/Group 102.png": {
+    "mtime": 1782484437.7372298,
+    "ast_hash": "844f336d123da6f491c97b361309ccf9",
+    "semantic_hash": "844f336d123da6f491c97b361309ccf9"
+  },
+  "portfolio/moto/Group 43.png": {
+    "mtime": 1782484437.757446,
+    "ast_hash": "b43e7ee5d27a098c09bfd24bc229d247",
+    "semantic_hash": "b43e7ee5d27a098c09bfd24bc229d247"
+  },
+  "portfolio/moto/Home.png": {
+    "mtime": 1782484437.7254124,
+    "ast_hash": "bbf95943a32a4663b8c4de9ff206c36e",
+    "semantic_hash": "bbf95943a32a4663b8c4de9ff206c36e"
+  },
+  "portfolio/moto/Impress\u00e3o digital.png": {
+    "mtime": 1782484437.7607102,
+    "ast_hash": "288c823e811090309f2e93eae1e4e612",
+    "semantic_hash": "288c823e811090309f2e93eae1e4e612"
+  },
+  "portfolio/moto/Insira a senha.png": {
+    "mtime": 1782484437.6854086,
+    "ast_hash": "74d5eac30954f7b256f865c1bcb307ec",
+    "semantic_hash": "74d5eac30954f7b256f865c1bcb307ec"
+  },
+  "portfolio/moto/Login - ativo.png": {
+    "mtime": 1782484437.7648761,
+    "ast_hash": "925ee78f6bafd7e3369ccea06a5f0ec1",
+    "semantic_hash": "925ee78f6bafd7e3369ccea06a5f0ec1"
+  },
+  "portfolio/moto/Login-1.png": {
+    "mtime": 1782484437.7330863,
+    "ast_hash": "b0bf8c6ca02afddd0dd9d89d3ed76113",
+    "semantic_hash": "b0bf8c6ca02afddd0dd9d89d3ed76113"
+  },
+  "portfolio/moto/Login-2.png": {
+    "mtime": 1782484437.7376478,
+    "ast_hash": "9209efd9adcad0b7f11a2a5da373e343",
+    "semantic_hash": "9209efd9adcad0b7f11a2a5da373e343"
+  },
+  "portfolio/moto/Login-3.png": {
+    "mtime": 1782484437.7362032,
+    "ast_hash": "bebeee2167d95f2f6e4d769570d715ee",
+    "semantic_hash": "bebeee2167d95f2f6e4d769570d715ee"
+  },
+  "portfolio/moto/Login-5.png": {
+    "mtime": 1782484437.7433138,
+    "ast_hash": "2f3138d29f2883f625d4d5baa53baa03",
+    "semantic_hash": "2f3138d29f2883f625d4d5baa53baa03"
+  },
+  "portfolio/moto/Login.png": {
+    "mtime": 1782484437.6849146,
+    "ast_hash": "973647207f66f0b9e8db782922d1e2ca",
+    "semantic_hash": "973647207f66f0b9e8db782922d1e2ca"
+  },
+  "portfolio/moto/Manutenc\u00e3o.png": {
+    "mtime": 1782484437.7286232,
+    "ast_hash": "4fe9bff1571af85be20cd963c13cb9ab",
+    "semantic_hash": "4fe9bff1571af85be20cd963c13cb9ab"
+  },
+  "portfolio/moto/Minha conta.png": {
+    "mtime": 1782484437.7219348,
+    "ast_hash": "2edea5f8ebe2039707f3e72ad318f8cf",
+    "semantic_hash": "2edea5f8ebe2039707f3e72ad318f8cf"
+  },
+  "portfolio/moto/Moto.png": {
+    "mtime": 1782484437.71932,
+    "ast_hash": "e8b57469650bbf63bb9ee8cc9db20d28",
+    "semantic_hash": "e8b57469650bbf63bb9ee8cc9db20d28"
+  },
+  "portfolio/moto/Notifica\u00e7\u00f5es.png": {
+    "mtime": 1782484437.6763036,
+    "ast_hash": "9cd486909c51ecfc4c2d341c32024030",
+    "semantic_hash": "9cd486909c51ecfc4c2d341c32024030"
+  },
+  "portfolio/moto/PIX - envio.png": {
+    "mtime": 1782484437.686028,
+    "ast_hash": "b62c1c02ba627371f17cff3a87216e53",
+    "semantic_hash": "b62c1c02ba627371f17cff3a87216e53"
+  },
+  "portfolio/moto/PIX envio.png": {
+    "mtime": 1782484437.7394965,
+    "ast_hash": "4a4520398a8a102b6c43d40e579de597",
+    "semantic_hash": "4a4520398a8a102b6c43d40e579de597"
+  },
+  "portfolio/moto/PIX-1.png": {
+    "mtime": 1782484437.7616985,
+    "ast_hash": "efb938dd94c6fec09238681be8215a7a",
+    "semantic_hash": "efb938dd94c6fec09238681be8215a7a"
+  },
+  "portfolio/moto/Pix - Bancos.png": {
+    "mtime": 1782484437.7683,
+    "ast_hash": "a1c10f73b6e8137e0a82630c6c60d385",
+    "semantic_hash": "a1c10f73b6e8137e0a82630c6c60d385"
+  },
+  "portfolio/moto/Receber-1.png": {
+    "mtime": 1782484437.684451,
+    "ast_hash": "a2045a55d36bab0fa423eef78fde2767",
+    "semantic_hash": "a2045a55d36bab0fa423eef78fde2767"
+  },
+  "portfolio/moto/Receber-2.png": {
+    "mtime": 1782484437.6769643,
+    "ast_hash": "d0aadab2e454ad87cc26818e9a506212",
+    "semantic_hash": "d0aadab2e454ad87cc26818e9a506212"
+  },
+  "portfolio/moto/Receber-3.png": {
+    "mtime": 1782484437.668281,
+    "ast_hash": "72bfd99ed286ae222462576b542e77c0",
+    "semantic_hash": "72bfd99ed286ae222462576b542e77c0"
+  },
+  "portfolio/moto/Receber.png": {
+    "mtime": 1782484437.757032,
+    "ast_hash": "464ff5df5fa417cfe69d3b04fb6c20ff",
+    "semantic_hash": "464ff5df5fa417cfe69d3b04fb6c20ff"
+  },
+  "portfolio/moto/Senha eletr\u00f4nica-1.png": {
+    "mtime": 1782484437.6838667,
+    "ast_hash": "9a3ecb84e0b3531a5cbcddb2aba4b63b",
+    "semantic_hash": "9a3ecb84e0b3531a5cbcddb2aba4b63b"
+  },
+  "portfolio/moto/Senha eletr\u00f4nica.png": {
+    "mtime": 1782484437.700962,
+    "ast_hash": "6611266f9aea0a1c05892977ce061fa7",
+    "semantic_hash": "6611266f9aea0a1c05892977ce061fa7"
+  },
+  "portfolio/moto/Splash .png": {
+    "mtime": 1782484437.7421937,
+    "ast_hash": "4d6e3bc6adf6c8743ad92e5f5b91590a",
+    "semantic_hash": "4d6e3bc6adf6c8743ad92e5f5b91590a"
+  },
+  "portfolio/moto/Suas atividades.png": {
+    "mtime": 1782484437.733512,
+    "ast_hash": "0de859adcccf81f8edda1edf04064689",
+    "semantic_hash": "0de859adcccf81f8edda1edf04064689"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es-1.png": {
+    "mtime": 1782484437.7579372,
+    "ast_hash": "78bc297842d0bbacfd9ab93750f8939e",
+    "semantic_hash": "78bc297842d0bbacfd9ab93750f8939e"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es-2.png": {
+    "mtime": 1782484437.7486486,
+    "ast_hash": "5c92b37db3db86a5592abb769547f1fe",
+    "semantic_hash": "5c92b37db3db86a5592abb769547f1fe"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es-3.png": {
+    "mtime": 1782484437.7481098,
+    "ast_hash": "3206e691807c3e951afa3b1e338864cd",
+    "semantic_hash": "3206e691807c3e951afa3b1e338864cd"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es-4.png": {
+    "mtime": 1782484437.765475,
+    "ast_hash": "5dae65422d56038c91eb1e458c3d2782",
+    "semantic_hash": "5dae65422d56038c91eb1e458c3d2782"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es-5.png": {
+    "mtime": 1782484437.7621346,
+    "ast_hash": "3d6e6d1592a87c1d98f08a85fd5ff424",
+    "semantic_hash": "3d6e6d1592a87c1d98f08a85fd5ff424"
+  },
+  "portfolio/moto/Validando informa\u00e7\u00f5es.png": {
+    "mtime": 1782484437.7612128,
+    "ast_hash": "377ae2320e8d6d46a8dff24970975783",
+    "semantic_hash": "377ae2320e8d6d46a8dff24970975783"
+  },
+  "portfolio/moto/pix.png": {
+    "mtime": 1782484437.6870503,
+    "ast_hash": "b6a787b254a515a8338334e080c1b891",
+    "semantic_hash": "b6a787b254a515a8338334e080c1b891"
+  },
+  "portfolio/slmandic/unnamed (1).webp": {
+    "mtime": 1782484437.815826,
+    "ast_hash": "810605c0bc481bf10e4dbea8a922d925",
+    "semantic_hash": "810605c0bc481bf10e4dbea8a922d925"
+  },
+  "portfolio/slmandic/unnamed (2).webp": {
+    "mtime": 1782484437.8103683,
+    "ast_hash": "fe4a398e2f4e92569147bc338247aed3",
+    "semantic_hash": "fe4a398e2f4e92569147bc338247aed3"
+  },
+  "portfolio/slmandic/unnamed (3).webp": {
+    "mtime": 1782484437.8129432,
+    "ast_hash": "a0d692e3c91ae4f6456cdf92366fbf63",
+    "semantic_hash": "a0d692e3c91ae4f6456cdf92366fbf63"
+  },
+  "portfolio/slmandic/unnamed.webp": {
+    "mtime": 1782484437.8184729,
+    "ast_hash": "05ad98f203265bba62df02970a717e6b",
+    "semantic_hash": "05ad98f203265bba62df02970a717e6b"
+  },
+  "portfolio/team/gabriel.jpeg": {
+    "mtime": 1782484437.819019,
+    "ast_hash": "09117ef33156db3394482ff8e47b9d2b",
+    "semantic_hash": "09117ef33156db3394482ff8e47b9d2b"
+  },
+  "portfolio/team/gabriel.jpg": {
+    "mtime": 1782484437.8231633,
+    "ast_hash": "a98f6674dc572ad1e3b6bde541106945",
+    "semantic_hash": "a98f6674dc572ad1e3b6bde541106945"
+  },
+  "portfolio/team/leonardo.jpeg": {
+    "mtime": 1782484437.8240695,
+    "ast_hash": "1715d2764c15e2a4043671535f1de37c",
+    "semantic_hash": "1715d2764c15e2a4043671535f1de37c"
+  },
+  "portfolio/team/leonardo.jpg": {
+    "mtime": 1782484437.8236265,
+    "ast_hash": "9bf863d812a9a52419529683b60e664a",
+    "semantic_hash": "9bf863d812a9a52419529683b60e664a"
+  },
+  "portfolio/team/weliton.jpeg": {
+    "mtime": 1782484437.8210287,
+    "ast_hash": "0be91bd31d42ea5e7a871758c6f94046",
+    "semantic_hash": "0be91bd31d42ea5e7a871758c6f94046"
+  },
+  "portfolio/team/weliton.jpg": {
+    "mtime": 1782484437.8225436,
+    "ast_hash": "eabbee98f1d3f1310ee344bb06330b44",
+    "semantic_hash": "eabbee98f1d3f1310ee344bb06330b44"
+  },
+  "profile.png": {
+    "mtime": 1783394304.9196837,
+    "ast_hash": "ba1d54f17ea7b4fd6d553a474d2c6caf",
+    "semantic_hash": "ba1d54f17ea7b4fd6d553a474d2c6caf"
+  },
+  "referencia.jpeg": {
+    "mtime": 1782665042.6776786,
+    "ast_hash": "b64900584a084649304f6390d4fd9ce6",
+    "semantic_hash": "b64900584a084649304f6390d4fd9ce6"
+  },
+  "swift/preview.jpeg": {
+    "mtime": 1782826279.2531073,
+    "ast_hash": "b9f75f778fe1edf449632fa778bb233b",
+    "semantic_hash": "b9f75f778fe1edf449632fa778bb233b"
+  }
+}

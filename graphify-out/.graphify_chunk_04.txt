@@ -1,0 +1,22 @@
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Adicionar dinheiroo.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Alterar foto do perfil.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Alterar senha.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/BOLETO-1.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/BOLETO-2.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/BOLETO.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Cartão.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Central de ajuda.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Cobrar - boleto.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Cobrar boleto.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Compartilhe sua conta.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Comprovante Modal.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Comprovante Tela inteira.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Configurações.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Confirme seu cadastro - ATIVO-1.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Confirme seu cadastro - ATIVO.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Confirme seu cadastro.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Cursos-1.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Cursos.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Dados pessoais-1.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Dados pessoais-2.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/moto/Dados pessoais.png

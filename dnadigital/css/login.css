@@ -1,0 +1,283 @@
+/* ============================================================
+   ASPEC IA — Login & Cadastro Styles
+   Light mode — Matching aspec.ia.br design system
+   ============================================================ */
+
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Left Panel — Visual Art ── */
+.auth-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-8);
+  border-right: 1px solid var(--color-border);
+}
+
+/* Subtle grid pattern like the hero section of the main site */
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 400px;
+}
+
+.auth-visual-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-8);
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--font-2xl);
+  font-weight: var(--font-extrabold);
+  color: white;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.auth-visual h2 {
+  font-size: var(--font-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.auth-visual p {
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.auth-visual-features {
+  margin-top: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.auth-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary-light);
+  border: 1px solid rgba(255, 107, 44, 0.15);
+  transition: all var(--transition-normal);
+}
+
+.auth-feature:hover {
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.auth-feature-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--color-primary-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.auth-feature-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.auth-feature-text strong {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+  font-weight: var(--font-bold);
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: 2px;
+}
+
+/* ── Right Panel — Form ── */
+.auth-form-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  position: relative;
+  max-width: 560px;
+  background: var(--color-bg);
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 400px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.auth-mobile-logo {
+  display: none;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-6);
+  background: var(--color-primary);
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--font-xl);
+  font-weight: var(--font-extrabold);
+  color: white;
+}
+
+.auth-header {
+  margin-bottom: var(--space-8);
+}
+
+.auth-header h1 {
+  font-size: var(--font-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.auth-header p {
+  font-size: var(--font-sm);
+}
+
+/* ── Auth Form ── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.auth-form .form-input {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.auth-form .form-input:focus {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input-with-icon .form-input {
+  padding-left: calc(var(--space-4) + 26px);
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+.password-toggle:hover {
+  color: var(--color-text);
+}
+
+.auth-form .btn-primary {
+  padding: var(--space-4);
+  font-size: var(--font-sm);
+  margin-top: var(--space-2);
+}
+
+.auth-forgot {
+  text-align: right;
+  margin-top: calc(-1 * var(--space-3));
+}
+
+.auth-forgot a {
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+.auth-forgot a:hover {
+  color: var(--color-primary);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: var(--space-8);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.auth-switch a {
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+}
+.auth-switch a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form-panel {
+    max-width: unset;
+  }
+
+  .auth-mobile-logo {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-panel {
+    padding: var(--space-6) var(--space-4);
+  }
+}

@@ -1,0 +1,34 @@
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/logo.svg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/profile.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/referencia.jpeg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/swift/preview.jpeg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/appmax-cinza.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/appmax-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/bv-cinza_.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/bv-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/easy-cinza.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/easy-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/estrelabet-cinza.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/estrelabet-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/flmandic-cinza_.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/flmandic-colorido_.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/itau-cinza.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/itau-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/kovi-cinza.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/clientes/kovi-colorido.png
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/bv/bv_projeto_aspec1.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/bv/bv_projeto_aspec2.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/bv/bv_projeto_aspec3.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/bv/bv_projeto_aspec4.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/bv/bv_projeto_aspec5.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/itau/itau-chat.svg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/slmandic/unnamed (1).webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/slmandic/unnamed (2).webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/slmandic/unnamed (3).webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/slmandic/unnamed.webp
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/gabriel.jpeg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/gabriel.jpg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/leonardo.jpeg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/leonardo.jpg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/weliton.jpeg
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/portfolio/team/weliton.jpg

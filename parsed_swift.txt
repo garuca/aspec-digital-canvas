@@ -1,0 +1,376 @@
+
+--- START MAIN CONTENT ---
+
+
+### [H1] Swift Introduction
+
+
+### [H2] Swift Introduction
+
+ Swift is a modern, fast, and safe language for building apps across Apple platforms and beyond.
+
+### [H2] What is Swift?
+
+ Swift is a modern, fast, and safe programming language created by Apple.
+ Use it to build apps for iPhone, iPad, Mac, Apple Watch, and Apple TV.
+ You can also run Swift on servers (Linux, Windows, macOS).
+ Swift helps you write correct and efficient code with type inference, optionals, value types, and protocol-oriented programming.
+
+### [H3] Example
+
+```swift
+
+```swift
+print("Hello, Swift!")
+```
+
+```
+
+ Try it Yourself »
+
+### [H2] Why Use Swift?
+
+ Swift focuses on safety and speed.
+ Features like optionals, value types, and generics help you avoid bugs and keep code clear.
+*  Great for iPhone/iPad, Mac, Apple Watch, and Apple TV development
+*  Open source and available on multiple platforms
+*  Expressive syntax, optionals to model absence, and value types for predictable behavior
+*  Vibrant ecosystem and first-class tooling in Xcode
+
+### [H2] Swift History
+
+ A brief timeline of important Swift releases and milestones.
+*  2014: Swift 1.0 announced at WWDC as a modern successor to Objective-C
+*  2015: Swift became open source at
+```swift
+swift.org
+```
+ , with Linux support
+*  2019: Swift 5 introduced ABI stability on Apple platforms
+*  2021: Swift 5.5 added structured concurrency (
+```swift
+async/await
+```
+ ,
+```swift
+Task
+```
+ ,
+```swift
+actor
+```
+ )
+*  Today: Used across iOS, macOS, and server-side Swift
+
+### [H2] Mac and Xcode for iOS Development
+
+ If your goal is to build and run iOS apps, you should use a Mac with Xcode.
+*  Xcode includes iOS SDKs, simulators, Interface Builder, and signing tools.
+*  You can learn Swift on Windows or Linux and in the browser, but building and running iOS apps requires a Mac.
+*  To ship to TestFlight or the App Store, you need an Apple Developer account.
+ Tip: Experiment with Swift in this tutorial's "Try it Yourself" editor.
+ When you're ready to build iOS apps, install Xcode from the Mac App Store.
+
+### [H2] Get Started
+
+ When you are finished with this tutorial, you will be able to write basic Swift programs and understand core language features used in real apps.
+ No prior programming experience is required. ★ +1 Sign in to track progress .w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+} .ribbon-vid {
+  font-size:12px;
+  font-weight:bold;
+  padding: 6px 20px;
+  left:-20px;
+  top:-10px;
+  text-align: center;
+  color:black;
+  border-radius:25px;
+}
+ REMOVE ADS #wrappercontainer {
+  width:100%;
+  height:100px;
+  background-color:red;
+  position:relative;
+  z-index:2;
+}
+#footerwrapper {
+  background-color: #282A35;
+/*  background-image:url('/images/background_in_space.webp');
+  background-repeat: repeat;
+  background-position: right bottom;*/
+}
+#spacemyfooter {
+  padding:40px 80px 20px 80px;
+  max-width:1500px;
+  margin:auto;
+}
+.footerlinks_1 {
+  width:auto;
+  float:left;
+  padding:40px 60px;
+  color:#FFF4A3;
+  font-family: Source Sans Pro, sans-serif;
+  font-size:15px;
+}
+.footerlinks_1 .fa-logo {
+  font-size:46px!important;
+  color:#ddd;
+}
+.footerlinks_1:nth-child(1) {
+  padding:30px 10px 30px 40px;
+}
+.footerlinks_1 a{
+  text-decoration:none;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3!;
+}
+.footerlinks_1 a:hover i{
+  color:#FFF4A3!important;
+}
+.footerlinks_2 {
+  width:auto;
+  float:left;
+  padding-left:90px;
+  padding-right:135px;
+  color:#ddd;
+  font-family: Source Sans Pro, sans-serif;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footerlinks_2:nth-child(4) {
+  padding-right:0;
+}
+.footerlinks_2 h5 {
+  margin-bottom:20px;
+}
+.footerlinks_2 a:visited,.footerlinks_2 a:link{
+  text-decoration:none;
+}
+.footerlinks_2 a:hover,.footerlinks_2 a:active{
+  color:#FFF4A3;
+}
+.footersome {
+  padding:60px 40px 10px 40px;
+  color:#ddd;
+  font-size:20px;
+  text-align:center;
+}
+.footersome a {
+  margin-right:10px;
+}
+.footersome a:hover,.footersome a:active{
+  color:#FFF4A3;
+}
+.footersome .textlink {
+  font-size:15px;
+  text-decoration:none;
+}
+.footersome .textlink:active,.footersome .textlink:hover {
+  text-decoration:underline;
+}
+.footertext {
+  color:#ddd;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footertext a:hover,.footertext a:active{
+  color:#FFF4A3;
+}
+@media screen and (max-width: 992px) {
+  #wrappercontainer {
+    z-index:0;
+  }
+  .footerlinks_1 {
+    width:100%;
+    margin:auto;
+    float:none;
+    text-align:center;
+    padding:10px 20px!important;
+    font-size:20px;
+  }
+  .footerlinks_1:nth-child(1) {
+    padding:40px 20px;
+  }
+  .footerlinks_2 {
+    width:100%;
+    float:none;
+    margin:auto;
+    font-size:16px;
+    line-height:20px;
+    padding:0;
+  }
+  .footerlinks_2 h5 {
+    font-size:26px;
+    margin-top:40px;
+  }
+  .footertext {
+    padding:0;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+/*
+@media screen and (max-width: 992px) {
+  #footerwrapper {
+    background-image:url('/images/background_in_space.webp');
+    background-color: #282A35;
+    background-repeat: repeat;
+    background-position: left top;
+  }
+}*/ @media screen and (max-width: 1450px) {
+  #spacemyfooter {
+    max-width:1100px;
+  }
+  .footerlinks_1 {
+    padding-left:30px;
+    padding-right:30px;
+  }
+  .footerlinks_2 {
+    padding-right:30px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:50px;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #spacemyfooter {
+    max-width:1000px;
+  }
+  .footerlinks_1 {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .footerlinks_2 {
+    padding-right:20px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:20px;
+  }
+} PLUS SPACES GET CERTIFIED FOR TEACHERS BOOTCAMPS CONTACT US /*Remove this style after 20. April 2024*/
+#err_message {
+  padding:8px 16px 16px 40px;
+  border-radius:5px;
+  display:none;
+  position:relative;
+  background-color:#2D3748;
+  color:#FFF4A3;
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message h2 {
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message p {
+  color:#f1f1f1;
+}
+#err_message #close_err_message {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:20px;
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  text-align:center;
+}
+#err_message #close_err_message:hover {
+  background-color:#FFF4A3;
+  color:#2D3748;
+  border-radius:50%
+} ×
+
+### [H2] Contact Sales
+
+ If you want to use W3Schools services as an educational institution, team or enterprise, send us an e-mail:
+ sales@w3schools.com
+
+### [H2] Report Error
+
+ If you want to report an error, or if you want to make a suggestion, send us an e-mail:
+ help@w3schools.com Top Tutorials HTML Tutorial
+ CSS Tutorial
+ JavaScript Tutorial
+ How To Tutorial
+ SQL Tutorial
+ Python Tutorial
+ W3.CSS Tutorial
+ Bootstrap Tutorial
+ PHP Tutorial
+ Java Tutorial
+ C++ Tutorial
+ jQuery Tutorial
+ Top References HTML Reference
+ CSS Reference
+ JavaScript Reference
+ SQL Reference
+ Python Reference
+ W3.CSS Reference
+ Bootstrap Reference
+ PHP Reference
+ HTML Colors
+ Java Reference
+ AngularJS Reference
+ jQuery Reference
+ Top Examples HTML Examples
+ CSS Examples
+ JavaScript Examples
+ How To Examples
+ SQL Examples
+ Python Examples
+ W3.CSS Examples
+ Bootstrap Examples
+ PHP Examples
+ Java Examples
+ XML Examples
+ jQuery Examples
+ Get Certified HTML Certificate
+ CSS Certificate
+ JavaScript Certificate
+ Front End Certificate
+ SQL Certificate
+ Python Certificate
+ PHP Certificate
+ jQuery Certificate
+ Java Certificate
+ C++ Certificate
+ C# Certificate
+ XML Certificate
+     FORUM ABOUT ACADEMY W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning.
+ Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness
+ of all content. While using W3Schools, you agree to have read and accepted our terms of use , cookies and privacy policy .
+
+ Copyright 1999-2026 by Refsnes Data. All Rights Reserved. W3Schools is Powered by W3.CSS .
+
+ -->

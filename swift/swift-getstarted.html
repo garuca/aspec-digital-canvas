@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swift Get Started – Apresentação Interativa ASPEC</title>
+  
+  <!-- CSS Output (Tailwind compiled stylesheet) -->
+  <link rel="stylesheet" href="../css/output.css">
+  
+  <!-- Google Fonts: Inter (sans-serif) and Space Mono (monospace) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;750&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons (local bundle) -->
+  <script src="../js/lucide.min.js" defer></script>
+  
+  <style>
+    /* Ensure Brutalist visual identity rules are strictly enforced */
+    * {
+      border-radius: 0 !important;
+    }
+    :focus-visible {
+      outline: 2px solid #FF6B2C;
+      outline-offset: 2px;
+    }
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    /* Snappy brutalist transition */
+    .slide-content {
+      transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+    }
+    .slide-content.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-content.inactive {
+      opacity: 0;
+      transform: translateY(10px);
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-slate-900 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header Section -->
+  <header class="bg-white border-b-2 border-slate-950 sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="../logo.svg" alt="ASPEC Logo" class="h-10 w-auto" />
+        <div class="h-6 w-px bg-slate-350"></div>
+        <span class="font-mono text-xs font-bold tracking-widest text-slate-500 uppercase">SWIFT GET STARTED</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="inline-flex items-center text-xs font-mono font-bold tracking-wider text-slate-600 hover:text-primary transition-colors gap-1.5 uppercase border border-border px-3 py-1.5 hover:border-slate-950 bg-slate-50 hover:bg-white">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao Site
+        </a>
+      </div>
+    </div>
+    
+    <!-- Top Progress Bar (Visual indicator of presentation progress) -->
+    <div class="w-full h-1.5 bg-slate-200 relative overflow-hidden">
+      <div id="progress-bar" class="h-full bg-primary transition-all duration-300 ease-out" style="width: 12.5%;"></div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="container mx-auto px-6 py-8 flex-grow flex flex-col lg:flex-row gap-8">
+    
+    <!-- Sidebar Navigation (Desktop) / Dropdown (Mobile) -->
+    <aside class="w-full lg:w-72 flex-shrink-0">
+      <div class="bg-white border-2 border-slate-950 p-6 shadow-[4px_4px_0px_0px_#020617] space-y-6">
+        
+        <!-- Mobile Dropdown Selector -->
+        <div class="block lg:hidden">
+          <label for="mobile-slide-selector" class="block font-mono text-xs font-bold text-slate-700 uppercase mb-2">
+            Selecionar Slide
+          </label>
+          <div class="relative">
+            <select id="mobile-slide-selector" onchange="goToSlide(parseInt(this.value))" class="w-full px-4 py-3 border-2 border-slate-950 bg-slate-50 text-sm font-mono font-bold uppercase focus:outline-none focus:border-primary appearance-none">
+              <option value="0">01. Capa</option>
+              <option value="1">02. Instalação</option>
+              <option value="2">03. Verificação</option>
+              <option value="3">04. Hello, Swift!</option>
+              <option value="4">05. Linha de Comando</option>
+              <option value="5">06. Entendendo o Código</option>
+              <option value="6">07. Swift no Xcode</option>
+              <option value="7">08. Resumo</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-700">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:block">
+          <h3 class="font-mono text-[10px] font-bold text-primary tracking-widest uppercase mb-4">SUMÁRIO DA APRESENTAÇÃO</h3>
+          <nav class="flex flex-col space-y-2" id="desktop-nav">
+            <button onclick="goToSlide(0)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">01.</span> Capa
+            </button>
+            <button onclick="goToSlide(1)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">02.</span> Instalação
+            </button>
+            <button onclick="goToSlide(2)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">03.</span> Verificação
+            </button>
+            <button onclick="goToSlide(3)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">04.</span> Hello, Swift!
+            </button>
+            <button onclick="goToSlide(4)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">05.</span> Linha de Comando
+            </button>
+            <button onclick="goToSlide(5)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">06.</span> Entendendo o Código
+            </button>
+            <button onclick="goToSlide(6)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">07.</span> Swift no Xcode
+            </button>
+            <button onclick="goToSlide(7)" class="nav-btn w-full text-left font-mono text-xs font-bold text-slate-600 hover:text-primary hover:bg-primary-light transition-all p-3 border border-transparent hover:border-primary/20 flex items-center gap-2 uppercase">
+              <span class="text-slate-400">08.</span> Resumo
+            </button>
+          </nav>
+        </div>
+
+        <div class="h-px bg-slate-200"></div>
+
+        <!-- Technical Stats Metadata Box -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-[10px] font-mono font-bold text-slate-455 uppercase">
+            <span>SISTEMA:</span>
+            <span class="text-slate-900 font-bold">SLIDESHOW PT-BR</span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] font-mono font-bold text-slate-455 uppercase">
+            <span>STATUS:</span>
+            <span class="text-[#25D366] flex items-center gap-1.5 font-bold">
+              <span class="w-1.5 h-1.5 bg-[#25D366] animate-pulse inline-block"></span> ATIVO
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] font-mono font-bold text-slate-455 uppercase">
+            <span>ATALHO:</span>
+            <span class="text-slate-600">SETAS DO TECLADO</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Slide Content Deck Area -->
+    <section class="flex-grow flex flex-col justify-between">
+      
+      <!-- Current Slide Box -->
+      <div id="slide-deck-container" class="bg-white border-2 border-slate-950 p-6 md:p-10 shadow-[6px_6px_0px_0px_#020617] flex-grow flex flex-col justify-between min-h-[450px]">
+        
+        <!-- Slide contents (Toggled dynamically by JS) -->
+        <div class="space-y-6">
+
+          <!-- SLIDE 1: Capa (Tela Inicial) -->
+          <div id="slide-0" class="slide-content active space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> PRIMEIROS PASSOS
+            </div>
+            <h1 class="font-mono text-3xl md:text-5xl font-bold uppercase tracking-tight text-slate-900 mb-6 leading-none">
+              SWIFT: <span class="text-primary">COMO COMEÇAR</span>
+            </h1>
+            <p class="text-slate-650 text-base md:text-lg leading-relaxed max-w-3xl font-sans">
+              Instale a toolchain oficial do Swift, configure o seu ambiente de desenvolvimento e execute seu primeiro programa "Hello, Swift!" no terminal ou utilizando o Xcode no macOS.
+            </p>
+            <div class="pt-8">
+              <button onclick="goToSlide(1)" class="bg-primary hover:bg-primary-hover text-white font-mono text-sm font-bold tracking-wider px-6 py-3 border-2 border-slate-950 shadow-[4px_4px_0px_0px_#020617] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#020617] uppercase inline-flex items-center gap-2">
+                Iniciar Apresentação <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: Instalação -->
+          <div id="slide-1" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="settings" class="w-3.5 h-3.5"></i> INSTALAÇÃO
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              COMO INSTALAR O SWIFT
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-4 font-sans">
+                <p class="text-slate-900 text-sm md:text-base leading-relaxed">
+                  O Swift pode ser instalado em múltiplos sistemas operacionais (macOS, Windows e Linux).
+                </p>
+                <div class="space-y-3">
+                  <div class="flex gap-2">
+                    <span class="text-primary font-bold font-mono">▪</span>
+                    <div>
+                      <strong class="text-slate-900 block">macOS (Xcode)</strong>
+                      <span class="text-slate-650 text-xs md:text-sm">Instale o Xcode diretamente da App Store. Ele inclui automaticamente o compilador Swift, simuladores iOS e todas as ferramentas oficiais.</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="text-primary font-bold font-mono">▪</span>
+                    <div>
+                      <strong class="text-slate-900 block">macOS (Linha de Comando)</strong>
+                      <span class="text-slate-650 text-xs md:text-sm">Se preferir não baixar a IDE completa, você pode instalar apenas a toolchain da linha de comando oficial no site oficial.</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="text-primary font-bold font-mono">▪</span>
+                    <div>
+                      <strong class="text-slate-900 block">Windows e Linux</strong>
+                      <span class="text-slate-650 text-xs md:text-sm">Baixe a plataforma toolchain oficial diretamente de <a href="https://www.swift.org/install/" target="_blank" class="text-primary underline font-mono font-bold">swift.org/install</a> e certifique-se de configurar o executável no seu PATH global.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-5 bg-primary-light border-l-4 border-primary space-y-3">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">Guia Rápido</h4>
+                <ul class="text-xs text-slate-800 space-y-2 font-mono">
+                  <li>⚡ macOS: Xcode na App Store</li>
+                  <li>⚡ Win/Linux: swift.org/install</li>
+                  <li>⚡ Multiplataforma</li>
+                  <li>⚡ Gratuito e Código Aberto</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3: Verificação -->
+          <div id="slide-2" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="terminal" class="w-3.5 h-3.5"></i> VERIFICAÇÃO
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              VERIFICANDO A INSTALAÇÃO
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-4 font-sans">
+                <p class="text-slate-900 text-sm md:text-base leading-relaxed">
+                  Para garantir que o Swift foi instalado com sucesso e está devidamente configurado nas suas variáveis de ambiente, você pode consultar o compilador diretamente pelo terminal.
+                </p>
+                <p class="text-slate-650 text-sm md:text-base leading-relaxed">
+                  Abra o seu terminal (macOS/Linux) ou Prompt de Comando (Windows) e execute o comando abaixo. Ele deve imprimir a versão ativa do Swift e o target do sistema operacional.
+                </p>
+                
+                <div class="border-2 border-slate-950 shadow-[4px_4px_0px_0px_#020617] overflow-hidden mt-2">
+                  <div class="bg-slate-900 px-4 py-2 border-b border-slate-950 flex items-center justify-between">
+                    <span class="font-mono text-[10px] text-slate-400 font-bold uppercase">Terminal</span>
+                  </div>
+                  <pre class="bg-slate-950 p-4 overflow-x-auto text-xs font-mono leading-relaxed"><code class="text-white"><span class="text-slate-500">$</span> swift --version
+swift-driver version: 1.90.11.1 Apple Swift version 5.10
+Target: arm64-apple-darwin23.4.0</code></pre>
+                </div>
+              </div>
+              <div class="p-5 bg-primary-light border-l-4 border-primary space-y-3">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">Dicas</h4>
+                <ul class="text-xs text-slate-800 space-y-2 font-mono">
+                  <li>⚡ Digite `swift --version`</li>
+                  <li>⚡ Verifica se está no PATH</li>
+                  <li>⚡ Mostra versão ativa</li>
+                  <li>⚡ Exibe arquitetura do target</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4: Hello, Swift! -->
+          <div id="slide-3" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="code-2" class="w-3.5 h-3.5"></i> CÓDIGO
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              PRIMEIRO PROGRAMA: HELLO WORLD
+            </h2>
+            <div class="space-y-4 pt-2">
+              <p class="text-slate-650 text-sm md:text-base leading-relaxed font-sans">
+                Em Swift, o clássico "Hello World" é incrivelmente direto. Você não precisa importar bibliotecas complexas para entrada/saída ou encapsular o ponto de entrada em uma classe ou função.
+              </p>
+              
+              <div class="border-2 border-slate-950 shadow-[4px_4px_0px_0px_#020617] overflow-hidden">
+                <div class="bg-slate-900 px-4 py-2 border-b border-slate-950 flex items-center justify-between">
+                  <span class="font-mono text-[10px] text-slate-400 font-bold uppercase">main.swift</span>
+                  <div class="flex gap-1.5">
+                    <span class="w-2.5 h-2.5 bg-red-500 rounded-none"></span>
+                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-none"></span>
+                    <span class="w-2.5 h-2.5 bg-green-500 rounded-none"></span>
+                  </div>
+                </div>
+                <pre class="bg-slate-950 p-6 overflow-x-auto text-sm font-mono leading-relaxed"><code class="text-white"><span class="text-primary font-bold">print</span>(<span class="text-[#25D366]">"Hello, Swift!"</span>)</code></pre>
+              </div>
+              
+              <div class="p-4 bg-slate-50 border border-slate-200 mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <p class="text-xs text-slate-650 font-mono">
+                  Dica: Experimente testar e rodar o Swift online sem instalar nada em seu computador local.
+                </p>
+                <a href="https://www.w3schools.com/swift/tryswift.asp?filename=demo_helloworld" target="_blank" class="bg-slate-900 hover:bg-primary text-white font-mono text-xs font-bold tracking-wider px-4 py-2.5 border border-slate-900 hover:border-slate-950 transition-colors uppercase inline-flex items-center gap-1.5 whitespace-nowrap self-start sm:self-auto shadow-[2px_2px_0px_0px_#020617] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+                  Testar no Navegador » <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 5: Linha de Comando -->
+          <div id="slide-4" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="terminal" class="w-3.5 h-3.5"></i> EXECUÇÃO
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              EXECUTANDO NO TERMINAL
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-4 font-sans">
+                <p class="text-slate-900 text-sm md:text-base leading-relaxed">
+                  Para criar e rodar o seu script Swift passo a passo utilizando comandos do terminal:
+                </p>
+                <ol class="list-decimal pl-5 text-slate-650 text-xs md:text-sm space-y-1">
+                  <li>Crie um diretório de testes: <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">mkdir hello-swift</code></li>
+                  <li>Entre no diretório: <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">cd hello-swift</code></li>
+                  <li>Crie o arquivo com o comando print direcionado ao arquivo <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">main.swift</code></li>
+                  <li>Execute o script usando a toolchain: <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">swift main.swift</code></li>
+                </ol>
+                
+                <div class="border-2 border-slate-950 shadow-[4px_4px_0px_0px_#020617] overflow-hidden mt-3">
+                  <div class="bg-slate-900 px-4 py-2 border-b border-slate-950 flex items-center justify-between">
+                    <span class="font-mono text-[10px] text-slate-400 font-bold uppercase">Terminal</span>
+                  </div>
+                  <pre class="bg-slate-950 p-4 overflow-x-auto text-xs font-mono leading-relaxed"><code class="text-white"><span class="text-slate-500">$</span> mkdir hello-swift
+<span class="text-slate-500">$</span> cd hello-swift
+<span class="text-slate-500">$</span> printf "print(\"Hello, Swift!\")\n" > main.swift
+<span class="text-slate-500">$</span> swift main.swift
+Hello, Swift!</code></pre>
+                </div>
+              </div>
+              <div class="p-5 bg-primary-light border-l-4 border-primary space-y-3">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">Resumo Terminal</h4>
+                <ul class="text-xs text-slate-800 space-y-2 font-mono">
+                  <li>⚡ `mkdir` e `cd`</li>
+                  <li>⚡ Criar arquivo `.swift`</li>
+                  <li>⚡ Comando `swift [arquivo]`</li>
+                  <li>⚡ Compila e roda na hora</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 6: Entendendo o Código -->
+          <div id="slide-5" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="info" class="w-3.5 h-3.5"></i> DETALHES
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              ENTENDENDO O CÓDIGO EXPLICADO
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-4 font-sans">
+                <p class="text-slate-900 text-sm md:text-base leading-relaxed">
+                  Por que esse código tão simples funciona sem o boilerplate clássico de linguagens como Java ou C#?
+                </p>
+                <div class="space-y-3 text-slate-650 text-xs md:text-sm">
+                  <p>
+                    <strong class="text-slate-900 block font-mono">main.swift</strong>
+                    Todo código escrito no nível superior (top-level execution) de um arquivo chamado <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">main.swift</code> é considerado o ponto de entrada oficial do programa e roda sequencialmente de cima para baixo.
+                  </p>
+                  <p>
+                    <strong class="text-slate-900 block font-mono">função print()</strong>
+                    É uma função global integrada da biblioteca padrão do Swift que escreve valores de texto diretamente na saída padrão (standard output/console), adicionando uma quebra de linha no final de forma automática.
+                  </p>
+                  <p>
+                    <strong class="text-slate-900 block font-mono">Aspas Duplas ("...")</strong>
+                    As strings literais em Swift devem sempre ser envoltas por aspas duplas. O uso de aspas simples (<code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">'</code>) gera erros de sintaxe.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 bg-primary-light border-l-4 border-primary space-y-3">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">Regras Chave</h4>
+                <ul class="text-xs text-slate-800 space-y-2 font-mono">
+                  <li>⚡ Ponto de entrada no main.swift</li>
+                  <li>⚡ print() é global</li>
+                  <li>⚡ Quebra de linha automática</li>
+                  <li>⚡ Strings com aspas duplas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 7: Xcode -->
+          <div id="slide-6" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="monitor" class="w-3.5 h-3.5"></i> AMBIENTE APPLE
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              SWIFT DENTRO DO XCODE
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-4 font-sans">
+                <p class="text-slate-900 text-sm md:text-base leading-relaxed">
+                  Para o desenvolvimento profissional de aplicativos iOS, iPadOS ou macOS, a IDE Xcode é indispensável.
+                </p>
+                <div class="space-y-3 text-slate-650 text-xs md:text-sm">
+                  <p>
+                    <strong class="text-slate-900 block">Novo Projeto de App</strong>
+                    Abra o Xcode, clique em "Create New Xcode Project", escolha a categoria "iOS" e selecione o modelo "App". Certifique-se de escolher **Swift** como a linguagem padrão.
+                  </p>
+                  <p>
+                    <strong class="text-slate-900 block">Simulador iOS Integrado</strong>
+                    O Xcode vem com simuladores integrados de iPhones e iPads para compilar, executar e testar o layout de seus aplicativos em tempo real.
+                  </p>
+                  <p>
+                    <strong class="text-slate-900 block">Playgrounds</strong>
+                    Para testar sintaxes simples, criar algoritmos rápidos ou experimentar recursos gráficos sem a complexidade de criar um projeto completo, use os **Xcode Playgrounds**.
+                  </p>
+                </div>
+              </div>
+              <div class="p-5 bg-primary-light border-l-4 border-primary space-y-3">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">Xcode Tools</h4>
+                <ul class="text-xs text-slate-800 space-y-2 font-mono">
+                  <li>⚡ Xcode App Templates</li>
+                  <li>⚡ iOS/iPadOS/macOS SDKs</li>
+                  <li>⚡ Simuladores Locais</li>
+                  <li>⚡ Xcode Playgrounds interativos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 8: Resumo -->
+          <div id="slide-7" class="slide-content inactive space-y-6">
+            <div class="inline-flex items-center gap-2 bg-primary-light border border-primary/20 px-3 py-1 text-[10px] font-mono font-bold text-primary tracking-wider uppercase">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> CONCLUSÃO
+            </div>
+            <h2 class="font-mono text-2xl md:text-4xl font-bold uppercase tracking-tight text-slate-900 leading-none">
+              RESUMO DOS PRIMEIROS PASSOS
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              <div class="p-5 border border-slate-950 bg-slate-50 space-y-2">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">INSTALAÇÃO & VERIFICAÇÃO</h4>
+                <ul class="text-xs md:text-sm text-slate-700 space-y-1.5 list-disc pl-4 font-sans">
+                  <li>Swift está disponível para macOS (Xcode), Windows e distribuições Linux.</li>
+                  <li>Consulte e confirme a instalação executando <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">swift --version</code>.</li>
+                  <li>Crie scripts simples executando a ferramenta da linha de comando direto do terminal.</li>
+                </ul>
+              </div>
+              
+              <div class="p-5 border border-slate-950 bg-slate-50 space-y-2">
+                <h4 class="font-mono text-xs font-bold text-primary uppercase">DESENVOLVIMENTO & XCODE</h4>
+                <ul class="text-xs md:text-sm text-slate-700 space-y-1.5 list-disc pl-4 font-sans">
+                  <li>O código de nível superior em arquivos <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">main.swift</code> roda automaticamente de cima para baixo.</li>
+                  <li>Use a função integrada <code class="bg-slate-100 px-1 border border-slate-350 font-mono text-xs">print()</code> com aspas duplas para escrever no console.</li>
+                  <li>Utilize Xcode para projetos reais e Xcode Playgrounds para testes rápidos e protótipos de códigos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation Controls Panel (snug against the slide contents) -->
+        <div class="border-t-2 border-slate-950 pt-6 mt-8 flex items-center justify-between flex-wrap gap-4">
+          <div class="flex gap-2">
+            <button id="prev-btn" onclick="prevSlide()" class="bg-white hover:bg-slate-100 disabled:opacity-50 disabled:hover:bg-white text-slate-900 font-mono text-xs font-bold tracking-wider px-4 py-2.5 border-2 border-slate-950 transition-all flex items-center gap-1.5 uppercase disabled:cursor-not-allowed">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i> Anterior
+            </button>
+            <button id="next-btn" onclick="nextSlide()" class="bg-primary hover:bg-primary-hover text-white font-mono text-xs font-bold tracking-wider px-4 py-2.5 border-2 border-slate-950 transition-all flex items-center gap-1.5 uppercase shadow-[2px_2px_0px_0px_#020617] hover:shadow-[1px_1px_0px_0px_#020617] hover:translate-x-[1px] hover:translate-y-[1px]">
+              Próximo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <span id="slide-counter" class="font-mono text-xs font-bold text-slate-800 uppercase bg-slate-100 px-3 py-1.5 border border-slate-300">
+              SLIDE [ 01 / 08 ]
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Keyboard and Navigation Assist Info -->
+      <div class="mt-4 text-center hidden md:block">
+        <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">
+          Use as setas <span class="bg-slate-200 border border-slate-350 px-1 text-slate-800">←</span> / <span class="bg-slate-200 border border-slate-350 px-1 text-slate-800">→</span> do seu teclado para uma navegação rápida.
+        </span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-slate-950 text-white border-t border-slate-900 mt-8 py-6">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-slate-500 font-mono uppercase">
+        © 2026 ASPEC. Conteúdo adaptado do tutorial de Swift da W3Schools.
+      </p>
+      <div class="flex gap-4">
+        <span class="text-[10px] font-mono text-slate-500 uppercase">
+          FONTE: <a href="https://www.w3schools.com/swift/swift_getstarted.asp" target="_blank" class="hover:text-primary transition-colors underline">W3SCHOOLS.COM</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide Navigation Logic Javascript -->
+  <script>
+    let currentSlideIndex = 0;
+    const totalSlides = 8;
+    const slides = [];
+    const navButtons = [];
+    
+    // Cache DOM Elements on Load
+    document.addEventListener("DOMContentLoaded", () => {
+      // Collect slide elements
+      for (let i = 0; i < totalSlides; i++) {
+        slides.push(document.getElementById(`slide-${i}`));
+      }
+      
+      // Collect nav list buttons (desktop side menu)
+      const listBtns = document.querySelectorAll("#desktop-nav .nav-btn");
+      listBtns.forEach(btn => navButtons.push(btn));
+      
+      // Initialize layout states
+      updateSlideDisplay();
+      
+      // Set keypress listeners for arrows
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "Right") {
+          nextSlide();
+        } else if (e.key === "ArrowLeft" || e.key === "Left") {
+          prevSlide();
+        }
+      });
+      
+      // Initialize Lucide Icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+    
+    // Core slide display controller
+    function updateSlideDisplay() {
+      // 1. Hide all slides and set appropriate active/inactive styles
+      slides.forEach((slide, idx) => {
+        if (idx === currentSlideIndex) {
+          slide.classList.remove("inactive");
+          slide.classList.add("active");
+        } else {
+          slide.classList.remove("active");
+          slide.classList.add("inactive");
+        }
+      });
+      
+      // 2. Update Progress Bar width
+      const progressPercent = ((currentSlideIndex + 1) / totalSlides) * 100;
+      document.getElementById("progress-bar").style.width = `${progressPercent}%`;
+      
+      // 3. Update Slide Number Counter Text
+      const slideNumFormatted = String(currentSlideIndex + 1).padStart(2, '0');
+      const totalNumFormatted = String(totalSlides).padStart(2, '0');
+      document.getElementById("slide-counter").textContent = `SLIDE [ ${slideNumFormatted} / ${totalNumFormatted} ]`;
+      
+      // 4. Update Navigation Sidebar Active State (Desktop)
+      navButtons.forEach((btn, idx) => {
+        if (idx === currentSlideIndex) {
+          btn.classList.add("border-primary", "text-primary", "bg-primary-light");
+          btn.classList.remove("border-transparent", "text-slate-600");
+        } else {
+          btn.classList.remove("border-primary", "text-primary", "bg-primary-light");
+          btn.classList.add("border-transparent", "text-slate-600");
+        }
+      });
+      
+      // 5. Update Mobile Dropdown Select Option Value
+      const mobileSelect = document.getElementById("mobile-slide-selector");
+      if (mobileSelect) {
+        mobileSelect.value = currentSlideIndex;
+      }
+      
+      // 6. Disable/enable next and prev buttons
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      
+      if (currentSlideIndex === 0) {
+        prevBtn.disabled = true;
+      } else {
+        prevBtn.disabled = false;
+      }
+      
+      if (currentSlideIndex === totalSlides - 1) {
+        nextBtn.innerHTML = `Reiniciar <i data-lucide="rotate-ccw" class="w-4 h-4 ml-1.5"></i>`;
+        // Refresh icons as button content changed
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } else {
+        nextBtn.innerHTML = `Próximo <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5"></i>`;
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+    }
+    
+    // Navigation Triggers
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentSlideIndex = index;
+        updateSlideDisplay();
+      }
+    }
+    
+    // Next Slide
+    function nextSlide() {
+      if (currentSlideIndex < totalSlides - 1) {
+        currentSlideIndex++;
+      } else {
+        // Recycle back to start when clicking next on the summary slide
+        currentSlideIndex = 0;
+      }
+      updateSlideDisplay();
+    }
+    
+    // Previous Slide
+    function prevSlide() {
+      if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        updateSlideDisplay();
+      }
+    }
+  </script>
+</body>
+</html>

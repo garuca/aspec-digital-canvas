@@ -1,0 +1,695 @@
+/* ============================================================
+   ASPEC IA — DNA Digital (Onboarding) Styles
+   Light mode — Matching aspec.ia.br design system
+   ============================================================ */
+
+.dna-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  position: relative;
+  background: var(--color-bg);
+}
+
+/* Subtle grid pattern */
+.dna-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* ── Progress Steps ── */
+.dna-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+  position: relative;
+  z-index: 1;
+}
+
+.dna-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dna-step-indicator {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  transition: all var(--transition-normal);
+}
+
+.dna-step.active .dna-step-indicator {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.dna-step.completed .dna-step-indicator {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.dna-step-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  transition: color var(--transition-fast);
+}
+
+.dna-step.active .dna-step-label {
+  color: var(--color-text);
+}
+
+.dna-step.completed .dna-step-label {
+  color: var(--color-primary);
+}
+
+.dna-step-connector {
+  width: 60px;
+  height: 2px;
+  background: var(--color-border);
+  transition: background var(--transition-normal);
+}
+
+.dna-step-connector.active {
+  background: var(--color-primary);
+}
+
+/* ── Main Card ── */
+.dna-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--space-10);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.dna-card-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.dna-card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.dna-card-header h2 {
+  margin-bottom: var(--space-2);
+}
+
+.dna-card-header p {
+  font-size: var(--font-sm);
+}
+
+/* ── DNA Form ── */
+.dna-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.dna-form .form-input,
+.dna-form .form-textarea {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.dna-form .form-textarea {
+  min-height: 160px;
+}
+
+.dna-form-actions {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.dna-form-actions .btn {
+  flex: 1;
+  padding: var(--space-4);
+}
+
+/* ── AI Extraction Loading ── */
+.dna-extracting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.dna-ai-orb {
+  width: 120px;
+  height: 120px;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.dna-ai-orb svg {
+  width: 48px;
+  height: 48px;
+  color: white;
+  animation: spin 3s linear infinite;
+}
+
+.dna-extracting h3 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-3);
+}
+
+.dna-extracting p {
+  font-size: var(--font-sm);
+  max-width: 360px;
+}
+
+.dna-extract-steps {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 320px;
+}
+
+.dna-extract-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+}
+
+.dna-extract-step.active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: rgba(255, 107, 44, 0.2);
+}
+
+.dna-extract-step.completed {
+  color: var(--color-primary);
+}
+
+.dna-extract-step-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ── DNA Preview (Result) ── */
+.dna-preview {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.dna-preview-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.dna-preview-badge {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.dna-preview-section {
+  margin-bottom: var(--space-6);
+}
+
+.dna-preview-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  margin-bottom: var(--space-2);
+}
+
+.dna-preview-value {
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.dna-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.dna-preview-tag {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.dna-preview-colors {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-end;
+}
+
+.dna-color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dna-color-swatch {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.dna-color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.dna-color-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.dna-color-hex {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dna-page {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .dna-card {
+    padding: var(--space-6);
+  }
+
+  .dna-progress {
+    gap: var(--space-1);
+  }
+
+  .dna-step-label {
+    display: none;
+  }
+
+  .dna-step-connector {
+    width: 32px;
+  }
+
+  .dna-preview-colors {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .dna-form-actions {
+    flex-direction: column;
+  }
+
+  .ai-provider-selector {
+    flex-direction: column;
+  }
+}
+
+/* ── AI Provider Selector ── */
+.ai-provider-selector {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.ai-provider-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  font-family: inherit;
+  color: var(--color-text-muted);
+}
+
+.ai-provider-option:hover {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ai-provider-option.active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  color: var(--color-text);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.ai-provider-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  flex-shrink: 0;
+}
+
+.ai-provider-option.active .ai-provider-icon {
+  background: color-mix(in srgb, var(--color-primary) 20%, var(--color-surface));
+}
+
+.ai-provider-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ai-provider-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.ai-provider-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.ai-provider-option.active .ai-provider-desc {
+  opacity: 1;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ── URL Input with Icon ── */
+.form-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.form-input--has-icon {
+  padding-left: 42px !important;
+}
+
+.form-optional {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* ── Scraping Warning State ── */
+.dna-extract-step.warning {
+  color: #F59E0B;
+}
+
+.dna-extract-step.warning .dna-extract-step-icon {
+  color: #F59E0B;
+}
+
+.dna-extract-step.warning span {
+  color: #F59E0B;
+  font-style: italic;
+}
+
+/* ── Editable Preview ── */
+.dna-edit-section {
+  position: relative;
+}
+
+.dna-edit-section .form-input--sm,
+.dna-edit-section .form-textarea--sm {
+  font-size: 0.875rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  font-family: inherit;
+  color: var(--color-text);
+  resize: vertical;
+}
+
+.dna-edit-section .form-input--sm:focus,
+.dna-edit-section .form-textarea--sm:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.dna-edit-section .form-textarea--sm {
+  min-height: 60px;
+}
+
+/* ── Logo Edit ── */
+.dna-logo-edit {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.dna-logo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-border);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.dna-logo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.dna-logo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+.dna-logo-placeholder span {
+  font-size: 0.65rem;
+}
+
+.dna-logo-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* ── Editable Color Palette ── */
+.dna-edit-colors {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.dna-edit-color-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 140px;
+}
+
+.dna-edit-color-picker {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  padding: 2px;
+  background: var(--color-surface);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.dna-edit-color-picker:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.dna-edit-color-picker::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.dna-edit-color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+.dna-edit-color-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dna-edit-color-hex-input {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Mono', monospace;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  width: 80px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: border-color 0.2s ease;
+}
+
+.dna-edit-color-hex-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .dna-logo-edit {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dna-logo-preview {
+    width: 100px;
+    height: 100px;
+  }
+
+  .dna-edit-colors {
+    flex-direction: column;
+  }
+
+  .dna-edit-color-item {
+    min-width: 100%;
+  }
+
+  .dna-edit-typography {
+    flex-direction: column;
+  }
+
+  .dna-typography-row {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: var(--space-2);
+  }
+}
+
+/* ── Typography & Text Color Edit Styles ── */
+.dna-edit-typography {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.dna-typography-row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-end;
+  width: 100%;
+}
+
+.dna-typography-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+

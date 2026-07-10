@@ -1,0 +1,10 @@
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/.github/workflows/deploy.yml
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/AGENTS.md
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/DESIGN_SYSTEM.md
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/design-system.html
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/dnadigital/index.html
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/gemini-code-1782505586932.md
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/gerador-post.html
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/index.html
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/parsed_swift.txt
+/Users/gabriel/Documents/GitHub/aspec-digital-canvas/robots.txt
