@@ -1,7 +1,7 @@
 # Graph Report - aspec-digital-canvas  (2026-07-10)
 
 ## Corpus Check
-- 33 files · ~1,576,946 words
+- 33 files · ~1,576,978 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `491f850e`
+- Built from commit: `bbb4d332`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -116,7 +116,6 @@
 
 ## Hyperedges (group relationships)
 - **ASPEC Main Site Core Concepts** — index_aspec_organization, index_aspec_methodology, index_diagnostic_framework, index_aspec_services, index_client_portfolio [EXTRACTED 1.00]
-- **Swift Learning Materials** — swift_inscricao_formacao_master_swift, swift_matriz_swift_curriculum, swift_swift_getstarted_presentation, swift_swift_presentation_intro, temp_swift_intro_w3schools [INFERRED 0.95]
 - **SEO Optimization Documents** — plano_de_otimizacoes_seo_aspec, seo_quick_wins_aspec, swift_inscricao_aspec [INFERRED 0.85]
 - **Client Logos Portfolio Section** — clientes_appmax_entity, clientes_bv_entity, clientes_easy_entity, clientes_estrelabet_entity, clientes_slmandic_entity, clientes_itau_entity, clientes_kovi_entity [INFERRED 0.95]
 - **BV Bank Project Portfolio Assets** — portfolio_bv_bv_projeto_aspec1_webp, portfolio_bv_bv_projeto_aspec2_webp, portfolio_bv_bv_projeto_aspec3_webp, portfolio_bv_bv_projeto_aspec4_webp, portfolio_bv_bv_projeto_aspec5_webp, clientes_bv_entity [INFERRED 0.95]

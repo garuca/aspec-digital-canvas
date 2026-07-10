@@ -19,21 +19,6 @@
         "source_file": "index.html"
       },
       {
-        "id": "swift_learning_materials",
-        "label": "Swift Learning Materials",
-        "nodes": [
-          "swift_inscricao_formacao_master_swift",
-          "swift_matriz_swift_curriculum",
-          "swift_swift_getstarted_presentation",
-          "swift_swift_presentation_intro",
-          "temp_swift_intro_w3schools"
-        ],
-        "relation": "form",
-        "confidence": "INFERRED",
-        "confidence_score": 0.95,
-        "source_file": "swift/inscricao.html"
-      },
-      {
         "id": "seo_optimization_documents",
         "label": "SEO Optimization Documents",
         "nodes": [
@@ -18171,21 +18156,6 @@
       "source_file": "index.html"
     },
     {
-      "id": "swift_learning_materials",
-      "label": "Swift Learning Materials",
-      "nodes": [
-        "swift_inscricao_formacao_master_swift",
-        "swift_matriz_swift_curriculum",
-        "swift_swift_getstarted_presentation",
-        "swift_swift_presentation_intro",
-        "temp_swift_intro_w3schools"
-      ],
-      "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "swift/inscricao.html"
-    },
-    {
       "id": "seo_optimization_documents",
       "label": "SEO Optimization Documents",
       "nodes": [
@@ -18389,5 +18359,5 @@
       "source_file": "portfolio/moto/Receber.png"
     }
   ],
-  "built_at_commit": "491f850e61d447bec7d8efc011664e17218955a9"
+  "built_at_commit": "bbb4d3321c7e98f1d81e0f2faf96b6d2d87e7478"
 }
